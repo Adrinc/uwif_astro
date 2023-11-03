@@ -1,108 +1,71 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
+import Seccion1 from '../components/index/Seccion1.astro';
+import LayoutSecciones from '../layouts/index/LayoutSecciones.astro';
+import CarruselTextoHorizontal from '../components/index/CarruselTextoHorizontal.astro';
 ---
 
 <Layout title="Home">
 	
-<section>
-	<div class="main-container">
-		<div class="columna-izquierda">
+	<Seccion1 />
+	<CarruselTextoHorizontal/>
 
-			<div><span class="title">The<span class="best"> best </span> internet</span></div>
-			<div><span class="subtitle">connection for  <img class="image" loading="lazy" srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/d8e7d8c8-82d8-413a-ba9e-615ac8147ab7?apiKey=99b0eaa04efc41a78ff2850239e1f525"/></span></div>
-				
-			<div class="columna-inferior">
-				<p class="description">
-					In our fast-paced world, imagine a high-speed mobile internet service that keeps you connected seamlessly and outpaces the competition, all at a pleasantly surprising cost!
-				</p>
-				
-				<div class="seccion-inferior">
-			
-				<p class="cta-text">Check all benefits and packages we have</p>  
-				<a href="#" class="cta-link">Check Coverage <img class="icono" src="/public/image/arrowright.svg" > </a>
+
+
+
+	<LayoutSecciones>
+		<div slot="col-izquierda">
+
+			<div>
+				<span class="title">
+					It´s 
+					<span class="all"> all </span> 
+					about 
+					<img class="image" loading="lazy" srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/d8e7d8c8-82d8-413a-ba9e-615ac8147ab7?apiKey=99b0eaa04efc41a78ff2850239e1f525"/>
+				</span>
 			</div>
-		</div>	
-
-		</div>
-
-
-		<div class="columna-derecha">
-			<img class="router" loading="lazy" src="/public/image/router.png">
-		</div>
-	</div>
-</section>  
-		  
-	<style>
-
-		section{
-			display: flex;
-			flex-direction: column;
-			justify-content: space-between;
-			background-image: url("https://cdn.builder.io/api/v1/image/assets/TEMP/8e2b9b9c-2b0e-4b0e-9b0a-2b9b9c2b0e4b?apiKey=99b0eaa04efc41a78ff2850239e1f525");
-			background-repeat: no-repeat;
-			background-size: cover;
-			background-position: center;
-			height: 100vh;
-			width: 100%;
-			margin-top: 15vh;
-			margin-left: 40px;
-			margin-right: 40px;
-		}
-			.main-container {
-			  display: grid;
-			  grid-template-columns: 1fr 1.2fr;
-			  justify-content: space-between;
-			  align-content: space-between;
-			  gap: 20px;
+			<p class="description">
+				We know that each client is unique, which is why we offer a variety of customizable plans. 
+				From generous data options to family-friendly services, we have the flexibility to adapt to your specific needs. 
+				With us, there is no one-size-fits-all approach; It's all about what works best for you.
+			</p>
 			
-			}
-			.columna-izquierda{
-				display: flex;
-				flex-direction: column;
-				justify-content: space-between;
-			  	align-items: space-between;
-			  	
-			}
-			.columna-derecha{
-				display: flex;
-				flex-direction: column;
-				justify-content: center;
-			  	align-items: center;
-			  	
-			}
-
-
-			.columna-inferior{
-				display: flex;
-				flex-direction: column;
-				justify-content: space-between;
-			  	align-content: left;
-			  	margin-top: 5vh;
-				gap: 10rem;
-			}
-
-			.seccion-inferior{
-				display: flex;
-				flex-direction: row;
-				justify-content: space-between;
-			  	align-content: left;
 				
-			}
-		
+		</div>
 
-			.title, .best, .subtitle{
+
+
+		<div slot="col-derecha">
+
+			<div class="contenedor-imagenes">
+			<img  loading="lazy" srcset="public/image/ublanca.png"/>
+			<img class="overtopcarrusel" loading="lazy" srcset="public/image/carruselcircular.png"/>
+			</div>
+		</div>
+
+	</LayoutSecciones>
+
+	
+	
+	
+
+
+</Layout>
+
+
+
+
+<style>
+	.title, .best, .subtitle{
 			color:#ffff;
 			font-size: 100px;
 			font-weight: 400;
-
-			letter-spacing: 2px;
 			text-align: left;
 			word-spacing: 5px;
 
 			}
-			.best{
-				color: #00c402;
+			.all{
+				color: #7C47DD;
 				font-size: 100px;
 			}
 			.subtitle{
@@ -111,8 +74,6 @@ import Layout from '../layouts/Layout.astro';
 				line-height: 160%;
 				margin-top: 50px;
 			}
-		
-		  
 			.image {
 			display: inline-block;
 			aspect-ratio: 1.1;
@@ -122,49 +83,28 @@ import Layout from '../layouts/Layout.astro';
 			margin-bottom: 35px;
 			}
 
-			.icono {
-			display: inline-block;
-			
-			}
-
-			.router{
-				background-color: #00c402;
-			width: 600px;
-			height: 600px;
-			}
-		  
+		
 			.description {
 			  color: #fff;
-			  font-weight: 300;
-			  
+			  margin-top: 40px;
+			  font-weight: 200;
 			  font-size: x-large;
 			}
-
-			.cta-text {
-			  justify-content: center;
-			  color: #fff;
-			  text-align: center;
-			  align-self: center;
-			  margin: auto 0;
-			  font-size: 20px;
-			  font-weight: 200;
-			}
-		  
-	
-			.cta-link {
-			color: #fff;
+		.overtopcarrusel{
+			position: relative;
 			
-			font-size: 24px;
-			font-style: normal;
-			font-weight: 100;
-			border-radius: 50px;
-			border: 3px solid #00c402;
-			padding: 10px 80px;
-			}
-		  
+			bottom: 400px;
+			left: 110px;
+			width: 500px;
+			height: 250px;
+			z-index: 3;
+		}
+		.contenedor-imagenes{
+			
+			width: 100%;
+			height: 100%;
+			padding-top: 15vh;
+		}
+  
 	
-		 </style>
-	
-</Layout>
-
-
+</style>
