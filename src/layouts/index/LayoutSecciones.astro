@@ -1,4 +1,14 @@
-<section>
+---
+interface Props{
+	marginTop:string;
+}
+
+const { marginTop  } = Astro.props;
+
+---
+
+
+<section style={`margin-top: ${marginTop};`}>
 	<div class="main-container">
 		<div class="columna-izquierda">
 			<slot name="col-izquierda"/>
@@ -19,13 +29,9 @@
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;
-			background-image: url("https://cdn.builder.io/api/v1/image/assets/TEMP/8e2b9b9c-2b0e-4b0e-9b0a-2b9b9c2b0e4b?apiKey=99b0eaa04efc41a78ff2850239e1f525");
-			background-repeat: no-repeat;
-			background-size: cover;
-			background-position: center;
+
 			height: 70vh;
 			width: 100%;
-			margin-top: 15vh;
 			margin-left: 40px;
 			margin-right: 40px;
 		}

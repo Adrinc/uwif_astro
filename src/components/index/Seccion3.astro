@@ -1,51 +1,39 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import LayoutSecciones from '../layouts/index/LayoutSecciones.astro';
-import CarruselTextoHorizontal from '../components/index/CarruselTextoHorizontal.astro';
-import Seccion1 from '../components/index/Seccion1.astro';
-import Seccion2 from '../components/index/Seccion2.astro';
-import Seccion3 from '../components/index/Seccion3.astro';
-import Seccion4 from '../components/index/Seccion4.astro';
+import LayoutSecciones from '../../layouts/index/LayoutSecciones.astro';
 ---
 
-<Layout title="Home">
-	
-	<Seccion1 />
-	<CarruselTextoHorizontal/>
-	<Seccion2 />
-	<Seccion3 />
-	<Seccion4 />
 
-	<LayoutSecciones marginTop='-5vh'>
+
+
+<LayoutSecciones marginTop='-5vh'>
 		
 		
-		<div slot="col-izquierda">
-		
-		</div>
+    <div slot="col-izquierda">
+        <div class="contenedor-izquierda">
+            <img src="/image/uocio.png" class="imagen">
+
+        </div>	
+    </div>
 
 
 
-		<div slot="col-derecha">
-	
-			
+    <div slot="col-derecha">
+        <div class="contenedor-derecha">
+            <div>
 
-		</div>
+                <span class="title">Everything</span>
+                <span class="green-word"> for <img class="image" loading="lazy" srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/d8e7d8c8-82d8-413a-ba9e-615ac8147ab7?apiKey=99b0eaa04efc41a78ff2850239e1f525"/></span> 
+            </div>
+            
 
-	</LayoutSecciones>
+                <p class="description">Access your favorite content anywhere with our super fast connection! Enjoy a seamless experience, wherever you are.</p>
+        
+                <button>Check Coverage <img class="icono" src="/image/arrowright.svg" > </button>
+        </div>
 
+    </div>
 
-
-
-
-
-
-	
-	
-	
-
-
-</Layout>
-
+</LayoutSecciones>
 
 
 
