@@ -4,6 +4,7 @@ import Seccion1 from '../components/index/Seccion1.astro';
 import LayoutSecciones from '../layouts/index/LayoutSecciones.astro';
 import CarruselTextoHorizontal from '../components/index/CarruselTextoHorizontal.astro';
 import Seccion2 from '../components/index/Seccion2.astro';
+import Seccion4 from '../components/index/Seccion4.astro';
 ---
 
 <Layout title="Home">
@@ -12,60 +13,7 @@ import Seccion2 from '../components/index/Seccion2.astro';
 	<CarruselTextoHorizontal/>
 	<Seccion2 />
 
-	<section>
-	
-		<div>
-			<span class="title">We are an <span class="acp"> ACP </span> Provider!</span>
-		</div>
-			<p class="description">
-				We´re keeping people connected by participation in the FCC´s Affordable Connectivity Program. Qualifying households will be able to receive a $30/mo discount on their <span style="display: inline-block; font-weight: 500" >UWIFI Plan.</span>
-			</p>
-	
-		<div class="fila-fc">
-			<div class="columnas-fc">
-				<img class="fc-logo" loading="lazy" src="/public/image/fc.png">
-				<div class="fc-info">
-					<h1>AFFORDABLE</h1>
-					<h1>CONNECTIVITY</h1>
-					<h1>PROGRAM</h1>
-				</div>
-			</div>
-		</div>
-
-		
-			<button class="button-learn">Learn More <img class="icono" src="/public/image/arrowright.svg" > </button>
-		
-	
-		
-			<div class="benefits-grid">
-				<div class="benefits-contenedor">
-					<h1 class="title">Discover all the </h1>
-						<span class="benefits">benefits 
-								<span class="title"> of </span>
-								<img class="image" loading="lazy" srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/d8e7d8c8-82d8-413a-ba9e-615ac8147ab7?apiKey=99b0eaa04efc41a78ff2850239e1f525"/>
-								<span class="title"> wifi</span>
-						</span>
-				</div>
-			
-				<div class="benefits-opciones">
-					<div class="benefits-opciones-fila">
-						<div class="line-clamp-1 text-3xl text-lef text-white">Service type</div>
-						<button>Unlimited</button>
-						<button>Internet</button>
-						<button>Calling</button>
-						<button>Media</button>
-					</div>
-						
-				</div>
-			</div>
-		
-	
-	
-	
-	</section>
-
-
-<!-- 	<LayoutSecciones>
+	<LayoutSecciones>
 		
 		<div slot="col-izquierda">
 		
@@ -81,7 +29,13 @@ import Seccion2 from '../components/index/Seccion2.astro';
 		</div>
 
 	</LayoutSecciones>
- -->
+
+
+
+	<Seccion4 />
+
+
+
 	
 	
 	
