@@ -54,9 +54,16 @@ const { precio, modelo, description, lista } = Astro.props;
 		height: 600px;
 		border-radius: 20px;
 		border: 3px solid #7A48DD;
-	
 		padding: 20px 20px 20px 20px;
+        transition: all 0.5s ease;
+        transform-origin: bottom;
 	}
+	.contenedor-tarjeta-basica:hover{
+        box-shadow: 0 0 20px 0 #7A48DD;
+        transform: scaleY(1.1);
+        transition: all 0.5s ease;
+
+    }
 	.tarjeta
 	{
 		display: flex;
