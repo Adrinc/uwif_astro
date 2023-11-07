@@ -6,6 +6,43 @@ import Seccion1 from '../components/index/Seccion1.astro';
 import Seccion2 from '../components/index/Seccion2.astro';
 import Seccion3 from '../components/index/Seccion3.astro';
 import Seccion4 from '../components/index/Seccion4.astro';
+import PriceAndPlansInfo from '../components/index/PriceAndPlansInfo.astro';
+import TarjetaPaqueteBasico from '../components/TarjetaPaqueteBasico.astro';
+import TarjetaPaqueteEspecial from '../components/TarjetaPaqueteEspecial.astro';
+
+/* STRAPI */
+let tarjetas = [
+  { 
+    precio: '19', 
+    modelo: 'Starter', 
+    description: 'Unleash the power of automation.', 
+    lista: [
+      { icono: 'image/check.svg', texto: 'Multi-step Zaps' },
+      { icono: 'image/check.svg', texto: '3 Premium Apps' },
+      { icono: 'image/check.svg', texto: '2 Users team' },
+      
+    ]
+  },
+  { 
+    precio: '30', 
+    modelo: 'Professional', 
+    description: 'Advanced tools to take your work to the next level.', 
+    lista: [
+	{ icono: 'image/check.svg', texto: 'Multi-step Zaps' },
+	{ icono: 'image/check.svg', texto: 'Unlimited Premium ' },
+	{ icono: 'image/check.svg', texto: '50 Users team' },
+	{ icono: 'image/check.svg', texto: 'Shared Workspace' },
+  
+    ]
+  },
+];
+let listas = [
+  { icono: 'image/checkwhite.svg', texto: '5G Wi-Fi Gateway device included' },
+  { icono: 'image/checkwhite.svg', texto: 'Netflix™ ON USApps' },
+  { icono: 'image/checkwhite.svg', texto: 'Apple TV+ ON US' },
+  { icono: 'image/checkwhite.svg', texto: '5G Speeds' },
+  { icono: 'image/checkwhite.svg', texto: 'Mexico and Canada no extra fees' },
+];
 ---
 
 <Layout title="Home">
@@ -15,33 +52,24 @@ import Seccion4 from '../components/index/Seccion4.astro';
 	<Seccion2 />
 	<Seccion3 />
 	<Seccion4 />
-
-	<LayoutSecciones marginTop='-5vh'>
+	<PriceAndPlansInfo />
 		
-		
-		<div slot="col-izquierda">
-		
-		</div>
 
-
-
-		<div slot="col-derecha">
+	<section>
+		{tarjetas.map((tarjeta) => (
+			<TarjetaPaqueteBasico 
+			  precio={tarjeta.precio} 
+			  modelo={tarjeta.modelo} 
+			  description={tarjeta.description} 
+			  lista={tarjeta.lista} 
+			/>
+		  ))}
+	<TarjetaPaqueteEspecial precio="59" modelo="Value" description="The best value for your money." lista={listas}/>
+	</section>
 	
-			
-
-		</div>
-
-	</LayoutSecciones>
 
 
 
-
-
-
-
-	
-	
-	
 
 
 </Layout>
@@ -51,23 +79,73 @@ import Seccion4 from '../components/index/Seccion4.astro';
 
 <style>
 
-	.contenedor-derecha{
+	section
+	{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	align-self: center;
+	padding-left: 100px;
+	padding-right: 100px;
+	
+	
+	height: 75vh;
+	width: 100%;
+
+	}
+
+
+
+	
+
+	.contenedor-tarjeta-basica
+	{
+		width: 363px;
+		height: 600px;
+		border-radius: 20px;
+		border: 3px solid #7A48DD;
+		margin-top: 10vh;
+		padding: 20px 20px 20px 20px;
+	}
+	.tarjeta
+	{
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		align-items: left;
-		max-width: 45em;
+		height: 100%;
 	
-		padding-right: 40px;
-		gap: 40px;
-		
 	}
-	.contenedor-izquierda{
-		
 
+	.price 
+	{
+		color: #7a48dd;
+		font-weight: 700;
+		font-size: xxx-large;
+  	}
+	.modelo{
+
+		color: #7a48dd;
+		font-weight: 500;
+		font-size: 40px;
 	
-		width: 100%;
+	}
 
+
+
+	.duration 
+	{
+		color: #848484;
+		align-self: start;
+		font-weight: 500;
+		white-space: nowrap;
+		font-size: xx-large;
+	}
+
+	.fila{
+		align-self: center;
+		justify-content: center;
+		align-items: left;
 		
 	}
 	.imagen{
@@ -76,11 +154,17 @@ import Seccion4 from '../components/index/Seccion4.astro';
 
 	}
 
+	.switcher{
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		margin-right: 40px;
+	}
 
 	.title, .acp,  .green-word{
 			display: flex;
 			color:#ffff;
-			font-size: 90px;
+			font-size: 20px;
 			font-weight: 400;
 			text-align: left;
 			word-spacing: 5px;
@@ -88,24 +172,13 @@ import Seccion4 from '../components/index/Seccion4.astro';
 			line-height: 1;
 			list-style: none;
 			}
-			.acp{
-				color: #7C47DD;
-				margin-left: 20px;
-				margin-right: 20px;
-			}
-			.green-word{
-				color: #00c402;
-				display: flex;
-				flex-direction: row;
-				gap:20px;
-				
-			}
-
+		
 		
 			.description {
 			  color: #fff;
 			  font-weight: 200;
-			  font-size: 30px;
+			  font-size: 24px;
+			  font-weight: 400;
 			
 			  word-spacing: 2px;
 			}
@@ -114,14 +187,13 @@ import Seccion4 from '../components/index/Seccion4.astro';
 			
 			button {
 			color: #fff;
-			width: 15em;
+			width: 10em;
+			
 			font-size: 24px;
-		
-			font-weight: 200;
+			font-weight: 400;
 			border-radius: 50px;
-			border: 3px solid #00c402;
 			padding: 12px 10px;
-			background-color: transparent;
+			background-color: #55319d;
 			transition: border 0.2s ease;
 			}
 			button:hover {
@@ -135,6 +207,12 @@ import Seccion4 from '../components/index/Seccion4.astro';
 
 			.icono {
 			display: inline-block;
+			
+
+			
+			width: 30px;
+			height: 30px;
+			align-self: center;
 			
 			}
 			.image {
