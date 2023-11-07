@@ -47,6 +47,9 @@ let listas = [
 
 <Layout title="Home">
 	
+	<span class="green-ball-blured" id="ball1"></span>
+	<span class="green-ball-blured" id="ball2"></span>
+
 	<Seccion1 />
 	<CarruselTextoHorizontal/>
 	<Seccion2 />
@@ -78,6 +81,41 @@ let listas = [
 
 
 <style>
+
+	.green-ball-blured{
+		position: absolute;
+		top: -20%;
+		left: 55%;
+		width: 800px;
+		height: 800px;
+		border-radius: 50%;
+		
+		rotate: 50deg;
+		
+		/* make gradient */
+		background: linear-gradient(#5746E5 20%, #8743E5 40%, #03FB75 100%);
+
+
+		/* make blur radius */
+		filter: blur(150px);
+	
+	
+		z-index: -1;
+	
+	}
+	#ball2{
+		top: 130%;
+		left: 50%;
+		width: 500px;
+		height: 800px;
+		border-radius: 100%;
+		
+		rotate: -45deg;
+	
+		/* make gradient */
+		background: linear-gradient(#5746E5 20%, #8743E5 40%, #03FB75 100%);
+	}
+
 
 	section
 	{
