@@ -1,10 +1,19 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
 
 export default function Moden(props) {
   const group = useRef();
   const { nodes, materials, animations } = useGLTF("models/moden.gltf");
   const { actions } = useAnimations(animations, group);
+  
+
+   useEffect(() => {
+
+     actions['Logo_luzAction'].play();
+        
+  }, []);
+
+
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
@@ -21,6 +30,8 @@ export default function Moden(props) {
           name="Cuerpo"
           position={[0.0072, 0.0599, 0.0047]}
           scale={[0.8419, 0.7523, 0.5009]}
+          castShadow
+          receiveShadow
         >
           <mesh
             name="Plano002"
@@ -28,6 +39,7 @@ export default function Moden(props) {
             receiveShadow
             geometry={nodes.Plano002.geometry}
             material={materials.white}
+            
           />
           <mesh
             name="Plano002_1"
