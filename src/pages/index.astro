@@ -8,6 +8,8 @@ import Seccion4 from '../components/index/Seccion4.astro';
 import PriceAndPlansInfo from '../components/index/PriceAndPlansInfo.astro';
 import TarjetaPaqueteBasico from '../components/TarjetaPaqueteBasico.astro';
 import TarjetaPaqueteEspecial from '../components/TarjetaPaqueteEspecial.astro';
+import Fiber from '../components/Scene3D/Main3D.jsx';
+
 
 /* STRAPI */
 let tarjetas = [
@@ -46,9 +48,12 @@ let listas = [
 
 <Layout title="Home">
 	
+
+	
 <!-- 	<span class="green-ball-blured" id="ball1"></span> -->
 	<span class="green-ball-blured" id="ball2"></span>
 	<span class="green-ball-blured" id="ball3"></span>
+
 
 	<Seccion1 />
 	<CarruselTextoHorizontal/>
@@ -56,7 +61,7 @@ let listas = [
 	<Seccion3 />
 	<Seccion4 />
 	<PriceAndPlansInfo />
-		
+	  <Fiber client:load />
 
 	<section>
 		{tarjetas.map((tarjeta) => (
@@ -295,6 +300,15 @@ let listas = [
 			align-self: center;
 		
 			}
+
+
+  #root {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: #2b2b33;
+  }
 
 
 </style>
