@@ -1,0 +1,170 @@
+
+<section>
+	<div class="main-container">
+		<div class="columna-izquierda">
+
+			<div><span class="title">The<span class="best"> best </span> internet</span></div>
+			<div><span class="subtitle">connection for  <img class="image" loading="lazy" srcset="/faviui.svg"/></span></div>
+				
+			<div class="columna-inferior">
+				<p class="description">
+					In our fast-paced world, imagine a high-speed mobile internet service that keeps you connected seamlessly and outpaces the competition, all at a pleasantly surprising cost!
+				</p>
+				
+				<div class="seccion-inferior">
+			
+				<p class="cta-text">Check all benefits and packages we have</p>  
+				<button>Check Coverage <img class="icono" src="/image/arrowright.svg" > </button>
+			</div>
+		</div>	
+
+		</div>
+
+
+		<div class="columna-derecha">
+			<img class="router" loading="lazy" src="/image/moden.png">
+		</div>
+	</div>
+</section>  
+		  
+	<style>
+
+		section{
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			background-image: url("https://cdn.builder.io/api/v1/image/assets/TEMP/8e2b9b9c-2b0e-4b0e-9b0a-2b9b9c2b0e4b?apiKey=99b0eaa04efc41a78ff2850239e1f525");
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+			height: 70vh;
+			width: 100%;
+			margin-top: 15vh;
+			margin-left: 40px;
+			margin-right: 40px;
+		}
+			.main-container {
+			  display: grid;
+			  grid-template-columns: 1fr 1.2fr;
+			  justify-content: space-between;
+			  align-content: space-between;
+			  gap: 20px;
+			
+			}
+			.columna-izquierda{
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+			  	align-items: space-between;
+			  	
+			}
+			.columna-derecha{
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+			  	align-items: center;
+			  	
+			}
+
+
+			.columna-inferior{
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+			  	align-content: left;
+			  	margin-top: 5vh;
+				gap: 10rem;
+			}
+
+			.seccion-inferior{
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+			  	align-content: left;
+				
+			}
+		
+
+			.title, .best, .subtitle{
+			color:#ffff;
+			font-size: 100px;
+			font-weight: 400;
+
+			letter-spacing: 2px;
+			text-align: left;
+			word-spacing: 5px;
+
+			}
+			.best{
+				color: #00c402;
+				font-size: 100px;
+			}
+			.subtitle{
+				font-size: 66px;
+				font-weight: 300;
+				line-height: 160%;
+				margin-top: 50px;
+			}
+		
+		  
+			.image {
+			display: inline-block;
+			aspect-ratio: 1.1;
+		
+			width: 85px;
+			height: 85px;
+			margin-bottom: 35px;
+			}
+
+			.icono {
+			display: inline-block;
+			
+			}
+
+			.router{
+
+			width: 600px;
+			height: 600px;
+			}
+		  
+			.description {
+			  color: #fff;
+			  font-weight: 300;
+			  
+			  font-size: x-large;
+			}
+
+			.cta-text {
+			  justify-content: center;
+			  color: #fff;
+			  text-align: center;
+			  align-self: center;
+			  margin: auto 0;
+			  font-size: 20px;
+			  font-weight: 200;
+			}
+		  
+	
+			button {
+			color: #fff;
+			
+			font-size: 24px;
+			font-style: normal;
+			font-weight: 200;
+			border-radius: 50px;
+			border: 3px solid #00c402;
+			padding: 10px 80px;
+			background-color: transparent;
+			transition: border 0.2s ease;
+			}
+			button:hover {
+			color: #fff;
+			/* background color gradint tuquesa (izquierda) a  rosa (derecha)*/
+			background-image: linear-gradient(to right, #2ed5de,#2e74de, #d201d2);
+			border-color: #000000;
+			transition: 0.2s ease-in;
+			}
+		
+		  
+	
+		 </style>

@@ -1,0 +1,93 @@
+---
+
+import LayoutSecciones from '../../layouts/index/LayoutSecciones.astro';
+
+---
+
+<LayoutSecciones marginTop='15vh'>
+    <div slot="col-izquierda">
+
+        <div>
+            <span class="title">
+                It´s 
+                <span class="all"> all </span> 
+                about 
+                <img class="image" loading="lazy" srcset="/faviui.svg"/>
+            </span>
+        </div>
+        <p class="description">
+            We know that each client is unique, which is why we offer a variety of customizable plans. 
+            From generous data options to family-friendly services, we have the flexibility to adapt to your specific needs. 
+            With us, there is no one-size-fits-all approach; It's all about what works best for you.
+        </p>
+        
+            
+    </div>
+
+
+
+    <div slot="col-derecha">
+
+        <div class="contenedor-imagenes">
+        <img  loading="lazy" srcset="/image/ublanca.png"/>
+        <img class="overtopcarrusel" loading="lazy" srcset="/image/carruselcircular.png"/>
+        </div>
+    </div>
+
+</LayoutSecciones>
+
+
+
+<style>
+	.title, .best, .subtitle{
+			color:#ffff;
+			font-size: 100px;
+			font-weight: 400;
+			text-align: left;
+			word-spacing: 5px;
+
+			}
+			.all{
+				color: #7C47DD;
+				font-size: 100px;
+			}
+			.subtitle{
+				font-size: 66px;
+				font-weight: 300;
+				line-height: 160%;
+				margin-top: 50px;
+			}
+			.image {
+			display: inline-block;
+			aspect-ratio: 1.1;
+		
+			width: 85px;
+			height: 85px;
+			margin-bottom: 35px;
+			}
+
+		
+			.description {
+			  color: #fff;
+			  margin-top: 40px;
+			  font-weight: 200;
+			  font-size: x-large;
+			}
+		.overtopcarrusel{
+			position: relative;
+			
+			bottom: 400px;
+			left: 110px;
+			width: 500px;
+			height: 250px;
+			z-index: 3;
+		}
+		.contenedor-imagenes{
+			
+			width: 100%;
+			height: 100%;
+			padding-top: 15vh;
+		}
+  
+	
+</style>
