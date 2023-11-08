@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import LayoutSecciones from '../layouts/index/LayoutSecciones.astro';
 import CarruselTextoHorizontal from '../components/index/CarruselTextoHorizontal.astro';
 import Seccion1 from '../components/index/Seccion1.astro';
 import Seccion2 from '../components/index/Seccion2.astro';
@@ -47,8 +46,9 @@ let listas = [
 
 <Layout title="Home">
 	
-	<span class="green-ball-blured" id="ball1"></span>
+<!-- 	<span class="green-ball-blured" id="ball1"></span> -->
 	<span class="green-ball-blured" id="ball2"></span>
+	<span class="green-ball-blured" id="ball3"></span>
 
 	<Seccion1 />
 	<CarruselTextoHorizontal/>
@@ -115,7 +115,40 @@ let listas = [
 		/* make gradient */
 		background: linear-gradient(#5746E5 20%, #8743E5 40%, #03FB75 100%);
 	}
+	#ball3{
+		top: 0;
+		left: 0%;
+		width: 800px;
+		height: 800px;
+	
+		
+		rotate: 0deg;
+	
+		/* make gradient */
+		background: linear-gradient(#5746E5 20%, #8743E5 40%, #03FB75 100%);
+		animation: move 30s infinite, blur 30s infinite,  rotate 30s infinite, scale 30s infinite, linear infinite;
+	}
 
+	@keyframes move {
+  0% { left: 0; }
+  50% { left: 10%; }
+  100% { left: 0; }
+}
+@keyframes blur {
+  0% { filter: blur(150px); }
+  50% { filter: blur(50px); }
+  100% { filter: blur(150px); }
+}
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(180deg); }
+  100% { transform: rotate(0deg); }
+}
+@keyframes scale {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
 
 	section
 	{
