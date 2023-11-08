@@ -28,7 +28,7 @@ export default function Moden(props) {
         />
         <group
           name="Cuerpo"
-          position={[0.392, 0.642, -0.034]}
+          position={[0.354, 0.539, 0.003]}
           scale={[0.012, 0.033, 0.012]}
         >
           <mesh

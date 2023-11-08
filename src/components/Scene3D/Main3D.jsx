@@ -29,7 +29,7 @@ const menuTextRef= useRef();
       gammaOutput: true,
       outputColorSpace: THREE.SRGBColorSpace,
     }}
-    scene={{ background: new THREE.Color('#000') }}
+   
     >
         <Scene cameraRef={cameraRef} modelRef={modelRef} menuTextRef={menuTextRef} speedTextRef={speedTextRef}/>
     </Canvas>

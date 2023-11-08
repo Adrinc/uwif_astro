@@ -13,9 +13,9 @@ export default function Scene({ cameraRef, modelRef, menuTextRef, SpeedTestTextR
     return <> 
 
     <Suspense fallback={null}>
-        <EffectComposer multisampling={4}>
+        <EffectComposer multisampling={8}>
             <ToneMapping {...toneMappingConfig}/>
-            <Vignette {...vignetteConfig} />
+      
             <ChromaticAberration {...chromaticAberrationConfig} />
             <Bloom {...bloomConfig} />
          
@@ -25,9 +25,9 @@ export default function Scene({ cameraRef, modelRef, menuTextRef, SpeedTestTextR
     <PerspectiveCamera makeDefault ref={cameraRef} {...initCamera}/>
 
     <pointLight {...pointLightConfig} shadow-bias={-0.0003} shadow-mapSize={ [ 512*6,512*6] } shadow-normalBias={0.01}/>
-    <ambientLight intensity={8} color={"#5d5d5d"} />
+    <ambientLight intensity={15} color={"#5d5d5d"} />
     <Suspense>
-       <Moden rotation={[0,-2,-0.1]} />
+       <Moden rotation={[0.4,-2,0]} position={[0.1,0.2,0]} />
 
     
 
