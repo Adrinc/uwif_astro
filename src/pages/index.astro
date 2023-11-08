@@ -93,7 +93,7 @@ let listas = [
 		rotate: 50deg;
 		
 		/* make gradient */
-		background: linear-gradient(#5746E5 20%, #8743E5 40%, #03FB75 100%);
+		background: linear-gradient(#5746E5 20%, #8743E5 40%, #000000, #03FB75 100%);
 
 
 		/* make blur radius */
@@ -124,8 +124,9 @@ let listas = [
 		
 		rotate: 0deg;
 	
-		/* make gradient */
-		background: linear-gradient(#5746E5 20%, #8743E5 40%, #03FB75 100%);
+		/* make gradient top to bottom */ 
+
+		background: linear-gradient(#5746E5 0%, #8743E5 30%, #000000 70%, #03FB75 100%, #00000000 70%);
 		animation: move 30s infinite, blur 30s infinite,  rotate 30s infinite, scale 30s infinite, linear infinite;
 	}
 
