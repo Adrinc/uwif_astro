@@ -20,7 +20,7 @@ import * as THREE from 'three'
       intensity: 16,
       position: [2.9, 7, -14.5],
       penumbra: 0.5,
-      color: '#2e2e30',
+      color: '#fff',
     };
 
 export const vignetteConfig = {

@@ -2,9 +2,9 @@ import {Sparkles,  BakeShadows, Environment, OrbitControls, PerspectiveCamera} f
 import React, { Suspense, useEffect } from 'react'
 
 import { ToneMapping , ChromaticAberration, Bloom, EffectComposer, Noise, Vignette } from '@react-three/postprocessing'
-import { enviromentConfig, pointLightConfig } from './js/scene_config';
+import { enviromentConfig, pointLightConfig } from './scene_config';
 import { vignetteConfig, chromaticAberrationConfig, bloomConfig, noiseConfig, toneMappingConfig } from './scene_config';
-import ScreenSizeListener from './js/listeners/listenScreenSize';
+import Moden from './modelos/moden.jsx';
 
 export default function Scene({ cameraRef, modelRef, menuTextRef, SpeedTestTextRef })
 {
@@ -12,22 +12,22 @@ export default function Scene({ cameraRef, modelRef, menuTextRef, SpeedTestTextR
 
     return <> 
 
-    <Suspense fallback={null}>
+{/*     <Suspense fallback={null}>
         <EffectComposer multisampling={4}>
             <ToneMapping {...toneMappingConfig}/>
             <Vignette {...vignetteConfig} />
             <ChromaticAberration {...chromaticAberrationConfig} />
             <Bloom {...bloomConfig} />
-            <Noise {...noiseConfig} />
+         
         </EffectComposer>
-    </Suspense>
+    </Suspense> */}
    <OrbitControls/>
-    <PerspectiveCamera makeDefault ref={cameraRef} {...initCamera}/>
-    <Environment {...enviromentConfig}/>
-    <pointLight {...pointLightConfig} shadow-bias={-0.0003} shadow-mapSize={ [ 512*6,512*6] } shadow-normalBias={0.01}/>
-    <ambientLight intensity={1} color={"#5d5d5d"} />
-    <Suspense fallback={<Placeholder position-y={1} scale={[2, 3, 2]} />}>
 
+
+    <pointLight {...pointLightConfig} shadow-bias={-0.0003} shadow-mapSize={ [ 512*6,512*6] } shadow-normalBias={0.01}/>
+    <ambientLight intensity={8} color={"#5d5d5d"} />
+    <Suspense>
+       <Moden/>
 
         <Sparkles rotation={[0, Math.PI/2,0]}   position={[-21, 3.5, -14]} count={200} scale={[6.5,6.5,2]} size={2.5} speed={0.1}/> 
 
@@ -35,7 +35,7 @@ export default function Scene({ cameraRef, modelRef, menuTextRef, SpeedTestTextR
 
         
      
-        <ScreenSizeListener camera={cameraRef} modelRef={modelRef} menuTextRef={menuTextRef}/>
+  
     </Suspense>
 
     </>

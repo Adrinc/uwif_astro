@@ -1,5 +1,8 @@
-
+---
+import Fiber from '../../components/Scene3D/Main3D';
+---
 <section>
+
 	<div class="main-container">
 		<div class="columna-izquierda">
 
@@ -22,7 +25,11 @@
 
 
 		<div class="columna-derecha">
-			<img class="router" loading="lazy" src="image/moden.png">
+			<div  class="router" >
+
+				<Fiber client:load />
+			</div>
+		
 		</div>
 	</div>
 </section>  
