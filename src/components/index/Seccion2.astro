@@ -1,6 +1,8 @@
 ---
 
 import LayoutSecciones from '../../layouts/index/LayoutSecciones.astro';
+import Carrusel from '../../components/Scene3D//CarruselScene/carruselMain.jsx';
+
 
 ---
 
@@ -29,9 +31,12 @@ import LayoutSecciones from '../../layouts/index/LayoutSecciones.astro';
     <div slot="col-derecha">
 
         <div class="contenedor-imagenes">
-        <img  loading="lazy" srcset="image/ublanca.png"/>
-        <img class="overtopcarrusel" loading="lazy" srcset="image/carruselcircular.png"/>
-        </div>
+        	<img  loading="lazy" srcset="image/ublanca.png"/>
+		<div class="overtopcarrusel">
+			<Carrusel client:load/>
+		</div>
+ <!--        <img class="overtopcarrusel" loading="lazy" srcset="image/carruselcircular.png"/> -->
+      
     </div>
 
 </LayoutSecciones>
@@ -76,10 +81,10 @@ import LayoutSecciones from '../../layouts/index/LayoutSecciones.astro';
 		.overtopcarrusel{
 			position: relative;
 			
-			bottom: 400px;
-			left: 110px;
-			width: 500px;
-			height: 250px;
+			bottom: 350px;
+			left: 100px;
+			width: 620px;
+			height: 300px;
 			z-index: 3;
 		}
 		.contenedor-imagenes{
