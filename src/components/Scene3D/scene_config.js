@@ -18,7 +18,7 @@ import * as THREE from 'three'
       name: 'directional_light',
       castShadow: true,
       intensity: 10,
-      position: [0.5, 4, 0],
+      position: [1.9, 3, 1],
       penumbra: 0.5,
       color: '#fff',
     };
@@ -36,13 +36,14 @@ export const vignetteConfig = {
   
   export const bloomConfig = {
     mipmapBlur: true,
-    intensity: 5,
+    intensity: 1,
     luminanceThreshold: 0.7,
-    luminanceSmoothing: 0.1,
+    luminanceSmoothing: 0.7,
     resolutionX: Resolution.AUTO_SIZE,
     resolutionY: Resolution.AUTO_SIZE,
     kernelSize: 1,
     blendFunction: BlendFunction.OVERLAY,
+
   };
   
   export const noiseConfig = {
@@ -52,7 +53,7 @@ export const vignetteConfig = {
   };
   
   export const toneMappingConfig = {
-    blendFunction: BlendFunction.NORMAL,
+    blendFunction: BlendFunction.SCREEN,
     mode: 3
     };
 

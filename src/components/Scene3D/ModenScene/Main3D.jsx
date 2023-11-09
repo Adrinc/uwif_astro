@@ -6,10 +6,7 @@ import * as THREE from 'three';
 
 export const Fiber = () => {
   
-  const cameraRef = useRef();
-const modelRef = useRef();
-const speedTextRef= useRef();
-const menuTextRef= useRef();
+
 
   return (
     <Canvas
@@ -31,7 +28,7 @@ const menuTextRef= useRef();
     }}
    
     >
-        <Scene cameraRef={cameraRef} modelRef={modelRef} menuTextRef={menuTextRef} speedTextRef={speedTextRef}/>
+        <Scene/>
     </Canvas>
   );
 };
