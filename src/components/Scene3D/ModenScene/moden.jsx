@@ -3,7 +3,7 @@ import { useGLTF, useAnimations } from "@react-three/drei";
 
 export default function Moden(props) {
   const group = useRef();
-  const { nodes, materials, animations } = useGLTF("models/moden.gltf");
+  const { nodes, materials, animations } = useGLTF("models/moden.glb");
   const { actions } = useAnimations(animations, group);
   
 

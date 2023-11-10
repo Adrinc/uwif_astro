@@ -1,0 +1,69 @@
+---
+import TarjetaPaqueteBasico from '../TarjetaPaqueteBasico.astro';
+import TarjetaPaqueteEspecial from '../TarjetaPaqueteEspecial.astro';
+/* STRAPI */
+let tarjetas = [
+  { 
+    precio: '19', 
+    modelo: 'Starter', 
+    description: 'Unleash the power of automation.', 
+    lista: [
+      { icono: 'image/check.svg', texto: 'Multi-step Zaps' },
+      { icono: 'image/check.svg', texto: '3 Premium Apps' },
+      { icono: 'image/check.svg', texto: '2 Users team' },
+      
+    ]
+  },
+  { 
+    precio: '30', 
+    modelo: 'Professional', 
+    description: 'Advanced tools to take your work to the next level.', 
+    lista: [
+	{ icono: 'image/check.svg', texto: 'Multi-step Zaps' },
+	{ icono: 'image/check.svg', texto: 'Unlimited Premium ' },
+	{ icono: 'image/check.svg', texto: '50 Users team' },
+	{ icono: 'image/check.svg', texto: 'Shared Workspace' },
+  
+    ]
+  },
+];
+let listas = [
+  { icono: 'image/checkwhite.svg', texto: '5G Wi-Fi Gateway device included' },
+  { icono: 'image/checkwhite.svg', texto: 'Netflix™ ON USApps' },
+  { icono: 'image/checkwhite.svg', texto: 'Apple TV+ ON US' },
+  { icono: 'image/checkwhite.svg', texto: '5G Speeds' },
+  { icono: 'image/checkwhite.svg', texto: 'Mexico and Canada no extra fees' },
+];
+---
+
+
+
+<section>
+ <!--    {tarjetas.map((tarjeta) => (
+        <TarjetaPaqueteBasico 
+          precio={tarjeta.precio} 
+          modelo={tarjeta.modelo} 
+          description={tarjeta.description} 
+          lista={tarjeta.lista} 
+        />
+      ))} -->
+<TarjetaPaqueteEspecial precio="30" modelo="Value" description="The best value for your money." lista={listas}/>
+</section>
+
+
+<style>
+  section {
+    display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	align-self: center;
+	padding-left: 100px;
+	padding-right: 100px;
+	
+	
+	height: 75vh;
+	width: 100%;
+
+  }
+</style>

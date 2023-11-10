@@ -3,7 +3,7 @@ import { useGLTF, useAnimations } from "@react-three/drei";
 
 export default function Carrusel(props) {
   const group = useRef();
-  const { nodes, materials, animations } = useGLTF("models/carrusel.gltf");
+  const { nodes, materials, animations } = useGLTF("models/carrusel.glb");
   const { actions } = useAnimations(animations, group);
   
 
