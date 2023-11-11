@@ -1,10 +1,8 @@
-import {Sparkles,  BakeShadows, Environment, OrbitControls, PerspectiveCamera, PresentationControls} from '@react-three/drei'
-import React, { Suspense, useEffect } from 'react'
-import { useControls } from 'leva';
+import {PerspectiveCamera} from '@react-three/drei'
+import { Suspense } from 'react'
 
-import { ToneMapping , ChromaticAberration, Bloom, EffectComposer, Noise, Vignette } from '@react-three/postprocessing'
-import { enviromentConfig, pointLightConfig } from '../scene_config.js';
-import { vignetteConfig, chromaticAberrationConfig, bloomConfig, noiseConfig, toneMappingConfig } from '../scene_config.js';
+
+
 import Carrusel from './carrusel.jsx';
 
 export default function CarruselScene()

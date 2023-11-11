@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
 
 export default function Carrusel(props) {
@@ -29,4 +29,4 @@ export default function Carrusel(props) {
   );
 }
 
-useGLTF.preload("models/carrusel.gltf");
+useGLTF.preload("models/carrusel.glb");

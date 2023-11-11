@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
 
 export default function Moden(props) {
@@ -121,4 +121,4 @@ export default function Moden(props) {
   );
 }
 
-useGLTF.preload("models/moden.gltf");
+useGLTF.preload("models/moden.glb");

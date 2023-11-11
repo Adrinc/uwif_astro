@@ -1,4 +1,4 @@
-import { Canvas, useThree } from "@react-three/fiber";
+import { Canvas } from "@react-three/fiber";
 import CarruselScene from './CarruselScene.jsx';
 import * as THREE from 'three';
 

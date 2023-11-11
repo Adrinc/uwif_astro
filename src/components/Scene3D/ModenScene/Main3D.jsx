@@ -1,6 +1,4 @@
-import { Canvas, useThree } from "@react-three/fiber";
-import { CameraControls } from "@react-three/drei";
-import { useEffect, useRef } from "react";
+import { Canvas} from "@react-three/fiber";
 import Scene from './Scene.jsx';
 import * as THREE from 'three';
 
