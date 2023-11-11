@@ -1,6 +1,6 @@
 ---
 import TarjetaPaqueteBasico from '../TarjetaPaqueteBasico.astro';
-import TarjetaPaqueteEspecial from '../TarjetaPaqueteEspecial.astro';
+import TarjetaPaqueteEspecialV2 from '../TarjetaPaqueteEspecialV2.astro';
 /* STRAPI */
 let tarjetas = [
   { 
@@ -47,23 +47,25 @@ let listas = [
           lista={tarjeta.lista} 
         />
       ))} -->
-<TarjetaPaqueteEspecial precio="30" modelo="Value" description="The best value for your money." lista={listas}/>
+<TarjetaPaqueteEspecialV2 precio="30" modelo="Get reliable 5G home Internet service" description="Only  $30/mo." lista={listas}/>
+<TarjetaPaqueteEspecialV2 precio="30" modelo="Get reliable 5G home Internet service" description="The best value for your money." lista={listas}/>
 </section>
 
 
 <style>
   section {
-    display: flex;
-	flex-direction: row;
-	justify-content: space-between;
+    display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	justify-content: center;
 	align-items: center;
 	align-self: center;
-	padding-left: 100px;
-	padding-right: 100px;
+	padding-left: 5rem;
+	padding-right: 5rem;
 	
 	
 	height: 75vh;
-	width: 100%;
+	width: 80vw;
+  gap:20px;
 
   }
 </style>

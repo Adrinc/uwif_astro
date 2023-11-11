@@ -121,4 +121,4 @@ export default function Moden(props) {
   );
 }
 
-useGLTF.preload("models/moden.gltf");
+useGLTF.preload("models/moden.glb");
