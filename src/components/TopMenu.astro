@@ -1,5 +1,5 @@
 <div class="main-container">
-    <img loading="lazy" srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/b7f45c54-79dc-492c-a979-eb8b20a2cc5c?apiKey=99b0eaa04efc41a78ff2850239e1f525&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/b7f45c54-79dc-492c-a979-eb8b20a2cc5c?apiKey=99b0eaa04efc41a78ff2850239e1f525&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/b7f45c54-79dc-492c-a979-eb8b20a2cc5c?apiKey=99b0eaa04efc41a78ff2850239e1f525&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/b7f45c54-79dc-492c-a979-eb8b20a2cc5c?apiKey=99b0eaa04efc41a78ff2850239e1f525&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/b7f45c54-79dc-492c-a979-eb8b20a2cc5c?apiKey=99b0eaa04efc41a78ff2850239e1f525&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/b7f45c54-79dc-492c-a979-eb8b20a2cc5c?apiKey=99b0eaa04efc41a78ff2850239e1f525&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/b7f45c54-79dc-492c-a979-eb8b20a2cc5c?apiKey=99b0eaa04efc41a78ff2850239e1f525&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/b7f45c54-79dc-492c-a979-eb8b20a2cc5c?apiKey=99b0eaa04efc41a78ff2850239e1f525&"class="image" />
+    <img loading="lazy" srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/b7f45c54-79dc-492c-a979-eb8b20a2cc5c?apiKey=99b0eaa04efc41a78ff2850239e1f525&width=100"class="image" />
     <nav class="navigation">
       <a href="#" class="selected-link">HOME</a>
       <a href="#" class="link">PLANS</a>
@@ -12,28 +12,27 @@
   </div>
   
   <style>
+
     .main-container {
+
       align-items: flex-start;
       display: flex;
       justify-content: space-between;
       gap: 20px;
-      padding: 3vh;
+      padding: clamp(20px, 5%, 40px);
       border-bottom: #fff 2px solid;
-  
+      backdrop-filter: blur(10px); 
+ 
     }
   
-    @media (max-width: 991px) {
-      .main-container {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-    }
+ 
   
     .image {
       aspect-ratio: 3.86;
       object-fit: contain;
       object-position: center;
-      width: 166px;
+      width: clamp(10px, 10rem, 250px);
+
       overflow: hidden;
       align-self: stretch;
       max-width: 100%;
@@ -42,28 +41,22 @@
     .navigation {
       align-self: center;
       display: flex;
-      width: 634px;
+      width: auto-fit;
       max-width: 100%;
       align-items: flex-start;
       justify-content: space-between;
       gap: 20px;
-      margin: auto 0;
-      padding: 0 20px;
+    
     }
   
-    @media (max-width: 991px) {
-      .navigation {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-    }
-  
+
     .link, .selected-link{
       color: #ffffff;
       text-shadow:  2px 2px 0px #000000;
       text-transform: uppercase;
       align-self: start;
-      font: 800 24px Inter, sans-serif;
+      font-weight: 800;
+      font-size: clamp(14px, 1.5vw, 24px);
     }
     .selected-link {
       color: #00c402;
@@ -80,4 +73,21 @@
       max-width: 100%;
       margin: auto 0;
     }
+
+    @media screen and (max-width: 768px) {
+      
+    
+  
+      .navigation {
+        display: none;
+      }
+      .image-2 {
+        width: 50px;
+        height: 50px;
+        align-self: center;
+      }
+    }
+
+  
+
   </style>
