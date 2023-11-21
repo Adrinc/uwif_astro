@@ -38,35 +38,35 @@
   <style lang="scss">
     #main {
   background: rgba(55, 23, 197, 0);
+  overflow: hidden;
 }
 #main .bg {
-  width: 100%;
-  max-width: 1200px;
+  width: 100vw;
+
   margin: auto;
-  height: 100vh;
-  max-height: 600px;
+  height: 100%;
+
   overflow: hidden;
-  position: relative;
+  position: absolute;
 }
 #main .bg .auror_bg {
   position: absolute;
-  left: -50%;
-  top: -50%;
+
   width: 200%;
   height: 200%;
-  max-width: 2400px;
-  max-height: 2400px;
+
   animation-name: northern;
   animation-duration: 10s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-direction: alternate;
-
+  overflow: hidden;
 }
 #main .bg .aur_cont {
   margin: -65px auto 0;
   display: table;
   height: auto;
+  overflow: hidden;
 }
 #main .bg .aur_cont .aur {
   transform: skew(-0.06turn, 18deg);
@@ -81,22 +81,22 @@
 #main .bg .aur_cont .aur.aur_1 {
   box-shadow: #4bca67 0px 0px 100px 20px;
   margin-top: -6px;
-  animation: topup 9567ms infinite linear;
+  animation: topup 9s infinite linear;
 }
 #main .bg .aur_cont .aur.aur_2 {
-  box-shadow: #4baeca 0px 0px 100px 20px;
+  box-shadow: #5746E5 0px 0px 100px 20px;
   margin-top: 3px;
-  animation: topup 12386ms infinite linear;
+  animation: topup 12s infinite linear;
 }
 #main .bg .aur_cont .aur.aur_3 {
   box-shadow: #4bff4e 0px 0px 100px 20px;
   margin-top: 52px;
-  animation: topup 6017ms infinite linear;
+  animation: topup 6s infinite linear;
 }
 #main .bg .aur_cont .aur.aur_4 {
   box-shadow: #4bad63 0px 0px 100px 20px;
   margin-top: 32px;
-  animation: topup 6760ms infinite linear;
+  animation: topup 6s infinite linear;
 }
 #main .bg .aur_cont .aur.aur_5 {
   box-shadow: #4bff5b 0px 0px 100px 20px;
@@ -109,7 +109,7 @@
   animation: topup 11422ms infinite linear;
 }
 #main .bg .aur_cont .aur.aur_7 {
-  box-shadow: #4b9cce 0px 0px 100px 20px;
+  box-shadow: #5746E5 0px 0px 100px 20px;
   margin-top: 17px;
   animation: topup 11671ms infinite linear;
 }
@@ -124,7 +124,7 @@
   animation: topup 11683ms infinite linear;
 }
 #main .bg .aur_cont .aur.aur_10 {
-  box-shadow: #4be6e7 0px 0px 100px 20px;
+  box-shadow: #8743E5 0px 0px 100px 20px;
   margin-top: 90px;
   animation: topup 10546ms infinite linear;
 }
@@ -149,7 +149,7 @@
   animation: topup 4770ms infinite linear;
 }
 #main .bg .aur_cont .aur.aur_15 {
-  box-shadow: #4bfff4 0px 0px 100px 20px;
+  box-shadow: #8743E5 0px 0px 100px 20px;
   margin-top: -36px;
   animation: topup 7849ms infinite linear;
 }
@@ -159,7 +159,7 @@
   animation: topup 5900ms infinite linear;
 }
 #main .bg .aur_cont .aur.aur_17 {
-  box-shadow: #4bdeff 0px 0px 100px 20px;
+  box-shadow: #8c3bff 0px 0px 100px 20px;
   margin-top: 44px;
   animation: topup 8148ms infinite linear;
 }
@@ -174,7 +174,7 @@
   animation: topup 9145ms infinite linear;
 }
 #main .bg .aur_cont .aur.aur_20 {
-  box-shadow: #4bffe4 0px 0px 100px 20px;
+  box-shadow: #8743E5 0px 0px 100px 20px;
   margin-top: 51px;
   animation: topup 6888ms infinite linear;
 }
@@ -189,7 +189,7 @@
   animation: topup 11758ms infinite linear;
 }
 #main .bg .aur_cont .aur.aur_23 {
-  box-shadow: #4bf7ff 0px 0px 100px 20px;
+  box-shadow: #8743E5 0px 0px 100px 20px;
   margin-top: 95px;
   animation: topup 12790ms infinite linear;
 }

@@ -2,10 +2,10 @@
 import Moden from '../Scene3D/ModenScene/Main3D';
 import CoverageCheck from './CoverageCheck.astro';
 ---
-<section class=" overflow-auto box-border relative block ">
+<section class=" overflow-auto box-border relative block max-h-fit mb-10">
 
 
-	<div class="grid grid-flow-dense gap-4 mt-[15vh] box-border" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));   grid-auto-rows: 45rem;   overflow-wrap: auto;">
+	<div class="grid grid-flow-dense gap-4 mt-[15vh] box-border" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));   grid-auto-rows: 40rem;   overflow-wrap: auto;">
 		<div class="flex flex-wrap justify-between gap-4 items-center" style="padding: clamp(5px, 1vw, 40px);">
 
 			<div>
@@ -53,6 +53,7 @@ import CoverageCheck from './CoverageCheck.astro';
 			letter-spacing: 2px;
 			text-align: left;
 			word-spacing: 5px;
+			text-wrap: balance;
 
 			}
 	
@@ -89,7 +90,7 @@ import CoverageCheck from './CoverageCheck.astro';
 			.description {
 			  color: #fff;
 			  font-weight: 300;
-			  
+			  text-wrap: pretty;
 			  font-size: clamp(1rem, 1.3vw, 1.5rem);
 			}
 
