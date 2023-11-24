@@ -8,7 +8,7 @@ const { marginTop  } = Astro.props;
 ---
 
 
-<section style={`margin-top: ${marginTop};`}>
+<section class=" max-h-fit mb-20" style={`margin-top: ${marginTop};`}>
 	<div class="main-container">
 		<div class="columna-izquierda">
 			<slot name="col-izquierda"/>
@@ -29,11 +29,8 @@ const { marginTop  } = Astro.props;
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;
-
-			height: 70vh;
-			width: 100vw;
-			margin-left: 2.5rem;
-			margin-right: 2.5rem;
+			width: 100%;
+		
 		}
 
         .main-container {
@@ -57,5 +54,11 @@ const { marginTop  } = Astro.props;
 				justify-content: center;
 			  	align-items: center;
 			  	
+			}
+
+			@media screen and (max-width: 900px) {
+			  .main-container {
+			    grid-template-columns: 1fr;
+			  }
 			}
 </style>

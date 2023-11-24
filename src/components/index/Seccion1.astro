@@ -1,31 +1,37 @@
 ---
 import Moden from '../Scene3D/ModenScene/Main3D';
+import CoverageCheck from './CoverageCheck.astro';
 ---
-<section>
+<section class=" overflow-auto box-border relative block max-h-fit mb-10">
 
 
-	<div class="main-container">
-		<div class="columna-izquierda">
+	<div class="grid grid-flow-dense gap-4 mt-[15vh] box-border" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));   grid-auto-rows: 40rem;   overflow-wrap: auto;">
+		<div class="flex flex-wrap justify-between gap-4 items-center" style="padding: clamp(5px, 1vw, 40px);">
 
-			<div><span class="title">The<span class="best"> best </span> internet</span></div>
-			<div><span class="subtitle">connection for  <img class="image" loading="lazy" srcset="faviui.png"/></span></div>
-				
-				<div class="columna-inferior">
-					<p class="description">
-						In our fast-paced world, imagine a high-speed mobile internet service that keeps you connected seamlessly and outpaces the competition, all at a pleasantly surprising cost!
-					</p>
+			<div>
+
+				<div><span class="title">The<span class="text-[#00c402]"> best </span> internet</span></div>
+				<div><span class="subtitle">connection for  <img class="image" loading="lazy" srcset="faviui.png"/></span></div>
+
+				<p class="description">In our fast-paced world, imagine a high-speed mobile internet service that keeps you connected seamlessly and outpaces the competition, all at a pleasantly surprising cost!</p>
 					
-					<div class="seccion-inferior">
+			</div>
+			<div class="flex flex-row justify-center flex-grow flex-wrap">
 
-						<p class="cta-text">Check all benefits and packages we have</p>  
-						<button>Check Coverage <img class="icono" src="image/arrowright.svg" > </button>
-					</div>
+				<div class="CheckCoverageContainer flex flex-col  text-center  gap-4 content-center border-4 border-green-500 rounded-lg pl-20 pr-20 pt-4 pb-4">
+					<p class="text-white text-2xl font-bold">Check Coverage</p>
+					<p class="text-white text-lg font-normal">Enter zip code</p>
+					<!-- Add and html input! -->
+					<input type="text" name="zip code" id="zip" class="block w-full rounded-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 text-center" placeholder="1234">
+					
+					<button class="text-white text-lg font-normal">Check</button>
 				</div>	
+			</div>
 
 		</div>
 
 
-		<div class="columna-derecha">
+		<div class="flex justify-center items-center" style="flex-wrap: calc(100% - 1rem); padding: clamp(5px, 1vw, 40px); flex-grow: inherit; ">
 			<div  class="moden">
 
 				<Moden client:visible transition:persist/>
@@ -37,68 +43,8 @@ import Moden from '../Scene3D/ModenScene/Main3D';
 		  
 	<style>
 
-		section{
-			overflow-wrap: auto;
-			box-sizing: border-box;
-			position: relative;
-		}
+	
 
-			.main-container {
-			  display: grid;
-			  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-		
-		
-			  grid-auto-flow: dense;
-			  grid-auto-rows: 40rem;
-			  gap: 1rem;
-			  margin-top: clamp(0px, 15vh, 300px);
-		
-			  overflow-wrap: auto;
-			  box-sizing: border-box;
-			
-			}
-			.columna-izquierda{
-				display:flex;
-				flex-wrap: wrap;
-				flex-grow: inherit;
-				justify-content: space-between;
-			  	align-items: center;
-			  
-				background-color: blue;
-				padding: clamp(5px, 1vw, 40px);
-
-			  	
-			}
-			.columna-derecha{
-				display:flex;
-				flex-wrap: calc(100% - 1rem);
-				flex-grow: inherit;
-				justify-content: center;
-			  	align-items: center;
-				background-color: red;
-				padding: clamp(5px, 1vw, 40px);
-			  	
-			}
-
-
-			.columna-inferior{
-				display: flex;
-				flex-direction: column;
-				flex-wrap: wrap;
-				justify-content: space-between;
-			
-				gap: 10em;
-			}
-
-			.seccion-inferior{
-				display: flex;
-				flex-direction: row;
-				flex-wrap: wrap;
-				justify-content: space-between;
-			  	align-content: left;
-				
-			}
-		
 
 			.title, .best, .subtitle{
 			color:#ffff;
@@ -107,13 +53,10 @@ import Moden from '../Scene3D/ModenScene/Main3D';
 			letter-spacing: 2px;
 			text-align: left;
 			word-spacing: 5px;
+			text-wrap: balance;
 
 			}
-			.best{
-			
-				color: #00c402;
-		
-			}
+	
 			.subtitle{
 			
 				font-weight: 300;
@@ -141,14 +84,14 @@ import Moden from '../Scene3D/ModenScene/Main3D';
 			.moden{
 			width: clamp(280px, 50vw, 500px);
 			height: clamp(280px, 50vw, 500px);
-			background-color: yellow;
+	
 			}
 			
 			.description {
 			  color: #fff;
 			  font-weight: 300;
-			  
-			  font-size: clamp(1rem, 1.5vw, 1.5rem);
+			  text-wrap: pretty;
+			  font-size: clamp(1rem, 1.3vw, 1.5rem);
 			}
 
 			.cta-text {
@@ -169,7 +112,7 @@ import Moden from '../Scene3D/ModenScene/Main3D';
 			font-weight: 200;
 			border-radius: 50px;
 			border: clamp(1px, 1vw, 3px) solid #00c402;
-			padding-block: clamp(0.5rem, 1vw, 1rem);
+			padding: 8px;
 			background-color: transparent;
 			transition: border 0.2s ease;
 			}
@@ -181,6 +124,7 @@ import Moden from '../Scene3D/ModenScene/Main3D';
 			transition: 0.2s ease-in;
 			}
 		
+		
 			@media screen and (max-width: 900px) {
 			.main-container {
 			 gap:10px;
@@ -188,14 +132,20 @@ import Moden from '../Scene3D/ModenScene/Main3D';
 			}
 		
 			.seccion-inferior{
-				display: flex;
-				flex-direction: column;
-				flex-wrap: wrap;
+		
 				justify-content: center;
-			  	align-content: left;
+
 				gap:10px;
 			}
+
+			}
+			@media screen and (max-width: 740px) {
+		
+			.CheckCoverageContainer{
+				padding: 20px;
+				margin: 10px;
 				
+			}
 			}
 	
 		 </style>

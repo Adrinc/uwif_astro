@@ -1,26 +1,33 @@
-<span class="green-ball-blured" id="ball1"></span>
+---
+import AuroraBoreal from './AuroraBoreal.astro';
+---
+
+<!-- <span class="green-ball-blured" id="ball1"></span> -->
+<!-- 
 <span class="green-ball-blured" id="ball2"></span>
-<span class="green-ball-blured" id="ball3"></span>
+<span class="green-ball-blured" id="ball3"></span> -->
 
-
+<!-- <AuroraBoreal /> -->
 
 <style>
     	.green-ball-blured{
 		position: absolute;
 		top: -20%;
 		left: 55%;
-		width: 800px;
-		height: 800px;
-		border-radius: 50%;
+		width: 100vw;
+	
+	
 		
 		rotate: 50deg;
+		overflow-wrap: normal;
+
 		
 		/* make gradient */
-		background: linear-gradient(#5746E5 20%, #8743E5 40%, #000000, #03FB75 100%);
+		background: linear-gradient(#5746E5 20%, #8743E5 40%, #20b340, #03FB75 100%);
 
 
 		/* make blur radius */
-		filter: blur(150px);
+		filter: blur(100px);
 	
 	
 		z-index: -1;
