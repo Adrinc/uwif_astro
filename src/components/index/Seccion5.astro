@@ -1,31 +1,6 @@
 ---
 import TarjetaPaqueteEspecial from '../TarjetaPaqueteEspecial.astro';
-/* STRAPI */
-let tarjetas = [
-  { 
-    precio: '19', 
-    modelo: 'Starter', 
-    description: 'Unleash the power of automation.', 
-    lista: [
-      { icono: 'image/check.svg', texto: 'Multi-step Zaps' },
-      { icono: 'image/check.svg', texto: '3 Premium Apps' },
-      { icono: 'image/check.svg', texto: '2 Users team' },
-      
-    ]
-  },
-  { 
-    precio: '30', 
-    modelo: 'Professional', 
-    description: 'Advanced tools to take your work to the next level.', 
-    lista: [
-	{ icono: 'image/check.svg', texto: 'Multi-step Zaps' },
-	{ icono: 'image/check.svg', texto: 'Unlimited Premium ' },
-	{ icono: 'image/check.svg', texto: '50 Users team' },
-	{ icono: 'image/check.svg', texto: 'Shared Workspace' },
-  
-    ]
-  },
-];
+
 let listas = [
   { icono: 'image/checkwhite.svg', texto: '5G Wi-Fi Gateway device included' },
   { icono: 'image/checkwhite.svg', texto: 'Netflix™ ON USApps' },
@@ -38,31 +13,88 @@ let listas = [
 
 
 <section>
- <!--    {tarjetas.map((tarjeta) => (
-        <TarjetaPaqueteBasico 
-          precio={tarjeta.precio} 
-          modelo={tarjeta.modelo} 
-          description={tarjeta.description} 
-          lista={tarjeta.lista} 
-        />
-      ))} -->
-<TarjetaPaqueteEspecial precio="30" modelo="Value" description="The best value for your money." lista={listas}/>
+
+<div class="columna-izquierda">
+
+
+   <div class="title">
+     JUST <span class="text-[#00c402]">ONE</span> PLAN?
+   </div>
+   <div class="description">
+     <p>Yes, we make it  <span class="text-[#7D47DD] font-bold">simple.</span> </p>
+   </div>
+ 
+   <p class="description">Discover perfection in simplicity. Our single subscription has it all, without the hassle</p>
+   <p class="description-inferior">Only the best for </p>
+ </div>
+
+<div class="columna-derecha">
+
+  <TarjetaPaqueteEspecial precio="30" modelo="Value" description="The best value for your money." lista={listas}/>
+</div>
 </section>
 
 
 <style>
   section {
-    display: flex;
-	flex-direction: row;
+  display: flex;
+  flex-direction: row;
 	justify-content: space-between;
-	align-items: center;
-	align-self: center;
-	padding-left: 100px;
-	padding-right: 100px;
-	
-	
-	height: 75vh;
-	width: 100%;
+  align-items: center;
+  padding: clamp(0px, 2vw, 2rem);
+  gap: 1rem;
 
+  }
+  
+  .columna-izquierda{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: left;
+    width: 100%;
+    height: 60vh;
+  }
+  .columna-derecha{
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    align-items: center;
+    width: 50%;
+  
+  }
+
+
+  .description 
+  {
+    color:#ffffff;
+		font-size: clamp(1.5rem, 3vw, 50px);
+    font-weight: 100;
+    text-align: left;
+
+  }
+  .description-inferior 
+  {
+    color:#ffffff;
+		font-size: clamp(1.5rem, 4vw, 30px);
+    font-weight: 100;
+    text-align: left;
+
+  }
+
+
+	.title{
+    
+			color:#ffff;
+			font-size: clamp(1.5rem, 3vw, 80px);
+			font-weight: bold;
+			}
+
+
+  @media (max-width: 768px) {
+    section {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
   }
 </style>

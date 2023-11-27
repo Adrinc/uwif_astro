@@ -12,13 +12,19 @@ interface Props {
 const { precio, modelo, description, lista } = Astro.props;
 ---
 
-<div class="contenedor-tarjeta-basica">
+<div class="contenedor-tarjeta">
     <div class="tarjeta">
         <div >
-        <p class="price mb-5">${precio}<span class="duration"> /month</span></p>
+			<h1 class="title">SUPER 5G</h1>
+			<div class="precio-contenedor">
+
+				<!-- <p class="price mb-5">${precio}</p> -->
+				<p class="price">${precio}</p>
+				<p class="text-white text-xl text-left"> /month with <span class="text-white font-bold text-xl text-left"> AutoPay</span></p> 
+			</div>
             
-            <p class="modelo">{modelo}</p>
-            <p class="description">{description}</p>
+           <!--  <p class="modelo">{modelo}</p>
+            <p class="description">{description}</p> -->
             
 			<ul class="fila">
 				{lista.map((item) => (
@@ -34,8 +40,9 @@ const { precio, modelo, description, lista } = Astro.props;
         </div>
         <div class="flex justify-center align-middle">
 
-            <button>Chose Plan </button>
+            <button>Check Availability </button>
         </div>
+		<a href="/" class="link">See more details</a>
     </div>
 </div>
 
@@ -45,39 +52,66 @@ const { precio, modelo, description, lista } = Astro.props;
 
 
 <style>
-
-
-
-	.contenedor-tarjeta-basica
+	.contenedor-tarjeta
 	{
-		width: 500px;
-		height: 600px;
+		align-content: right;
+		width: clamp(300px, 50vw, 500px);
+		height: clamp(600px, 50vw, 700px);
 		border-radius: 20px;
-		padding: 20px 20px 20px 20px;
-        background:  linear-gradient(180deg, #00C937 0%, #7A47DD 100%);
-        transition: all 0.5s ease;
-        transform-origin: bottom;
+		padding: clamp(4px, 50vw, 1.25rem);
+		background:  linear-gradient(180deg, #00C937 0%, #7A47DD 100%);
+		
+	
 	}
-    .contenedor-tarjeta-basica:hover{
-        box-shadow: 0 0 20px 0 #00C937FF;
-        transform: scaleY(1.1);
-        transition: all 0.5s ease;
+	.link{
+		display:flex;
+		color: #ffffff;
+		font-weight: 400;
+		justify-content: center;
+		align-items: center;
+		font-size: clamp(1rem, 50vw, 1.5rem);
+		text-decoration: underline;
+		transition: 0.2s ease-in;
+	}
+	.link:hover{
+		color: #47dd79;
+		font-weight: 500;
+	
+		font-size: clamp(1rem, 50vw, 1.6rem);
+		text-decoration: underline;
+		transition: 0.2s ease-in;
+	}
 
-    }
+	.precio-contenedor{
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		align-content: center;
+		justify-content: center;
+		align-items: center;
+		align-self: center;
+		gap:10px;
+		padding-left: clamp(1rem, 50vw, 4rem);
+		padding-right: clamp(1rem, 50vw, 4rem);
+	}
+
+
 	.tarjeta
 	{
 		display: flex;
 		flex-direction: column;
-		justify-content: space-between;
+		flex-wrap: nowrap;
+		
+		justify-content: space-around;
 		height: 100%;
-	
+		
 	}
 
 	.price 
 	{
 		color: #ffffff;
 		font-weight: 700;
-		font-size: xxx-large;
+		font-size: clamp(1.5rem, 50vw, 5rem);
+		text-align: right;
   	}
 	.modelo{
 
@@ -99,7 +133,9 @@ const { precio, modelo, description, lista } = Astro.props;
 	}
 
 	.fila{
-		align-self: center;
+		display: flex;
+		flex-direction: column;
+		
 		justify-content: center;
 		align-items: left;
 		
@@ -110,32 +146,24 @@ const { precio, modelo, description, lista } = Astro.props;
 
 	}
 
-	.switcher{
-		display: flex;
-		justify-content: flex-end;
-		align-items: center;
-		margin-right: 40px;
-	}
+
 
 	.title, .acp,  .green-word{
 			display: flex;
 			color:#ffff;
-			font-size: 20px;
-			font-weight: 400;
-			text-align: left;
-			word-spacing: 5px;
-			justify-content: left;
-			line-height: 1;
-			list-style: none;
+			font-size: clamp(1.5rem, 5vw, 3.5rem);
+			font-weight: bold;
+			text-align: center;
+			justify-content: center;
+	
 			}
 		
 		
 			.description {
 			  color: #fff;
 			  font-weight: 200;
-			  font-size: 24px;
+			  font-size: clamp(1rem, 5vw, 1.5rem);
 			  font-weight: 400;
-			
 			  word-spacing: 2px;
 			}
 	
@@ -154,7 +182,6 @@ const { precio, modelo, description, lista } = Astro.props;
 			}
 			button:hover {
 			color: #fff;
-			/* background color gradint tuquesa (izquierda) a  rosa (derecha)*/
 			background-image: linear-gradient(to right, #2ed5de,#2e74de, #d201d2);
 			border-color: #000000;
 			transition: 0.2s ease-in;
@@ -163,9 +190,6 @@ const { precio, modelo, description, lista } = Astro.props;
 
 			.icono {
 			display: inline-block;
-			
-
-			
 			width: 30px;
 			height: 30px;
 			align-self: center;
@@ -174,8 +198,8 @@ const { precio, modelo, description, lista } = Astro.props;
 			.image {
 			display: inline-block;
 		
-			width: 70px;
-			height: 70px;
+			width: clamp(10px, 50vw, 2rem);
+			height: clamp(10px, 50vw, 2rem);
 			align-self: center;
 		
 			}

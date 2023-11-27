@@ -1,0 +1,38 @@
+---
+interface Props {
+	texto: string;
+	link: string;
+}
+
+const { texto, link } = Astro.props;
+---
+<a href={link}>
+    <button class="button-learn">{texto} <img class=" inline-block" src="image/arrowright.svg" > </button>
+</a>
+
+
+<style>
+  
+.button-learn {
+color: #fff;	
+font-size: 24px;
+font-style: normal;
+font-weight: 200;
+border-radius: 50px;
+border: 3px solid #00c402;
+padding: 12px;
+background-color: transparent;
+transition: border 0.2s ease
+}
+.button-learn:hover {
+color: #fff;
+/* background color gradint tuquesa (izquierda) a  rosa (derecha)*/
+background-image: linear-gradient(to right, #2ed5de,#2e74de, #d201d2);
+border-color: #000000;
+transition: 0.2s ease-in;
+}
+.image {
+width: clamp(0.5rem, 1vw, 85px);
+height: clamp(0.5rem, 1vw, 85px)
+}
+</style>

@@ -1,8 +1,9 @@
 ---
 import Moden from '../Scene3D/ModenScene/Main3D';
-import CoverageCheck from './CoverageCheck.astro';
+import BotonFlecha from '../global/BotonFlecha.astro';
+
 ---
-<section class=" overflow-auto box-border relative block max-h-fit mb-10">
+<section class=" overflow-auto box-border relative block max-h-fit mb-[15vh]">
 
 
 	<div class="grid grid-flow-dense gap-4 mt-[15vh] box-border" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));   grid-auto-rows: 40rem;   overflow-wrap: auto;">
@@ -16,20 +17,10 @@ import CoverageCheck from './CoverageCheck.astro';
 				<p class="description">In our fast-paced world, imagine a high-speed mobile internet service that keeps you connected seamlessly and outpaces the competition, all at a pleasantly surprising cost!</p>
 					
 			</div>
-			<div class="flex flex-row justify-center flex-grow flex-wrap">
+	
 
-				<div class="CheckCoverageContainer flex flex-col  text-center  gap-4 content-center border-4 border-green-500 rounded-lg pl-20 pr-20 pt-4 pb-4">
-					<p class="text-white text-2xl font-bold">Check Coverage</p>
-					<p class="text-white text-lg font-normal">Enter zip code</p>
-					<!-- Add and html input! -->
-					<input type="text" name="zip code" id="zip" class="block w-full rounded-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 text-center" placeholder="1234">
-					
-					<button class="text-white text-lg font-normal">Check</button>
-				</div>	
-			</div>
-
+			<BotonFlecha texto="Check Availability" link="/"/>
 		</div>
-
 
 		<div class="flex justify-center items-center" style="flex-wrap: calc(100% - 1rem); padding: clamp(5px, 1vw, 40px); flex-grow: inherit; ">
 			<div  class="moden">
@@ -139,13 +130,6 @@ import CoverageCheck from './CoverageCheck.astro';
 			}
 
 			}
-			@media screen and (max-width: 740px) {
-		
-			.CheckCoverageContainer{
-				padding: 20px;
-				margin: 10px;
-				
-			}
-			}
+	
 	
 		 </style>

@@ -1,0 +1,126 @@
+---
+import BotonFlecha from '../../global/BotonFlecha.astro'
+---
+
+<section>
+	
+    
+    <span class="title">We are an <span class="acp"> ACP </span> Provider!</span>
+   
+    <p class="description">We´re keeping people connected by participation in the FCC´s Affordable Connectivity Program. Qualifying households will be able to receive a $30/mo discount on their <span style="display: inline-block; font-weight: 500" >UWIFI Plan.</span></p>
+
+   
+    <div class="fila-fc">
+        <div class="columnas-fc">
+            <img class="fc-logo" loading="lazy" src="image/fc.png">
+            <div class="fc-info">
+                <h1>AFFORDABLE</h1>
+                <h1>CONNECTIVITY</h1>
+                <h1>PROGRAM</h1>
+            </div>
+        </div>
+    </div>
+
+        <BotonFlecha texto="Learn More" link="/"/>
+     
+    </section>
+
+
+
+
+
+
+<style>
+
+    section{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-items: center;
+            align-content: center;
+            justify-content: space-between;
+            margin-top: 10vh;
+            margin-bottom:  10vh;
+            width: 100%;
+            gap:2rem;
+            
+        }
+    
+    
+            .fila-fc{
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: center;
+                align-content: center;
+                justify-content: center;
+                height: 200px;
+                width: 100%;
+                
+            }
+            .columnas-fc{
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                justify-content: center;
+                align-items: center;
+            }
+            .fc-info{
+                display: flex;
+                flex-direction: column;
+            
+                align-items: right;
+                align-content: right;
+                justify-content: space-between;
+                
+                color: #ffff;
+                font-size: xx-large;
+                font-weight: 800;
+                text-align: left;
+            
+            }
+            .fc-logo{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                align-content: center;
+                justify-content: center;
+                height: 200px;
+                width: 250px;
+                margin-right: 50px;
+            
+            }
+    
+        .title, .acp{
+                display: flex;
+                color:#ffff;
+                font-size: 90px;
+                font-weight: 400;
+                text-align: left;
+                word-spacing: 5px;
+                justify-content: left;
+                line-height: 1;
+                list-style: none;
+                }
+                .acp{
+                    color: #7C47DD;
+                    margin-left: 20px;
+                    margin-right: 20px;
+                }
+         
+            
+                .description {
+                  color: #fff;
+                  font-weight: 100;
+                  font-size: 30px;
+                  justify-content: center;
+                  text-align: center;
+                  width: 1500px;
+                  margin-bottom:40px;
+                }
+        
+      
+           
+    
+      
+    </style>
+
