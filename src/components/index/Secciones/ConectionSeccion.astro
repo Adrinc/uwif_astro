@@ -1,0 +1,67 @@
+<section>
+
+    <div class="row-conection">
+        <img src="/image/conection.svg" alt="">
+    </div>
+
+    <div class="row-how-5g">
+        <div class="column-left-how-5g">
+            <div class="title">How our 5G internet is different</div>
+            <div class="description">While cable internet relies on wired connections, UWIFI Internet uses the power of over-the-air 5G to provide reliable connectivity where wires can’t reach. Plus, we won’t tangle you up in long-term contracts.</div>
+        </div>
+        <div class="column-right-how-5g">
+            <div class="title">How our 5G home internet works</div>
+            <div class="description">UWIFI 5G network is built on a series of cell sites that use radio waves to send and receive data. Your gateway converts the nearest 5G signal into Wi-Fi, allowing you to access the internet wirelessly.</div>
+        </div>
+    </div>
+
+    
+</section>
+
+
+<style>
+
+section 
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: clamp(0px, 2vw, 2rem);
+    gap: 100px;
+    margin-top: 5vh;
+}
+.row-conection{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.row-how-5g{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: clamp(0px, 2vw, 2rem);
+}
+
+.title 
+  {
+    color:#ffffff;
+	font-size: clamp(1.5rem, 3vw, 40px);
+    font-weight: bold;
+    text-align: left;
+    text-wrap: balance;
+  }
+  .description
+  {
+    color:#ffffff;
+	font-size: clamp(1.5rem, 20vw, 1rem);
+    font-weight: 100;
+    text-align: left;
+    text-wrap: pretty;
+
+  }
+</style>
