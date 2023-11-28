@@ -2,37 +2,80 @@
 interface Props {
 	texto: string;
 	link: string;
+	borderColor?: string;
+	borderColorHover?:string;
+	borderWidth?: number;
+	textColor?: string;
+	textColorHover?: string;
+	iconColor?: string;
+	iconColorHover?: string;
+	gradientColorLeft?: string;
+	gradientColorCenter?: string;
+	gradientColorRight?: string;
 }
 
-const { texto, link } = Astro.props;
+const { texto, link, iconColor='#00c402', iconColorHover='#ffff02', borderColor = '#00c402', borderColorHover ='#00c402',  borderWidth=3, textColor='#ffffff', textColorHover='#ffffff', gradientColorLeft='#2ed5de',gradientColorCenter='#2e74de', gradientColorRight='#d201d2'   } = Astro.props;
 ---
 <a href={link}>
-    <button class="button-learn">{texto} <img class=" inline-block" src="image/arrowright.svg" > </button>
+    <button class=`button-learn`
+	style={
+	`
+	--text-color: ${textColor};
+	--text-color-hover: ${textColorHover};
+	--icon-color-hover: ${iconColor};
+	--icon-color-hover: ${iconColorHover};
+	--border-color: ${borderColor};
+	--border-color-hover: ${borderColorHover};
+	--border-width: ${borderWidth}px;
+	--gradient-left: ${gradientColorLeft}; 
+	--gradient-center: ${gradientColorCenter}; 
+	--gradient-right: ${gradientColorRight};
+	`
+	}>{texto} 
+	
+
+	<svg class="icono inline-block" width="31" height="32" viewBox="0 0 31 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<g id="chevron-right 1">
+		<path id="Vector" d="M11.6987 23.5705L19.4126 15.8566L11.6987 8.1427" stroke={iconColor} stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+		</g>
+	</svg>
+		
+</button>
 </a>
 
 
 <style>
+
+.icono{
+	stroke: var(--icon-color);
+	transition: stroke 1s ease-in-out;
+}
+.icono:hover{
+	stroke: var(--icon-color-hover);
+	transition: stroke 1s ease-in-out;
+}
   
 .button-learn {
-color: #fff;	
+color:var(--text-color);
 font-size: 24px;
-font-style: normal;
 font-weight: 200;
 border-radius: 50px;
-border: 3px solid #00c402;
+border: var(--border-width) solid;
+border-color: var(--border-color);
 padding: 12px;
-background-color: transparent;
-transition: border 0.2s ease
+transition: border 1s ease-in-out;
 }
 .button-learn:hover {
-color: #fff;
-/* background color gradint tuquesa (izquierda) a  rosa (derecha)*/
-background-image: linear-gradient(to right, #2ed5de,#2e74de, #d201d2);
-border-color: #000000;
-transition: 0.2s ease-in;
+color: var(--text-color);
+background-image: linear-gradient(to right, var(--gradient-left), var(--gradient-center), var(--gradient-right));
+border-color: var(--border-color-hover);
+transition: 1s ease-in-out;
 }
+
 .image {
 width: clamp(0.5rem, 1vw, 85px);
 height: clamp(0.5rem, 1vw, 85px)
 }
+
+
 </style>

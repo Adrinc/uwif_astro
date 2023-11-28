@@ -1,3 +1,8 @@
+---
+import BotonFlecha from "../../global/BotonFlecha.astro";
+
+---
+
 <section>
 
     <div class="row-conection">
@@ -14,6 +19,20 @@
             <div class="description">UWIFI 5G network is built on a series of cell sites that use radio waves to send and receive data. Your gateway converts the nearest 5G signal into Wi-Fi, allowing you to access the internet wirelessly.</div>
         </div>
     </div>
+
+  
+        <p class="title-big">Does the placement of your 5G gateway matter?</p>
+
+        <div class="row-how-5g">
+            <div class="column-left-how-5g">
+                <div class="title">How our 5G internet is different</div>
+                <div class="description">window facilitates a strong connection to the closest 5G cell tower or data hub, resulting in faster download and upload speeds, lower latency, and increased capacity compared to locations with weaker connections.</div>
+                <BotonFlecha texto="Device Details" link="/#" />
+            </div>
+            <div class="column-right-how-5g">
+                <div class=" bg-slate-400 w-[600px] h-[300px] rounded-lg"></div>
+            </div>
+        </div>
 
     
 </section>
@@ -44,9 +63,24 @@ section
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    gap: clamp(0px, 2vw, 2rem);
+    gap: clamp(0px, 5vw, 2rem);
 }
-
+.column-left-how-5g{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    gap: clamp(0px, 5vw, 1rem);
+}
+.column-right-how-5g{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    gap: clamp(0px, 5vw, 1rem);
+}
 .title 
   {
     color:#ffffff;
@@ -63,5 +97,15 @@ section
     text-align: left;
     text-wrap: pretty;
 
+  }
+  .title-big{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color:#ffffff;
+    font-size: clamp(1.5rem, 3vw, 60px);
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
   }
 </style>
