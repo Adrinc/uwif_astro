@@ -1,4 +1,4 @@
----
+<!-- ---
 import TarjetaPaqueteEspecial from '../../TarjetaPaqueteEspecial.astro';
 import PriceAndPlansInfo from '../PriceAndPlansInfo.astro';
 
@@ -12,11 +12,8 @@ let listas = [
 ---
 
 
-<section id="plan">
-  <PriceAndPlansInfo />
-  <div class="main-container">
-
-  
+<div id="plan"><PriceAndPlansInfo /></div>
+<section>
 <div class="columna-izquierda">
 
 
@@ -35,26 +32,18 @@ let listas = [
 
   <TarjetaPaqueteEspecial precio="30" modelo="Value" description="The best value for your money." lista={listas}/>
 </div>
-</div>
 </section>
 
 
 <style>
   section {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 	justify-content: space-between;
   align-items: center;
+  padding: clamp(0px, 10vw, 100px);
+  gap: 1rem;
 
-
-  }
-  .main-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: clamp(0px, 10vw, 100px);
-    gap: 1rem;
   }
   
   .columna-izquierda{
@@ -108,4 +97,4 @@ let listas = [
       gap: 1rem;
     }
   }
-</style>
+</style> -->
