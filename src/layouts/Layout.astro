@@ -2,7 +2,7 @@
 
 /* import TopMenu from '../components/TopMenu.astro'; */
 import TopMenu from '../components/react_components/TopMenu.jsx';
-import TopMenuSuffle from '../components/index/TopMenuSuffle.astro';
+import TopMenuSuffle from '../components/header/TopMenuSuffle.astro';
 import EsferasLuz from '../components/index/EsferasLuz.astro';
 import FootUWIFI from '../components/global/FootUWIFI.astro';
 interface Props {
@@ -23,11 +23,14 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<header>
-	<!-- 	<TopMenu client:only transition:persist /> -->
+
+
 		<TopMenuSuffle />
 	</header>
-	<body>
-		<EsferasLuz />
+	<body>	
+	<div id="top"></div>
+	
+	<EsferasLuz />
 
 	<main>	
 		<slot />
