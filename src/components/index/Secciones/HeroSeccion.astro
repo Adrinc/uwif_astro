@@ -3,39 +3,53 @@ import Moden from '../../Scene3D/ModenScene/Main3D';
 import BotonFlecha from '../../global/BotonFlecha.astro';
 
 ---
-<section class=" overflow-auto box-border relative block max-h-fit mb-[10vh]">
+<section>
 
 
-	<div class="grid grid-flow-dense gap-4 mt-[15vh] box-border" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));   grid-auto-rows: 40rem;   overflow-wrap: auto;">
-		<div class="flex flex-wrap justify-between gap-4 items-center" style="padding: clamp(5px, 1vw, 40px);">
+	<main class="flex flex-row gap-4 box-border">
+		<div class="columna-izquierda" >
 
 			<div>
-
 				<div><span class="title">The<span class="text-primaryColor"> best </span> internet</span></div>
 				<div><span class="subtitle">connection for  <img class="image" loading="lazy" srcset="faviui.png"/></span></div>
-
 				<p class="description">In our fast-paced world, imagine a high-speed mobile internet service that keeps you connected seamlessly and outpaces the competition, all at a pleasantly surprising cost!</p>
-					
 			</div>
 	
 
 			<BotonFlecha texto="Check Availability" link="/"/>
 		</div>
 
-		<div class="flex justify-center items-center" style="flex-wrap: calc(100% - 1rem); padding: clamp(5px, 1vw, 40px); flex-grow: inherit; ">
-			<div  class="moden">
-
-				<Moden client:visible transition:persist/>
-			</div>
-		
+		<div class="flex justify-center items-center">
+			<div  class="moden"><Moden client:visible transition:persist/></div>
 		</div>
-	</div>
+	</main>
 </section>
 		  
 	<style>
 
 	
-
+		section{
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			box-sizing: border-box;
+			padding-left: clamp(0px, 5vw, 100px);
+			padding-right: clamp(0px, 5vw, 100px);
+			padding-top: 100px;
+			padding-bottom: 100px;
+			
+			height: 90vh;
+			
+		}
+		.columna-izquierda{
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			
+			gap: 2rem;
+			box-sizing: border-box;
+		
+		}
 
 			.title, .best, .subtitle{
 			color: var(--primary-text-color);
@@ -73,9 +87,9 @@ import BotonFlecha from '../../global/BotonFlecha.astro';
 			
 
 			.moden{
-			width: clamp(280px, 50vw, 500px);
-			height: clamp(280px, 50vw, 500px);
-	
+			width: clamp(280px, 60vw, 700px);
+			height: clamp(280px, 50vw, 600px);
+		
 			}
 			
 			.description {
@@ -93,20 +107,18 @@ import BotonFlecha from '../../global/BotonFlecha.astro';
 			  font-size: clamp(14px, 1.5vw, 1.5rem);
 			  font-weight: 200;
 			}
-			@media screen and (max-width: 900px) {
-			.main-container {
-			 gap:10px;
-			
+	
+			@media (max-width: 768px) {
+				main {
+				flex-direction: column;
+				align-items: center;
+				gap: 1rem;
+				}
+			.moden{
+			width: 100vw;
+			height: clamp(280px, 50vw, 500px);
+	
 			}
-		
-			.seccion-inferior{
-		
-				justify-content: center;
-
-				gap:10px;
-			}
-
 			}
 	
-	
-		 </style>
+ </style>
