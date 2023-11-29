@@ -1,9 +1,12 @@
 ---
 import BotonFlecha from "../../global/BotonFlecha.astro";
+import Baner5GWifi from "../Baner5GWifi.astro";
 
 ---
+<section  id="5g">
+    <Baner5GWifi />
+<div class="main-container">
 
-<section>
 
     <div class="row-conection">
         <img src="/image/conection.svg" alt="">
@@ -34,13 +37,17 @@ import BotonFlecha from "../../global/BotonFlecha.astro";
           
         </div>
 
-    
+    </div>
 </section>
 
 
 <style>
 
-section 
+section{
+    padding-top: 100px;
+    margin-top: 5vh;
+}
+.main-container 
 {
     display: flex;
     flex-direction: column;
@@ -48,7 +55,7 @@ section
     align-items: center;
     padding: clamp(0px, 10vw, 100px);
     gap: 100px;
-    margin-top: 5vh;
+    
 }
 .row-conection{
     display: flex;
