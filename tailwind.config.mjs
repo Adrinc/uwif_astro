@@ -5,7 +5,19 @@ export default {
 		extend: {      
 			fontFamily: {
 			sans: ["InterVariable", "Inter"],
-		  },},
+		  },
+		  colors: {
+			primaryColor: 'var(--primary-color)',
+			secondaryColor: 'var(--secondary-color)',
+			primaryTextColor: 'var(--primary-text-color)',
+			secondaryTextColor: 'var(--secondary-text-color)',
+			primaryBg: 'var(--primary-bg-color)',
+			secondaryBg: 'var(--secondary-bg-color)',
+			primaryGradient: 'var(--primary-gradient)',
+			secondaryGradient: 'var(--secondary-gradient)',
+			tertiaryGradient: 'var(--tertiary-gradient)',
+		  },
+		},
 	},
 	plugins: [],
 }

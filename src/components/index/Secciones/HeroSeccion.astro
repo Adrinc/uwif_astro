@@ -11,7 +11,7 @@ import BotonFlecha from '../../global/BotonFlecha.astro';
 
 			<div>
 
-				<div><span class="title">The<span class="text-[#00c402]"> best </span> internet</span></div>
+				<div><span class="title">The<span class="text-primaryColor"> best </span> internet</span></div>
 				<div><span class="subtitle">connection for  <img class="image" loading="lazy" srcset="faviui.png"/></span></div>
 
 				<p class="description">In our fast-paced world, imagine a high-speed mobile internet service that keeps you connected seamlessly and outpaces the competition, all at a pleasantly surprising cost!</p>
@@ -38,7 +38,7 @@ import BotonFlecha from '../../global/BotonFlecha.astro';
 
 
 			.title, .best, .subtitle{
-			color:#ffff;
+			color: var(--primary-text-color);
 			font-size: clamp(40px, 5vw, 100px);
 			font-weight: 400;
 			letter-spacing: 2px;
@@ -79,7 +79,7 @@ import BotonFlecha from '../../global/BotonFlecha.astro';
 			}
 			
 			.description {
-			  color: #fff;
+			  color: var(--primary-text-color);
 			  font-weight: 300;
 			  text-wrap: pretty;
 			  font-size: clamp(1rem, 1.3vw, 1.5rem);
@@ -87,35 +87,12 @@ import BotonFlecha from '../../global/BotonFlecha.astro';
 
 			.cta-text {
 			  justify-content: center;
-			  color: #fff;
+			  color: var(--primary-text-color);
 			  text-align: center;
 			  align-self: center;
 			  font-size: clamp(14px, 1.5vw, 1.5rem);
 			  font-weight: 200;
 			}
-		  
-	
-			button {
-			color: #fff;
-			
-			font-size: var(--fs-sm);
-			font-style: normal;
-			font-weight: 200;
-			border-radius: 50px;
-			border: clamp(1px, 1vw, 3px) solid #00c402;
-			padding: 8px;
-			background-color: transparent;
-			transition: border 0.2s ease;
-			}
-			button:hover {
-			color: #fff;
-			/* background color gradint tuquesa (izquierda) a  rosa (derecha)*/
-			background-image: linear-gradient(to right, #2ed5de,#2e74de, #d201d2);
-			border-color: #000000;
-			transition: 0.2s ease-in;
-			}
-		
-		
 			@media screen and (max-width: 900px) {
 			.main-container {
 			 gap:10px;

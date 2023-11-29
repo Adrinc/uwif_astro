@@ -29,9 +29,9 @@ import BotonFlecha from "../../global/BotonFlecha.astro";
                 <div class="description">window facilitates a strong connection to the closest 5G cell tower or data hub, resulting in faster download and upload speeds, lower latency, and increased capacity compared to locations with weaker connections.</div>
                 <BotonFlecha texto="Device Details" link="/#" />
             </div>
-            <div class="column-right-how-5g">
-                <div class=" bg-slate-400 w-[600px] h-[300px] rounded-lg"></div>
-            </div>
+          
+            <div class="flex flex-row bg-slate-400 w-[600px] h-[300px] rounded-lg"></div>
+          
         </div>
 
     
@@ -83,16 +83,16 @@ section
 }
 .title 
   {
-    color:#ffffff;
-	font-size: clamp(1.5rem, 3vw, 40px);
+    color:var(--primary-text-color);
+	font-size: clamp(1rem, 3vw, 40px);
     font-weight: bold;
     text-align: left;
     text-wrap: balance;
   }
   .description
   {
-    color:#ffffff;
-	font-size: clamp(1.5rem, 20vw, 1rem);
+    color:var(--primary-text-color);
+	font-size: clamp(1rem, 5vw, 1.5rem);
     font-weight: 100;
     text-align: left;
     text-wrap: pretty;
@@ -102,10 +102,29 @@ section
     display: flex;
     flex-direction: row;
     justify-content: center;
-    color:#ffffff;
-    font-size: clamp(1.5rem, 3vw, 60px);
+    color:var(--primary-text-color);
+    font-size: clamp(1rem, 10vw, 3rem);
     font-weight: bold;
     text-align: center;
     width: 100%;
   }
+
+  @media (max-width: 768px) {
+    .row-how-5g{
+        flex-direction: column;
+    }
+    .title-big,.title
+    {
+        text-align: center;
+    }
+    .description
+    {
+        text-align: justify;
+    }
+    .column-left-how-5g,.column-right-how-5g
+    {
+        align-items: center;
+    }
+
+}
 </style>

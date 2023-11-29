@@ -7,12 +7,12 @@ import FilaImagenTexto from "../FilaImagenTexto.astro";
     <div>
         <div class="contenedor">
             <div class="title">
-            <span class="text-[#00c402]">UWIFI </span>Mobile App
+            <span class="text-primaryColor">UWIFI </span>Mobile App
             </div>
         </div>
         <div class="contenedor">
             <div class="subtitle">
-                Take control of your home internet with one <span class="text-[#7D47DD]">simple app.</span>
+                Take control of your home internet with one <span class="text-secondaryColor">simple app.</span>
             </div>
         </div>
     </div>
@@ -22,31 +22,31 @@ import FilaImagenTexto from "../FilaImagenTexto.astro";
     image="/image/App1.png"
     title="Setup’s quick. Just download the app." 
     subtitle=" Step-by-step, we’ll make setup a breeze for your T-Mobile 5G Wi-Fi Gateway."  
-    flex="flex-direction: row"/>
+    flex="row"/>
 
     <FilaImagenTexto 
     image="/image/App2.png"
     title="Location matters." 
     subtitle="For the best possible connection, use the interactive placement assistant in the app to pinpoint the ideal location for your gateway."  
-    flex="flex-direction: row-reverse"/>
+    flex="row-reverse"/>
 
     <FilaImagenTexto 
     image="/image/App3.png"
     title="Keep an eye on your internet connection." 
     subtitle="Make sure your internet connection is at its best and get help tackling issues with your Wi-Fi network manager."  
-    flex="flex-direction: row"/>
+    flex="row"/>
 
     <FilaImagenTexto 
     image="/image/App4.png"
     title="See who’s online." 
     subtitle="Quickly identify each device that’s connected to your network."  
-    flex="flex-direction: row-reverse"/>
+    flex="row-reverse"/>
 
     <FilaImagenTexto 
     image="/image/App5.png"
     title="Set parental controls." 
     subtitle="A few simple taps and you can control which devices connect to Wi-Fi and when. You have the power."  
-    flex="flex-direction: row"/>
+    flex="row"/>
 
     <div>
 
@@ -69,28 +69,16 @@ import FilaImagenTexto from "../FilaImagenTexto.astro";
 	}
 	.title{
 	
-    color:#ffff;
+    color: var(--primary-text-color);
     font-size: clamp(1.5rem, 5vw, 80px);
     font-weight: 400;
     text-wrap: balance;
     }
     .subtitle{
-    color:#ffff;
+    color: var(--primary-text-color);
     font-size: clamp(1.5rem, 5vw, 40px);
     font-weight: 600;
     text-wrap: balance;
-    }
-
-    .columnaIzquierda{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        align-content: center;
-        width: 25%;
-        height: 100%;
-        text-wrap: pretty;
-        background-color: rgb(129, 255, 127);
     }
 
 
