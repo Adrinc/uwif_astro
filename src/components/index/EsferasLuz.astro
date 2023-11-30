@@ -6,7 +6,7 @@ import AuroraBoreal from './AuroraBoreal.astro';
 <!-- 
 <span class="green-ball-blured" id="ball2"></span>
 <span class="green-ball-blured" id="ball3"></span> -->
-
+<span class="green-ball-blured" id="ball3"></span>
 <!-- <AuroraBoreal /> -->
 
 <style>
@@ -48,7 +48,7 @@ import AuroraBoreal from './AuroraBoreal.astro';
 	#ball3{
 		top: 0;
 		left: 0%;
-		width: 800px;
+		width: clamp(0px, 100vw, 800px);
 		height: 800px;
 	
 		
@@ -57,7 +57,7 @@ import AuroraBoreal from './AuroraBoreal.astro';
 		/* make gradient top to bottom */ 
 
 		background: linear-gradient(#5746E5 0%, #8743E5 30%, #000000 70%, #03FB75 100%, #00000000 70%);
-		animation: move 30s infinite, blur 30s infinite,  rotate 30s infinite, scale 30s infinite, linear infinite;
+
 	}
 
 	@keyframes move {
