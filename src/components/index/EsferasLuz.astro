@@ -2,83 +2,81 @@
 import AuroraBoreal from './AuroraBoreal.astro';
 ---
 
-<!-- <span class="green-ball-blured" id="ball1"></span> -->
-<!-- 
-<span class="green-ball-blured" id="ball2"></span>
-<span class="green-ball-blured" id="ball3"></span> -->
-<span class="green-ball-blured" id="ball3"></span>
+<span>
+
+	<span class="green-ball-blured" id="ball1"></span>
+	<span class="green-ball-blured" id="ball2"></span>
+	<span class="green-ball-blured" id="ball3"></span>
+</span>
 <!-- <AuroraBoreal /> -->
 
 <style>
     	.green-ball-blured{
 		position: absolute;
-		top: -20%;
-		left: 55%;
 		width: 100vw;
-	
-	
-		
 		rotate: 50deg;
 		overflow-wrap: normal;
-
-		
-		/* make gradient */
 		background: linear-gradient(#5746E5 20%, #8743E5 40%, #20b340, #03FB75 100%);
-
-
-		/* make blur radius */
 		filter: blur(100px);
-	
-	
 		z-index: -1;
 	
 	}
-	#ball2{
-		top: 130%;
+	#ball1{
+
+		top: 0;
 		left: 50%;
-		width: 500px;
-		height: 800px;
+		width: clamp(0px, 50vw, 800px);
+		height: clamp(0px, 50vw, 800px);
 		border-radius: 100%;
-		
 		rotate: -45deg;
-	
-		/* make gradient */
 		background: linear-gradient(#5746E5 20%, #8743E5 40%, #03FB75 100%);
+		z-index: -1;
+		&::after{
+		
+		position: static;
+
+	
+	}
+	}
+	#ball2{
+
+		top: 15%;
+		left: 25%;
+		width: clamp(0px, 50vw, 700px);
+		height: clamp(0px, 50vw, 700px);
+		border-radius: 100%;
+	
+		
+	
+	
+		background: linear-gradient(#5746E5 20%, #48099f 40%);
+		z-index: -1;
+		&::after{
+		
+		position: static;
+
+	
+	}
 	}
 	#ball3{
-		top: 0;
-		left: 0%;
-		width: clamp(0px, 100vw, 800px);
-		height: 800px;
 	
+		top: 30%;
+		left: 50%;
+		width: clamp(0px, 50vw, 500px);
+		height: clamp(0px, 50vw, 500px);
+		border-radius: 100%;
+		rotate: -90deg;
+		background: linear-gradient(#5746E5 20%, #48e543 40%, #03FB75 50%);
+		z-index: -1;
+		&::after{
 		
-		rotate: 0deg;
-	
-		/* make gradient top to bottom */ 
+			position: static;
 
-		background: linear-gradient(#5746E5 0%, #8743E5 30%, #000000 70%, #03FB75 100%, #00000000 70%);
-
+		
+		}
 	}
 
-	@keyframes move {
-  0% { left: 0; }
-  50% { left: 10%; }
-  100% { left: 0; }
-}
-@keyframes blur {
-  0% { filter: blur(150px); }
-  50% { filter: blur(50px); }
-  100% { filter: blur(150px); }
-}
-@keyframes rotate {
-  0% { transform: rotate(0deg); }
-  50% { transform: rotate(180deg); }
-  100% { transform: rotate(0deg); }
-}
-@keyframes scale {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
-}
+
+
 
 </style>

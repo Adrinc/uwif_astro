@@ -4,6 +4,9 @@ import FilaImagenTexto from "../FilaImagenTexto.astro";
 ---
 
 <section id="app">
+    <span class="green-ball-blured"></span>
+    <span class="multi-ball-blured"></span>
+    <span class="purple-ball-blured"></span>
     <div>
         <div class="contenedor">
             <div class="title">
@@ -54,7 +57,44 @@ import FilaImagenTexto from "../FilaImagenTexto.astro";
 
 
 <style>
+    .green-ball-blured{
+    top: 20%;
+	left: 70%;
+	position: absolute;
+    width: clamp(200px, 50vw, 600px);
+	height: clamp(200px, 50vw, 600px);
+	border-radius: 100%;
+    background: #0a5702;
+	filter: blur(150px);
+	z-index: -1;
+	}
+    .multi-ball-blured{
+	position: absolute;
+    top: 70%;
+	left: 0%;
+    width: clamp(200px, 50vw, 700px);
+	height: clamp(200px, 50vw, 700px);
+	border-radius: 100%;
+    rotate: 90deg;
+    background: linear-gradient(180deg, rgba(3, 251, 117, 0.50) 0%, rgba(6, 255, 240, 0.50) 100%);
+	filter: blur(150px);
+	z-index: -1;
+	}
+    .purple-ball-blured{
+	position: absolute;
+    top: 80%;
+	left: -10%;
+    width: clamp(200px, 50vw, 600px);
+	height: clamp(200px, 50vw, 600px);
+	border-radius: 100%;
+    rotate: 90deg;
+    background: linear-gradient(180deg, rgba(87, 70, 229, 0.50) 0%, rgba(135, 67, 229, 0.50) 52.6%, rgba(0, 198, 55, 0.50) 100%);
+	filter: blur(70px);
+	z-index: -1;
+	}
+
       section{
+        position:relative;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;

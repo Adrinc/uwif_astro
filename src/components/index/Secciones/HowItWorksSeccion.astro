@@ -6,7 +6,7 @@ import BotonFlecha from "../../global/BotonFlecha.astro";
 
 <section id="howit">
 
-
+	<span class="green-ball-blured"></span>
     <div class="contenedor">
         <div class="title">
            <span class="text-primaryColor">How </span>it works?
@@ -49,13 +49,12 @@ import BotonFlecha from "../../global/BotonFlecha.astro";
 
 
         <div class="columnaderecha" >
+            <span class="multi-ball-blured"></span>
             <img class="iconoGrande" src="/image/movilconlogo.png" alt="ui-icon">
           
                 <BotonFlecha texto="Download App" link="/signup"  />
          
         </div>
-      
-    
     </div>
 
 
@@ -65,7 +64,32 @@ import BotonFlecha from "../../global/BotonFlecha.astro";
 
 <style>
 
+.green-ball-blured{
+    top: -20%;
+	left: -20%;
+	position: absolute;
+    width: clamp(200px, 50vw, 60200px);
+	height: clamp(200px, 50vw, 600px);
+	border-radius: 100%;
+    background: #0c5406;
+	filter: blur(150px);
+	z-index: -1;
+	}
+.multi-ball-blured{
+	position: absolute;
+    top: 0;
+	left: -20%;
+    width: clamp(200px, 50vw, 400px);
+	height: clamp(200px, 50vw, 400px);
+	border-radius: 100%;
+    rotate: -90deg;
+    background: linear-gradient(#5746E5 20%, #8743E5 20%, #20b340 60%);
+	filter: blur(100px);
+	z-index: -1;
+	}
+
     section{
+        position:relative;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
@@ -135,6 +159,7 @@ import BotonFlecha from "../../global/BotonFlecha.astro";
 
     }
     .columnaderecha{
+        position:relative;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;

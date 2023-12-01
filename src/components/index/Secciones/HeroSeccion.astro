@@ -5,7 +5,7 @@ import BotonFlecha from '../../global/BotonFlecha.astro';
 ---
 <section id="home">
 
-
+	
 	<main class="flex flex-row gap-4 box-border">
 		<div class="columna-izquierda" >
 
@@ -19,16 +19,32 @@ import BotonFlecha from '../../global/BotonFlecha.astro';
 			<BotonFlecha texto="Check Availability" link="https://cb-luna.github.io/uwifi_map_services-build/#/"/>
 		</div>
 
-		<div class="flex justify-center items-center">
+		<div class="flex justify-center items-center relative">
+			<span class="green-ball-blured" id="ball1"></span>
 			<div  class="moden"><Moden client:visible transition:persist/></div>
 		</div>
 	</main>
 </section>
 		  
 	<style>
-
+	.green-ball-blured{
+		position: absolute;
+		top: -25%;
+		left: 0;
+		width: clamp(400px, 50vw, 800px);
+		height: clamp(400px, 50vw, 800px);
+		border-radius: 100%;
+		
+		rotate: -45deg;
+	
+		filter: blur(100px);
+		z-index: -1;
+		background: linear-gradient(#5746E5 20%, #8743E5 40%, #03FB75 100%);
+	
+	}
 	
 		section{
+		
 			display: flex;
 			flex-direction: column;
 			justify-content: center;

@@ -5,7 +5,8 @@ import BotonFlecha from "./BotonFlecha.astro";
 
 
 
-    <div class="w-full h-[300px] flex flex-col justify-center items-center">
+    <div class="w-full h-[300px] flex flex-col justify-center items-center relative">
+        <span class="purple-ball-blured"></span>
         <div class="flex flex-row justify-center items-center">
             <BotonFlecha texto="Discover all we have for " link="/" borderColor="#ffffff" iconColor="#ffffff" />
 
@@ -56,3 +57,19 @@ import BotonFlecha from "./BotonFlecha.astro";
         </div>
 
     </div>
+
+    <style>
+    .purple-ball-blured{
+        top: 25%;
+	
+		position: absolute;
+        width: clamp(200px, 50vw, 500px);
+		height: clamp(200px, 50vw, 500px);
+		border-radius: 100%;
+        transform: rotate(-22.538deg);
+        background: linear-gradient(180deg, #2603FB 0%, #DC06FF 100%);
+		filter: blur(250px);
+		z-index: -1;
+	
+	}
+    </style>

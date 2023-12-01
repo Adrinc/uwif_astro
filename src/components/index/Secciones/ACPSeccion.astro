@@ -4,7 +4,7 @@ import BotonFlecha from '../../global/BotonFlecha.astro'
 
 <section id="acp">
 	
-    
+   
     <span class="title">We are an <span class="acp"> ACP </span> Provider!</span>
    
     <p class="description">We´re keeping people connected by participation in the FCC´s Affordable Connectivity Program. Qualifying households will be able to receive a $30/mo discount on their <span style="display: inline-block; font-weight: 500" >UWIFI Plan.</span></p>
@@ -12,6 +12,7 @@ import BotonFlecha from '../../global/BotonFlecha.astro'
    
     <div class="fila-fc">
         <div class="columnas-fc">
+            <span class="purple-ball-blured"></span>
             <img class="fc-logo" loading="lazy" src="image/fc.png">
             <div class="fc-info">
                 <h1>AFFORDABLE</h1>
@@ -21,7 +22,7 @@ import BotonFlecha from '../../global/BotonFlecha.astro'
         </div>
     </div>
 
-        <BotonFlecha texto="Learn More" link="/"/>
+        <BotonFlecha texto="Learn More" link="/acp"/>
      
     </section>
 
@@ -31,8 +32,20 @@ import BotonFlecha from '../../global/BotonFlecha.astro'
 
 
 <style>
-
+   	.purple-ball-blured{
+        top: -25;
+		left: 25%;
+		position: absolute;
+        width: clamp(200px, 50vw, 600px);
+		height: clamp(200px, 50vw, 600px);
+		border-radius: 100%;
+        background: linear-gradient(#5746E5 20%, #48099f 40%);
+		filter: blur(100px);
+		z-index: -1;
+	
+	}
     section{
+        
             display: flex;
             flex-direction: column;
             flex-wrap: wrap;
@@ -48,6 +61,7 @@ import BotonFlecha from '../../global/BotonFlecha.astro'
     
     
             .fila-fc{
+                position:relative;
                 display: flex;
                 flex-direction: row;
                 flex-wrap: wrap;
