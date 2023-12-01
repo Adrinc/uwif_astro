@@ -3,7 +3,7 @@
     
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    padding: clamp(20px, 5%, 40px);
+    padding: clamp(20px, 5%, 20px);
     border-bottom: #fff 2px solid;
     backdrop-filter: blur(10px); 
     justify-content: space-between;
