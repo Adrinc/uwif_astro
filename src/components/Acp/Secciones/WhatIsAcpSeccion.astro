@@ -8,11 +8,12 @@
 	<div class="main-container">
 
         <div class="columna-izquierda">
+			<span class="purple-ball-blured"></span>
 			<iframe class="acp-video" src="https://www.youtube.com/embed/0pkXReo9Kfk?si=m9sF7jb8c5Y0Q2Hl" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             <div class="columna-izquierda-texto-seccion"> 
             <p class="description">
                 Affordable Connectivity Program recipients fully enrolled as of December 31, 2021 will automatically continue to receive their current monthly benefit until March 1, 2022. 
-                You can learn more about the program transition and steps you may need to take to stay enrolled after March 1st, by visiting <a href="https://www.fcc.gov/broadbandbenefit" class="text-secondaryColor">fcc.gov/broadbandbenefit.</a>
+                You can learn more about the program transition and steps you may need to take to stay enrolled after March 1st, by visiting <a href="https://www.fcc.gov/broadbandbenefit" class="text-secondaryColor font-bold hover:text-primaryColor hover:text-2xl transition-all">fcc.gov/broadbandbenefit.</a>
             </p>
             </div>
             
@@ -50,8 +51,20 @@
 			padding-left: clamp(20px, 50vw, 100px);
 			padding-right: clamp(20px, 50vw, 100px);
 			margin-top: 150px;
-			padding-bottom: 100px;
+			
 		}
+		.purple-ball-blured{
+	position: absolute;
+    top: -20%;
+	left: 10%;
+    width: clamp(200px, 50vw, 500px);
+	height: clamp(200px, 50vw, 500px);
+	border-radius: 100%;
+    rotate: 90deg;
+    background: linear-gradient(180deg, rgba(87, 70, 229, 0.50) 0%, rgba(135, 67, 229, 0.50) 52.6%);
+	filter: blur(100px);
+	z-index: -1;
+	}
 		.main-container{
 			display: flex;
 			flex-direction: row;
@@ -62,6 +75,7 @@
 	}
 
     .columna-izquierda{
+			position: relative;
 			display: flex;
 			flex-direction: column;
 			justify-content: left;
