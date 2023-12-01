@@ -114,10 +114,22 @@ let listas = [
 
 
   @media (max-width: 768px) {
-    section {
+    .main-container {
       flex-direction: column;
       align-items: center;
       gap: 1rem;
     }
+
+	.title{
+    
+    color: var(--primary-text-color);
+    font-size: clamp(1.5rem, 3vw, 80px);
+    font-weight: bold;
+    text-align: center;
+    }
+    .description, .description-inferior 
+  {
+    text-align: center;
+  }
   }
 </style>
