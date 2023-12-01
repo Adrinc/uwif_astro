@@ -4,8 +4,10 @@ import BotonFlecha from '../../global/BotonFlecha.astro'
 
 <section id="acp">
 	
-   
-    <span class="title">We are an <span class="acp"> ACP </span> Provider!</span>
+   <div class="row-acp">
+
+       <span class="title">We are an <span class="acp"> ACP </span> Provider!</span>
+   </div>
    
     <p class="description">We´re keeping people connected by participation in the FCC´s Affordable Connectivity Program. Qualifying households will be able to receive a $30/mo discount on their <span style="display: inline-block; font-weight: 500" >UWIFI Plan.</span></p>
 
@@ -52,11 +54,18 @@ import BotonFlecha from '../../global/BotonFlecha.astro'
             align-items: center;
             align-content: center;
             justify-content: space-between;
-            margin-top: 10vh;
-            margin-bottom:  10vh;
+            padding-top: 5vh;
+            padding-bottom:  5vh;
             width: 100%;
             gap:2rem;
             padding: clamp(0px, 10vw, 100px);
+        }
+
+        .row-acp{
+            display:flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
         }
     
     
@@ -64,19 +73,20 @@ import BotonFlecha from '../../global/BotonFlecha.astro'
                 position:relative;
                 display: flex;
                 flex-direction: row;
-                flex-wrap: wrap;
+              
                 align-items: center;
                 align-content: center;
                 justify-content: center;
-                height: 200px;
+             
                 width: 100%;
                 
             }
             .columnas-fc{
-                display: grid;
-                grid-template-columns: 1fr 1fr;
+                display: flex;
+                flex-direction: row;
                 justify-content: center;
                 align-items: center;
+                gap: clamp(0px, 2vw, 40px);
             }
             .fc-info{
                 display: flex;
@@ -87,7 +97,7 @@ import BotonFlecha from '../../global/BotonFlecha.astro'
                 justify-content: space-between;
                 
                 color: var(--primary-text-color);
-                font-size: xx-large;
+                font-size: clamp(0.5rem, 5vw, 2rem);
                 font-weight: 800;
                 text-align: left;
             
@@ -98,37 +108,35 @@ import BotonFlecha from '../../global/BotonFlecha.astro'
                 align-items: center;
                 align-content: center;
                 justify-content: center;
-                height: 200px;
-                width: 250px;
-                margin-right: 50px;
+                height: clamp(50px, 20vw, 200px);
+                width: clamp(50px, 20vw, 200px);
+              
             
             }
     
         .title, .acp{
-                display: flex;
+               
                 color:var(--primary-text-color);
-                font-size: 90px;
+                font-size: clamp(1rem, 20vw, 90px);
                 font-weight: 400;
-                text-align: left;
-                word-spacing: 5px;
-                justify-content: left;
+                text-align: center;
+               
                 line-height: 1;
                 list-style: none;
                 }
                 .acp{
                     color: var(--secondary-color);
-                    margin-left: 20px;
-                    margin-right: 20px;
+               
                 }
          
             
                 .description {
                   color: var(--primary-text-color);
                   font-weight: 100;
-                  font-size: 30px;
+                  font-size: clamp(1rem, 8vw, 1.8rem);
                   justify-content: center;
                   text-align: center;
-                  width: 1500px;
+                
                   margin-bottom:40px;
                 }
         
