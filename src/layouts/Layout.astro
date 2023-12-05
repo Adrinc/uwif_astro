@@ -2,6 +2,7 @@
 
 /* import TopMenu from '../components/TopMenu.astro'; */
 import TopMenu from '../components/react_components/TopMenu.jsx';
+import RouterLinks from '../components/react_components/RouterLinks.jsx';
 import TopMenuSuffle from '../components/header/TopMenuSuffle.astro';
 
 import FootUWIFI from '../components/global/FootUWIFI.astro';
@@ -26,8 +27,8 @@ const { title } = Astro.props;
 	</head>
 	<header>
 
-	<!-- 	<TopMenu /> -->
-		<TopMenuSuffle />
+		<RouterLinks  transition:persist client:only />
+		<!-- <TopMenuSuffle /> -->
 	</header>
 	<body>	
 	<div id="top"></div>
