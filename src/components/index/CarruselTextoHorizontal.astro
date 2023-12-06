@@ -36,6 +36,7 @@
 	  border-top: 1px solid var(--tertiary-color);
 	  border-bottom: 1px solid var(--tertiary-color);
 	  padding: 20px;
+
 	}
 	
 
@@ -57,7 +58,17 @@
 	  cursor: pointer;
 	}
   
-
+	@media  screen and (height< 400px) {
+		.content-wrapper {
+	  padding-right: 153px;
+	  border-top: 1px solid var(--tertiary-color);
+	  border-bottom: 1px solid var(--tertiary-color);
+	  padding: 20px;
+	  margin-top: clamp(40px, 50vh, 200px);
+	  margin-botom: clamp(40px, 50vh, 200px);
+	}
+	
+			}
   
 	
   </style>
