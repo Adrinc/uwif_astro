@@ -16,13 +16,13 @@
   .image {
 
     object-position: center;
-    width: clamp(100px, 10vw, 200px);
+    width: clamp(100px, 10vw, 250px);
     align-self: center;
   }
   .imagemobile {
 
     object-position: center;
-    width: clamp(100px, 15vw, 280px);
+    width: clamp(100px, 30vw, 250px);
     align-self: center;
   }
 
@@ -43,6 +43,22 @@
     align-self: start;
     font-weight: 800;
     font-size: clamp(14px, 2vw, 40px);
+  
+  }
+  .selected-link-mobile, .linkmobil{
+    color: #ffffff;
+    text-shadow:  2px 2px 0px #000000;
+    text-transform: uppercase;
+    align-self: start;
+    padding-left: 8px;
+    font-weight: 800;
+    font-size: clamp(14px, 8vw, 30px);
+    border-bottom: #fff 1px solid;
+    width: 100%;
+  }
+  .selected-link-mobile {
+    color: #00c402;
+
   }
   .selected-link {
     color: #00c402;

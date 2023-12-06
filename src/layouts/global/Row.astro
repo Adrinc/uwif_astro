@@ -1,0 +1,21 @@
+---
+/* FLUTTER LIKE ROW */
+interface Props {
+    key?: string;
+    mainAxisAlignment?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around' | 'space-evenly';
+    crossAxisAligment?: 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline' | 'initial' | 'inherit';
+    warp?: 'nowrap' | 'wrap' | 'wrap-reverse';
+    mainAxisSize?: 'min-content' | 'max-content' | 'fit-content' | 'fill' | 'inherit' | 'initial' | 'unset';
+    textDirection?: 'left' | 'right' | 'center' | 'end' | 'justify';
+    reverse?: boolean;
+}
+// Row.astro
+
+
+let { mainAxisAlignment = 'flex-start', crossAxisAligment='flex-start', warp='nowrap', textDirection='left', mainAxisSize='max-content', reverse=false, key }: Props = Astro.props;
+---
+
+<div id={key} class=`flex ${reverse==true ? "flex-row-reverse" : "flex-row"}` style={`justify-content: ${mainAxisAlignment};  align-items: ${crossAxisAligment}; flex-wrap: ${warp};`}>
+    <slot />
+</div>
+

@@ -1,0 +1,39 @@
+---
+/* FLUTTER LIKE COLUMN */
+interface Props {
+    key?: string;
+    width?: number;
+    height?: number;
+    color?: string;
+    margin?: number;
+    padding?: number;
+    alignment?: string;
+    borderRadiusAll?: number;
+    borderRadiusTopLeft?: number;
+    borderRadiusTopRight?: number;
+    borderRadiusBottomLeft?: number;
+    borderRadiusBottomRight?: number;
+    borderAll?: number;
+    borderTop?: number;
+    borderRight?: number;
+    borderBottom?: number;
+    borderColor?: string;
+
+}
+// Row.astro
+
+
+let { 
+    mainAxisAlignment = 'flex-start', 
+    crossAxisAligment='flex-start', 
+    mainAxisSize='max-content', 
+    warp='nowrap', 
+    textDirection='left', 
+    reverse=false, 
+    key }: Props = Astro.props;
+---
+
+<div id={key} class=`flex ${reverse==true ? "flex-col-reverse" : "flex-col"}` style={`justify-content: ${mainAxisAlignment};  align-items: ${crossAxisAligment}; flex-wrap: ${warp};`}>
+    <slot />
+</div>
+

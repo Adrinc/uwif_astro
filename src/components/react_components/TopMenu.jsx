@@ -89,29 +89,34 @@ const TopMenu = () => {
     return (
         <>
                     {showMenu && (
-                <div className="flex flex-col gap-10 absolute top-0 left-0 w-64 h-[100vh] shadow-lg z-50 backdrop-filter backdrop-blur-md border-x-2 border-tertiaryColor transform transition-transform duration-500 ease-in-out translate-x-0">
-                    <div className='flex flex-row justify-between p-4 bg-primaryBg'>
+                <div className="md:hidden flex flex-col gap-10 absolute top-0 left-0 w-[30vw] h-[100vh] shadow-lg z-50 bg-[#00000070] backdrop-filter backdrop-blur-lg border-x-2 border-tertiaryColor animate-fade-right animate-duration-500">
+                    <div className='flex flex-row justify-end p-4 '>
+              
+                        <button onClick={toggleMenu} className=" border-2 rounded-lg text-primaryTextColor p-2  font-bold text-lg">
+                            <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill='#ffffff' fillRule="evenodd" clipRule="evenodd">
+                                <path d="M2.117 12l7.527 6.235-.644.765-9-7.521 9-7.479.645.764-7.529 6.236h21.884v1h-21.883z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div className='flex flex-row justify-center p-2'>
                         <img
                         loading="lazy"
                         src="https://cdn.builder.io/api/v1/image/assets/TEMP/b7f45c54-79dc-492c-a979-eb8b20a2cc5c?apiKey=99b0eaa04efc41a78ff2850239e1f525&width=100"
                         className={TopMenuStyle.imagemobile}
                         />
 
-                        <button onClick={toggleMenu} className=" border-2 rounded-lg text-primaryTextColor p-2  font-bold text-lg">
-                            <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill='#ffffff' fill-rule="evenodd" clip-rule="evenodd">
-                                <path d="M2.117 12l7.527 6.235-.644.765-9-7.521 9-7.479.645.764-7.529 6.236h21.884v1h-21.883z"/>
-                            </svg>
-                        </button>
+                 
                     </div>
-                    <nav className="flex flex-col items-start p-4 gap-4">
+                    <nav className="flex flex-col items-start  gap-6">
                     {links.map(link => (
-                        <a 
-                        href={link.url} 
-                        className={(link.url === selectedLink || link.alterurl === currentPath) ? TopMenuStyle['selected-link'] : TopMenuStyle.link}
-                        onClick={() => handleLinkClick(link.name)}
-                    >
-                        {link.name}
-                        </a>
+                      <a 
+                      key={link.name}
+                      href={link.url} 
+                      className={link.name === selectedLink ? TopMenuStyle['selected-link-mobile'] : TopMenuStyle.linkmobil}
+                      onClick={() => handleLinkClick(link.name)}
+                  >
+                      {link.name}
+                  </a>
                     ))}
                     </nav>
                 </div>
@@ -137,6 +142,7 @@ const TopMenu = () => {
                 <nav className={`${TopMenuStyle.navigation} ${isMobile && showMenu ? !TopMenuStyle.showMenu : ''}`}>
                     {links.map(link => (
                         <a 
+                            key={link.name}
                             href={link.url} 
                             className={link.name === selectedLink ? TopMenuStyle['selected-link'] : TopMenuStyle.link}
                             onClick={() => handleLinkClick(link.name)}
