@@ -118,6 +118,11 @@ const TopMenu = () => {
                       {link.name}
                   </a>
                     ))}
+                 
+                    <div className="flex flex-row justify-center  items-center align-middle  w-[100%] mt-6 ">
+                      <a className="inline-block buttom-shadow py-2 px-4 text-xl font-bold leading-5 text-green-50 buttom-text-shadow drop-shadow-sm bg-green-500  hover:bg-green-600 focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 rounded-md" href="https://uwifi-web.vercel.app/login">Login</a>
+                      </div>
+             
                     </nav>
                 </div>
                 )}
