@@ -68,7 +68,7 @@ import BotonFlecha from "../../global/BotonFlecha.astro";
     top: -20%;
 	left: -20%;
 	position: absolute;
-    width: clamp(200px, 50vw, 60200px);
+    width: clamp(200px, 50vw, 620px);
 	height: clamp(200px, 50vw, 600px);
 	border-radius: 100%;
     background: #0c5406;
@@ -111,14 +111,14 @@ import BotonFlecha from "../../global/BotonFlecha.astro";
         display: flex;
         flex-direction: column;
         justify-content: center;
-        font-size: clamp(2rem, 7vw, 150px);
+        font-size: clamp(2rem, 7vw, 110px);
         font-weight: 700;
         color: var(--primary-text-color);
 
     }
     p{
         color: var(--primary-text-color);
-        font-size: clamp(1rem, 7vw, 2.5rem);
+        font-size: clamp(1rem, 3vw, 30px);
        
     
         text-wrap: pretty;
@@ -186,7 +186,7 @@ import BotonFlecha from "../../global/BotonFlecha.astro";
 	.title{
 	
         color: var(--primary-text-color);
-			font-size: clamp(1.5rem, 5vw, 80px);
+			font-size: clamp(1.5rem, 3vw, 50px);
 			font-weight: 400;
             text-wrap: balance;
 			}
@@ -236,5 +236,12 @@ import BotonFlecha from "../../global/BotonFlecha.astro";
 	    text-align: center;
     }
   }
-
+  @media  screen and (height< 450px) {
+				section{
+		
+				
+					margin-bottom: clamp(50px, 50vh, 100px);
+				}
+		
+			}
 </style>
