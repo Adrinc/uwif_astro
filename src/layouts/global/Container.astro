@@ -17,10 +17,11 @@ interface Props {
     borderRadiusTopRight?: number;
     borderRadiusBottomLeft?: number;
     borderRadiusBottomRight?: number;
-    borderAll?: number;
+    border?: number;
     borderTop?: number;
     borderRight?: number;
     borderBottom?: number;
+    borderLeft?: number;
     borderColor?: string;
     tailwind?: string;
 }
@@ -31,7 +32,7 @@ let {
     key,
     width=100,
     height=100,
-    color="#transparent",
+    color="transparent",
     backgroundImageUrl="",
     margin=0,
     padding=0,
@@ -44,10 +45,11 @@ let {
     borderRadiusTopRight=0,
     borderRadiusBottomLeft=0,
     borderRadiusBottomRight=0,
-    borderAll=0,
+    border=0,
     borderTop=0,
     borderRight=0,
     borderBottom=0,
+    borderLeft=0,
     borderColor="#000000",
     tailwind=""
     }: Props = Astro.props;
@@ -56,6 +58,17 @@ let {
     paddingRight = padding > 0 ? padding : paddingRight;
     paddingTop = padding > 0 ? padding : paddingTop;
     paddingBottom = padding > 0 ? padding : paddingBottom;
+
+    borderRadiusTopLeft = borderRadius > 0 ? borderRadius : borderRadiusTopLeft;
+    borderRadiusTopRight = borderRadius > 0 ? borderRadius : borderRadiusTopRight;
+    borderRadiusBottomLeft = borderRadius > 0 ? borderRadius : borderRadiusBottomLeft;
+    borderRadiusBottomRight = borderRadius > 0 ? borderRadius : borderRadiusBottomRight;
+
+    borderTop = border > 0 ? border : borderTop;
+    borderRight = border > 0 ? border : borderRight;
+    borderBottom = border > 0 ? border : borderBottom;
+    borderLeft = border > 0 ? border : borderLeft;
+
 ---
 
 <div id={key} class={tailwind} style={`
@@ -69,15 +82,16 @@ let {
 --padding-bottom: ${paddingBottom}px;
 --padding-left: ${paddingLeft}px;
 --padding-right: ${paddingRight}px;
---border-radius-all: ${borderRadius}px;
+--border-radius: ${borderRadius}px;
 --border-radius-top-left: ${borderRadiusTopLeft}px;
 --border-radius-top-right: ${borderRadiusTopRight}px;
 --border-radius-bottom-left: ${borderRadiusBottomLeft}px;
 --border-radius-bottom-right: ${borderRadiusBottomRight}px;
---border-all: ${borderAll}px;
+--border: ${borderTop}px solid ${borderColor}
 --border-top: ${borderTop}px;
 --border-right: ${borderRight}px;
 --border-bottom: ${borderBottom}px;
+--border-left: ${borderLeft}px;
 --border-color: ${borderColor};
 
 `}>
@@ -89,18 +103,19 @@ let {
     
         width: var(--width);
         height: var(--height);
-        border: var(--border-all) solid var(--border-color);
         margin: var(--margin);
         padding: var(--padding);
         background-color: var(--color);
+        border: var(--border) solid var(--border-color);
+        border-top: var(--border-top) solid var(--border-color);
+        border-right: var(--border-right) solid var(--border-color);
+        border-bottom: var(--border-bottom) solid var(--border-color);
+        border-left: var(--border-left) solid var(--border-color);
+        border-radius: var(--border-radius);
         border-top-left-radius: var(--border-radius-top-left);
         border-top-right-radius: var(--border-radius-top-right);
         border-bottom-left-radius: var(--border-radius-bottom-left);
         border-bottom-right-radius: var(--border-radius-bottom-right);
-        border-top: var(--border-top) solid var(--border-color);
-        border-right: var(--border-right) solid var(--border-color);
-        border-bottom: var(--border-bottom) solid var(--border-color);
-        border-radius: var(--border-radius-all);
 
         
     
