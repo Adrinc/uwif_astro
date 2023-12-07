@@ -1,0 +1,21 @@
+---
+import Moden from './Scene3D/ModenScene/Main3D';
+import BotonFlecha from './global/BotonFlecha.astro';
+import Row from '../layouts/global/Row.astro';
+import Column from '../layouts/global/Column.astro';
+import Container from '../layouts/global/Container.astro';
+
+---
+<section id="test">
+
+	<Row mainAxisAlignment='space-evenly'>
+        <Container width={800} height={800}  color='#ffff' padding={10}> 
+            <Column mainAxisAlignment='space-between' crossAxisAligment='center' mainAxisSize='max-content' gap={60} key="maincolumn" color='#aaa0ff'>
+                <Container width={200} height={200} color='#00ff00'  key="green-box"/> 
+                <Container width={200} height={200} color='#ff0000'  key="red-box"/> 
+            </Column>
+        </Container>
+    </Row>
+	
+</section>
+		  
