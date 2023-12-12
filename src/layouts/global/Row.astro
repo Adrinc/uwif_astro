@@ -10,6 +10,9 @@ interface Props {
     textDirection?: 'left' | 'right' | 'center' | 'end' | 'justify';
     reverse?: boolean;
     gap?: number;
+    flexGrow?: number;
+    flexShrink?: number;
+    padding?: number;
 }
 // Row.astro
 
@@ -23,7 +26,10 @@ let {
     mainAxisSize='max-content', 
     color="transparent", 
     reverse=false,  
-    gap=0 
+    gap=0,
+    flexGrow=1,
+    flexShrink=0,
+    padding=0
     }: Props = Astro.props;
 ---
 
@@ -36,6 +42,9 @@ style={`
 --textDirection: ${textDirection};
 --mainAxisSize: ${mainAxisSize};
 --gap: ${gap}px;
+--flexGrow: ${flexGrow};
+--flexShrink: ${flexShrink};
+--padding: ${padding}px;
 
 `
 }>
@@ -50,6 +59,9 @@ style={`
         gap: var(--gap);
         background-color: var(--color);
         text-align: var(--textDirection);
+        flex-grow: var(--flexGrow);
+        flex-shrink: var(--flexShrink);
+        padding: var(--padding);
     }
 
 </style>

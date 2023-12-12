@@ -11,8 +11,12 @@ interface Props {
     scrollable?:boolean;
     gap?:number;
     color?:string;
+    flexGrow?:number;
+    flexShrink?:number;
+    padding?:number;
+    
 }
-// Row.astro
+
 
 
 let { 
@@ -24,6 +28,9 @@ let {
     reverse=false, 
     gap=0,
     color='#transparent',
+    flexGrow=1,
+    flexShrink=0,
+    padding=0,
     key }: Props = Astro.props;
 ---
 
@@ -36,6 +43,9 @@ style={`
 --main-axis-size: ${mainAxisSize};
 --gap: ${gap}px;
 --color: ${color};
+--flex-grow: ${flexGrow};
+--flex-shrink: ${flexShrink};
+--padding: ${padding}px;
 `}>
     <slot />
 </div>
@@ -51,6 +61,9 @@ style={`
         height: 100%;
         gap: var(--gap)px;
         background-color: var(--color);
+        flex-grow: var(--flex-grow);
+        flex-shrink: var(--flex-shrink);
+        padding: var(--padding)px;
         
     }
 </style>
