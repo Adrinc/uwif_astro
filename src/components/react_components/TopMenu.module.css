@@ -29,9 +29,10 @@
   .navigation {
     display: flex;
     flex-direction: row;
+    flex-grow: 1;
     justify-content: center;
     width: 100%;
-    gap: clamp(10px, 250vw, 32px);
+    gap: clamp(10px, 25vw, 80px);
     align-self: center;
   }
 
@@ -42,7 +43,7 @@
     text-transform: uppercase;
     align-self: start;
     font-weight: 800;
-    font-size: clamp(14px, 2vw, 40px);
+    font-size: clamp(14px, 2vw, 30px);
   
   }
   .selected-link-mobile, .linkmobil{
@@ -108,7 +109,25 @@
   .navigation {
       display: none; /* Oculta el menú de navegación en pantallas pequeñas */
   }
-    
+  .selected-link-mobile, .linkmobil{
+
+    padding: 8px;
+    font-weight: 600;
+    font-size: clamp(14px, 8vw, 20px);
+    border-bottom: #fff 1px solid;
+    width: 100%;
+  }
+  }
+  @media screen and (max-width: 450px) {
+ 
+  .selected-link-mobile, .linkmobil{
+
+    padding: 8px;
+    font-weight: 600;
+    font-size: clamp(14px, 8vw, 16px);
+    border-bottom: #fff 1px solid;
+    width: 100%;
+  }
   }
 
 

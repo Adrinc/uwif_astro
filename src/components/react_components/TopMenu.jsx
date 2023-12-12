@@ -8,9 +8,10 @@ const TopMenu = () => {
         { name: 'HOME', url: '/', alterurl:"/#home" },
         { name: 'ACP', url: '/#acp', alterurl:"/acp" },
         { name: 'PLAN', url: '/#plan', alterurl:"/#plan" },
-        { name: 'HOW?', url: '/#howit', alterurl:"/howit" },
-        { name: 'APP', url: '/#app', alterurl:"/#app" },
-        { name: '5G', url: '/#5g', alterurl:"/#5g" },
+        { name: 'HOW IT WORKS', url: '/howitworks', alterurl:"/howitworks" },
+/*         { name: 'APP', url: '/#app', alterurl:"/#app" }, */
+        { name: 'FAQ', url: '/#faq', alterurl:"/#faq" },
+/*         { name: '5G', url: '/#5g', alterurl:"/#5g" }, */
     ];
     const location = useLocation();
     let currentPath = location.pathname;

@@ -11,6 +11,7 @@ export default {
 			secondaryColor: 'var(--secondary-color)',
 			primaryTextColor: 'var(--primary-text-color)',
 			secondaryTextColor: 'var(--secondary-text-color)',
+			tertiaryTextColor: 'var(--tertiary-text-color)',
 			primaryBg: 'var(--primary-bg-color)',
 			secondaryBg: 'var(--secondary-bg-color)',
 			primaryGradient: 'var(--primary-gradient)',
