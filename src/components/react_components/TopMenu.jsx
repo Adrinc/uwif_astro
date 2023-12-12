@@ -33,6 +33,9 @@ const TopMenu = () => {
         if(name.includes("acp")){
             setSelectedLink("ACP");
         }
+        else if(name.includes("howitworks")){
+            setSelectedLink("HOW IT WORKS");
+        }
         else{
             setSelectedLink(name);
         
