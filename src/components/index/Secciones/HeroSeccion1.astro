@@ -1,0 +1,90 @@
+---
+import BotonFlecha from "../../global/BotonFlecha.astro";
+
+
+---
+<section id="home">
+    <video autoplay muted loop id="myVideo"  transition:persist>
+        <source src="videos/uwifi1.mp4" type="video/mp4">
+    </video>
+
+	<div class="botones">
+	
+		
+			<BotonFlecha texto="BUY NOW" iconColor="var(--primary-text-color)"  link="https://cb-luna.github.io/uwifi_map_services-build/#/"/>
+			<p class="texto-or font-bold text-primaryTextColor "> OR </p>
+			<BotonFlecha backgroundColor="var(--primary-buttom-color)" iconColor="var(--primary-text-color)" texto="APPLY FOR FREE WIFI" link="https://cb-luna.github.io/uwifi_map_services-build/#/"/>
+		
+
+	</div>
+
+	
+</section>
+		  
+	<style>
+
+		section{
+		
+			position: relative;
+			box-sizing: border-box;
+			margin-top: 100px;
+			height: 80vh;
+		}
+		.botones{
+			flex-direction: row;
+		
+			background-color: #000000b3;
+			position: absolute;
+        	bottom: 10%;
+			display: flex;
+			align-items: center;
+			border-radius: 0 50px 50px 0;
+			padding: 16px;
+			gap: clamp(10px, 20vw, 20px);
+		}
+		.texto-or{
+			font-size: clamp(10px, 20vw, 24px);
+		}	
+		#myVideo {
+		position: absolute;
+        right: 0;
+        bottom: 0;
+	
+		width: 100vw;
+        height: 100%;
+		object-fit: cover;
+		z-index: -1;
+		}
+		main{
+			padding-left: clamp(0px, 5vw, 100px);
+			padding-right: clamp(0px, 5vw, 100px);
+		}
+
+	
+			@media (max-width: 768px) {
+				.botones {
+				flex-direction: column;
+				align-items: center;
+				bottom: 5%;
+				gap: clamp(4px, 15vw, 20px);
+		
+				}
+		
+			}
+			@media  screen and (height< 450px) {
+				section{
+		
+					padding-top: clamp(200px, 50vh, 400px);
+					margin-bottom: clamp(200px, 50vh, 300px);
+				}
+				.botones {
+				flex-direction: column;
+				align-items: center;
+				bottom: 5%;
+				
+		
+				}
+			}
+			
+	
+ </style>

@@ -2,6 +2,7 @@
 interface Props {
 	texto: string;
 	link: string;
+	backgroundColor?: string;
 	borderColor?: string;
 	borderColorHover?:string;
 	borderWidth?: number;
@@ -14,12 +15,13 @@ interface Props {
 	gradientColorRight?: string;
 }
 
-const { texto, link, iconColor='#00c207', iconColorHover='#00c207', borderColor = '#00c207', borderColorHover ='#00c402',  borderWidth=3, textColor='#ffffff', textColorHover='#ffffff', gradientColorLeft='#2ed5de',gradientColorCenter='#2e74de', gradientColorRight='#d201d2'   } = Astro.props;
+const { texto, link, backgroundColor="transparent", iconColor='#00c207', iconColorHover='#00c207', borderColor = '#00c207', borderColorHover ='#00c402',  borderWidth=3, textColor='#ffffff', textColorHover='#ffffff', gradientColorLeft='#2ed5de',gradientColorCenter='#2e74de', gradientColorRight='#d201d2'   } = Astro.props;
 ---
 <a href={link}>
     <button class=`button-learn`
 	style={
 	`
+	--background-color: ${backgroundColor};
 	--text-color: ${textColor};
 	--text-color-hover: ${textColorHover};
 	--icon-color-hover: ${iconColor};
@@ -57,7 +59,8 @@ const { texto, link, iconColor='#00c207', iconColorHover='#00c207', borderColor 
   
 .button-learn {
 color:var(--text-color);
-font-size: 24px;
+background-color: var(--background-color);
+font-size: clamp(10px, 20vw, 24px);
 font-weight: 200;
 border-radius: 50px;
 border: var(--border-width) solid;
@@ -76,6 +79,21 @@ transition: 1s ease-in-out;
 width: clamp(0.5rem, 1vw, 85px);
 height: clamp(0.5rem, 1vw, 85px)
 }
-
+@media (max-width: 768px) {
+	.button-learn {
+		font-size: clamp(12px, 20vw, 20px)
+	}
+		
+	}
+@media (max-width: 450px) {
+	.button-learn {
+		font-size: clamp(8px, 10vw, 16px);
+	
+	}
+	.icono{
+	display:none;
+}
+		
+	}
 
 </style>
