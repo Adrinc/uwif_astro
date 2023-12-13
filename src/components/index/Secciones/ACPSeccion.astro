@@ -84,8 +84,8 @@ import BotonFlecha from '../../global/BotonFlecha.astro'
 
 <style>
     svg{
-        width: clamp(50px, 30vw, 100px);
-        height: clamp(50px, 30vh, 100px);
+        width: clamp(50px, 20vw, 80px);
+        height: clamp(50px, 20vh, 80px);
     }
     .botones{
         display: flex;
@@ -105,6 +105,8 @@ import BotonFlecha from '../../global/BotonFlecha.astro'
         justify-items: center;
         justify-content: space-evenly;
         width: 100%;
+        gap: clamp(0px, 10vw, 20px);
+        padding: clamp(0px, 10vw, 20px);
     }
     .main-enroll-active-use .title{
         font-size: clamp(12px, 40vw, 40px);
@@ -117,7 +119,7 @@ import BotonFlecha from '../../global/BotonFlecha.astro'
         text-align: justify;
         font-weight: 100;
         text-wrap: pretty;
-        padding: 12px;
+        padding: clamp(0px, 10vw, 12px);
     }
     .enroll-active-use{
         display: flex;
@@ -125,8 +127,8 @@ import BotonFlecha from '../../global/BotonFlecha.astro'
         align-items: center;
         padding: 12px;
 
-        height: clamp(50px, 50vw, 400px);
-        width: clamp(50px, 50vw, 400px);
+      
+        width: clamp(50px, 70vw, 450px);
         border:  4px solid #ffff;
         border-radius: 15px;
        
@@ -134,7 +136,7 @@ import BotonFlecha from '../../global/BotonFlecha.astro'
     }
    	.purple-ball-blured{
         top: -25;
-		left: 25%;
+		left: 30%;
 		position: absolute;
         width: clamp(200px, 50vw, 600px);
 		height: clamp(200px, 50vw, 600px);
@@ -237,8 +239,48 @@ import BotonFlecha from '../../global/BotonFlecha.astro'
                 }
         
       
-           
+    @media (max-width: 768px) {
+        .main-enroll-active-use{
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 100px;
+        }
+    }
     
+    @media (max-width: 450px) {
+    
+        .main-enroll-active-use{
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: clamp(50px, 80vw, 450px);
+            gap: 2rem;
+            padiding: 0px;
+        }
+        .botones {
+				flex-direction: column;
+				align-items: center;
+				bottom: 5%;
+				
+		
+				}
+    }
+    @media  screen and (height< 450px) {
+				section{
+		
+					padding-top: clamp(200px, 50vh, 400px);
+					margin-bottom: clamp(200px, 50vh, 300px);
+				}
+				.botones {
+				flex-direction: column;
+				align-items: center;
+				bottom: 5%;
+				
+		
+				}
+			}
       
     </style>
 
