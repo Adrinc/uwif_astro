@@ -59,11 +59,11 @@
     width: 100%;
   }
   .selected-link-mobile {
-    color: #00c402;
+    color: #00c402 !important;
 
   }
   .selected-link {
-    color: #00c402;
+    color: #00c402 !important;
 
   }
 
