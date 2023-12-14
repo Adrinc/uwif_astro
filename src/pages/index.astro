@@ -5,18 +5,18 @@ import HeroSeccion1 from '../components/index/Secciones/HeroSeccion1.astro';
 import HeroSeccion2 from '../components/index/Secciones/HeroSeccion2.astro';
 import ACPSeccion from '../components/index/Secciones/ACPSeccion.astro';
 import JustOnePlanSeccion from '../components/index/Secciones/JustOnePlanSeccion.astro';
-
+import FindAreaPopup from '../components/global/popups/FindAreaPopup/FindAreaPopup.astro';
 
 
 ---
 
 <Layout title="Home">
-	
+	<FindAreaPopup />
 	<HeroSeccion1 />
 	<CarruselTextoHorizontal/>
 	<HeroSeccion2 />
 	<CarruselTextoHorizontal/>
-<!-- 	<TestFlutter /> -->
+
 <JustOnePlanSeccion /> 
 <CarruselTextoHorizontal/>
 <ACPSeccion />
