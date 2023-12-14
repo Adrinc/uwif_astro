@@ -1,11 +1,11 @@
 import { BrowserRouter } from 'react-router-dom'
 
-import TopMenu from './TopMenu';
+import TopMenu2 from './TopMenu';
 
 function RoterLinks() {
   return (
     <BrowserRouter>
-      <TopMenu />
+      <TopMenu2 />
     </BrowserRouter>
   );
 }
