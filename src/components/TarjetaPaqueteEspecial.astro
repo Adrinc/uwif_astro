@@ -18,16 +18,12 @@ const { precio, modelo, description, lista } = Astro.props;
         <div >
 			<h1 class="title">SUPER 5G</h1>
 			<div class="precio-contenedor">
-
-				<!-- <p class="price mb-5">${precio}</p> -->
 				<p class="price">${precio}</p>
 				<p class="text-white text-xl text-left"> /month with <span class="text-white font-bold text-xl text-left"> AutoPay</span></p> 
 			</div>
             
-           <!--  <p class="modelo">{modelo}</p>
-            <p class="description">{description}</p> -->
-            
-			<ul class="fila">
+       
+	<!-- 		<ul class="fila">
 				{lista.map((item) => (
 				  <li class="description">
 					<span class="icono">
@@ -36,6 +32,43 @@ const { precio, modelo, description, lista } = Astro.props;
 					{item.texto}
 				  </li>
 				))}
+			  </ul> -->
+
+			<ul class="fila">
+				
+				  <li class="description">
+					<span class="icono">
+					  <img class="image" src="image/checkwhite.svg"/>
+					</span>
+					5G Wi-Fi Gateway device included
+				  </li>
+				  <li class="description">
+					<span class="icono">
+					  <img class="image" src="image/checkwhite.svg"/>
+					</span>
+					<span class=" font-bold">FREE</span>
+					<span> 2 Day Shipping</span>
+				  </li>
+				  <li class="description">
+					<span class="icono">
+					  <img class="image" src="image/checkwhite.svg"/>
+					</span>
+					Plug and Play 
+					<span class=" font-bold">Self Insall</span>
+				  </li>
+				  <li class="description">
+					<span class="icono">
+					  <img class="image" src="image/checkwhite.svg"/>
+					</span>
+					Redundancy Included
+				  </li>
+				  <li class="description">
+					<span class="icono">
+					  <img class="image" src="image/checkwhite.svg"/>
+					</span>
+					Portable (Take it with    <img class="uwifiicon" src="image/uwifiblancoicon.png"/>    )
+				  </li>
+		
 			  </ul>
         
         </div>
@@ -66,7 +99,7 @@ const { precio, modelo, description, lista } = Astro.props;
 	}
 	.link{
 		display:flex;
-		color: #ffffff;
+		color: #ffffff72;
 		font-weight: 400;
 		justify-content: center;
 		align-items: center;
@@ -75,10 +108,10 @@ const { precio, modelo, description, lista } = Astro.props;
 		transition: 0.2s ease-in;
 	}
 	.link:hover{
-		color: #47dd79;
+		color: #ffffff;
 		font-weight: 500;
-	
-		font-size: clamp(1rem, 50vw, 1.6rem);
+		
+		
 		text-decoration: underline;
 		transition: 0.2s ease-in;
 	}
@@ -139,12 +172,13 @@ const { precio, modelo, description, lista } = Astro.props;
 		
 		justify-content: center;
 		align-items: left;
+		gap:2px;
 		
 	}
 	.imagen{
 
 		object-fit: fill;
-
+	
 	}
 
 
@@ -161,11 +195,19 @@ const { precio, modelo, description, lista } = Astro.props;
 		
 		
 			.description {
+			display:flex;
+			flex-direction: row;
+		
+			flex-grow: 1;
+			align-items: center;
+			justify-content: flex-start;
+			
 			  color: #fff;
 			  font-weight: 200;
 			  font-size: clamp(1rem, 5vw, 1.5rem);
 			  font-weight: 400;
 			  word-spacing: 2px;
+			  gap:10px;
 			}
 	
   
@@ -197,12 +239,18 @@ const { precio, modelo, description, lista } = Astro.props;
 			
 			}
 			.image {
-			display: inline-block;
-		
-			width: clamp(10px, 50vw, 2rem);
-			height: clamp(10px, 50vw, 2rem);
+			display: flex;
+			width: clamp(10px, 50vw, 30px);
+			height: clamp(10px, 50vw, 30px);
 			align-self: center;
 		
+			
+			}
+			.uwifiicon{
+				display: flex;
+			width: 22px;
+			height: 22px;
+			align-self: safe;
 			}
 
 

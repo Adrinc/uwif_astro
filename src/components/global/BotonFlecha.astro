@@ -15,10 +15,11 @@ interface Props {
 	gradientColorRight?: string;
 }
 
-const { texto, link, backgroundColor="transparent", iconColor='#00c207', iconColorHover='#00c207', borderColor = '#00c207', borderColorHover ='#00c402',  borderWidth=3, textColor='#ffffff', textColorHover='#ffffff', gradientColorLeft='#2ed5de',gradientColorCenter='#2e74de', gradientColorRight='#d201d2'   } = Astro.props;
+const { texto, link, backgroundColor="transparent", iconColor='#00c207', iconColorHover='#00c207', borderColor = '#00c207', borderColorHover ='transparent',  borderWidth=3, textColor='#ffffff', textColorHover='#ffffff', gradientColorLeft='#2ed5de',gradientColorCenter='#2e74de', gradientColorRight='#d201d2'   } = Astro.props;
 ---
 <a href={link}>
-    <button class=`button-learn`
+    <button class="button-learn flex flex-row-reverse align-middle items-center"
+	data-text={texto}
 	style={
 	`
 	--background-color: ${backgroundColor};
@@ -33,7 +34,9 @@ const { texto, link, backgroundColor="transparent", iconColor='#00c207', iconCol
 	--gradient-center: ${gradientColorCenter}; 
 	--gradient-right: ${gradientColorRight};
 	`
-	}>{texto} 
+	}>
+	
+
 	
 
 	<svg class="icono inline-block" width="31" height="32" viewBox="0 0 31 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -58,26 +61,60 @@ const { texto, link, backgroundColor="transparent", iconColor='#00c207', iconCol
 }
   
 .button-learn {
+position: relative;
 color:var(--text-color);
-background-color: var(--background-color);
+background: var(--background-color);
 font-size: clamp(10px, 20vw, 24px);
 font-weight: 200;
 border-radius: 50px;
 border: var(--border-width) solid;
 border-color: var(--border-color);
 padding: 12px;
-transition: border 1s ease-in-out;
+transition: all 0.5s ease;
+}
+.button-learn svg {
+  position: relative;
+  z-index: 3;
+}
+
+.button-learn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(to right, var(--gradient-left), var(--gradient-center), var(--gradient-right));
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  border-radius: 50px;
+  z-index: 0;
+}
+
+
+.button-learn::after {
+  content: attr(data-text);
+  position: relative;
+  z-index: 2;
+  color: var(--text-color);
 }
 .button-learn:hover {
-color: var(--text-color);
-background-image: linear-gradient(to right, var(--gradient-left), var(--gradient-center), var(--gradient-right));
+color: var(--text-color-hover);
+background-color: transparent;
+
 border-color: var(--border-color-hover);
-transition: 1s ease-in-out;
+transition: all 0.5s ease;
+}
+.button-learn:hover::before {
+  opacity: 1;
+}
+.button-learn:hover::after {
+  color: var(--text-color-hover);
 }
 
 .image {
 width: clamp(0.5rem, 1vw, 85px);
-height: clamp(0.5rem, 1vw, 85px)
+height: clamp(0.5rem, 1vw, 85px);
 }
 @media (max-width: 768px) {
 	.button-learn {
