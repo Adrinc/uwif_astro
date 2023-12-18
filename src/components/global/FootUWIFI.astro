@@ -8,9 +8,21 @@ import BotonFlecha from "./BotonFlecha.astro";
     <div class="w-full  flex flex-col justify-center items-center relative">
       <!--   <span class="purple-ball-blured"></span> -->
         <div class="flex flex-row justify-center items-center">
-            <BotonFlecha texto="Discover all we have for " link="/" borderColor="#ffffff" iconColor="#ffffff" />
 
-        </div>
+            <a href="#">
+                <button class="button-learn flex flex-row-reverse align-middle items-center">
+                
+                <svg class="icono inline-block" width="31" height="32" viewBox="0 0 31 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="chevron-right 1">
+                    <path id="Vector" d="M11.6987 23.5705L19.4126 15.8566L11.6987 8.1427" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </g>
+                </svg>
+                    <p class="flex flex-row gap-[10px] justify-center">Discover all we have for <img class="uwifiicon" src="image/uwifiblancoicon.png"/>  </p>
+            </button>
+            </a>
+            
+
+        </div> 
 
         <div class="liveexp">
 
@@ -108,6 +120,112 @@ import BotonFlecha from "./BotonFlecha.astro";
  
     }
 
+/* --------------------------------------- */
+    .icono{
+	stroke: var(--primary-text-color);
+	transition: stroke 1s ease-in-out;
+}
+.icono:hover{
+	stroke: var(--primary-text-color);
+	transition: stroke 1s ease-in-out;
+}
+  
+.button-learn {
+position: relative;
+color:var(--primary-text-color);
+background: transparent;
+font-size: clamp(10px, 20vw, 24px);
+font-weight: 200;
+border-radius: 50px;
+border: 2px solid;
+border-color: var(--border-color);
+padding: 12px;
+transition: all 0.5s ease;
+}
+.button-learn svg {
+  position: relative;
+  z-index: 3;
+}
+
+.button-learn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(to right, var(--gradient-left), var(--gradient-center), var(--gradient-right));
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  border-radius: 50px;
+  z-index: 0;
+}
+
+
+.button-learn::after {
+  content: attr(data-text);
+  position: relative;
+  z-index: 2;
+  color: var(--text-color);
+}
+button:hover {
+			color: #fff;
+			background-image: linear-gradient(to right, #2ed5de,#2e74de, #d201d2);
+			border-color: #000000;
+			transition: 0.2s ease-in;
+			}
+.button-learn:hover::before {
+  opacity: 1;
+}
+.button-learn:hover::after {
+  color: var(--text-color-hover);
+}
+
+.image {
+width: clamp(0.5rem, 1vw, 85px);
+height: clamp(0.5rem, 1vw, 85px);
+}
+
+.uwifiicon{
+			display: flex;
+			width: 30px;
+			height: 30px;
+			align-self: safe;
+			}
+
+@media (max-width: 768px) {
+	.button-learn {
+		font-size: clamp(12px, 20vw, 20px)
+	}
+		
+	}
+@media (max-width: 450px) {
+	.button-learn {
+		font-size: clamp(8px, 10vw, 16px);
+	
+	}
+	.icono{
+	display:none;
+}
+.uwifiicon{
+			display: flex;
+			width: 15px;
+			height: 15px;
+			align-self: center;
+			}
+	}
+@media  screen and (height< 391px) {
+	.button-learn {
+		font-size: clamp(8px, 10vh, 16px);
+		padding: 8px;
+		align-self: center;
+		font-weight: 600;
+		color: aqua;
+	}
+	.icono{
+	display:none;
+}
+	}
     @media (max-width: 768px) {
         .fila-iconos{
             flex-direction: column;

@@ -11,7 +11,7 @@ import BuyOrApplyFree from '../../global/BuyOrApplyFree.astro';
 		<div class="columna-izquierda" >
 
 			<div>
-				<div><span class="title">The<span class="text-primaryColor"> best </span> internet</span></div>
+				<div class="gradient-text">The best internet</div>
 				<div><span class="subtitle">connection for  <img class="image" loading="lazy" srcset="faviui.png"/></span></div>
 				<p class="description">In our fast-paced world, imagine a high-speed mobile internet service that keeps you connected seamlessly and outpaces the competition, all at a pleasantly surprising cost!</p>
 			</div>
@@ -22,8 +22,10 @@ import BuyOrApplyFree from '../../global/BuyOrApplyFree.astro';
 		</div>
 
 		<div class="flex justify-center items-center relative">
+			
 			<span class="green-ball-blured" id="ball1"></span>
 			<div  class="moden"><Moden client:visible transition:persist/></div>
+
 		</div>
 	</main>
 </section>
@@ -42,7 +44,7 @@ import BuyOrApplyFree from '../../global/BuyOrApplyFree.astro';
 		filter: blur(100px);
 		z-index: -1;
 		background: linear-gradient(#5746E5 20%, #8743E5 40%, #03FB75 100%);
-	
+		/* clip-path: polygon(50% 2%, 67% 28%, 98% 35%, 74% 61%, 79% 91%, 50% 74%, 21% 91%, 23% 60%, 2% 35%, 32% 28%); */
 	}
 	
 		section{
@@ -78,6 +80,17 @@ import BuyOrApplyFree from '../../global/BuyOrApplyFree.astro';
 			word-spacing: 5px;
 			text-wrap: balance;
 
+			}
+			.gradient-text{
+				font-size: clamp(40px, 5vw, 100px);
+			font-weight: 800;
+			letter-spacing: 2px;
+			text-align: left;
+			word-spacing: 5px;
+			text-wrap: balance;
+			background: linear-gradient(var(--primary-color) 50%, var(--secondary-color) 60%, #8743E5 90%);
+  			-webkit-background-clip: text;
+  			-webkit-text-fill-color: transparent;
 			}
 	
 			.subtitle{
