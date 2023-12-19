@@ -1,15 +1,15 @@
 import {Sparkles,  BakeShadows, Environment, OrbitControls, PerspectiveCamera, PresentationControls} from '@react-three/drei'
-import React, { Suspense, useEffect } from 'react'
+import { Suspense } from 'react'
 import { useControls } from 'leva';
 
 import { ToneMapping , ChromaticAberration, Bloom, EffectComposer, Noise, Vignette } from '@react-three/postprocessing'
 import { enviromentConfig, pointLightConfig } from '../scene_config.js';
 import { vignetteConfig, chromaticAberrationConfig, bloomConfig, noiseConfig, toneMappingConfig } from '../scene_config.js';
-import Moden from './moden.jsx';
+import Moden from './moden2.jsx';
 
 export default function Scene()
 {
-    let initCamera={far:2000, near: 0.1, fov: 35, position:[0, 0.5,3], rotation:[0, 0, 0]}
+    let initCamera={far:2000, near: 0.1, fov: 35, position:[0, 0.55,3.3], rotation:[0, 0, 0]}
 
     return <> 
 
@@ -35,7 +35,7 @@ export default function Scene()
     <PresentationControls
     config={{ mass: 2, tension: 500 }}
     snap={{ mass: 4, tension: 1500 }}
-    rotation={[0.4,-2,0]}
+    rotation={[0.2,-2,0]}
     polar={[-Math.PI / 3, Math.PI / 3]}
     azimuth={[-Math.PI / 1.4, Math.PI / 2]}
 
