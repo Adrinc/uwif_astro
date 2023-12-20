@@ -97,10 +97,15 @@ let listas = [
   }
   .description-inferior 
   {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
     color: var(--primary-text-color);
 		font-size: clamp(1.5rem, 4vw, 30px);
     font-weight: 100;
     text-align: left;
+    gap: 8px;
 
   }
 
@@ -113,11 +118,10 @@ let listas = [
 			}
       .image {
 			display: inline-block;
-			aspect-ratio: 1.1;
-		
-			width: clamp(2.5rem, 5vw, 5.3rem); 
-			height: clamp(2.5rem, 5vw, 5.3rem);
-			margin-bottom: 2rem;
+			width: clamp(30px, 5vw, 60px); 
+			height: clamp(30px, 5vw, 60px);
+      align-self: center;
+      margin-bottom: 25px;
 			}
 
 
@@ -138,6 +142,12 @@ let listas = [
     .description, .description-inferior 
   {
     text-align: center;
+    justify-content: center;
   }
+  .image {
+
+      margin-bottom: 10px;
+			}
+
   }
 </style>
