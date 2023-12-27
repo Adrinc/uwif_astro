@@ -9,7 +9,7 @@ import Moden from './moden.jsx';
 
 export default function Scene()
 {
-    let initCamera={far:2000, near: 0.1, fov: 35, position:[0, 0.55,3.3], rotation:[0, 0, 0]}
+    let initCamera={far:2000, near: 0.1, fov: 35, position:[0, 0.5,3], rotation:[0, 0, 0]}
 
     return <> 
 

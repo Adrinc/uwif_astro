@@ -4,7 +4,7 @@ export default {
 	theme: {
 		extend: {      
 			fontFamily: {
-			sans: ["InterVariable", "Inter"],
+			sans: ["Inter", "OpenSans"],
 		  },
 		  colors: {
 			primaryColor: 'var(--primary-color)',
