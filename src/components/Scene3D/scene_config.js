@@ -42,7 +42,7 @@ export const vignetteConfig = {
     resolutionX: Resolution.AUTO_SIZE,
     resolutionY: Resolution.AUTO_SIZE,
     kernelSize: 1,
-    blendFunction: BlendFunction.SCREEN,
+    blendFunction: BlendFunction.OVERLAY,
 
   };
   

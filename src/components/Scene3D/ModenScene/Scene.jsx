@@ -5,11 +5,11 @@ import { useControls } from 'leva';
 import { ToneMapping , ChromaticAberration, Bloom, EffectComposer, Noise, Vignette } from '@react-three/postprocessing'
 import { enviromentConfig, pointLightConfig } from '../scene_config.js';
 import { vignetteConfig, chromaticAberrationConfig, bloomConfig, noiseConfig, toneMappingConfig } from '../scene_config.js';
-import Moden from './moden2.jsx';
+import Moden from './moden.jsx';
 
 export default function Scene()
 {
-    let initCamera={far:2000, near: 0.1, fov: 35, position:[0, 0.55,3.3], rotation:[0, 0, 0]}
+    let initCamera={far:2000, near: 0.1, fov: 35, position:[0, 0.5,3], rotation:[0, 0, 0]}
 
     return <> 
 
