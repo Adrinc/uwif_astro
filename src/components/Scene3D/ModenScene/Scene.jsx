@@ -5,7 +5,7 @@ import { useControls } from 'leva';
 import { ToneMapping , ChromaticAberration, Bloom, EffectComposer, Noise, Vignette } from '@react-three/postprocessing'
 import { enviromentConfig, pointLightConfig } from '../scene_config.js';
 import { vignetteConfig, chromaticAberrationConfig, bloomConfig, noiseConfig, toneMappingConfig } from '../scene_config.js';
-import Moden from './moden2.jsx';
+import Moden from './moden.jsx';
 
 export default function Scene()
 {
