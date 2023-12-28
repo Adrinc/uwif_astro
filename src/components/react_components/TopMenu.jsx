@@ -93,7 +93,7 @@ const TopMenu = () => {
     return (
         <>
                     {showMenu && (
-                <div className="md:hidden flex flex-col gap-10 absolute top-0 left-0 w-[30vw] h-[100vh] shadow-lg z-50 bg-[#00000070] backdrop-filter backdrop-blur-lg border-x-2 border-tertiaryColor animate-fade-right animate-duration-500">
+                <div className="md:hidden flex flex-col gap-1 absolute justify-evenly top-0 left-0 w-[50vw] h-[100vh] shadow-lg z-50 bg-[#00000070] backdrop-filter backdrop-blur-lg border-x-2 border-tertiaryColor animate-fade-right animate-duration-500">
                     <div className='flex flex-row justify-end p-4 '>
               
                         <button onClick={toggleMenu} className=" border-2 rounded-lg text-primaryTextColor p-2  font-bold text-lg">
@@ -105,7 +105,7 @@ const TopMenu = () => {
                     <div className='flex flex-row justify-center p-2'>
                         <img
                         loading="lazy"
-                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/b7f45c54-79dc-492c-a979-eb8b20a2cc5c?apiKey=99b0eaa04efc41a78ff2850239e1f525&width=100"
+                        src="/image/uwifilogo.svg"
                         className={TopMenuStyle.imagemobile}
                         />
 
@@ -126,17 +126,25 @@ const TopMenu = () => {
                     <div className="flex flex-row justify-center  items-center align-middle  w-[100%] mt-6 ">
                       <a className="inline-block buttom-shadow py-2 px-4 text-xl font-bold leading-5 text-green-50 buttom-text-shadow drop-shadow-sm bg-green-500  hover:bg-green-600 focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 rounded-md" href="https://uwifi-web.vercel.app/login">Login</a>
                       </div>
-             
                     </nav>
+                      <img
+                    loading="lazy"
+                    src="/image/chatbotsmall.svg"
+                    className={TopMenuStyle.chatbot2}
+                />
                 </div>
                 )}
 
             <div className={TopMenuStyle.mainContainer}>
+            
+
                 <img
                     loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/b7f45c54-79dc-492c-a979-eb8b20a2cc5c?apiKey=99b0eaa04efc41a78ff2850239e1f525&width=100"
+                    src="/image/uwifilogo.svg"
                     className={TopMenuStyle.image}
                 />
+                <span className={TopMenuStyle.description}><span className={TopMenuStyle.boltext}>CALL NOW! </span> (123)456-789-000</span>
+         
 
                 {isMobile && (
                         <button className="navbar-burger self-center md:hidden" onClick={toggleMenu}>
@@ -164,6 +172,11 @@ const TopMenu = () => {
                 <div className="hidden md:block ">
                     <div className="flex items-center justify-end"><a className="inline-block buttom-shadow py-2 px-4 text-xl font-bold leading-5 text-green-50 buttom-text-shadow drop-shadow-sm bg-green-500  hover:bg-green-600 focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 rounded-md" href="https://uwifi-web.vercel.app/login">Login</a></div>
                 </div>
+                <img
+                    loading="lazy"
+                    src="/image/chatbotsmall.svg"
+                    className={TopMenuStyle.chatbot}
+                />
             </div>
         </>
     );
