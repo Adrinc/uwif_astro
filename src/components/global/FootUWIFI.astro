@@ -1,9 +1,3 @@
----
-import BotonFlecha from "./BotonFlecha.astro";
-
----
-
-
 
     <div class="w-full  flex flex-col justify-center items-center relative">
         <span class="purple-ball-blured"></span>
@@ -74,6 +68,13 @@ import BotonFlecha from "./BotonFlecha.astro";
 
             
         </div>
+        <div class="flex flex-row flex-grow  w-full justify-between p-6  max-lg:flex-col max-lg:justify-center max-lg:items-center max-lg:gap-4">
+            <div class="flex flex-row w-1/4 justify-between items-start text-center max-lg:flex-col max-lg:justify-center max-lg:items-center max-lg:gap-4 max-lg:w-full">
+                <p class="infotext">Privacy Policy</p>
+                <p class="infotext">Terms and Conditions</p>
+            </div>
+            <p class="infotext">Copyright © 2023 U-wifi Wireless</p>
+        </div>
 
     </div>
 
@@ -103,6 +104,13 @@ import BotonFlecha from "./BotonFlecha.astro";
        font-size: clamp(1rem, 3vw, 2rem);
        text-align: center;
        color: var(--primary-text-color)
+    }
+    .infotext{
+        font-size: clamp(12px, 3vw, 18px);
+        color: var(--primary-text-color);
+        font-weight: 400;
+        font-family: var(--font-family-secondary);
+        text-align: center;
     }
     svg{
         width: clamp(1rem, 5vw, 4rem);
