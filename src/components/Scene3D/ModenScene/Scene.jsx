@@ -40,7 +40,7 @@ export default function Scene()
     azimuth={[-Math.PI / 1.4, Math.PI / 2]}
 
 >
-<Moden  position={[-0.2,0.2,0]} />
+<Moden  position={[-0.2,0,0]} />
 </PresentationControls>
 
 
