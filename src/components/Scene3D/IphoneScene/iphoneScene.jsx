@@ -37,8 +37,8 @@ export default function IphoneScene()
     return <> 
 
 <Suspense fallback={null}>
-    <color attach="background" args={['#000']} />
-    <fog attach="fog" args={['#ffff', 5, 50]} />
+    <color attach="background" args={['#1b1b1d']} />
+    <fog attach="fog" args={['#1b1b1d', 5, 50]} />
         <EffectComposer multisampling={4}>
             <ToneMapping {...toneMappingConfig}/>
             <Bloom {...bloomIphone} />
@@ -54,7 +54,7 @@ export default function IphoneScene()
 {/*     <Iphone  position={[-0.5,0,0]} /> */}
 
     <Box args={[100,100,50]} rotation={[-Math.PI/2,0,0]} position={[0,25,0]} receiveShadow   castShadow>
-        <meshStandardMaterial side={THREE.DoubleSide} color={"#ffffff"} />
+        <meshStandardMaterial side={THREE.DoubleSide} color={"#1b1b1d"} />
     </Box>
 
     <PresentationControls
