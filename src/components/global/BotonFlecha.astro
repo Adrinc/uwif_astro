@@ -18,7 +18,7 @@ interface Props {
 const { texto, link, backgroundColor="transparent", iconColor='#00c207', iconColorHover='#00c207', borderColor = '#00c207', borderColorHover ='transparent',  borderWidth=3, textColor='#ffffff', textColorHover='#ffffff', gradientColorLeft='#2ed5de',gradientColorCenter='#2e74de', gradientColorRight='#d201d2'   } = Astro.props;
 ---
 <a href={link}>
-    <button class="button-learn flex flex-row-reverse align-middle items-center"
+    <button class="button-learn flex flex-row-reverse align-middle items-center" aria-label={texto}
 	data-text={texto}
 	style={
 	`
