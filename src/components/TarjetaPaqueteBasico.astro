@@ -24,7 +24,7 @@ const { precio, modelo, description, lista } = Astro.props;
 				{lista.map((item) => (
 				  <li class="description">
 					<span class="icono">
-					  <img class="image" src={item.icono} />
+					  <img alt={item.texto} class="image" src={item.icono} />
 					</span>
 					{item.texto}
 				  </li>
