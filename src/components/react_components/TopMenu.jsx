@@ -107,6 +107,7 @@ const TopMenu = () => {
                         loading="lazy"
                         src="/image/uwifilogo.svg"
                         className={TopMenuStyle.imagemobile}
+                        alt='uwifi logo'
                         />
 
                  
@@ -141,6 +142,7 @@ const TopMenu = () => {
                 <img
                     loading="lazy"
                     src="/image/uwifilogo.svg"
+                    alt='uwifi logo'
                     className={TopMenuStyle.image}
                 />
                 <span className={TopMenuStyle.description}><span className={TopMenuStyle.boltext}>CALL NOW! </span> (123)456-789-000</span>
