@@ -51,6 +51,7 @@
 
     object-position: center;
     width: clamp(100px, 30vw, 150px);
+    height: auto;
     max-height: 100px;
     align-self: center;
   }
