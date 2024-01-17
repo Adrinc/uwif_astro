@@ -36,6 +36,7 @@
     position: relative;
     object-position: center;
     width: clamp(50px, 5vw, 100px);
+    height: auto;
     max-height: 50px;
     align-self: center;
     scale: 1.5;
