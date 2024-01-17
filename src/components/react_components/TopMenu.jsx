@@ -105,7 +105,7 @@ const TopMenu = () => {
                     <div className='flex flex-row justify-center p-2'>
                         <img
                         /* loading="lazy" */
-                        src="/image/uwifilogo.svg"
+                        src="/image/uwifilogo.png"
                         className={TopMenuStyle.imagemobile}
                         alt='uwifi logo'
                         width="100" height="50"
@@ -142,7 +142,7 @@ const TopMenu = () => {
 
                 <img
                  
-                    src="/image/uwifilogo.svg"
+                    src="/image/uwifilogo.png"
                     alt='uwifi logo'
                     width="100" height="50"
                     className={TopMenuStyle.image}
