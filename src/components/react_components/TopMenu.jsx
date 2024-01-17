@@ -130,7 +130,7 @@ const TopMenu = () => {
                       </div>
                     </nav>
                       <img
-                    loading="lazy"
+                    alt='small chatbot'
                     src="/image/chatbotsmall.svg"
                     className={TopMenuStyle.chatbot2}
                 />
@@ -141,7 +141,7 @@ const TopMenu = () => {
             
 
                 <img
-                    loading="lazy"
+                 
                     src="/image/uwifilogo.svg"
                     alt='uwifi logo'
                     className={TopMenuStyle.image}
@@ -176,7 +176,7 @@ const TopMenu = () => {
                     <div className="flex items-center justify-end"><a className="inline-block buttom-shadow py-2 px-4 text-xl font-bold leading-5 text-green-50 buttom-text-shadow drop-shadow-sm bg-green-500  hover:bg-green-600 focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 rounded-md" href="https://uwifi-web.vercel.app/login">Login</a></div>
                 </div>
                 <img
-                    loading="lazy"
+                    alt='small chatbot'
                     src="/image/chatbotsmall.svg"
                     className={TopMenuStyle.chatbot}
                 />
