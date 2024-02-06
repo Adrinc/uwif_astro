@@ -1,0 +1,96 @@
+---
+import DropMenu from "../../react_components/DropMenu";
+
+const dataIzquierda= [
+    {
+    question: "What are the different ways I can pay my bill?",
+    answer: "You can pay your bill online, by phone, by mail, or in person. We accept Visa, MasterCard, Discover, and American Express. You can also pay with a check or money order."
+    },
+    {
+        question: "What should I do if my gateway is lost or stolen?",
+        answer: "If your gateway is lost or stolen, please contact us immediately. We will deactivate your gateway and send you a new one. You will be responsible for the cost of the new gateway."
+    }
+
+];
+const dataDerecha= [
+
+    {
+        question: "What should I do if my gateway is lost or stolen?",
+        answer: "If your gateway is lost or stolen, please contact us immediately. We will deactivate your gateway and send you a new one. You will be responsible for the cost of the new gateway."
+    },
+    {
+        question:"Can I use my all devices on U-wifi network?",
+        answer: "Yes, you can connect any device to the U-wifi network. However, we recommend that you use a gateway to connect your devices to the network. This will provide you with the best possible connection."
+    }
+
+];
+---
+
+
+<section id="questions">
+
+    <h1>Common questions about U-wifi Internet</h1>
+    <div class="flex  justify-between gap-40 ">
+
+        <div class="w-1/2 md:w-full ">
+            {dataIzquierda.map((item) => ( 
+                    <div class="mb-8 gap-8">
+                    <DropMenu client:visible transition:persist question={item.question} answer={item.answer} />
+                    </div>
+                ))}
+        </div>
+
+        <div class="w-1/2 md:w-full">
+                {dataDerecha.map((item) => ( 
+
+                    <div class="mb-8 gap-8">
+                    <DropMenu client:visible transition:persist question={item.question} answer={item.answer} />
+                    </div>
+                ))}
+        </div>
+
+    </div>
+
+
+</section>
+
+
+<style>
+ 	section{
+        display: flex;
+        flex-direction: column;
+        block-size: auto;
+        padding-left: clamp(20px, 50vw, 100px);
+        padding-right: clamp(20px, 50vw, 100px);
+        margin-top: 150px;
+        gap: 60px;
+     
+    }
+    h1{
+        color: var(--primary-text-color);
+        font-size: clamp(2rem, 5vw, 60px);
+        font-weight: 500;
+        display: block;
+        text-wrap: balance;
+        text-align: left;
+    }
+ 
+    .carttile{
+	    color: var(--tertiary-text-color);
+	    font-size: clamp(20px, 5vw, 25px);
+	    font-weight: 500;
+	    display: block;
+	    text-wrap: balance;
+	    text-align: left;  
+	    }
+    .description, p {
+	  color: var(--primary-text-color);
+	  font-weight: 300;
+	  text-wrap: pretty;
+	  font-size: clamp(1rem, 1.3vw, 1.2rem);
+	  display: block;
+      max-width: 50vw;
+      margin-bottom: 0.5rem;
+    
+	}
+</style>
