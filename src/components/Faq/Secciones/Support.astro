@@ -1,0 +1,44 @@
+---
+import BotonFlecha from "../../global/BotonFlecha.astro";
+---
+
+
+<section id="faq&support">
+
+
+    <p class="title flex align-middle justify-center mb-8">SUPPORT</p>
+    <div class="flex justify-center align-middle items-center gap-4 p-3  border-dashed border-2 border-primaryColor rounded-md mb-8">
+		<p class="description flex align-middle justify-center text-center">Save time and manage your account online with our Self-service Center or using  <span class="font-bold">U-app.</span></p>
+		<BotonFlecha link="/faq" texto="CHECK IT OUT" backgroundColor="#00c207" iconColor="#ffffff"/>
+	</div>
+   
+
+</section>
+
+
+<style>
+ 	section{
+        display: flex;
+        flex-direction: column;
+        block-size: auto;
+        padding-left: clamp(20px, 50vw, 100px);
+        padding-right: clamp(20px, 50vw, 100px);
+        margin-top: 150px;
+    }
+    .title{
+	    color: var(--primary-text-color);
+	    font-size: clamp(30px, 5vw, 60px);
+	    font-weight: 400;
+	    display: block;
+	    text-wrap: balance;
+	    text-align: center  
+	    }
+    .description {
+	  color: var(--primary-text-color);
+	  font-weight: 300;
+	  text-wrap: pretty;
+	  font-size: clamp(1rem, 1.3vw, 1.5rem);
+	  display: block;
+    
+	}
+</style>
