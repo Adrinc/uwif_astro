@@ -9,9 +9,9 @@ const TopMenu = () => {
         { name: 'ACP', url: '/#acp', alterurl:"/acp" },
         { name: 'PLAN', url: '/#plan', alterurl:"/#plan" },
         { name: 'HOW IT WORKS', url: '/howitworks', alterurl:"/howitworks" },
-/*         { name: 'APP', url: '/#app', alterurl:"/#app" }, */
-        { name: 'FAQ & SUPPORT', url: '/faq', alterurl:"/faq" },
-/*         { name: '5G', url: '/#5g', alterurl:"/#5g" }, */
+        { name: 'SUPPORT', url: '/faq', alterurl:"/faq" },
+        { name: 'ABOUT US', url: '/about', alterurl:"/about" },
+        
     ];
     const location = useLocation();
     let currentPath = location.pathname;

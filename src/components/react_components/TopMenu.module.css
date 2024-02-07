@@ -101,7 +101,7 @@
     text-transform: uppercase;
     align-self: start;
     font-weight: 800;
-    font-size: clamp(14px, 2vw, 28px);
+    font-size: clamp(14px, 2vw, 25px);
     justify-content: space-between;
     align-self: center;
   }

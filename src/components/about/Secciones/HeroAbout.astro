@@ -1,0 +1,79 @@
+---
+import BotonFlecha from "../../global/BotonFlecha.astro";
+---
+
+
+<section id="heroabout">
+
+		<div class="contenedor">
+			<div class="columnaIzquierda flex flex-col w-full h-full  justify-between ">
+				<p class="title ">
+					Enhancing wireless excellence with every upgrade, while keeping it affordable.
+					Our Success Numbers
+					
+				</p>
+
+				<div class="flex gap-8 ">
+	
+					<BotonFlecha texto="Read more" link="/signup"  backgroundColor="#7f44e5" borderColor="transparent" iconColor="#ffffff" width="300px"/>
+					<BotonFlecha texto="Contact us" link="/contact"  borderColor="#ffffff" iconColor="#ffffff"/>
+				</div>
+			</div>
+
+			<img src="/public/image/manwhitmac.png" alt="man with mac">
+		</div>
+
+	
+</section>
+
+
+<style>
+	section
+	{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		box-sizing: border-box;
+		padding-left: clamp(0px, 5vw, 100px);
+		padding-right: clamp(0px, 5vw, 100px);
+		margin-top: 150px;
+		padding-bottom: 100px;
+		height: 90vh;
+	}
+	img{
+
+		width: 50%;
+		height: 100%;
+		object-fit: contain;
+	
+	
+	
+	
+	}
+	.columnaIzquierda{
+		padding: clamp(0px, 5vw, 50px);
+	}
+	.contenedor
+	{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+
+		
+		
+		border-radius: 10px;
+		background-color: #00b33e;
+		height: 600px;
+	}
+	.title{
+			color: var(--primary-text-color);
+			font-size: clamp(40px, 5vw, 60px);
+			font-weight: 600;
+			letter-spacing: 2px;
+			text-align: left;
+			word-spacing: 5px;
+			text-wrap: balance;
+			
+			}
+
+</style>

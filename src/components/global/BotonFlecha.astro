@@ -13,12 +13,13 @@ interface Props {
 	gradientColorLeft?: string;
 	gradientColorCenter?: string;
 	gradientColorRight?: string;
+	width?: string;
 }
 
-const { texto, link, backgroundColor="transparent", iconColor='#00c207', iconColorHover='#00c207', borderColor = '#00c207', borderColorHover ='transparent',  borderWidth=3, textColor='#ffffff', textColorHover='#ffffff', gradientColorLeft='#2ed5de',gradientColorCenter='#2e74de', gradientColorRight='#d201d2'   } = Astro.props;
+const {  width="auto", texto, link, backgroundColor="transparent", iconColor='#00c207', iconColorHover='#00c207', borderColor = '#00c207', borderColorHover ='transparent',  borderWidth=3, textColor='#ffffff', textColorHover='#ffffff', gradientColorLeft='#2ed5de',gradientColorCenter='#2e74de', gradientColorRight='#d201d2'   } = Astro.props;
 ---
 <a href={link}>
-    <button class="button-learn flex flex-row-reverse align-middle items-center" aria-label={texto}
+    <button class="button-learn flex flex-row-reverse align-middle items-center justify-center" aria-label={texto}
 	data-text={texto}
 	style={
 	`
@@ -33,6 +34,7 @@ const { texto, link, backgroundColor="transparent", iconColor='#00c207', iconCol
 	--gradient-left: ${gradientColorLeft}; 
 	--gradient-center: ${gradientColorCenter}; 
 	--gradient-right: ${gradientColorRight};
+	--width: ${width};
 	`
 	}>
 	
@@ -65,6 +67,7 @@ position: relative;
 color:var(--text-color);
 background: var(--background-color);
 font-size: clamp(10px, 20vw, 24px);
+text-align: var(--text-align);
 font-weight: 200;
 border-radius: 50px;
 border: var(--border-width) solid;
@@ -73,6 +76,7 @@ padding: 12px;
 padding-left: 20px;
 padding-right: 10px;
 transition: all 0.5s ease;
+width: var(--width);
 }
 .button-learn svg {
   position: relative;
