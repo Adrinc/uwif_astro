@@ -1,0 +1,43 @@
+---
+interface Props {
+	title: string;
+	subtitle: string;
+	iconUrl: string;
+	description: string;
+}
+const { title, subtitle, iconUrl, description } = Astro.props;
+---
+
+
+    <div class="contenedor-card">
+        <img class="icon" src={iconUrl} alt="icon">
+       
+    </div>
+
+
+
+
+
+
+    <style>
+
+
+
+        .contenedor-card
+        {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: space-between;
+            width: 500px;
+            height: 600px;
+            border-radius: 20px;
+            border: 3px dashed var(--cuaternary-color);
+            padding: 20px 20px 20px 20px;
+            transition: all 0.5s ease;
+            transform-origin: bottom;
+            background-color: var(--primary-glass-color);
+        }
+ 
+        
+    </style>
