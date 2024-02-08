@@ -1,47 +1,54 @@
 ---
+import BotonFlecha from '../../global/BotonFlecha.astro';
 import DifferentialCard from '../DifferentialCard.astro';
 
 const data = [
         {
-        iconUrl: 'phone',
-        title: 'Purchasing at U-wifi', 
-        subtitle: 'Consumer Sales: 1-800-123-UWIFI',
-        description: 'For consumer sales, please call 1-800-123-UWIFI',
+        iconUrl: '/icons/dolaricon.svg',
+        title: 'SUPER', 
+        subtitle: 'Affordable Plan',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         },
         {
-        iconUrl: 'phone',
-        title: 'Purchasing at U-wifi', 
-        subtitle: 'Consumer Sales: 1-800-123-UWIFI',
-        description: 'For consumer sales, please call 1-800-123-UWIFI',
+        iconUrl: '/icons/worldicon.svg',
+        title: 'HIGH SPEED', 
+        subtitle: 'Quality Internet',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         },
         {
-        iconUrl: 'phone',
-        title: 'Purchasing at U-wifi', 
-        subtitle: 'Consumer Sales: 1-800-123-UWIFI',
-        description: 'For consumer sales, please call 1-800-123-UWIFI',
+        iconUrl: '/icons/30arrowicon.svg',
+        title: '30 Day', 
+        subtitle: 'Workout Plan',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         },
-  
-    
     ];
+    
 ---
 
 
 <section id="ourdifferentials">
-    
-    <hr class="rounded">
-    <h1 class="title">Our </h1>
-    <h2 class="subtitle">Differentials</h2>
+    <div class="flex flex-col self-start">
 
-    <div class="row-pic-text">
-     
-        <DifferentialCard title='SUPER' subtitle='Affordable Plan' iconUrl='/icons/dolaricon.svg' description='At our company, our Customer Service Department is wholly committed to delivering unparalleled service to our valued customers. From the very first point of contact, customers are warmly welcomed with a friendly smile and a supportive demeanor. Our team undergoes rigorous training to adeptly handle customer requests and inquiries with efficiency and efficacy, ensuring a remarkable experience that upholds the elevated standards we hold dear.'/>
-        <DifferentialCard title='SUPER' subtitle='Affordable Plan' iconUrl='/icons/dolaricon.svg' description='At our company, our Customer Service Department is wholly committed to delivering unparalleled service to our valued customers. From the very first point of contact, customers are warmly welcomed with a friendly smile and a supportive demeanor. Our team undergoes rigorous training to adeptly handle customer requests and inquiries with efficiency and efficacy, ensuring a remarkable experience that upholds the elevated standards we hold dear.'/>
-        <DifferentialCard title='SUPER' subtitle='Affordable Plan' iconUrl='/icons/dolaricon.svg' description='At our company, our Customer Service Department is wholly committed to delivering unparalleled service to our valued customers. From the very first point of contact, customers are warmly welcomed with a friendly smile and a supportive demeanor. Our team undergoes rigorous training to adeptly handle customer requests and inquiries with efficiency and efficacy, ensuring a remarkable experience that upholds the elevated standards we hold dear.'/>
-        
-
+        <hr class="rounded">
+        <h1 class="title">Our </h1>
+        <h2 class="subtitle">Differentials</h2>
     </div>
 
+    <div class="row-pic-text">
+        {
+            data.map((differential) => (
+                <DifferentialCard {...differential}  />
+            ))
+        }
+    </div>
 
+    <img src="/public/image/ublanca.svg" alt="uwifi white">
+
+    <div>
+        <p class="unlock">Unlock your full internet potential</p>
+        <p class="Mission">Our Mission is Your Achievement</p>
+    </div>
+    <BotonFlecha texto='Let’s go!' link='#' backgroundColor='#000000'/>
 
 
 
@@ -49,12 +56,45 @@ const data = [
 
 
 <style>
+
+section
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding-left: clamp(0px, 5vw, 100px);
+    padding-right: clamp(0px, 5vw, 100px);
+    padding-bottom: 100px;
+    
+    gap: clamp(20px, 5vw, 50px);
+
+}
+p.unlock
+{
+    font-size: clamp(12px, 3vw, 30px);
+    font-weight: 300;
+    color: var(--primary-text-color);
+    text-align: center;
+    opacity: 0.5;
+    font-weight: 400;
+}
+p.Mission
+{
+    font-size: clamp(12px, 3vw, 30px);
+    font-weight: 300;
+    color: var(--primary-text-color);
+    text-align: center;
+}
+
 img
 {
-    width: 40%;
-    height: 85%;
-    object-fit: cover;
-    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+  
 }
 .row-pic-text
 {
@@ -62,23 +102,11 @@ img
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    gap: 80px;
+    width: 100%;
 }
 
 
 
-section
-{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    box-sizing: border-box;
-    padding-left: clamp(0px, 5vw, 100px);
-    padding-right: clamp(0px, 5vw, 100px);
-    padding-bottom: 100px;
-    height: 90vh;
-    gap:10px;
-}
 hr.rounded {
 border-top: 5px solid var(--cuaternary-color);
 border-radius: 5px;
