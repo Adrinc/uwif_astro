@@ -86,7 +86,7 @@ const dataIzquierda = [
             ))
             }
         </div>
-
+        <span class="green-ball-blured" id="ball1"></span>
     </div>
   
 
@@ -94,7 +94,22 @@ const dataIzquierda = [
 
 
 <style>
+    .green-ball-blured{
+		position: absolute;
+		top: 0;
+		left: 55%;
+		width: clamp(400px, 50vw, 800px);
+		height: clamp(400px, 50vw, 800px);
+		border-radius: 100%;
+		
+		rotate: -90deg;
+	
+		filter: blur(100px);
+		z-index: -1;
+		background: linear-gradient(#28206b 20%, #4a1297 40%, #048b43 100%);
+	}
  	section{
+        position: relative;
         display: flex;
         flex-direction: column;
         block-size: auto;

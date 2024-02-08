@@ -11,12 +11,12 @@ const DropMenu = ({ question, answer }) => {
       <button className={DropMenuStyle.dropbutton} onClick={toggleOpen}>
           <div className='flex w-full justify-between items-center align-middle gap-4 '>
 
-              <p class={DropMenuStyle.question}>{question} </p>
+              <p className={DropMenuStyle.question}>{question} </p>
 
               <div className={isOpen ? "transform rotate-90" : ""}> 
                 <svg alt-arial="button icon"  width="32" height="32" viewBox="0 0 31 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="chevron-right 1">
-                <path id="Vector" d="M11.6987 23.5705L19.4126 15.8566L11.6987 8.1427" stroke={"#ffff"} stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <path id="Vector" d="M11.6987 23.5705L19.4126 15.8566L11.6987 8.1427" stroke={"#ffff"} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
                 </g>
                 </svg>
               </div>

@@ -14,15 +14,17 @@ interface Props {
 	gradientColorCenter?: string;
 	gradientColorRight?: string;
 	width?: string;
+	fontweight?: string;
 }
 
-const {  width="auto", texto, link, backgroundColor="transparent", iconColor='#00c207', iconColorHover='#00c207', borderColor = '#00c207', borderColorHover ='transparent',  borderWidth=3, textColor='#ffffff', textColorHover='#ffffff', gradientColorLeft='#2ed5de',gradientColorCenter='#2e74de', gradientColorRight='#d201d2'   } = Astro.props;
+const { fontweight="200",  width="auto", texto, link, backgroundColor="transparent", iconColor='#00c207', iconColorHover='#00c207', borderColor = '#00c207', borderColorHover ='transparent',  borderWidth=3, textColor='#ffffff', textColorHover='#ffffff', gradientColorLeft='#2ed5de',gradientColorCenter='#2e74de', gradientColorRight='#d201d2'   } = Astro.props;
 ---
 <a href={link}>
     <button class="button-learn flex flex-row-reverse align-middle items-center justify-center" aria-label={texto}
 	data-text={texto}
 	style={
 	`
+	--font-weight: ${fontweight};
 	--background-color: ${backgroundColor};
 	--text-color: ${textColor};
 	--text-color-hover: ${textColorHover};
@@ -68,7 +70,7 @@ color:var(--text-color);
 background: var(--background-color);
 font-size: clamp(10px, 20vw, 24px);
 text-align: var(--text-align);
-font-weight: 200;
+font-weight: var(--font-weight);
 border-radius: 50px;
 border: var(--border-width) solid;
 border-color: var(--border-color);

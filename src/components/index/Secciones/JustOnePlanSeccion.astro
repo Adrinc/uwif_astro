@@ -1,6 +1,6 @@
 ---
 import TarjetaPaqueteEspecial from '../../TarjetaPaqueteEspecial.astro';
-import PriceAndPlansInfo from '../PriceAndPlansInfo.astro';
+
 
 let listas = [
   { icono: 'image/checkwhite.svg', texto: '5G Wi-Fi Gateway device included' },
@@ -17,13 +17,13 @@ let listas = [
     
     
     <div class="columna-izquierda">
-      <div class="title">
-        Don't overpay for a <span class="text-primaryColor">stable 5G </span> home internet experience
+      <div class="title" id="homeinternet">
+        Don't overpay for a <span class="text-tertiaryTextColor"><br>5G home internet </span> experience!
         </div>
 
 
    <div class="title" id="oneplan">
-     JUST <span class="text-primaryColor">ONE</span> PLAN?
+     JUST <span class="text-tertiaryTextColor">ONE</span> PLAN?
    </div>
    <div class="subtitle">
      <p>Yes, we make it  <span class="text-secondaryColor font-bold">simple.</span> </p>
@@ -56,20 +56,24 @@ let listas = [
 		z-index: -1;
 	}
   section {
+  position: relative;
   display: flex;
   flex-direction: column;
 	justify-content: space-between;
   align-items: center;
+  padding-top:  clamp(0px, 5vw, 100px);
+  padding-left: clamp(0px, 5vw, 100px);
+	padding-right: clamp(0px, 5vw, 100px);
+  
   }
   .main-container{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding-top: clamp(0px, 10vw, 100px);
-    padding-left: clamp(0px, 10vw, 100px);
-    padding-right: clamp(0px, 10vw, 100px);
-    gap: 1rem;
+    width: 100%;
+  
+    gap: clamp(0px, 5vw, 100px);
   }
   
   .columna-izquierda{
@@ -148,12 +152,20 @@ let listas = [
       align-self: center;
       margin-bottom: 25px;
 			}
+	#homeinternet{
+    
+      color: var(--primary-text-color);
+			font-size: clamp(1.5rem, 5vw, 65px);
+			font-weight: 500;
+      width: 100%;
+			}
 
 
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     .main-container {
       flex-direction: column;
       align-items: center;
+      justify-content: center;
       gap: 1rem;
     }
     .columna-izquierda{
@@ -161,7 +173,6 @@ let listas = [
     }
 
 	.title{
-    
     color: var(--primary-text-color);
     font-size: clamp(1.5rem, 3vw, 80px);
     font-weight: bold;
@@ -171,11 +182,16 @@ let listas = [
   {
     text-align: center;
     justify-content: center;
+    align-self: center;
   }
   .image {
 
       margin-bottom: 10px;
 			}
+      p{
+        text-align: center;
+        align-self: center;
+      }
 
   }
 </style>

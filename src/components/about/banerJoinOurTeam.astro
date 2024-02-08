@@ -7,7 +7,10 @@ import BotonFlecha from "../global/BotonFlecha.astro";
 <div class="baner">
     <h1>Join Our Team!</h1>
     <p>Do you want to be part of the Internet Pros team?</p>
-    <BotonFlecha texto="Join the Team!" link="#" backgroundColor="#000000"/>
+    <div class="boton">
+
+        <BotonFlecha texto="Join the Team!" link="#" backgroundColor='#01c938' width='300px' iconColor='#01c938' fontweight='500'/>
+    </div>
 </div>
 
 <style>
@@ -24,6 +27,10 @@ import BotonFlecha from "../global/BotonFlecha.astro";
         width: 100%;
         margin-bottom: 200px;
     }
+    .boton {
+        position: relative;
+        z-index: 2;
+    }
 
     .baner::before {
         content: "";
@@ -32,7 +39,7 @@ import BotonFlecha from "../global/BotonFlecha.astro";
         right: 0;
         bottom: 0;
         left: 0;
-        background: rgba(0, 0, 0, 0.6); /* Aquí puedes ajustar la opacidad */
+        background-color: rgba(0, 0, 0, 0.6); 
         z-index: 1;
     }
 

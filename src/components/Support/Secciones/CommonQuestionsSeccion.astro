@@ -50,13 +50,26 @@ const dataDerecha= [
         </div>
 
     </div>
-
+    <span class="green-ball-blured"></span>
 
 </section>
 
 
 <style>
+    .green-ball-blured{
+    top: -20%;
+	left: 70%;
+	position: absolute;
+    width: clamp(0px, 50vw, 600px);
+	height: clamp(0px, 50vw, 600px);
+	border-radius: 100%;
+    background: linear-gradient(0deg, #022c16 0%, #02572a 100%);
+	filter: blur(100px);
+    opacity: 0.8;
+	z-index: -1;
+	}
  	section{
+        position: relative;
         display: flex;
         flex-direction: column;
         block-size: auto;

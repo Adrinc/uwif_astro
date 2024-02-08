@@ -15,21 +15,34 @@ import BotonFlecha from "../../global/BotonFlecha.astro";
 
 				<div class="flex gap-8 ">
 	
-					<BotonFlecha texto="Read more" link="/signup"  backgroundColor="#7f44e5" borderColor="transparent" iconColor="#ffffff" width="300px"/>
-					<BotonFlecha texto="Contact us" link="/contact"  borderColor="#ffffff" iconColor="#ffffff"/>
+					<BotonFlecha texto="Read more" link="/signup"  backgroundColor="#7f44e5" borderColor="transparent" iconColor="#ffffff" width="300px" fontweight="500"/>
+					<BotonFlecha texto="Contact us" link="/contact"  borderColor="#ffffff" iconColor="#ffffff" fontweight="500"/>
 				</div>
 			</div>
 
 			<img src="/public/image/manwhitmac.png" alt="man with mac">
 		</div>
-
+		<span class="green-ball-blured"></span>
 	
 </section>
 
 
 <style>
+	 .green-ball-blured{
+    top: -10%;
+	left: 0;
+	position: absolute;
+    width: clamp(0px, 50vw, 1000px);
+	height: clamp(0px, 50vw, 1000px);
+	border-radius: 100%;
+    background: linear-gradient(0deg, #02572b 0%, #02572a 100%);
+	filter: blur(100px);
+    opacity: 0.8;
+	z-index: -1;
+	}
 	section
 	{
+		position: relative;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -73,6 +86,7 @@ import BotonFlecha from "../../global/BotonFlecha.astro";
 			text-align: left;
 			word-spacing: 5px;
 			text-wrap: balance;
+			text-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
 			
 			}
 

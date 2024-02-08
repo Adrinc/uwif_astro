@@ -27,11 +27,25 @@
         <p>Connected Clients</p>
        </div>
 
-    
+       <span class="green-ball-blured"></span>
     </div>
 </div>
 
 <style>
+     .green-ball-blured{
+		position: absolute;
+		top: -10%;
+		left: 65%;
+		width: clamp(400px, 50vw, 700px);
+		height: clamp(400px, 50vw, 700px);
+		border-radius: 100%;
+		
+		rotate: -90deg;
+	
+		filter: blur(100px);
+		z-index: -100;
+		background: linear-gradient(#4d3ecf 20%, #731ee9 40%, #05e46d 100%);
+	}
     .divider {
     border-left: 4px solid rgba(3, 63, 3, 0.416);
     height: 200px;
@@ -68,7 +82,7 @@
         padding: 20px;
     }
     .baner {
-        position:relative;
+        position: relative;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -106,6 +120,7 @@
     font-weight: bold;
     text-wrap: balance;
     text-align: center;
+    text-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
     }
     p{
     color: var(--primary-text-color);

@@ -48,17 +48,29 @@ const data = [
         <p class="unlock">Unlock your full internet potential</p>
         <p class="Mission">Our Mission is Your Achievement</p>
     </div>
-    <BotonFlecha texto='Let’s go!' link='#' backgroundColor='#000000'/>
+    <BotonFlecha texto='Let’s go!' link='#' backgroundColor='#01c938' width='300px' iconColor='#01c938' fontweight='500'/>
 
 
-
+    <span class="green-ball-blured"></span>
 </section>
 
 
 <style>
-
+    .green-ball-blured{
+    top: 10%;
+	left: -10%;
+	position: absolute;
+    width: clamp(0px, 50vw, 700px);
+	height: clamp(0px, 50vw, 700px);
+	border-radius: 100%;
+    background: linear-gradient(0deg, #057e41 0%, #025709 100%);
+	filter: blur(100px);
+    opacity: 0.5;
+	z-index: -1;
+	}
 section
 {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
