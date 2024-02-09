@@ -15,20 +15,36 @@ interface Props {
 	gradientColorRight?: string;
 	width?: string;
 	fontweight?: string;
+	fontsize?: string;
+	showIcon?: boolean;
+	paddingleft?: string;
+	paddingright?: string;
+	marginLeftIncon?: string;
+	marginRightIncon?: string;
+	marginTopIncon?: string;
+	marginBottomIncon?: string;
 }
 
-const { fontweight="200",  width="auto", texto, link, backgroundColor="transparent", iconColor='#00c207', iconColorHover='#00c207', borderColor = '#00c207', borderColorHover ='transparent',  borderWidth=3, textColor='#ffffff', textColorHover='#ffffff', gradientColorLeft='#2ed5de',gradientColorCenter='#2e74de', gradientColorRight='#d201d2'   } = Astro.props;
+const {showIcon=true, marginLeftIncon="0px", marginRightIncon="0px", marginTopIncon="0px", marginBottomIncon="0px", paddingleft="20px", paddingright="12px", fontsize="24px", fontweight="200",  width="auto", texto, link, backgroundColor="transparent", iconColor='#00c207', iconColorHover='#00c207', borderColor = '#00c207', borderColorHover ='transparent',  borderWidth=3, textColor='#ffffff', textColorHover='#ffffff', gradientColorLeft='#2ed5de',gradientColorCenter='#2e74de', gradientColorRight='#d201d2'   } = Astro.props;
 ---
 <a href={link}>
     <button class="button-learn flex flex-row-reverse align-middle items-center justify-center" aria-label={texto}
 	data-text={texto}
 	style={
 	`
+	--display-icon: ${showIcon ? "block" : "none"};
+	--padding-left: ${paddingleft};
+	--padding-right: ${paddingright};
+	--margin-left-icon: ${marginLeftIncon};
+	--margin-right-icon: ${marginRightIncon};
+	--margin-top-icon: ${marginTopIncon};
+	--margin-bottom-icon: ${marginBottomIncon};
+	--font-size: ${fontsize};
 	--font-weight: ${fontweight};
 	--background-color: ${backgroundColor};
 	--text-color: ${textColor};
 	--text-color-hover: ${textColorHover};
-	--icon-color-hover: ${iconColor};
+	--icon-color: ${iconColor};
 	--icon-color-hover: ${iconColorHover};
 	--border-color: ${borderColor};
 	--border-color-hover: ${borderColorHover};
@@ -43,7 +59,7 @@ const { fontweight="200",  width="auto", texto, link, backgroundColor="transpare
 
 	
 
-	<svg alt-arial="button icon" class="icono inline-block" width="31" height="32" viewBox="0 0 31 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+	<svg alt-arial="button icon" class="icono" width="31" height="32" viewBox="0 0 31 32" fill="none" xmlns="http://www.w3.org/2000/svg">
 		<g id="chevron-right 1">
 		<path id="Vector" d="M11.6987 23.5705L19.4126 15.8566L11.6987 8.1427" stroke={iconColor} stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
 		</g>
@@ -57,10 +73,17 @@ const { fontweight="200",  width="auto", texto, link, backgroundColor="transpare
 
 .icono{
 	stroke: var(--icon-color);
+	vertical-align: middle;
+	display: var(--display-icon);
+	margin-left: var(--margin-left-icon);
+	margin-right: var(--margin-right-icon);
+	margin-top: var(--margin-top-icon);
+	margin-bottom: var(--margin-bottom-icon);
 	transition: stroke 1s ease-in-out;
 }
 .icono:hover{
 	stroke: var(--icon-color-hover);
+	color: var(--icon-color-hover);
 	transition: stroke 1s ease-in-out;
 }
   
@@ -68,17 +91,18 @@ const { fontweight="200",  width="auto", texto, link, backgroundColor="transpare
 position: relative;
 color:var(--text-color);
 background: var(--background-color);
-font-size: clamp(10px, 20vw, 24px);
+font-size: clamp(10px, 20vw, var(--font-size));
 text-align: var(--text-align);
 font-weight: var(--font-weight);
 border-radius: 50px;
 border: var(--border-width) solid;
 border-color: var(--border-color);
 padding: 12px;
-padding-left: 20px;
-padding-right: 10px;
+padding-left: var(--padding-left);
+padding-right: var(--padding-right);
 transition: all 0.5s ease;
 width: var(--width);
+vertical-align: middle;
 }
 .button-learn svg {
   position: relative;
@@ -126,18 +150,22 @@ height: clamp(0.5rem, 1vw, 85px);
 }
 @media (max-width: 768px) {
 	.button-learn {
-		font-size: clamp(12px, 20vw, 20px)
+		font-size: clamp(12px, 20vw, 20px);
+		padding: clamp(8px, 1vw, 12px);
+		text-align: center;
 	}
+
 		
 	}
 @media (max-width: 450px) {
 	.button-learn {
 		font-size: clamp(8px, 10vw, 16px);
-	
+		padding: clamp(8px, 1vw, 12px);
 	}
 	.icono{
 	display:none;
-}
+	}
+
 		
 	}
 @media  screen and (height< 391px) {

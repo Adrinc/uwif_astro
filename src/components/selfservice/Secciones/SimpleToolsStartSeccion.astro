@@ -1,18 +1,17 @@
 ---
-
 import BotonFlecha from "../../global/BotonFlecha.astro"
 
 let buttons = [
     {
-        texto: "CREATE AN ACCOUNT",
+        texto: "Have an account? Login ",
         link: "#"
     },
     {
-        texto: "DOWNLOAD THE APP",
+        texto: "Create my account ",
         link: "#"
     },
     {
-        texto: "PAY YOUR BILL",
+        texto: "Reset my password ",
         link: "#"
     }
 ]
@@ -21,23 +20,22 @@ let buttons = [
 
 
 
-<section id="simpletools">
+<section id="simpletoolsstart">
     
-       <div class="row-title">
-           <h1 class="title">Use these simple tools to manage your account and stay connected with <span class="font-bold">U-app.</span></h1>
-       </div>
+    <div class="contenedor">
+          
+        <h1 class="title">Let’s get started</h1>
+        <h2 class="subtitle">Log in to manage your account, upgrade your plan, or shop for new phones.</h2>
         
-        
-   
         <div class="row-buttons">
             {
                 buttons.map((buttons) => (
-                    <BotonFlecha {...buttons} showIcon={false} paddingleft="20px" paddingright="20px" borderColor="transparent" borderColorHover="transparent" backgroundColor="var(--primary-buttom-color)" fontweight="300" iconColorHover="var(--tertiary-color)"/>
+                    <BotonFlecha {...buttons} marginTopIncon="5px" paddingleft="30px" borderColor="transparent" borderColorHover="transparent" gradientColorCenter="transparent" gradientColorLeft="transparent" gradientColorRight="transparent"  fontweight="500" iconColor="var(--tertiary-color)" fontsize="30px" textColorHover="var(--tertiary-text-color)" />
                 ))
             }
         </div>
 
-
+    </div>
    
         <span class="green-ball-blured"></span>
 
@@ -52,9 +50,12 @@ section
 		display: flex;
 		flex-direction: column;
 		justify-content: space-around;
+        align-items: center;
 		padding-left: clamp(0px, 5vw, 100px);
 		padding-right: clamp(0px, 5vw, 100px);
 		height: 60vh;
+        margin-bottom: 100px;
+       
 	}
     .green-ball-blured{
     top: 20%;
@@ -68,6 +69,18 @@ section
     opacity: 0.7;
 	z-index: -1;
 	}
+    .contenedor
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+        width: 100%;
+        background-color: var(--primary-glass-color);
+        border-radius: 15px;
+        border: 4px dashed var(--cuaternary-color);
+    }
     .row-title
     {
         display: flex;
@@ -77,14 +90,16 @@ section
         margin-bottom: 20px;
         padding-left: 15%;
         padding-right: 15%;
+     
     }
     .row-buttons
     {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-evenly;
-        align-items: center;
+        justify-content: space-around;
+        
+        width: 100%;
         gap: 20px;
        
     }
@@ -98,15 +113,15 @@ section
     h1.title
     {
         font-size: clamp(16px, 5vw, 45px);
-        font-weight: 500;
+        font-weight: 600;
         color: var(--primary-text-color);
         text-align: center;
     }
     h2.subtitle
     {
-        font-size: clamp(20px, 5vw, 40px);
-        font-weight: 800;
-        color: var(--cuaternary-color);
+        font-size: clamp(14px, 5vw, 24px);
+        font-weight: 400;
+        color: var(--primary-text-color);
         text-align: center;
         width: 70%;
     }
