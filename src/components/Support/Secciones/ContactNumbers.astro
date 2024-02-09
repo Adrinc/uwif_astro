@@ -57,9 +57,9 @@ const dataIzquierda = [
 <section id="contactnumbers">
 
     <h1>CONTACT NUMBERS</h1>
-    <div class="flex  justify-between gap-8 ">
+    <div class="contactNumbersContainer">
 
-        <div class="w-1/2 md:w-full">
+        <div class="columnaIzquierda">
             {dataIzquierda.map((item) => (
                 <div class="mb-8 gap-4">
                     <h2 class="carttile">{item.title}</h2>
@@ -73,7 +73,7 @@ const dataIzquierda = [
             }
         </div>
 
-        <div class="w-1/2 md:w-full">
+        <div class="columnaDerecha">
             {dataDerecha.map((item) => (
                 <div class="mb-8 gap-8">
                     <h2 class="carttile">{item.title}</h2>
@@ -94,6 +94,15 @@ const dataIzquierda = [
 
 
 <style>
+    .contactNumbersContainer{
+        display:flex;
+        justify-content: space-between;
+        gap: clamp(20px, 5vw, 32px);
+    }
+    .columnaIzquierda, .columnaDerecha{
+        width: 50%;
+    }
+   
     .green-ball-blured{
 		position: absolute;
 		top: 0;
@@ -127,7 +136,7 @@ const dataIzquierda = [
         text-align: left;
     }
     h2{
-        font-size: clamp(2rem, 5vw, 40px);
+        font-size: clamp(16px, 5vw, 50px);
     }
     .carttile{
 	    color: var(--tertiary-text-color);
@@ -141,10 +150,28 @@ const dataIzquierda = [
 	  color: var(--primary-text-color);
 	  font-weight: 300;
 	  text-wrap: pretty;
-	  font-size: clamp(1rem, 1.3vw, 1.2rem);
+	  font-size: clamp(14px, 3vw, 25px);
 	  display: block;
       max-width: 50vw;
       margin-bottom: 0.5rem;
     
 	}
+    @media (max-width: 900px)
+    {
+		
+        .contactNumbersContainer{
+            flex-direction: column;
+            align-items: center;
+        }
+        .columnaDerecha, .columnaIzquierda{
+            width: 100%;
+        }
+        .description, p {
+            max-width: 100%;
+        }
+        h1{
+            text-align: center;
+        }
+    
+    }
 </style>

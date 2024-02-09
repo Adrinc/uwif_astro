@@ -30,9 +30,9 @@ const dataDerecha= [
 <section id="questions">
 
     <h1>Common questions about U-wifi Internet</h1>
-    <div class="flex  justify-between gap-40 ">
+    <div class="questionContainer ">
 
-        <div class="w-1/2 md:w-full ">
+        <div class="columnaIzquierda">
             {dataIzquierda.map((item) => ( 
                     <div class="mb-8 gap-8">
                     <DropMenu client:visible transition:persist question={item.question} answer={item.answer} />
@@ -40,7 +40,7 @@ const dataDerecha= [
                 ))}
         </div>
 
-        <div class="w-1/2 md:w-full">
+        <div class="columnaDerecha">
                 {dataDerecha.map((item) => ( 
 
                     <div class="mb-8 gap-8">
@@ -56,6 +56,10 @@ const dataDerecha= [
 
 
 <style>
+    .columnaIzquierda, .columnaDerecha{
+        width: 50%;
+
+    }
     .green-ball-blured{
     top: -20%;
 	left: 70%;
@@ -88,6 +92,12 @@ const dataDerecha= [
         text-wrap: balance;
         text-align: left;
     }
+    .questionContainer{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 150px;
+    }
  
     .carttile{
 	    color: var(--tertiary-text-color);
@@ -107,4 +117,27 @@ const dataDerecha= [
       margin-bottom: 0.5rem;
     
 	}
+    @media (max-width: 900px)
+    {
+        .questionContainer{
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            gap: 50px;
+        }
+        .description, p {
+            max-width: 100%;
+        }
+        .columnaIzquierda, .columnaDerecha{
+            width: 100%;
+            padding: 0;
+        }
+        h1{
+            text-align: center;
+            color: var(--cuaternary-color);
+            font-weight: 600;
+        }
+
+    }
 </style>
