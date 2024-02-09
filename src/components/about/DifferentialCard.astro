@@ -80,11 +80,34 @@ const { title, subtitle, iconUrl, description } = Astro.props;
 	    color: var(--primary-text-color);
 		font-weight: 300;
 		text-wrap: pretty;
-		font-size: clamp(12px, 1vw, 30px);
+		font-size: clamp(14px, 1vw, 30px);
         max-width: 100%;
         max-height: 100%;
         text-overflow: ellipsis;
       
        
 	}
-    </style>
+
+
+
+
+    @media (max-width: 768px) 
+	{
+     .contenedor-card{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        
+     }
+     h1.title, h2.subtitle{
+        text-align: center;
+     }
+     .icon{
+        align-self: center;
+     }
+	
+	}
+
+</style>

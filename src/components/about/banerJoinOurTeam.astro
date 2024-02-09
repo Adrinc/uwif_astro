@@ -50,7 +50,7 @@ import BotonFlecha from "../global/BotonFlecha.astro";
 
     h1 {
         color: var(--primary-text-color);
-        font-size: clamp(1.5rem, 5vw, 50px);
+        font-size: clamp(30px, 5vw, 50px);
         font-weight: bold;
         text-wrap: balance;
         text-align: center;
@@ -64,4 +64,16 @@ import BotonFlecha from "../global/BotonFlecha.astro";
         text-align: center;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
+
+    @media (max-width: 768px) 
+	{
+        .baner {
+            height: 300px;
+        }
+     p{
+        text-align: center;
+        width: 80%;
+     }
+	
+	}
 </style>
