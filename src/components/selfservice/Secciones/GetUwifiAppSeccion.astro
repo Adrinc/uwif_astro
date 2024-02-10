@@ -17,9 +17,9 @@ import BotonFlecha from "../../global/BotonFlecha.astro";
             
 
 				<div class="botones">
-	
-					<BotonFlecha texto="Read more" link="/signup"  backgroundColor="#7f44e5" borderColor="transparent" iconColor="#ffffff"  fontweight="500"/>
-					<BotonFlecha texto="Contact us" link="/contact"  borderColor="#ffffff" iconColor="#ffffff" fontweight="500"/>
+					<img class="logoBoton" src="/image/AppStore.png" alt="app store logo">
+					<img class="logoBoton" src="/image/AndroidStore.png" alt="google play logo">
+					<BotonFlecha texto="Find out more" link="#" marginTopIncon="5px" paddingleft="30px" borderColor="transparent" borderColorHover="transparent" gradientColorCenter="transparent" gradientColorLeft="transparent" gradientColorRight="transparent"  fontweight="500" iconColor="var(--tertiary-color)" fontsize="30px" textColorHover="var(--tertiary-text-color)" />
 				</div>
 			</div>
 
@@ -37,8 +37,18 @@ import BotonFlecha from "../../global/BotonFlecha.astro";
         flex-wrap: wrap;
 		justify-content: flex-start;
 		gap: 16px;
+		
+		
+		object-fit: contain;
 
 	
+	}
+	.logoBoton{
+		width: clamp(100px, 20vw, 150px);
+		
+		object-fit: contain;
+		
+
 	}
 	 .green-ball-blured{
     top: -10%;
@@ -65,7 +75,7 @@ import BotonFlecha from "../../global/BotonFlecha.astro";
 		height: 80vh;
 	}
 	img{
-		width: 50%;
+		width: 40%;
 		height: 100%;
 		object-fit: fill;
 
@@ -75,7 +85,7 @@ import BotonFlecha from "../../global/BotonFlecha.astro";
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		width:50%;
+		width:60%;
 		height: 100%;
 		padding: clamp(8px, 5vw, 50px);
 	}
@@ -131,6 +141,7 @@ import BotonFlecha from "../../global/BotonFlecha.astro";
 			align-items: center;
 			
 			gap: 16px;
+
 		}
 		.columnaIzquierda{
 			align-items: center;
