@@ -1,17 +1,25 @@
 ---
-import BotonFlecha from "../../global/BotonFlecha.astro";
+
 import BuyOrApplyFree from "../../global/BuyOrApplyFree.astro";
+interface Props {
+	url: string;
+	buttonText1?: string;
+	buttonText2?: string;
+	buttonLink1?: string;
+	buttonLink2?: string;
+}
+const { url} = Astro.props;
 
-
+console.log(url);
 ---
 <section id="home">
     <video  autoplay muted loop id="myVideo"  transition:persist>
-        <source src="videos/u-wifi-opener-prod.mp4" type="video/mp4">
+        <source src={"https://strapi.iamet.cbluna-dev.com"+url} type="video/mp4">
     </video>
 
 <div class="botones-back-column">
 	<div class="botones-back">
-		<BuyOrApplyFree/>
+		<BuyOrApplyFree />
 	</div>
 
 </div>

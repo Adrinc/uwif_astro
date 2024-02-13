@@ -10,12 +10,21 @@ import DividerPlus from '../components/DividerPlus.astro';
 import TabletSeccion from '../components/index/Secciones/TabletSeccion.astro';
 import BentogridSeccion from '../components/index/Secciones/BentogridSeccion.astro';
 
+import {getPageData} from '../services/graphql.ts';
+import {GetHeroVideo} from '../data/GetHeroVideoQuery.ts';
+
+const data = await getPageData(GetHeroVideo());
+
+
+
+const heroVideo = data['pageData']['data']['uwifiHome']['data']['attributes'];
+
 
 ---
 
 <Layout title="Home">
 	
-	<HeroSeccion1 />
+	<HeroSeccion1 url={heroVideo.HeroVideo.data[0].attributes.url}/>
 	<CarruselTextoHorizontal/>
 	<HeroSeccion2 />
 	<CarruselTextoHorizontal/>
