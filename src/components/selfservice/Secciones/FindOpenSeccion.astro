@@ -48,16 +48,7 @@ let buttons = [
 
 
 <style>
-	.botones{
-        position: relative;
-        z-index: 2;
-		display: flex;
-		flex-direction: row;
-		justify-content: flex-start;
-		gap: 16px;
 
-	
-	}
     .columnaIzquierda
     {
         position: relative;
@@ -93,7 +84,7 @@ let buttons = [
 		padding-left: clamp(0px, 5vw, 100px);
 		padding-right: clamp(0px, 5vw, 100px);
 		padding-bottom: 100px;
-		height: 90vh;
+	
 	}
 	img{
 		width: 50%;
@@ -117,6 +108,7 @@ let buttons = [
         background-position: center;
         z-index: 2;
         padding-left: clamp(0px, 5vw, 100px);
+		background-color: aquamarine;
         
         
 		
@@ -129,7 +121,7 @@ let buttons = [
         right: 0;
         bottom: 0;
         left: 0;
-        background-color: rgba(0, 0, 0, 0.6); 
+        background-color: rgba(0, 0, 0, 0.8); 
         border-radius: 25px;
         z-index: 1;
     }
@@ -183,12 +175,18 @@ let buttons = [
 			padding: 16px;
 			max-height: 100%;
 		}
-		.botones{
-			flex-direction: column;
-			align-items: center;
-			
-			gap: 16px;
-		}
+		.row-buttons
+    {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        
+        width: 100%;
+        gap: 20px;
+
+       
+    }
 		.columnaIzquierda{
 			align-items: center;
 			text-align: center;
@@ -201,7 +199,7 @@ let buttons = [
 		align-self: center;
 		margin-right: 50px;
 	}
-	.title{
+	.title, .description{
 		text-align: center;
 		
 	}

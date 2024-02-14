@@ -5,8 +5,6 @@
    
     <p class="title">SELF <span class="text-primaryColor"> SERVICE </span> <span class="text-primaryTextColor"> CENTER</span></p>
 
-    <img src="/image/selfservicepage/auroraboreal.jpg" alt="background service" class="image"/>
- 
 </section>
  
 <style>
@@ -18,7 +16,11 @@
         position: relative;
 		box-sizing: border-box;
 		margin-top: 80px;
+        margin-bottom: 100px;
 		height: 80vh;
+        background-image:  url("/image/selfservicepage/auroraboreal.jpg");
+        background-size: cover;
+        background-position: center;
  
     }
     .green-ball-blured{
@@ -35,32 +37,18 @@
 	}
 	.title{
 	color: var(--secondary-color);
-	font-size: clamp(14px, 50vw, 120px);
+	font-size: clamp(14px, 5vw, 120px);
 	font-weight: 700;
 	text-align: center;
 	justify-content: center;
     text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.8);
 	}
-    .image {
-		position: absolute;
-        right: 0;
-        bottom: 0;
-	
-		width: 100vw;
-        height: 100%;
-		object-fit: cover;
-		z-index: -1;
-	}
-    .parrafo{
-    color: var(--primary-text-color);
-    font-size: clamp(14px, 3vw, 24px);
-    opacity: 0.6;
-    text-align: center;
-    font-family: var(--font-family-secondary);
-    }
+
     @media (max-width: 768px) 
     {
-		
+	section{
+        height: 60vh;
+    }
 	.title{
 	color: var(--secondary-color);
 	font-size: clamp(14px, 30vw, 45px);
@@ -68,11 +56,6 @@
 	text-align: center;
 	justify-content: center;
 	}
-    .parrafo{
-    color: var(--primary-text-color);
-    font-size: clamp(14, 3vw, 18px);
-    opacity: 0.6;
-    }
 	}
     
 </style>
