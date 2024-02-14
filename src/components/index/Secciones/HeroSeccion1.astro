@@ -1,13 +1,23 @@
 ---
-import BotonFlecha from "../../global/BotonFlecha.astro";
 import BuyOrApplyFree from "../../global/BuyOrApplyFree.astro";
 
 
 ---
 <section id="home">
-    <video  autoplay muted loop id="myVideo"  transition:persist>
+<!--     <video  autoplay muted loop id="myVideo"  transition:persist>
         <source src="videos/u-wifi-opener-prod.mp4" type="video/mp4">
-    </video>
+    </video> -->
+
+	    <!-- Video para pantallas grandes -->
+		<video class="block md:hidden" autoplay muted loop id="myVideo" transition:persist>
+			<source src="videos/u-wifi-opener-prod-mobile.mp4" type="video/mp4">
+		</video>
+	
+		<!-- Video para pantallas pequeñas -->
+		<video class="hidden md:block" autoplay muted loop id="myVideoMobile" transition:persist>
+			<source src="videos/u-wifi-opener-prod.mp4" type="video/mp4">
+		</video>
+	
 
 <div class="botones-back-column">
 	<div class="botones-back">
@@ -16,6 +26,7 @@ import BuyOrApplyFree from "../../global/BuyOrApplyFree.astro";
 
 </div>
 
+   
 
 	
 </section>
@@ -55,7 +66,7 @@ import BuyOrApplyFree from "../../global/BuyOrApplyFree.astro";
 		.texto-or{
 			font-size: clamp(10px, 20vw, 24px);
 		}	
-		#myVideo {
+		#myVideo, #myVideoMobile{
 		position: absolute;
         right: 0;
         bottom: 0;
