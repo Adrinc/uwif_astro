@@ -10,12 +10,12 @@ import BuyOrApplyFree from '../../global/BuyOrApplyFree.astro';
 	<main class="flex flex-row gap-4 box-border">
 		<div class="columna-izquierda" >
 
-			<div>
+			
 				<div class="gradient-text">The best internet</div>
 				<div><span class="subtitle">connection for  <img class="image" loading="lazy" alt="uwifi white logo" srcset="faviui.png"/></span></div>
 				<p class="description">In our fast-paced world, imagine a high-speed home internet service that keeps you connected, outpaces the competition, all at a pleasantly surprising low cost!</p>
-			</div>
-			<div class="flex flex-row content-start max-md:justify-center">
+			
+			<div class=" botones flex flex-row content-start max-md:justify-center">
 				<BuyOrApplyFree/>
 			</div>
 			
@@ -35,10 +35,10 @@ import BuyOrApplyFree from '../../global/BuyOrApplyFree.astro';
 
 	.green-ball-blured{
 		position: absolute;
-		top: -25%;
-		left: 0;
-		width: clamp(400px, 50vw, 800px);
-		height: clamp(400px, 50vw, 800px);
+		top: 10%;
+		left: 15%;
+		width: clamp(400px, 25vw, 550px);
+		height: clamp(400px, 25vw, 550px);
 		border-radius: 100%;
 		
 		rotate: -45deg;
@@ -50,32 +50,27 @@ import BuyOrApplyFree from '../../global/BuyOrApplyFree.astro';
 	}
 	
 		section{
-		
+			position: relative;
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
-			box-sizing: border-box;
 			padding-left: clamp(0px, 5vw, 100px);
 			padding-right: clamp(0px, 5vw, 100px);
-			margin-top: 200px;
-			padding-bottom: 100px;
-			
-			height: 90vh;
-			
+			margin-bottom: 100px;
+
+
 		}
 		.columna-izquierda{
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;
-			
-			gap: 2rem;
-			box-sizing: border-box;
-		
+			gap: 50px;
+
 		}
 
 			.title, .best, .subtitle{
 			color: var(--primary-text-color);
-			font-size: clamp(40px, 5vw, 100px);
+			font-size: clamp(40px, 5vw, 60px);
 			font-weight: 400;
 			letter-spacing: 2px;
 			text-align: left;
@@ -87,7 +82,7 @@ import BuyOrApplyFree from '../../global/BuyOrApplyFree.astro';
 				font-family: var(--font-family-secondary);
 			}
 			.gradient-text{
-				font-size: clamp(40px, 5vw, 100px);
+				font-size: clamp(40px, 5vw, 60px);
 			font-weight: 800;
 			letter-spacing: 2px;
 			text-align: left;
@@ -147,22 +142,39 @@ import BuyOrApplyFree from '../../global/BuyOrApplyFree.astro';
 			  font-weight: 200;
 			}
 	
-			@media (max-width: 768px) {
+			@media (max-width: 900px) {
 				main {
 				flex-direction: column;
 				align-items: center;
 				gap: 1rem;
 				}
 			.moden{
-			width: 100vw;
+			width: 100%;
 			height: clamp(280px, 50vw, 500px);
 	
 			}
+			.title, .best, .subtitle, .description, .cta-text{
+				text-align: center;
+				align-self: center;
+			}
+			.botones{
+				justify-content: center;
+			}
+
+			.green-ball-blured{
+		position: absolute;
+		top: 0;
+		left: 10%;
+		width: clamp(350px, 5vw, 550px);
+		height: clamp(350px, 5vw, 550px);
+		
+	}
+
 			}
 			@media  screen and (height< 450px) {
 				section{
 		
-					padding-top: clamp(200px, 50vh, 400px);
+				
 					margin-bottom: clamp(200px, 50vh, 300px);
 				}
 				.moden{

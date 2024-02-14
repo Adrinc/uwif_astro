@@ -54,6 +54,7 @@ section
 		justify-content: space-around;
 		padding-left: clamp(0px, 5vw, 100px);
 		padding-right: clamp(0px, 5vw, 100px);
+        margin-bottom: 100px;
 		height: 60vh;
 	}
     .green-ball-blured{
@@ -116,7 +117,7 @@ section
 	    color: var(--primary-text-color);
 		font-weight: 300;
 		text-wrap: pretty;
-		font-size: clamp(16px, 3vw, 25px);
+		font-size: clamp(16px, 3vw, 28px);
         
         width: 50%;
 	}
@@ -125,6 +126,23 @@ section
 
     @media (max-width: 768px)
     {
-
+        section{
+		padding-left: clamp(20px, 5vw, 50px);
+		padding-right: clamp(20px, 5vw, 50px);
+		}
+        .row-title
+        {
+            padding-left: 0;
+            padding-right: 0;
+        }
+        .row-buttons
+        {
+            padding-left: 0;
+            padding-right: 0;
+        }
+        .description 
+        {
+            width: 100%;
+        }
     }
 </style>

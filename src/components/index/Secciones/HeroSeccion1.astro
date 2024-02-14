@@ -1,4 +1,9 @@
 ---
+<<<<<<< HEAD
+=======
+
+import BuyOrApplyFree from "../../global/BuyOrApplyFree.astro";
+>>>>>>> react
 
 import BuyOrApplyFree from "../../global/BuyOrApplyFree.astro";
 interface Props {
@@ -13,9 +18,15 @@ const { url} = Astro.props;
 console.log(url);
 ---
 <section id="home">
-    <video  autoplay muted loop id="myVideo"  transition:persist>
-        <source src={"https://strapi.iamet.cbluna-dev.com"+url} type="video/mp4">
-    </video>
+     <!-- Video para pantallas grandes -->
+	 <video class="block md:hidden" autoplay muted loop id="myVideo" transition:persist>
+		<source src="videos/u-wifi-opener-prod-mobile.mp4" type="video/mp4">
+	</video>
+
+	<!-- Video para pantallas pequeñas -->
+	<video class="hidden md:block" autoplay muted loop id="myVideoMobile" transition:persist>
+		<source src="videos/u-wifi-opener-prod.mp4" type="video/mp4">
+	</video>
 
 <div class="botones-back-column">
 	<div class="botones-back">
@@ -33,8 +44,11 @@ console.log(url);
 		section{
 		
 			position: relative;
-			box-sizing: border-box;
+			display: flex;
+			flex-direction: column-reverse;
+			flex: 1;
 			margin-top: 80px;
+			width: 100vw;
 			height: 80vh;
 		}
 		.botones-back-column{
@@ -43,7 +57,7 @@ console.log(url);
 			flex-direction: column;
 			justify-content: flex-end;
 			align-items: center;
-			height: 100%;
+		
         	
 		
 		
@@ -63,11 +77,9 @@ console.log(url);
 		.texto-or{
 			font-size: clamp(10px, 20vw, 24px);
 		}	
-		#myVideo {
+		#myVideo, #myVideoMobile {
 		position: absolute;
-        right: 0;
-        bottom: 0;
-	
+       
 		width: 100vw;
         height: 100%;
 		object-fit: cover;
@@ -89,20 +101,6 @@ console.log(url);
 				}
 		
 			}
-			@media  screen and (height< 450px) {
-				section{
-		
-					padding-top: clamp(200px, 50vh, 400px);
-					margin-bottom: clamp(200px, 50vh, 300px);
-				}
-				.botones {
-				flex-direction: column;
-				align-items: center;
-				bottom: 5%;
-				
-		
-				}
-			}
-			
+	
 	
  </style>
