@@ -1,5 +1,6 @@
 
 const gqlURL = "https://strapi.iamet.cbluna-dev.com/graphql";
+export const strapiURL = "https://strapi.iamet.cbluna-dev.com";
 
 export async function GQLQuery (query:string) {
     const resp  = await fetch(gqlURL,{

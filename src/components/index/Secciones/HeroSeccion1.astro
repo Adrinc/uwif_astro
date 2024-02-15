@@ -1,16 +1,18 @@
 ---
 
 import BuyOrApplyFree from "../../global/BuyOrApplyFree.astro";
+import {strapiURL} from '../../../services/graphql.ts';
 interface Props {
-	url: string;
+	urlVideoWeb: string;
+	urlVideoMobile: string;
 	buttonText1?: string;
 	buttonText2?: string;
 	buttonLink1?: string;
 	buttonLink2?: string;
 }
-const { url} = Astro.props;
+const { urlVideoWeb, urlVideoMobile, buttonLink1, buttonLink2, buttonText1, buttonText2 } = Astro.props;
 
-console.log(url);
+
 ---
 <section id="home">
      <!-- Video para pantallas grandes -->
@@ -20,12 +22,17 @@ console.log(url);
 
 	<!-- Video para pantallas pequeñas -->
 	<video class="hidden md:block" autoplay muted loop id="myVideoMobile" transition:persist>
-		<source src="videos/u-wifi-opener-prod.mp4" type="video/mp4">
+		<source src=`${strapiURL}${urlVideoWeb}` type="video/mp4">
 	</video>
 
 <div class="botones-back-column">
 	<div class="botones-back">
-		<BuyOrApplyFree />
+		<BuyOrApplyFree
+			buttonText1={buttonText1}
+			buttonLink1={buttonLink1}
+			buttonText2={buttonText2}
+			buttonLink2={buttonLink2}
+		/>
 	</div>
 
 </div>

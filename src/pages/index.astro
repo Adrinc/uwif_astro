@@ -5,28 +5,52 @@ import HeroSeccion1 from '../components/index/Secciones/HeroSeccion1.astro';
 import HeroSeccion2 from '../components/index/Secciones/HeroSeccion2.astro';
 import ACPSeccion from '../components/index/Secciones/ACPSeccion.astro';
 import JustOnePlanSeccion from '../components/index/Secciones/JustOnePlanSeccion.astro';
-import FindAreaPopup from '../components/global/popups/FindAreaPopup/FindAreaPopup.astro';
 import DividerPlus from '../components/DividerPlus.astro';
 import TabletSeccion from '../components/index/Secciones/TabletSeccion.astro';
 import BentogridSeccion2 from '../components/index/Secciones/BentogridSeccion2.astro';
 
 import {getPageData} from '../services/graphql.ts';
-import {GetHeroVideo} from '../data/GetHeroVideoQuery.ts';
+import * as IndexData from '../data/IndexQuerys.ts';
 
-const data = await getPageData(GetHeroVideo());
 
-console.log(data);
+const dataHero1 = await getPageData(IndexData.GetHero1Seccion());
+const dataHero2 = await getPageData(IndexData.GetHero2Seccion());
 
-const heroVideo = data['pageData']['data']['uwifiHome']['data']['attributes'];
+
+
+console.log(dataHero2);
+const hero1Seccion_Buttons = dataHero1['pageData']['data']['uwifiHome']['data']['attributes']['HeroButtons'];
+const hero1Seccion_Videos = dataHero1['pageData']['data']['uwifiHome']['data']['attributes']['HeroVideo']['data'];
+
+//hero2 seccionData
+
+const hero2Seccion_text = dataHero2['pageData']['data']['uwifiHome']['data']['attributes']['PrimaryParagraph'];
+console.log(hero2Seccion_text.Textblock);
 
 
 ---
 
 <Layout title="Home">
 	
-	<HeroSeccion1 url={heroVideo.HeroVideo.data[0].attributes.url}/>
+	<HeroSeccion1 
+	urlVideoWeb={hero1Seccion_Videos[0].attributes.url}
+	urlVideoMobile={hero1Seccion_Videos[0].attributes.url}
+	buttonText1={hero1Seccion_Buttons[0].Text}
+	buttonText2={hero1Seccion_Buttons[1].Text}
+	buttonLink1={hero1Seccion_Buttons[0].Link}
+	buttonLink2={hero1Seccion_Buttons[1].Link}
+/>
+
+
+
 	<CarruselTextoHorizontal/>
-	<HeroSeccion2 />
+	<HeroSeccion2
+
+	gradientTitle={hero2Seccion_text.Headings[0].Heading}
+	title={hero2Seccion_text.Headings[1].Heading}
+	description={hero2Seccion_text.Textblock}
+	
+	/>
 	<CarruselTextoHorizontal/>
 	<BentogridSeccion2/>
 	<CarruselTextoHorizontal/>
@@ -43,3 +67,4 @@ const heroVideo = data['pageData']['data']['uwifiHome']['data']['attributes'];
 
 
 
+../data/GetHero1Query.ts

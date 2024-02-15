@@ -3,14 +3,24 @@ import BotonFlecha from "./BotonFlecha.astro";
 
 interface Props {
     direction?:string;
+	buttonText1?: string;
+	buttonText2?: string;
+	buttonLink1?: string;
+	buttonLink2?: string;
 }
-const{direction="row"}= Astro.props;
+const{
+    direction="row",
+    buttonText1="BUY NOW",
+    buttonText2="APPLY FOR FREE WIFI",
+    buttonLink1="https://cb-luna.github.io/uwifi_map_services-build/#/",
+    buttonLink2="https://cb-luna.github.io/uwifi_map_services_acp_build/"
+}= Astro.props;
 ---
 
 <div class="botones" style={`--direction: ${direction};`}>
-    <BotonFlecha texto="BUY NOW" link="/acp" iconColor="var(--primary-text-color)"  link="https://cb-luna.github.io/uwifi_map_services-build/#/"/>
+    <BotonFlecha texto= {buttonText1} iconColor="var(--primary-text-color)"  link={buttonLink1}/>
     <p class="texto-or font-bold text-primaryTextColor "> OR </p>
-    <BotonFlecha backgroundColor="var(--primary-buttom-color)" iconColor="var(--primary-text-color)" texto="APPLY FOR FREE WIFI" link="https://cb-luna.github.io/uwifi_map_services_acp_build/"/>
+    <BotonFlecha backgroundColor="var(--primary-buttom-color)" iconColor="var(--primary-text-color)" texto={buttonText2} link={buttonLink2}/>
 </div>
 
 
