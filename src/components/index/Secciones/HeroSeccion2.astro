@@ -1,15 +1,18 @@
 ---
 import Moden from '../../Scene3D/ModenScene/Main3D';
-
 import BuyOrApplyFree from '../../global/BuyOrApplyFree.astro';
+import {getPageData} from '../../../services/graphql.ts';
+import * as IndexData from '../../../data/IndexQuerys.ts';
 
-
-interface Props {
+/* interface Props {
 	gradientTitle: string;
 	title: string;
 	description: string;
 }
 const { gradientTitle, title, description } = Astro.props;
+ */
+const dataHero2 = await getPageData(IndexData.GetHero2Seccion());
+const hero2Seccion_text = dataHero2['pageData']['data']['uwifiHome']['data']['attributes']['PrimaryParagraph'];
 
 ---
 <section id="#bestinternet">
@@ -19,9 +22,9 @@ const { gradientTitle, title, description } = Astro.props;
 		<div class="columna-izquierda" >
 
 			
-				<div class="gradient-text">{gradientTitle}</div>
-				<div><span class="subtitle">connection for  <img class="image" loading="lazy" alt="uwifi white logo" srcset="faviui.png"/></span></div>
-				<p class="description">{description}</p>
+				<div class="gradient-text">{hero2Seccion_text.Headings[0].Heading}</div>
+				<div><span class="subtitle">{hero2Seccion_text.Headings[1].Heading}  <img class="image" loading="lazy" alt="uwifi white logo" srcset="faviui.png"/></span></div>
+				<p class="description">{hero2Seccion_text.Textblock}</p>
 			
 			<div class=" botones flex flex-row content-start max-md:justify-center">
 				<BuyOrApplyFree/>

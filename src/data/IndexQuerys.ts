@@ -53,3 +53,37 @@ query {
 }
 `
 }
+
+export const GetJJustOnePlanSeccion = () => {
+  return `
+  query {
+    uwifiHome{
+      data {
+        attributes{
+          PricingParagraph{
+            Headings{Heading}
+          }
+          PricingTable{
+            Title
+            Price
+            Pricetime
+            Subtitle
+            Description
+            Features{
+              Title
+              Content
+            }
+            Buttons{
+              Text
+              Link
+            }
+          }
+      
+        }
+      }
+      
+    }
+  }
+  
+  `
+}

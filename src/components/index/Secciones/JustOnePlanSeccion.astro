@@ -1,6 +1,7 @@
 ---
 import TarjetaPaqueteEspecial from '../../TarjetaPaqueteEspecial.astro';
-
+import {getPageData} from '../../../services/graphql.ts';
+import * as IndexData from '../../../data/IndexQuerys.ts';
 
 let listas = [
   { icono: 'image/checkwhite.svg', texto: '5G Wi-Fi Gateway device included' },
@@ -9,6 +10,13 @@ let listas = [
   { icono: 'image/checkwhite.svg', texto: 'Redundancy Included' },
   { icono: 'image/checkwhite.svg', texto: 'Portable' },
 ];
+
+
+const dataJustOnePlan = await getPageData(IndexData.GetJJustOnePlanSeccion());
+console.log(dataJustOnePlan);
+const JustOnePlanSeccion_text= dataJustOnePlan['pageData']['data']['uwifiHome']['data']['attributes']['PricingParagraph'];
+console.log(JustOnePlanSeccion_text);
+
 ---
 
 
