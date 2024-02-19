@@ -20,13 +20,15 @@ import BotonFlecha from "../../global/BotonFlecha.astro";
               </div>
 
               <div class="columnaD">
-               
-                    <p class="desRow"> * 5G Wi-Fi Gateway device included</p>
-                    <p class="desRow"> * FREE 2 Day shipping</p>
-                    <p class="desRow"> * Plug and Play Self Install</p>
-                    <p class="desRow"> * Redundancy Included</p>
-                    <p class="desRow"> * Portable (Take it with U)</p>
-                    <BotonFlecha link="/contact" texto="SEE MORE DETAILS" borderColor="#ffffff" iconColor="#ffffff"/>
+               <div class="contenedor">
+
+                   <p class="desRow"> * 5G Wi-Fi Gateway device included</p>
+                   <p class="desRow"> * FREE 2 Day shipping</p>
+                   <p class="desRow"> * Plug and Play Self Install</p>
+                   <p class="desRow"> * Redundancy Included</p>
+                   <p class="desRow"> * Portable (Take it with U)</p>
+                   <BotonFlecha link="/contact" texto="SEE MORE DETAILS" borderColor="#ffffff" iconColor="#ffffff"/>
+                </div>
                
               </div>
 
@@ -38,52 +40,19 @@ import BotonFlecha from "../../global/BotonFlecha.astro";
 
 
 <style>
-    .rowDosColumnas{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-start;
- 
-        width: 100%;
-        height: 100%;
-
-        gap: 100px;
-    }
-    .columnaL
-    {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        width: 75%;
-        height: 100%;
-        padding: clamp(20px, 5vw, 60px);
-    }
-    .columnaD
-    {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-        background:  linear-gradient(to right, #469be5, #8743E5, #00C637);
-        border-radius: 20px;
-        padding: clamp(20px, 5vw, 60px);
-        width: 50%;
-        height: 100%;
-    }
- 
 
 section
 	{
         position: relative;
 		display: flex;
 		flex-direction: column;
-		justify-content: space-around;
+		justify-content: space-between;
 		padding-left: clamp(0px, 5vw, 100px);
 		padding-right: clamp(0px, 5vw, 100px);
         margin-bottom: 100px;
         height: 90vh;
         gap: 50px;
+
         
 	}
     .green-ball-blured{
@@ -98,6 +67,41 @@ section
     opacity: 0.7;
 	z-index: -1;
 	}
+
+    .rowDosColumnas{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 100%;
+        height: 100%;
+        gap: 100px;
+    }
+    .columnaL
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 75%;
+        height: 100%;
+    }
+    .columnaD
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        background:  linear-gradient(to right, #469be5, #8743E5, #00C637);
+        border-radius: 20px;
+        width: 50%;
+        height: 100%;
+    }
+    .contenedor{
+        padding: clamp(20px, 5vw, 60px);
+    }
+ 
+
     .row-title
     {
         display: flex;
