@@ -9,10 +9,10 @@ const TopMenu = () => {
     /*     { name: 'ACP', url: '/#acp', alterurl:"/acp" },
         { name: 'PLAN', url: '/#plan', alterurl:"/#plan" }, */
         { name: 'HOW IT WORKS', url: '/howitworks', alterurl:"/howitworks" },
-        { name: 'SUPPORT', url: '/support', alterurl:"/support/selfservice" },
+        { name: 'SUPPORT', url: '/support', alterurl:"/support" },
         { name: 'ABOUT US', url: '/about', alterurl:"/about" },
         { name: 'LOCATIONS', url: '/location', alterurl:"/location" },
-       /*  { name: 'SERVICES', url: '/selfservices', alterurl:"/selfservices" }, */
+        { name: 'SELF SERVICES', url: '/selfservice', alterurl:"/selfservice" },
         
     ];
     const location = useLocation();
