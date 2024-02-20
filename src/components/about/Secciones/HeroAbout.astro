@@ -9,14 +9,13 @@ import BotonFlecha from "../../global/BotonFlecha.astro";
 			<div class="columnaIzquierda">
 				<p class="title ">
 					Enhancing wireless excellence with every upgrade, while keeping it affordable.
-					Our Success Numbers
 					
 				</p>
 
 				<div class="botones">
 	
-					<BotonFlecha texto="Read more" link="/signup"  backgroundColor="#7f44e5" borderColor="transparent" iconColor="#ffffff"  fontweight="500"/>
-					<BotonFlecha texto="Contact us" link="/contact"  borderColor="#ffffff" iconColor="#ffffff" fontweight="500"/>
+					<BotonFlecha texto="Read more" link="/signup"  backgroundColor="#7f44e5" borderColor="transparent" showIcon={false}  fontweight="500" width="300px"/>
+					<BotonFlecha texto="See all news" link="/contact"  borderColor="#ffffff" showIcon={false} fontweight="500" width="300px"/>
 				</div>
 			</div>
 			<div class="columnaDerecha">
@@ -32,8 +31,10 @@ import BotonFlecha from "../../global/BotonFlecha.astro";
 	.botones{
 		display: flex;
 		flex-direction: row;
+		flex-wrap: wrap;
 		justify-content: flex-start;
-		gap: 16px;
+		gap: 40px;
+		background-color: #00b33e;
 
 	}
 	 .green-ball-blured{
@@ -69,7 +70,7 @@ import BotonFlecha from "../../global/BotonFlecha.astro";
 		display: flex;
 		flex-direction: column;
 		justify-content: space-around;
-		width:50%;
+		width:60%;
 		height: 100%;
 		padding: clamp(0px, 5vw, 50px);
 		gap: clamp(0px, 1vw, 100px);
@@ -94,7 +95,7 @@ import BotonFlecha from "../../global/BotonFlecha.astro";
 	}
 	.title{
 			color: var(--primary-text-color);
-			font-size: clamp(24px, 3vw, 50px);
+			font-size: clamp(24px, 3vw, 60px);
 			font-weight: 600;
 			
 			text-align: left;
@@ -117,8 +118,9 @@ import BotonFlecha from "../../global/BotonFlecha.astro";
 		.contenedor
 		{
 			flex-direction: column-reverse;
+			justify-content: center;
 			align-items: center;
-			height: 100vh;
+			height: 80vh;
 			padding: 16px;
 		
 		}
@@ -127,6 +129,7 @@ import BotonFlecha from "../../global/BotonFlecha.astro";
 			align-items: center;
 			height: 100%;
 			gap: 16px;
+
 		}
 		.columnaIzquierda{
 			align-items: center;
@@ -138,8 +141,9 @@ import BotonFlecha from "../../global/BotonFlecha.astro";
 		
 		}
 		.columnaDerecha{
-			width: 50%;
-			height: 50%;
+			width: 300px;
+			height: 300px;
+			justify-content: flex-start;
 		}
 	
 		img{
