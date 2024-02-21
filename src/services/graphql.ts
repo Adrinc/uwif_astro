@@ -1,6 +1,9 @@
 
-const gqlURL = "https://strapi.iamet.cbluna-dev.com/graphql";
-export const strapiURL = "https://strapi.iamet.cbluna-dev.com";
+/* const gqlURL = "https://strapi.iamet.cbluna-dev.com/graphql"; */
+const gqlURL = "https://strapi.u-wifi.cbluna-dev.com/graphql";
+
+/* export const strapiURL = "https://strapi.iamet.cbluna-dev.com"; */
+export const strapiURL = "https://strapi.u-wifi.cbluna-dev.com";
 
 export async function GQLQuery (query:string) {
     const resp  = await fetch(gqlURL,{
@@ -23,5 +26,14 @@ export async function getPageData(query:string, getLayoutData:boolean=true){
     return {
         layoutData,
         pageData
+    }
+}
+export async function getPageHomeData(query:string){
+
+    const pageHome = await GQLQuery(query);
+
+    return {
+
+        pageHome
     }
 }

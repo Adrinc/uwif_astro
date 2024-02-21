@@ -1,0 +1,74 @@
+---
+import BotonFlecha from '../../components/global/BotonFlecha.astro';
+---
+
+<!-- a div flex row with 3 boxes diferent colors, each box has a flex column inside with a image and a text -->
+<div class="flex-row">
+ 
+     
+            <p class="descripcion">Join the U-wifi family today and start enjoying fast, reliable and unlimited internet service tailored for Astro Valley!</p>
+
+      
+  
+        <div class="columnaDerecha">
+            <p class="title">Call now!</p>
+            <div class="botones">
+
+                <BotonFlecha texto="(555) 123-456-7890" width='100%' link="#" backgroundColor="var(--primary-buttom-color)" iconColor='var(--primary-text-color)' iconColorHover="var(--tertiary-color)"/>
+            </div>
+
+        </div>
+   
+   
+</div>
+
+<style>
+    .flex-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+ 
+        margin-bottom: 100px;
+        padding-left: clamp(0px, 5vw, 100px);
+		padding-right: clamp(0px, 5vw, 100px);
+    }
+
+    .columnaDerecha {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+
+    }
+
+    p.title {
+			color: var(--primary-text-color);
+			font-size: clamp(16px, 3vw, 70px);
+			font-weight: 800;
+			text-align: center;
+
+    }
+    p.descripcion{
+        color: var(--primary-text-color);
+        font-size: clamp(14px, 2vw, 35px);
+        font-weight: 400;
+        text-align: left;
+        text-wrap: pretty;
+        height: 100%;
+        width: 80%;
+    }
+
+    @media (max-width: 900px) 
+	{
+        .flex-row {
+            flex-direction: column;
+            height: 100%;
+            gap: 50px;
+        }
+
+
+    }
+</style>

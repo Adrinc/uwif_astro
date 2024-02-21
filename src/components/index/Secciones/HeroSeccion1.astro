@@ -2,22 +2,44 @@
 
 import BuyOrApplyFree from "../../global/BuyOrApplyFree.astro";
 import {strapiURL} from '../../../services/graphql.ts';
-import {getPageData} from '../../../services/graphql.ts';
-import * as IndexData from '../../../data/IndexQuerys.ts';
+import {getPageData, getPageHomeData} from '../../../services/graphql.ts';
+import * as IndexData from '../../../data/homeQuerys.ts';
 
-/* interface Props {
-	urlVideoWeb: string;
-	urlVideoMobile: string;
-	buttonText1?: string;
-	buttonText2?: string;
-	buttonLink1?: string;
-	buttonLink2?: string;
+
+/* interface HomeData {
+	pageHome: {
+		data: {
+      attributes: {
+        HeroVideo: {
+          data: {
+            attributes: {
+              name: string;
+            };
+          };
+        };
+        HeroButtons: {
+          Text: string;
+          Link: string;
+        }[];
+      };
+    };
+  };
 }
-const { urlVideoWeb, urlVideoMobile, buttonLink1, buttonLink2, buttonText1, buttonText2 } = Astro.props; */
+ */
 
-const dataHero1 = await getPageData(IndexData.GetHero1Seccion());
-const hero1Seccion_Buttons = dataHero1['pageData']['data']['uwifiHome']['data']['attributes']['HeroButtons'];
-const hero1Seccion_Videos = dataHero1['pageData']['data']['uwifiHome']['data']['attributes']['HeroVideo']['data'];
+
+
+/*  const response: HomeData = await getPageHomeData(IndexData.GetHero1Seccion()); */
+ const dataHero1  = await getPageData(IndexData.GetHero1Seccion());
+
+/*  const { data: { attributes: { HeroVideo } } } = response.pageHome; */
+/* 
+ console.log(HeroVideo.data.attributes.name); */
+
+console.log(dataHero1);
+
+const hero1Seccion_Buttons = dataHero1['pageData']['data']['pageHome']['data']['attributes']['HeroButtons'];
+const hero1Seccion_Videos = dataHero1['pageData']['data']['pageHome']['data']['attributes']['HeroVideo']['data'];
 
 ---
 <section id="home">

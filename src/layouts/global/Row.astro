@@ -27,7 +27,7 @@ let {
     color="transparent", 
     reverse=false,  
     gap=0,
-    flexGrow=1,
+    flexGrow=0,
     flexShrink=0,
     padding=0
     }: Props = Astro.props;
@@ -62,6 +62,7 @@ style={`
         flex-grow: var(--flexGrow);
         flex-shrink: var(--flexShrink);
         padding: var(--padding);
+        width: 100%;
     }
 
 </style>

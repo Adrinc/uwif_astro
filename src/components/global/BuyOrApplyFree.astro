@@ -7,22 +7,23 @@ interface Props {
 	buttonText2?: string;
 	buttonLink1?: string;
 	buttonLink2?: string;
+    fontweightL?: string;
+    fontweightR?: string;
 }
 const{
     direction="row",
     buttonText1="BUY NOW",
     buttonText2="APPLY FOR FREE WIFI",
     buttonLink1="https://cb-luna.github.io/uwifi_map_services-build/#/",
-    buttonLink2="https://cb-luna.github.io/uwifi_map_services_acp_build/"
+    buttonLink2="https://cb-luna.github.io/uwifi_map_services_acp_build/",
+    fontweightL="500", fontweightR="500"
 }= Astro.props;
 ---
 
 <div class="botones" style={`--direction: ${direction};`}>
-    <BotonFlecha texto= {buttonText1} iconColor="var(--primary-text-color)"  link={buttonLink1}/>
+    <BotonFlecha fontweight={fontweightL}   texto= {buttonText1} iconColor="var(--primary-text-color)"  link={buttonLink1}/>
     <p class="texto-or font-bold text-primaryTextColor "> OR </p>
-    <BotonFlecha backgroundColor="var(--primary-buttom-color)" iconColor="var(--primary-text-color)" texto={buttonText2} link={buttonLink2}/>
-</div>
-
+    <BotonFlecha fontweight={fontweightR} backgroundColor="var(--primary-buttom-color)" iconColor="var(--primary-text-color)" texto={buttonText2} link={buttonLink2}/>
 
 <style>
     .botones{

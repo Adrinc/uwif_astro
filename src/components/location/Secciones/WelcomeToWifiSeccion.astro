@@ -1,0 +1,178 @@
+---
+import BotonFlecha from "../../global/BotonFlecha.astro";
+
+
+---
+
+
+
+
+<section id="welcometowifi"> <span class="green-ball-blured"></span>
+    
+       <div class="row-title">
+           <h1 class="title">Welcome to U-wifi, Astro Valley’s <span class=" text-tertiaryTextColor italic">premier internet service provider,</span> where we bring you closer to what matters most.</h1>
+       </div>
+       
+       <div class="rowDosColumnas">
+              <div class="columnaL">
+                <p class="description">Whether you are treaming, gaming, working from home, or exploring the vastness of the internet, U-wifi ensures you’re connected seamlessly and efficiently.</p>
+                <p class="description">With U-wifi, experience unmatched speed, reliability, and unlimited data designed to meet the demands of modern living in Astro Valley.</p>
+              </div>
+
+              <div class="columnaD">
+               <div class="contenedor">
+
+                   <p class="desRow"> * 5G Wi-Fi Gateway device included</p>
+                   <p class="desRow"> * FREE 2 Day shipping</p>
+                   <p class="desRow"> * Plug and Play Self Install</p>
+                   <p class="desRow"> * Redundancy Included</p>
+                   <p class="desRow"> * Portable (Take it with U)</p>
+                   <BotonFlecha link="/contact" texto="SEE MORE DETAILS" borderColor="#ffffff" iconColor="#ffffff"/>
+                </div>
+               
+              </div>
+
+       </div>
+        
+        
+
+</section>
+
+
+<style>
+
+section
+	{
+        position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		padding-left: clamp(0px, 5vw, 100px);
+		padding-right: clamp(0px, 5vw, 100px);
+        margin-bottom: 100px;
+        height: 90vh;
+        gap: 50px;
+
+        
+	}
+    .green-ball-blured{
+    top: 20%;
+	left: 70%;
+	position: absolute;
+    width: clamp(0px, 50vw, 700px);
+	height: clamp(0px, 50vw, 700px);
+	border-radius: 100%;
+    background: linear-gradient(0deg, #057e41 0%, #02572a 100%);
+	filter: blur(100px);
+    opacity: 0.7;
+	z-index: -1;
+	}
+
+    .rowDosColumnas{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 100%;
+        height: 100%;
+        gap: 100px;
+    }
+    .columnaL
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 75%;
+        height: 100%;
+    }
+    .columnaD
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        background:  linear-gradient(to right, #469be5, #8743E5, #00C637);
+        border-radius: 20px;
+        width: 50%;
+        height: 100%;
+    }
+    .contenedor{
+        padding: clamp(20px, 5vw, 60px);
+    }
+ 
+
+    .row-title
+    {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 40px;
+    }
+    .description
+    {
+        font-size: clamp(16px, 5vw, 35px);
+        font-weight: 400;
+        color: var(--primary-text-color);
+        text-align: justify;
+       
+    }
+    .desRow
+    {
+        font-size: clamp(16px, 5vw, 35px);
+        font-weight: 400;
+        color: var(--primary-text-color);
+        text-align: left;
+        margin-bottom: 10px;
+        align-self: flex-start;
+    }
+ 
+   
+    hr.rounded {
+    border-top: 5px solid var(--cuaternary-color);
+    border-radius: 5px;
+    width: 100px;
+    margin-bottom: 10px;
+    }
+    h1.title
+    {
+        font-size: clamp(16px, 5vw, 60px);
+        font-weight: 500;
+        color: var(--primary-text-color);
+        text-align: center;
+    }
+    h2.subtitle
+    {
+        font-size: clamp(20px, 5vw, 40px);
+        font-weight: 800;
+        color: var(--cuaternary-color);
+        text-align: center;
+        width: 70%;
+    }
+
+
+
+
+    @media (max-width: 768px)
+    {
+        section{
+		padding-left: clamp(20px, 5vw, 50px);
+		padding-right: clamp(20px, 5vw, 50px);
+		}
+        .row-title
+        {
+            padding-left: 0;
+            padding-right: 0;
+        }
+        .row-buttons
+        {
+            padding-left: 0;
+            padding-right: 0;
+        }
+        .description 
+        {
+            width: 100%;
+        }
+    }
+</style>
