@@ -9,9 +9,10 @@ import FootUWIFI from '../components/global/FootUWIFI.astro';
 import { ViewTransitions } from 'astro:transitions';
 interface Props {
 	title: string;
+	showMenus?: boolean;
 }
 
-const { title } = Astro.props;
+const { title, showMenus=true } = Astro.props;
 ---
 
 <!doctype html>
@@ -27,7 +28,7 @@ const { title } = Astro.props;
 	</head>
 	<header>
 
-		<RouterLinks  transition:persist client:only />
+		{showMenus && <RouterLinks  transition:persist client:only />}
 		<!-- <TopMenuSuffle /> -->
 	</header>
 	<body>	
@@ -40,7 +41,7 @@ const { title } = Astro.props;
 	</main>
 	</body>
 	<footer>
-	<FootUWIFI />
+		{showMenus && <FootUWIFI />}
 	</footer>
 </html>
 <style is:global>
