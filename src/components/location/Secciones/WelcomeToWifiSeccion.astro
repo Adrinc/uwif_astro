@@ -27,7 +27,12 @@ import BotonFlecha from "../../global/BotonFlecha.astro";
                    <p class="desRow"> * Plug and Play Self Install</p>
                    <p class="desRow"> * Redundancy Included</p>
                    <p class="desRow"> * Portable (Take it with U)</p>
-                   <BotonFlecha link="/contact" texto="SEE MORE DETAILS" borderColor="#ffffff" iconColor="#ffffff"/>
+
+                   <img class="backgroundImage" src="/image/uwifi_stroke.png" alt="">
+                </div>
+                <div class="w-full self-center z-10">
+
+                    <BotonFlecha link="/contact" texto="SEE MORE DETAILS" borderColor="#ffffff" iconColor="#ffffff" width="100%"/>
                 </div>
                
               </div>
@@ -87,7 +92,7 @@ section
         height: 100%;
     }
     .columnaD
-    {
+    {   position: relative;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -96,9 +101,25 @@ section
         border-radius: 20px;
         width: 50%;
         height: 100%;
+        padding: clamp(20px, 5vw, 50px);
+        
     }
     .contenedor{
-        padding: clamp(20px, 5vw, 60px);
+     
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 100%;
+    }
+    .backgroundImage
+    {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0.1;
     }
  
 
@@ -120,7 +141,7 @@ section
     }
     .desRow
     {
-        font-size: clamp(16px, 5vw, 35px);
+        font-size: clamp(16px, 5vw, 32px);
         font-weight: 400;
         color: var(--primary-text-color);
         text-align: left;
