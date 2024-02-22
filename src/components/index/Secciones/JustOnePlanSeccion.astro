@@ -3,19 +3,11 @@ import TarjetaPaqueteEspecial from '../../TarjetaPaqueteEspecial.astro';
 import {getPageData} from '../../../services/graphql.ts';
 import * as IndexData from '../../../data/homeQuerys.ts';
 
-let listas = [
-  { icono: 'image/checkwhite.svg', texto: '5G Wi-Fi Gateway device included' },
-  { icono: 'image/checkwhite.svg', texto: 'FREE 2 Day Shipping' },
-  { icono: 'image/checkwhite.svg', texto: 'Plug and Play Self Insall' },
-  { icono: 'image/checkwhite.svg', texto: 'Redundancy Included' },
-  { icono: 'image/checkwhite.svg', texto: 'Portable' },
-];
-
 
 const dataJustOnePlan = await getPageData(IndexData.GetJustOnePlanSeccion());
-console.log(dataJustOnePlan);
-const JustOnePlanSeccion_text= dataJustOnePlan['pageData']['data']['pageHome']['data']['attributes']['PricingParagraph'];
-console.log(JustOnePlanSeccion_text);
+const data_text= dataJustOnePlan['pageData']['data']['pageHome']['data']['attributes']['PricingParagraph'];
+const data_table= dataJustOnePlan['pageData']['data']['pageHome']['data']['attributes']['PricingTable'];
+
 
 ---
 
@@ -26,24 +18,35 @@ console.log(JustOnePlanSeccion_text);
     
     <div class="columna-izquierda">
       <div class="title" id="homeinternet">
-        Don't overpay for a <span class="text-tertiaryTextColor"><br>5G home internet </span><br> experience!
+
+        {data_text.Headings[0].Heading.split("for a")[0]}
+        <span class="text-tertiaryTextColor">
+          <br>
+          {data_text.Headings[0].Heading.split("for a").pop().replace("experience.","")}
+        </span>
+        <br> 
+        {data_text.Headings[0].Heading.split(' ').pop()}
         </div>
-
-
+        
    <div class="title" id="oneplan">
-     JUST <span class="text-tertiaryTextColor">ONE</span> PLAN?
+     {data_text.Headings[1].Heading.split(" ",1).pop()}
+     <span class="text-tertiaryTextColor">{data_text.Headings[1].Heading.split(" ",2).pop()}</span> 
+     {data_text.Headings[1].Heading.split(" ",3).pop()}
+
    </div>
    <div class="subtitle">
-     <p>Yes, we make it  <span class="text-secondaryColor font-bold">simple.</span> </p>
+     <p>
+      {data_text.Headings[2].Heading.replace("simple.","")}
+      <span class="text-secondaryColor font-bold">{data_text.Headings[2].Heading.split(' ').pop()}</span> </p>
    </div>
  
-   <p class="description">Discover perfection in simplicity. Our single subscription has it all, without the hassle.</p>
+   <p class="description">{data_text.Textblock.replace(" Only the best for","")}</p>
    <p class="description-inferior">Only the best for  <img alt="uwifi logo white" class="image" loading="lazy" srcset="faviui.png"/></span></p>
 </div>
 
 <div class="columna-derecha">
 	<span class="green-ball-blured" id="ball3"></span>
-    <TarjetaPaqueteEspecial precio="30" modelo="Value" description="The best value for your money." lista={listas}/>
+    <TarjetaPaqueteEspecial title={data_table.Title} Subtitle={data_table.Subtitle} Price={data_table.Price} Pricetime={data_table.Pricetime} Features={data_table.Features} Buttons={data_table.Buttons}/>
 </div>
 
 </div>

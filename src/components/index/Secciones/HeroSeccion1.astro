@@ -2,7 +2,7 @@
 
 import BuyOrApplyFree from "../../global/BuyOrApplyFree.astro";
 import {strapiURL} from '../../../services/graphql.ts';
-import {getPageData, getPageHomeData} from '../../../services/graphql.ts';
+import {getPageData} from '../../../services/graphql.ts';
 import * as IndexData from '../../../data/homeQuerys.ts';
 
 
@@ -35,16 +35,13 @@ import * as IndexData from '../../../data/homeQuerys.ts';
 /*  const { data: { attributes: { HeroVideo } } } = response.pageHome; */
 /* 
  console.log(HeroVideo.data.attributes.name); */
-
-console.log(dataHero1);
-
 const hero1Seccion_Buttons = dataHero1['pageData']['data']['pageHome']['data']['attributes']['HeroButtons'];
 const hero1Seccion_Videos = dataHero1['pageData']['data']['pageHome']['data']['attributes']['HeroVideo']['data'];
 
 ---
 <section id="home">
 	 <video class="block md:hidden" autoplay muted loop id="myVideo" transition:persist>
-		<source src="videos/u-wifi-opener-prod-mobile.mp4" type="video/mp4">
+		<source src=`${strapiURL}${hero1Seccion_Videos[1].attributes.url}`  type="video/mp4">
 	</video>
 	<video class="hidden md:block" autoplay muted loop id="myVideoMobile" transition:persist>
 		<source src=`${strapiURL}${hero1Seccion_Videos[0].attributes.url}` type="video/mp4">

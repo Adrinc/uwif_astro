@@ -1,16 +1,63 @@
 ---
+import {getPageData} from '../../../services/graphql.ts';
+import {strapiURL} from '../../../services/graphql.ts';
+import * as IndexData from '../../../data/homeQuerys.ts';
 
+const dataFreeTablet = await getPageData(IndexData.GetFreeTabletSeccion());
+const tablet = dataFreeTablet['pageData']['data']['pageHome']['data']['attributes']['TabletParagraph'];
+const tablet_media = dataFreeTablet['pageData']['data']['pageHome']['data']['attributes']['TabletParagraph']['Media']['data']['attributes'];
 ---
 <section id="freetablet">
+    <div class="divider">
+        <div class="rounded"></div>
+        <h1 class="plus">{tablet.Headings[0].Heading}</h1>
+        <hr class="rounded">
+    </div>
+    
    
-    <p class="title">FREE <span class="text-primaryTextColor"> TABLET!*</span></p>
+    <p class="title">{tablet.Headings[1].Heading.split(" ")[0]} <span class="text-primaryTextColor"> {tablet.Headings[1].Heading.split(" ").pop()}</span></p>
 
-    <img src="/image/uwifitablet.png" alt="tablet" class="image"/>
+    <img src=`${strapiURL}${tablet_media.url}` alt={tablet_media.name} class="image"/>
     <span class="green-ball-blured"></span>
-    <p class="parrafo">*Free tablet if you are subject to the ACP program</p>
+    <p class="parrafo">{tablet.Textblock}</p>
 </section>
  
 <style>
+
+
+
+.divider{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding-bottom: clamp(0px, 10vw, 50px);
+}
+.rounded {
+   
+  width: clamp(50px, 30vw, 600px);
+  border-top: 5px solid #ffffff;
+  border-radius: 5px;
+}
+.plus{
+    
+    color: var(--primary-text-color);
+    font-size: clamp(1.5rem, 5vw, 45px);
+    font-weight: 700;
+    }
+    @media (max-width: 768px) {
+        .rounded {
+   
+   width: clamp(50px, 30vw, 400px);
+
+ }
+     
+    }
+
+
+
+
     section{
     position: relative;
     display: flex;

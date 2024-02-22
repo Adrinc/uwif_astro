@@ -218,6 +218,7 @@ export const GetHero1Seccion = () => {
             }
           }
           Title,
+          Content
         }
         
 

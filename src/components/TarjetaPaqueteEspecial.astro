@@ -1,77 +1,65 @@
 ---
 import BuyOrApplyFree from './global/BuyOrApplyFree.astro';
 interface Props {
-	precio: string;
-	modelo: string;
-	description: string;
-	lista: {
-		icono: string;
-		texto: string;
+	title: string;
+	Subtitle: string;
+	Price: string;
+	Pricetime: string;
+
+	Buttons: {
+		Text: string;
+		Link: string;
+	}[];
+	Features?: {
+		Content: string;
 	}[];
 }
 
-const { precio, modelo, description, lista } = Astro.props;
+const { Price, Buttons, title="SUPER 5G", Features=[""], Subtitle="FREE for ACP Subscribers", Pricetime="/month with" } = Astro.props;
+
+
 ---
 
 <div class="contenedor-tarjeta">
     <div class="tarjeta">
         <div>
-			<h1 class="title">SUPER 5G</h1>
+			<h1 class="title"> {title} </h1>
 			<div class="precio-contenedor">
-				<p class="price">${precio}</p>
-				<p class="text-white text-xl text-left max-md:text-sm"> /month with <span class="text-white font-bold text-xl text-left"> AutoPay</span></p> 
+				<p class="price">${Price}</p>
+				<p class="text-white text-xl text-left max-md:text-sm"> {Pricetime.split(' ').slice(0, -1).join(' ')} <span class="text-white font-bold text-xl text-left">{Pricetime.split(' ').pop()}</span></p> 
 			</div>
-			<p class="title self-start">FREE for ACP Suscribers</p>
+			<p class="title self-start">{Subtitle}</p>
 		</div>
        
-
-
 			<ul class="fila">
-				
-				  <li class="description">
-					<span class="icono">
-					  <img alt="icono check"  class="image" src="image/checkwhite.svg"/>
-					</span>
-					5G Wi-Fi Gateway device included
-				  </li>
-				  <li class="description">
-					<span class="icono">
-					  <img alt="icono check"  class="image" src="image/checkwhite.svg"/>
-					</span>
-					<span class=" font-bold">FREE</span>
-					<span> 2 Day Shipping</span>
-				  </li>
-				  <li class="description">
-					<span class="icono">
-					  <img alt="icono check"  class="image" src="image/checkwhite.svg"/>
-					</span>
-					Plug and Play 
-					<span class=" font-bold">Self Insall</span>
-				  </li>
-				  <li class="description">
-					<span class="icono">
-					  <img alt="icono check"  class="image" src="image/checkwhite.svg"/>
-					</span>
-					Redundancy Included
-				  </li>
-				  <li class="description">
-					<span class="icono">
-					  <img alt="icono check"  class="image" src="image/checkwhite.svg"/>
-					</span>
-					Portable (Take it with    <img alt="uwifi white logo" class="uwifiicon" src="image/ublanca.svg"/>    )
-				  </li>
-		
+				{
+					Features.map((feature) => (
+						<li class="description">
+							<span class="icono">
+								<img alt="icono check"  class="image" src="image/checkwhite.svg"/>
+							</span>
+							{typeof feature === 'string' ? feature : feature.Content}
+						</li>
+					))
+				}
 			</ul>
         
         
       
 <div class="buyOrApply">
 
-	<BuyOrApplyFree direction='column'/>
+	<BuyOrApplyFree 
+	direction='column'
+	buttonText1={Buttons[0].Text}
+	buttonLink1={Buttons[0].Link}
+	buttonText2={Buttons[1].Text}
+	buttonLink2={Buttons[1].Link}
+/>
+	
 </div>
       
-		<p class="description"><span class=" font-bold">CALL NOW! </span> (123)456-789-000</p>
-		<a href="/" class="link">See more details</a>
+		<a href={Buttons[2].Text} class="description font-bold link">{Buttons[2].Text}</a>
+		<a href={Buttons[3].Link} class="link">{Buttons[3].Text}</a>
     </div>
 </div>
 

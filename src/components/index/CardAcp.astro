@@ -1,0 +1,85 @@
+---
+interface Props {
+    titulo?:string;
+    descripcion?:string;
+    icono_url?:string;
+    icono_alt?:string;
+
+}
+const{
+    titulo="title",
+    descripcion="description",
+    icono_url="icono_url",
+    icono_alt="icono_alt"
+}= Astro.props;
+
+
+---
+
+
+<div class="enroll-active-use">
+    <div class="flex  flex-col items-center gap-6">
+        <img class="icono" src={icono_url} alt={icono_alt}/>
+        <p class="title">{titulo}</p>
+    </div>
+    <p class="description">
+       {descripcion}
+    </p>
+</div>
+
+
+<style>
+    .icono{
+        filter: invert(1) grayscale(1) brightness(2);
+        width: clamp(50px, 20vw, 100px);
+        height: clamp(50px, 20vw, 100px);
+    }
+        .enroll-active-use:before {
+    content: "";
+    position: absolute;
+    box-sizing: inherit;
+}
+    .enroll-active-use{
+        position: relative;
+      
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 12px;
+        background-color: rgb(0, 0, 0);
+        border: 3px solid #ffffff;
+        box-shadow: 10px 10px 0 0px #000000;
+        width: clamp(50px, 70vw, 450px);
+        inset: 0;
+        border-radius: 15px;
+       
+
+    }
+    .enroll-active-use::after{
+   
+        position: absolute;
+        content: "";
+        background-color: var(--secondary-color);
+        border-color: #5746E5;
+        inset: 1rem -20px -20px 1rem;
+        border-radius: 1rem;
+        z-index: -10;
+    }
+
+
+   .title{
+        font-size: clamp(12px, 40vw, 40px);
+        text-align: justify;
+        text-justify: inter-word;
+        text-wrap: pretty;
+        color: #ffffff;
+    }
+    .description{
+        font-size: clamp(12px, 20vw, 22px);
+        text-align: justify;
+        font-weight: 300;
+        text-wrap: pretty;
+        padding: clamp(0px, 10vw, 12px);
+        color: #ffffff;
+    }
+</style>

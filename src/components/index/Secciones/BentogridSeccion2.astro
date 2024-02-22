@@ -1,16 +1,19 @@
 ---
+import {getPageData} from '../../../services/graphql.ts';
+import {strapiURL} from '../../../services/graphql.ts';
+import * as IndexData from '../../../data/homeQuerys.ts';
 
-import BentoContainer from "../../global/BentoContainer.astro";
-
-
-
+const dataBento = await getPageData(IndexData.GetBentoSeccion());
+const bento = dataBento['pageData']['data']['pageHome']['data']['attributes']['BentoGrid'];
 ---
 
 <section id="#bentogrid" class="">
 
-    <img class="web hidden md:block" src="/image/bento/bweb.png" alt="">
+
+    <img class="web hidden md:block" src=`${strapiURL}${bento.data[0].attributes.url}` alt={bento.data[0].attributes.name}>
     <img class="tablet hidden sm:block md:hidden" src="/image/bento/btablet.png" alt="">
-    <img class="movil block sm:hidden" src="/image/bento/bmovil.png" alt="">
+    <img class="movil block sm:hidden" src=`${strapiURL}${bento.data[1].attributes.url}` alt={bento.data[1].attributes.name}>
+<!--     <img class="tablet hidden sm:block md:hidden" src=`${strapiURL}${bento.data[2].attributes.url}` alt={bento.data[2].attributes.name}> -->
 
 </section>
 		  
