@@ -1,11 +1,15 @@
 ---
-import {getPageData} from '../../../services/graphql.ts';
 import {strapiURL} from '../../../services/graphql.ts';
-import * as IndexData from '../../../data/homeQuerys.ts';
 
-const dataFreeTablet = await getPageData(IndexData.GetFreeTabletSeccion());
-const tablet = dataFreeTablet['pageData']['data']['pageHome']['data']['attributes']['TabletParagraph'];
-const tablet_media = dataFreeTablet['pageData']['data']['pageHome']['data']['attributes']['TabletParagraph']['Media']['data']['attributes'];
+
+interface Props{
+    strapiData: any;
+}
+const{ strapiData } = Astro.props;
+
+
+const tablet = strapiData['pageData']['data']['pageHome']['data']['attributes']['TabletParagraph'];
+const tablet_media = strapiData['pageData']['data']['pageHome']['data']['attributes']['TabletParagraph']['Media']['data']['attributes'];
 ---
 <section id="freetablet">
     <div class="divider">

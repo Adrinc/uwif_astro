@@ -1,15 +1,19 @@
 ---
 import BuyOrApplyFree from '../../global/BuyOrApplyFree.astro';
 import CardAcp from '../CardAcp.astro';
-import {getPageData} from '../../../services/graphql.ts';
 import {strapiURL} from '../../../services/graphql.ts';
-import * as IndexData from '../../../data/homeQuerys.ts';
 
-const data = await getPageData(IndexData.GetACPSeccion());
-const Acp_data= data['pageData']['data']['pageHome']['data']['attributes']['InstallSteps'];
-const acp_ACPParagraph= data['pageData']['data']['pageHome']['data']['attributes']['ACPParagraph'];
-const acp_Media= data['pageData']['data']['pageHome']['data']['attributes']['ACPParagraph']['Media']['data']['attributes'];
-const acp_Botones= data['pageData']['data']['pageHome']['data']['attributes']['ACPParagraph']['Buttons']
+
+interface Props{
+    strapiData: any;
+}
+const{ strapiData } = Astro.props;
+
+
+const Acp_data= strapiData['pageData']['data']['pageHome']['data']['attributes']['InstallSteps'];
+const acp_ACPParagraph= strapiData['pageData']['data']['pageHome']['data']['attributes']['ACPParagraph'];
+const acp_Media= strapiData['pageData']['data']['pageHome']['data']['attributes']['ACPParagraph']['Media']['data']['attributes'];
+const acp_Botones= strapiData['pageData']['data']['pageHome']['data']['attributes']['ACPParagraph']['Buttons']
 
 const headings= acp_ACPParagraph['Headings'][0].Heading;
 const textblock= acp_ACPParagraph.Textblock;

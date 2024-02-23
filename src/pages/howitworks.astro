@@ -6,15 +6,23 @@ import ConectionSeccion from '../components/index/Secciones/ConectionSeccion.ast
 
 
 
+import {getPageData} from '../services/graphql.ts';
+import * as HowItWorksData from '../data/HowItWorksQuerys.ts';
+
+
+
+const data = await getPageData(HowItWorksData.GetHowItWorksSeccionFull());
+
+
 
 ---
 
 <Layout title="How it works?">
 	
 
-	<HowItWorksSeccion /> 
-	<UWIFISeccion />
-	<ConectionSeccion />
+	<HowItWorksSeccion strapiData={data}/> 
+	<UWIFISeccion strapiData={data}/>
+	<ConectionSeccion strapiData={data}/>
 
 </Layout>
 

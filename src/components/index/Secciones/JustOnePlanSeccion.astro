@@ -1,12 +1,15 @@
 ---
 import TarjetaPaqueteEspecial from '../../TarjetaPaqueteEspecial.astro';
-import {getPageData} from '../../../services/graphql.ts';
-import * as IndexData from '../../../data/homeQuerys.ts';
 
 
-const dataJustOnePlan = await getPageData(IndexData.GetJustOnePlanSeccion());
-const data_text= dataJustOnePlan['pageData']['data']['pageHome']['data']['attributes']['PricingParagraph'];
-const data_table= dataJustOnePlan['pageData']['data']['pageHome']['data']['attributes']['PricingTable'];
+interface Props{
+    strapiData: any;
+}
+const{ strapiData } = Astro.props;
+
+
+const data_text= strapiData['pageData']['data']['pageHome']['data']['attributes']['PricingParagraph'];
+const data_table= strapiData['pageData']['data']['pageHome']['data']['attributes']['PricingTable'];
 
 
 ---

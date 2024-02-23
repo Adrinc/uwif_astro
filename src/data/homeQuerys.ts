@@ -1,7 +1,158 @@
 
 
 
-//export query
+
+export const GetHeroSeccionFull = () => {
+    return  `
+    query {
+        pageHome{
+          data{
+            attributes{
+#-------------------------------------------------
+
+
+              #-------------- 
+              # HERO 1
+              #-------------- 
+              HeroVideo{
+                data{
+                  attributes{
+                    name,
+                    url
+                  }
+                }
+              }
+              HeroButtons{
+                Text,
+                Link
+              }
+              
+              #-------------- 
+              # HERO 2
+              #-------------- 
+
+              MarqueeButton{
+                Text,
+                Link
+              }
+              PrimaryParagraph{
+                Headings{
+                  Heading
+                }
+                Textblock
+              }
+            
+
+              #-------------- 
+              # BENTO
+              #-------------- 
+
+              
+              BentoGrid{
+                data{
+                  attributes{
+                    name,
+                    url,
+                    width,
+                    height
+                  }
+                }
+              }
+
+              #--------------
+              # JUST ONE PLAN
+              #--------------
+
+
+              PricingParagraph{
+                Headings{
+                  Heading
+                }
+                Textblock
+              }
+              
+              PricingTable{
+                Title,
+                Price,
+                Pricetime,
+                Subtitle,
+                Features{
+                  Content,
+                },
+                Buttons{
+                  Text
+                  Link
+                }
+              }
+
+              #--------------
+              # FREE TABLET
+              #--------------
+              TabletParagraph{
+                Headings{Heading},
+                Textblock,
+                Media{
+                  data{
+                    attributes{
+                      alternativeText,
+                      name,
+                      url
+                    }
+                  }
+                }
+              }
+
+              #--------------
+              # ACP
+              #--------------
+
+              ACPParagraph{
+                Headings{
+                  Heading
+                }
+                Textblock,
+
+
+                Media{
+                  data{
+                    attributes{
+                      name,
+                      alternativeText,
+                      url
+                    }
+                  }
+                }
+
+                Buttons{
+                  Text,
+                  Link
+                }
+              }
+
+              InstallSteps{
+                Icon{
+                  data{
+                    attributes{
+                      alternativeText,
+                      name,
+                      url
+                    }
+                  }
+                }
+                Title,
+                Content
+              }
+
+
+  #-------------------------------------------------
+            }
+          }
+        }
+      }
+          
+          `
+  }
+
 export const GetHero1Seccion = () => {
     return  `
     query {

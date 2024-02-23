@@ -3,16 +3,17 @@ import BotonFlecha from "../../global/BotonFlecha.astro";
 import Baner5GWifi from "../Baner5GWifi.astro";
 import App from "../../react_components/RiveAnimations/antenas/antenas.jsx";
 
+interface Props{
+    strapiData: any;
+}
+const{ strapiData } = Astro.props;
+
 ---
 <section  id="5g">
     <Baner5GWifi />
 <div class="main-container">
 
-<!-- 
-    <div class="row-conection">
-        <img src="/image/conection.svg" alt="">
-    </div>
- -->
+
 
     <div class="rive-animation">
         <App transition:persist client:only/>

@@ -1,10 +1,15 @@
 ---
-import {getPageData} from '../../../services/graphql.ts';
-import {strapiURL} from '../../../services/graphql.ts';
-import * as IndexData from '../../../data/homeQuerys.ts';
 
-const dataBento = await getPageData(IndexData.GetBentoSeccion());
-const bento = dataBento['pageData']['data']['pageHome']['data']['attributes']['BentoGrid'];
+import {strapiURL} from '../../../services/graphql.ts';
+
+
+interface Props{
+    strapiData: any;
+}
+const{ strapiData } = Astro.props;
+
+
+const bento = strapiData['pageData']['data']['pageHome']['data']['attributes']['BentoGrid'];
 ---
 
 <section id="#bentogrid" class="">

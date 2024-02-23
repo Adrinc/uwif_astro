@@ -1,3 +1,92 @@
+export const GetHowItWorksSeccionFull = () => {
+  return  `
+  query {
+      pageHiw{
+        data{
+          attributes{
+            
+            
+            
+              #--------------
+            
+              StepsTitles{
+                Heading
+              }
+              Steps{
+                
+                Icon{
+                  data{
+                    attributes{
+                      url,
+                      alternativeText
+                    }
+                  }
+                }
+                
+                Content
+              }
+              StepsMedia{
+                data{
+                  attributes{
+                    url,
+                    alternativeText
+                  }
+                }
+              }
+              
+              StepsButtons{
+                Text,
+                Link
+              }
+              
+              #--------------
+              
+              AppParagraphs{
+                
+                
+                Headings{
+                  Heading
+                }
+                Textblock,
+                Media{
+                  data{
+                    attributes{
+                      alternativeText,
+                      url
+                    }
+                  }
+                }
+              }
+              
+              
+              #--------------
+              Banner{
+                Title,
+                Content,
+                Icon{
+                  data{
+                    attributes{
+                      url,
+                      alternativeText
+                    }
+                  }
+                }
+              }
+              
+              #--------------
+            
+          }
+        }
+      }
+    }
+        
+        `
+}
+
+
+
+
+
 export const GetHowItWorksSeccion = () => {
     return  `
     query {
@@ -62,7 +151,7 @@ export const GetHowItWorksSeccion = () => {
             attributes{
               
               
-              
+              #--------------
               AppParagraphs{
                 
                 
@@ -103,9 +192,6 @@ export const GetHowItWorksSeccion = () => {
             attributes{
               
               
-              
-              
-              #BANNER
               
               Banner{
                 Title,

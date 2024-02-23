@@ -1,19 +1,16 @@
 ---
 import BotonFlecha from "../../global/BotonFlecha.astro";
 import {strapiURL} from '../../../services/graphql.ts';
-import {getPageData} from '../../../services/graphql.ts';
-import * as HowItWorksData from '../../../data/HowItWorksQuerys.ts';
+import Steps from "../Steps.astro";
 
 
+interface Props{
+    strapiData: any;
+}
+const{ strapiData } = Astro.props;
+const StepsTitles = strapiData.pageData.data.pageHiw.data.attributes.StepsTitles;
+const StepsData = strapiData.pageData.data.pageHiw.data.attributes.Steps;
 
-const data = await getPageData(HowItWorksData.GetHowItWorksSeccion());
-console.log(data);
-const StepsTitles = data.pageData.data.pageHiw.data.attributes.StepsTitles;
-const Steps = data.pageData.data.pageHiw.data.attributes.Steps;
-
-console.log(Steps[0].Icon.data.attributes.url);
-
-console.log(StepsTitles[1].Heading);
 ---
 
 
@@ -23,7 +20,7 @@ console.log(StepsTitles[1].Heading);
     <div class="contenedor">
         <div class="title">
            {StepsTitles[0].Heading}
-  <!--          <span class="text-tertiaryTextColor">How </span>it works? -->
+
         </div>
     </div>
     <div class="contenedor">
@@ -35,38 +32,12 @@ console.log(StepsTitles[1].Heading);
     <div class="row_dos_columnas">
 
         <div class="columnaizquierda">
-<!-- 
+
             {
-                Steps.map((Data:any, Index:any) => (
-
-
-                <div class="lista">
-                <img alt="truck icon" class="icono" src={`${strapiURL}`+Data.Icon.data.attributes.url} alt="ui-icon">
-                    <span class="bigchar">{Index}</span>
-                <p> Confirm internet coverage at your address</p>
-            </div>
+                StepsData.map((Data:any, Index:any) => (
+                    <Steps imageUrl={`${strapiURL}${Data.Icon.data.attributes.url}`} step={Index+1} description={Data.Content} />
                 ))
             }
- -->
-
-
-            <div class="lista">
-                <img alt="truck icon" class="icono" src={`${strapiURL}${Steps[0].Icon.data.attributes.url}`} alt="ui-icon">
-                    <span class="bigchar">1</span>
-                <p> Confirm internet coverage at your address</p>
-            </div>
-            <div class="lista">
-                <img alt="truck icon" class="icono" src="/icons/receiveicon.svg" alt="ui-icon">
-                    <span class="bigchar">2</span>  
-                <p>Purchase and U arrives at your home in 2 days</p>
-            </div>
-            <div class="lista">
-                <img alt="app icon" class="icono" src="/image/movilconlogo.png" alt="ui-icon">
-                    <span class="bigchar">3</span> 
-                <p>Unbox and plug the U in – instant U-wifi!</p>
-            </div>
-
-          
         </div>
 
 
@@ -119,40 +90,10 @@ console.log(StepsTitles[1].Heading);
         width: 100%;
         margin-top: 80px;
     }
-    .lista{
-        display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    text-overflow: ellipsis;
-    align-content: center;
-    gap: 40px;
-    }
-    .bigchar{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        font-size: clamp(2rem, 7vw, 110px);
-        font-weight: 700;
-        color: var(--primary-text-color);
 
-    }
-    p{
-        color: var(--primary-text-color);
-        font-size: clamp(1rem, 3vw, 40px);
-       
-        font-family: var(--font-family-secondary);
-        text-wrap: pretty;
-       
-    }
-   
-    svg, .icono{
-        width: clamp(35px, 5vw, 150px);
-        height: clamp(35px, 10vw, 180px);
-       
-    }
+
+
+
     .iconoGrande{
         width: clamp(100px, 20vw, 250px);
         height: clamp(100px, 50vw 400px);
@@ -170,12 +111,13 @@ console.log(StepsTitles[1].Heading);
        
     
         margin-top: 50px;
+        gap: 20px;
     }
     .columnaizquierda{
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
-        align-items: flex-start;
+        align-items: center;
         align-content: flex-start;
         width: 70%;
         height: 60vh;
@@ -245,16 +187,7 @@ console.log(StepsTitles[1].Heading);
         width: 100%;
         height: 100%;
     }
-    .lista{
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        align-content: center;
-        text-align: center;
-        gap: 1rem;
-        width: 100%;
-        height: 100%;
-    }
+
     .title{
 	    text-align: center;
     }

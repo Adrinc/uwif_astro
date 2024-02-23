@@ -1,10 +1,7 @@
 ---
 
-/* import TopMenu from '../components/TopMenu.astro'; */
-import TopMenu from '../components/react_components/TopMenu.jsx';
 import RouterLinks from '../components/react_components/RouterLinks.jsx';
-import TopMenuSuffle from '../components/header/TopMenuSuffle.astro';
-
+import TopMenuHead from '../components/header/TopMenuHead.astro';
 import FootUWIFI from '../components/global/FootUWIFI.astro';
 import { ViewTransitions } from 'astro:transitions';
 interface Props {
@@ -27,9 +24,9 @@ const { title, showMenus=true } = Astro.props;
 		<ViewTransitions />
 	</head>
 	<header>
+<!-- 		<TopMenuHead /> -->
 
 		{showMenus && <RouterLinks  transition:persist client:only />}
-		<!-- <TopMenuSuffle /> -->
 	</header>
 	<body>	
 	<div id="top"></div>

@@ -2,9 +2,12 @@
 
 import BuyOrApplyFree from "../../global/BuyOrApplyFree.astro";
 import {strapiURL} from '../../../services/graphql.ts';
-import {getPageData} from '../../../services/graphql.ts';
-import * as IndexData from '../../../data/homeQuerys.ts';
 
+
+interface Props{
+    strapiData: any;
+}
+const{ strapiData } = Astro.props;
 
 /* interface HomeData {
 	pageHome: {
@@ -30,13 +33,13 @@ import * as IndexData from '../../../data/homeQuerys.ts';
 
 
 /*  const response: HomeData = await getPageHomeData(IndexData.GetHero1Seccion()); */
- const dataHero1  = await getPageData(IndexData.GetHero1Seccion());
+
 
 /*  const { data: { attributes: { HeroVideo } } } = response.pageHome; */
 /* 
  console.log(HeroVideo.data.attributes.name); */
-const hero1Seccion_Buttons = dataHero1['pageData']['data']['pageHome']['data']['attributes']['HeroButtons'];
-const hero1Seccion_Videos = dataHero1['pageData']['data']['pageHome']['data']['attributes']['HeroVideo']['data'];
+const hero1Seccion_Buttons = strapiData['pageData']['data']['pageHome']['data']['attributes']['HeroButtons'];
+const hero1Seccion_Videos = strapiData['pageData']['data']['pageHome']['data']['attributes']['HeroVideo']['data'];
 
 ---
 <section id="home">
