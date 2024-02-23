@@ -11,8 +11,8 @@ const TopMenu = () => {
         { name: 'HOW IT WORKS', url: '/howitworks', alterurl:"/howitworks" },
         { name: 'SUPPORT', url: '/support', alterurl:"/support" },
         { name: 'ABOUT US', url: '/about', alterurl:"/about" },
-        { name: 'LOCATIONS', url: '/location', alterurl:"/location" },
-        { name: 'SELF SERVICES', url: '/selfservice', alterurl:"/selfservice" },
+        // { name: 'LOCATIONS', url: '/location', alterurl:"/location" },
+        // { name: 'SELF SERVICES', url: '/selfservice', alterurl:"/selfservice" },
         
     ];
     const location = useLocation();

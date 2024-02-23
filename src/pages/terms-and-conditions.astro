@@ -2,7 +2,6 @@
 import Markdown from "../components/global/Markdown.astro";
 import Layout from "../layouts/Layout.astro";
 
-import { parse } from "marked";
 
 const titles = ["Terms and Conditions", "Your privacy is important to us. We respect your privacy regarding any information we may collect from U across our website."];
 
@@ -156,88 +155,23 @@ In the event you are transferring an existing phone number for your U-wifi Voice
 ---
 
 <Layout title="Terms and Conditions">
+    <div class="flex w-full place-content-center items-center">
     <div
-        class="flex flex-col text-white p-10 my-20 md:mx-20 mx-2 max-w-[1200px] place-content-center items-center overflow-y-auto min-h-screen min-w-screen gap-10 "
+        class="flex flex-col text-white my-20 py-10 md:mx-10 mx-8 max-w-[1200px] place-content-center items-center gap-10 "
     >
         <section class="flex flex-col items-center justify-center gap-0 z-10">
-            <h1
-                class="font-display md:text-[40px] text-[30px] text-center font-normal tracking-tight"
-            >
-                {titles[0]}
-            </h1>
-            <div class="flex flex-wrap items-center justify-center gap-5">
-                <h2
-                    class="font-display md:text-[75px] text-[40px] text-center font-semibold tracking-tighter"
-                >
+            <div class="m-5 p-5 rounded-[15px] flex flex-wrap items-center justify-center backdrop-blur-md bg-gradient-to-r from-primaryColor">
+                <h1 class="font-display md:text-[40px] text-[30px]">
+                    {titles[0]}
+                </h1>
+                <p class="md:text-[18px] text-[14px] text-center font-light">
                     {titles[1]}
-                </h2>
-
+                </p>
             </div>
             <Markdown content={description}/>
 
            
         </section>
-       
+    </div>
     </div>
 </Layout>
-
-<style>
-   @keyframes jumbo {
-    from {
-        background-position: 50% 50%, 50% 50%;
-    }
-    to {
-        background-position: 350% 50%, 350% 50%;
-    }
-}
-
-.join-background {
-    background-image: repeating-linear-gradient(
-        150deg,
-        #000 18%,
-        #000 17%,
-        transparent 18%,
-        transparent 18%,
-        #000 14%
-    ),
-    repeating-linear-gradient(
-        100deg,
-        #00c207 10%,
-        #00c207 10%,
-        #7C47DD 20%,
-        #2e74de 25%,
-        #00c207 30%
-    );
-    background-size: 300%, 200%;
-    background-position: 50% 50%, 50% 50%;
-      z-index: 0 !important;
-}
-
-.join-background::after {
-    content: "";
-      z-index: 0 !important;
- position: absolute;
-inset: 0;
-    background-image: repeating-linear-gradient(
-        100deg,
-        #000 0%,
-        #000 7%,
-        transparent 10%,
-        transparent 12%,
-        #000 16%
-    ),
-    repeating-linear-gradient(
-        100deg,
-        #00c207 10%,
-        #00c207 15%,
-        #7C47DD 20%,
-        #2e74de 25%,
-        #00c207 30%
-    );
-    background-size: 350%, 100%;
-    animation: jumbo 60s linear infinite;
-    filter: blur(60px) opacity(40%) saturate(200%);
-    mask: radial-gradient(ellipse at 100% 0%, black 40%, transparent 70%);
-}
-
-</style>

@@ -9,7 +9,7 @@ export const RiveDemo = () => {
     stateMachines: "Motion",
     // This is optional.Provides additional layout control.
     layout: new Layout({
-      fit: Fit.Fill  , // Change to: rive.Fit.Contain, or Cover
+      fit: Fit.Contain  , // Change to: rive.Fit.Contain, or Cover
       alignment: Alignment.Center,
     }),
     autoplay: true,

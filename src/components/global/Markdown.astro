@@ -9,4 +9,4 @@ interface Props {
 const { content, classN, textAlign="text-justify" } = Astro.props;
 console.log(textAlign);
 ---
-    <div set:html={parse(content)} class={`${textAlign} flex list-outside flex-col gap-3 text-primary-blue [&>*>strong]:text-sky-500 [&>*>a]:text-secondary-red [&>h1]:text-[36px] [&>h1]:font-[600] [&>h1]:text-[#50d71e]  [&>h2]:text-[32px] [&>h3]:text-[26px] [&>ul]:flex [&>ul]:flex-col [&>ul]:gap-3 ${classN} `}/>
+    <div set:html={parse(content)} class={`${textAlign} flex list-outside flex-col gap-3 text-white/80 font-[200] [&>*>strong]:text-primaryColor [&>*>a]:text-colorSecondary [&>h1]:font-display [&>h1]:text-[32px] [&>h1]:font-[400] [&>h1]:text-[#93f296] [&>h2]:font-display [&>h2]:text-[25px] [&>h2]:font-[400] [&>h2]:text-white [&>h3]:font-display [&>h3]:text-[18px] [&>h3]:font-[400] [&>h3]:text-white [&>ul]:flex [&>ul]:flex-col [&>ul]:gap-3 ${classN} `}/>
