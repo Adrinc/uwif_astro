@@ -1,0 +1,243 @@
+---
+import Markdown from "../components/global/Markdown.astro";
+import Layout from "../layouts/Layout.astro";
+
+import { parse } from "marked";
+
+const titles = ["Terms and Conditions", "Your privacy is important to us. We respect your privacy regarding any information we may collect from U across our website."];
+
+let description= `
+# General Terms and Conditions
+## U-wifi General Terms and Conditions
+The following Terms and Conditions are between you, the customer, and, U-wifi Inc. These Terms and Conditions constitute a legal document that details your rights and obligations as a purchaser and customer of U-wifi services (individually and collectively referred to as “Services”). Your Terms and Conditions will continue to apply to your U-wifi Services when they are transferred from one location to another.
+
+You must accept these Terms and Conditions as a condition of receiving the Services. For purposes of the TERMS AND CONDITIONS, “you” and “your” refer to the person purchasing the Services. “We,” “our,” “us,” refer to U-wifi .
+
+U-wifi will comply with all applicable federal, state and local laws, to the extent that such laws apply to U-wifi and its obligations under the TERMS AND CONDITIONS. If there is any conflict between the TERMS AND CONDITIONS and such applicable law, such applicable law controls. These conflicts could include, but are not limited to, fees and charges for service, billing and payments, notices, and your rights and remedies.
+
+## General Terms and Conditions
+**LEGAL AUTHORITY:** You must be at least 18 years of age to purchase the Services as an individual or to accept the TERMS AND CONDITIONS as an authorized representative for the person or entity who purchases the Services. By accepting the TERMS AND CONDITIONS, you confirm you are an adult of at least 18 years of age. If you are an entity, by accepting the TERMS AND CONDITIONS, you confirm (through your duly authorized representative) that you are a corporation, partnership, or other legal entity duly formed (and incorporated if applicable) in good standing where required to do business with all legal authority and power to accept the TERMS AND CONDITIONS; and you are also confirming that the TERMS AND CONDITIONS constitutes a valid and binding obligation of yours. All use of the Services, whether or not authorized by you, shall be deemed your use. You are responsible for ensuring that all use of the Services complies with the TERMS AND CONDITIONS.
+
+By enrolling in, activating, using, or paying for the Services, you agree to the TERMS AND CONDITIONS, including but not limited to the prices, charges, and terms and conditions provided to you in marketing and informational materials associated with the Services and on the U-wifi web site, all of which are incorporated herein by reference. If you do not agree to all of the aforementioned terms and conditions, do not use the Services, and cancel the Services immediately by calling for further directions or by emailing us at info@u-wifi.com.
+
+**UPDATES:** The TERMS AND CONDITIONS may be updated or changed from time to time. You can review the most current version of the TERMS AND CONDITIONS at any time at: www.u-wifi.com . If U-wifi makes a change to the TERMS AND CONDITIONS and that change has a material impact on the Services, you will be provided notice of that change. Your continued use of the Services following such notice constitutes your acceptance of those changes.
+
+### 1. IMPORTANT TERMS
+Use of the Services is subject to the U-wifi Telecom Acceptable Use Policy, which is incorporated herein by reference. Once you have purchased the Services you will have an account with U-wifi (“U-wifi Account”). Your U-wifi Account will include information applicable to the Services including but not limited to billing information and charges related to the Services (whether recurring or one-time). The U-wifi Telecom Privacy Policy, which is incorporated herein by reference, addresses U-wifi’s use of account information and other information specific to your use of U-wifi Telecom Voice service. The U-wifi Telecom Privacy Policy for U-wifi Telecom and U-wifi Telecom Video Services, which is incorporated herein by reference, addresses U-wifi Telecom’s use of account information and other information specific to your use of U-wifi Video service.
+
+### 2. INSTALLATION/SERVICE
+You will be responsible for payment of service charges for visits by U-wifi or its subcontractors to your premises when a service request results from causes not attributable to U-wifi or its subcontractors. You will provide U-wifi and its subcontractors with reasonable access to your premises in order to install, maintain, and repair the Service and you authorize any other adult resident or guest at your residence to grant access to your premises for these purposes. You understand and agree that U-wifi may drill, cut, and otherwise alter improvements on the premises (including walls, flooring, and/or other surfaces). If you do not own your premises or your unit is part of a multi-tenant environment (e.g., apartment building, condominium, private subdivision), you warrant that you have obtained permission from any necessary party, including but not limited to the owner, landlord, or building manager, to make alterations U-wifi deems appropriate for the work to be performed.
+
+You acknowledge that U-wifi may use existing wiring, including altering the wiring and removing accessories, located within your unit (“Inside Wiring”). You warrant that you own or control the Inside Wiring, and give U-wifi permission to use, alter, and remove equipment from, such wiring. Without limiting any other provisions of this TERMS AND CONDITIONS, you agree to indemnify U-wifi from and against all claims by an owner, landlord, building manager, or other party in connection with installation, maintenance, repair, or provision of the Services.
+
+### 3. FEES AND CHARGES
+**AGREEMENT TO PAY:** You agree to pay all fees and charges for the Services associated with your U-wifi Account, including recurring and nonrecurring charges, taxes, fees, surcharges, and assessments applicable to the Services, associated equipment, installation and maintenance, and including all usage and other charges associated with your account. In order to provide you with the Services, U-wifi may pay taxes, fees, and surcharges to municipalities and other governmental entities, which U-wifi may pass on to you.
+
+**LATE PAYMENT CHARGE AND DISHONORED CHECK OR OTHER INSTRUMENT FEE:** If the entire amount of payment due is not received by the payment due date, a late payment charge will be charged to you. U-wifi may assign unpaid late balances to a collection agency for appropriate action. In the event legal action is necessary to collect on balances due, you agree to reimburse U-wifi for all expenses incurred to recover sums due, including attorneys’ fees and other legal expenses. You will be charged a fee for any check or other instrument (including credit card charge backs) tendered by you and returned unpaid by a financial institution for any reason.
+
+**CHANGES TO FEES & CHARGES:** If you signed up for Services for a specified term, U-wifi will automatically begin charging the applicable month-to-month fee at the conclusion of your term. If you purchased the Services as part of a bundled offering with one or more other products and are receiving a discount based upon that bundled offering, your discount may cease and you may be billed the standard monthly rate for the Services if you change or disconnect one or more of the services in the applicable bundle. U-wifi may, upon notice required by applicable laws, at any time change the amount of or basis for determining any fee or charge or institute new fees or charges.
+
+### 4. BILLING AND PAYMENTS
+**ADVANCE PAYMENTS AND/OR DEPOSITS:** We may require you to make deposits or advance payments for Services, which we may use to satisfy your initial bill for Services, to offset against any unpaid balance on your account, or as otherwise set forth in the TERMS AND CONDITIONS or permitted by law. Interest will not be paid on advance payments or deposits unless required by law. We may require additional advance payments or deposits if we determine that the initial payment was inadequate. Based on your creditworthiness or for other reasons, we may establish limits and restrict service or features as we deem appropriate. If your account balance goes beyond the limit we set for you, we may immediately interrupt or suspend service until your balance is brought below the limit. Any charges you incur in excess of your limit become immediately due. Upon determination solely by U-wifi of satisfactory payment history or as required by law, U-wifi Telecom may begin refunding of the deposit or advance payment through bill credits, cash payments, or as otherwise determined solely by U-wifi.
+
+**PAYMENT CYCLE AND CANCELLATION:** Billing for the Services commences when U-wifi Telecom has provisioned the Services. Recurring charges for each month’s Services will be billed one month in advance. Billing is based on a 30-day cycle. Non-recurring and usage-based charges for the Services generally will be billed in the billing cycle following the transaction. Your first bill for Services may include pro-rated charges for a partial monthly period prior to the beginning of your first monthly billing cycle. Upon termination you will be charged for the pro-rated number of days for which you had Services in that billing cycle and, if applicable, you will receive a credit for any balance of payments for Services billed in advance. A downgrade fee may apply if you make changes to your Service within thirty (30) days of Service provisioning or later programming orders.
+
+**METHOD OF BILLING/PAYMENT:** Fees and charges for the Services will be billed to your U-wifi Account. You will receive an email bill for the Service, unless you specifically notify us that you want to receive a paper bill for the Services. Additional fees apply to receive a paper bill.
+
+**BILL INQUIRIES AND REFUNDS:** If you believe you have been billed in error for the Services, please notify us within sixty (60) days of the billing date by contacting Customer Service. U-wifi will not issue refunds or credits after the expiration of this sixty-day period, except where required by law or regulation.
+
+**PROMOTIONS AND CONTINGENT BENEFIT:** You may receive or be eligible for certain discounts, features, promotions, and other benefits associated with your purchase of the Services as offered to you in marketing and informational materials, on the U-wifi web site, or in other materials (“Benefits”). Any and all such Benefits are provided to you so long as you continue to meet qualification requirements; provided, however, such Benefits may be modified or terminated at any time as set forth in these TERMS AND CONDITIONS or if you change your Services after installation. Unless otherwise set forth in Benefits materials, standard monthly rates will be charged at the conclusion of the Benefits period or when you no longer qualify for the Benefits.
+
+### 5. EQUIPMENT
+The Services include certain service specific that is required for the Services to function (service-specific equipment herein collectively referred to as “Equipment”). You agree to rent or purchase the Equipment as part of your purchase of the Services for the duration of your receipt of the Services. Rental fees will be included in your monthly charge for the Services. The Equipment requires electrical power from your premises to operate, which you are responsible for providing.
+
+U-wifi reserves the right to manage the Equipment during the time you are an U-wifi customer and retains exclusive rights to data generated by the Equipment. Neither you nor a third party may change, interfere with, or block access to the Equipment data or settings. U-wifi will repair or replace damaged Equipment as U-wifi deems necessary. You understand that repair or replacement of the Equipment may delete stored content, reset personal settings, or otherwise alter the Equipment. If the Equipment was damaged due to your intentional acts or negligence as determined by U-wifi, you will be responsible for the price of repair or replacement. Any tampering with the Equipment, including, for example, opening and attempting to modify the Equipment, or attempting to connect the Equipment to other hardware, will be treated as damage due to your intentional acts or negligence. You agree that you will use the Equipment only for its intended residential use, and not for any other purpose (such as on another U-wifi network, or on another provider’s (non-U-wifi) network). U-wifi Telecom will not provide support for, or be responsible for, ongoing maintenance or management of, customer-owned equipment.
+
+### 6. INDEMNITY
+You agree to indemnify and hold U-wifi Telecom and its subsidiaries, affiliates, directors, officers, agents, and employees harmless from any claim, demand, action, citation, or legal proceeding , including, but not limited to, those arising out of or resulting from the death or bodily injury of any person, or the damage, loss, or destruction of any real or tangible personal property, or for reasonable attorneys’ fees, made by any party against U-wifi Telecom, its subsidiaries, affiliates, directors, officers, agents, and employees arising out of or related to your use of or inability to use the Services, your connection to the Services, the provisioning or alleged failure to provision the Services, a violation of any provision of this TERMS AND CONDITIONS, or your violation of any rights of another.
+
+### 7. INTERRUPTIONS, LIMITATIONS, AND MODIFICATIONS TO SERVICE
+Service may be temporarily interrupted or otherwise limited for a variety of reasons, some beyond the control of U-wifi. U-wifi reserves the right to refuse credit allowances for interruptions of Service. U-wifi also reserves the right to modify or discontinue, temporarily or permanently, at any time and from time to time, the Services (or any function or feature of the Services or any part thereof) without liability. You acknowledge that U-wifi may establish general practices and limits concerning use of the Services, including without limitation, the limits set forth in the Terms and Conditions.
+
+IP NETWORK INTERRUPTIONS: You acknowledge and understand that the Services will not function in the event of an IP network interruption.
+
+### 8. ACCOUNT SECURITY
+**CUSTOMER DUTY:** You agree to keep confidential all passwords, user IDs, IP addresses, and other account identifiers and are solely responsible for any liability or damages resulting from your failure to maintain that confidentiality. You are solely and fully responsible and liable for all activities that occur under your U-wifi Account, password, user ID, or IP address. You agree to: (a) immediately notify U-wifi if you suspect any breach of security such as loss, theft, public use (unrestricted, open, communal or shared use by third parties unrelated and/or not affiliated with the Customer either for profit or not for profit) or unauthorized disclosure or use of your U-wifi Account, password, user ID, or any credit or charge card number provided to U-wifi Telecom by calling (insert number); (b) ensure you exit from your account as applicable at the end of each session; and (c) periodically change your password.
+
+**ACCOUNT ACCESS:** You authorize U-wifi Telecom to provide information about and to make changes to your U-wifi Telecom Account, including adding new service, upon the direction of any person able to provide information we deem sufficient to identify you.
+
+**ASSUMPTION OF RISK:** There is a risk that other users may attempt to access your Services, such as through the internet or connected networks. You acknowledge this risk as inherent to the shared nature of the Services and you agree to take full responsibility for taking adequate security precautions and safeguarding your data.
+
+**THEFT OF U-WIFI TELECOM EQUIPMENT OR SERVICE:** You agree to notify U-wifi Telecom immediately, in writing or by calling the U-wifi Telecom customer support line, if the Equipment is stolen or if you become aware at any time that Services are being stolen or fraudulently used. When you call or write, you must provide your U-wifi Telecom Account number and a detailed description of the circumstances of the Equipment theft, including documentation of theft (e.g., a copy of a police report) or stolen or fraudulent use of the Services. You will be responsible for all charges incurred on your U-wifi Telecom Account until you report the theft or fraudulent use of the Services. You will be responsible for stolen Equipment, however, U-wifi Telecom may in its sole discretion waive or reduce charges for stolen Equipment upon submission of documentation of theft or other circumstances. Failure to provide notice to U-wifi Telecom of theft in a timely manner may result in the termination of your Services and additional charges to you. Unless notified otherwise by U-wifi Telecom, after you report the theft or fraudulent use of the Services, you will remain responsible for paying your monthly fees for Services not stolen or fraudulently used.
+
+### 9. SUSPENSION AND TERMINATION
+**SUSPENSION/TERMINATION BY U-wifi:** Your Services may be suspended or terminated if your payment is past due. While your Services are suspended you will not receive automatic credit balances (if any are due) and billing will continue for your monthly charges, and any applicable promotional offers may be discontinued and revoked as determined solely by U-wifi. You will be charged a fee to restore your Service from suspension. In addition, U-wifi may immediately terminate all or a portion of your Service or suspend Service, without notice, for conduct that U-wifi Telecom believes (a) is illegal, fraudulent, harassing, abusive, or intended to intimidate or threaten; (b) constitutes a violation of any law, regulation, or tariff (including, without limitation, copyright and intellectual property laws); or (c) is a violation of these TERMS AND CONDITIONS, or any applicable policies or guidelines (including the Acceptable Use Policy), and U-wifi Telecom may refer such use to law enforcement authorities without notice to you. Termination or suspension by U-wifi of the Services also constitutes termination or suspension (as applicable) of your license to use any Software, if applicable.
+
+**TERMS AND CONDITIONS TO TERMINATE SERVICE:** You may terminate the Services at any time by calling. You must pay service fees and other charges incurred through the termination date. No cancellation or disconnect fee will apply, but you may be charged the value of any Equipment that is not returned in accordance with Section 6.
+
+### 10. DISCLAIMER OF WARRANTIES:
+**YOU EXPRESSLY UNDERSTAND AND AGREE THAT:**
+
+Your use of the services is at your sole risk. The services are provided on an “as is” and “as available” basis. U-wifi expressly disclaims all warranties of any kind, whether express or implied, including but not limited to the implied warranties of merchantability, fitness for a particular purpose and non-infringement.
+
+U-wifi makes no warranty that (I) the services will meet your requirements, (II) the services will be uninterrupted, timely, secure, or error-free, (III) the results that may be obtained from the use of the services will be accurate or reliable, (IV) the quality of any products, services, information, or other material purchased or obtained by you through the services will meet your expectations, or (V) the services will not conflict or interfere with other services from U-wifi Telecom or third parties that you receive at your premises.
+
+No advice or information whether oral or written, obtained by you from U-wifi Telecom or through or from the services will create any warranty not expressly stated in these TERMS AND CONDITIONS.
+
+### 11. LIMITATION OF LIABILITY
+You expressly understand and agree that U-wifi Telecom shall not be liable to you for any direct, indirect, incidental, special, consequential, or exemplary damages. Including, but not limited to, damages for personal injury, property damage, loss of profits, goodwill, use, data, or other intangible losses (even if U-wifi Telecom has been advised of the possibility of such damages). Resulting from: (a) use of the services (which includes equipment, software, and inside or outside wiring), (b) the performance or non-performance of the services, (c) the installation, maintenance, removal, or technical support of the services, even if such damage results from the negligence or gross negligence of an U-wifi installer, technician, or other representative, and/or (d) any inability to reach 911 emergency services, any alleged interference with alarm or medical monitoring signals, or any failure of alarm or medical monitoring signals to reach their intended monitoring stations allegedly as a result of the services.
+
+In any event, your sole and exclusive remedy for any dispute with U-wifi in connection with the service is a refund not to exceed the total amount of service fees paid during the immediately preceding twelve month period.
+
+### 12. EXCLUSIONS AND LIMITATIONS
+Some jurisdictions do not allow the exclusion of certain warranties or the limitation or exclusion of liability for incidental or consequential damages. Accordingly, some of the above limitations of sections 12 and 13 may not apply to you.
+
+### 13. NOTICE
+Unless otherwise specified in the TERMS AND CONDITIONS, notices to you may be made via email, regular mail, posting online at HomeSC.com, recorded announcement, bill message, bill insert, newspaper ad, postcard, letter, or call to your billed telephone number. In addition, if you purchase U-wifi Telecom Video service, U-wifi Telecom may also provide notices of changes to these TERMS AND CONDITIONS or other matters by displaying notices on U-wifi Telecom Video. It is your responsibility to check for such notices.
+
+Unless otherwise specified in the TERMS AND CONDITIONS, notices by you to U-wifi Telecom must be given by calling and such notices are effective as of the date that our records show we received your call; LEGAL NOTICES must be given by letter delivered by first class US mail to U-wifi Telecom.
+
+### 14. INTELLECTUAL PROPERTY
+All portions of the Services and Equipment and any firmware or software used to provide the Services or provided to you in conjunction with providing the Services, or embedded in the Equipment, and all Services, information, documents, and materials on related web site(s) are the property of U-wifi or third-party providers and are protected by trademark, copyright, or other intellectual property laws and international treaty provisions. All websites, corporate names, service marks, trademarks, trade names, logos, and domain names (collectively “Marks”) of U-wifi or third-party providers are and shall remain the exclusive property of U-wifi or third-party providers, and nothing in this Agreement shall grant you the right or license to use such Marks.
+
+### 15. CREDIT REPORTING AUTHORIZATION
+As permitted under applicable laws and without limitation to other rights provided in these TERMS AND CONDITIONS or other applicable policies, you authorize U-wifi Telecom to (a) disclose your account information, including your payment history and confidential information, to credit reporting agencies or private credit reporting associations, and (b) periodically obtain and use your credit report and other credit information from any source in connection with U-wifi Telecom’s offering of the Services and other services. You understand that if you fail to fulfill the terms of your obligations under these TERMS AND CONDITIONS, U-wifi Telecom may report your failure to a credit reporting agency.
+
+### 16. ASSIGNMENT
+U-wifi may assign these TERMS AND CONDITIONS and its rights and obligations pertaining to the provision of the Services, or parts thereof, to a parent or affiliated company without notice to you. You may not assign these TERMS AND CONDITIONS or your rights or obligations pertaining to the Services or any parts thereof without the written consent of U-wifi.
+
+### 17. MISCELLANEOUS PROVISIONS
+The TERMS AND CONDITIONS does not provide any third party with a remedy, claim, or right of reimbursement.
+
+The TERMS AND CONDITIONS, any policies, guidelines, or other documents referenced herein, the provisions set forth in any marketing and informational materials or promotional offers for the Services, and the terms and conditions posted on the U-wifi web site constitute the entire agreement between U-wifi and you and supersede any prior agreements between you or U-wifi Telecom with respect to the subject matter of the TERMS AND CONDITIONS.
+
+The TERMS AND CONDITIONS and the relationship between you and U-wifi Telecom will be governed by the laws of the State of Texas without regard to its conflict of law provisions, and you and U-wifi agree to submit to the personal and exclusive jurisdiction of the courts.
+
+The failure of U-wifi to exercise or enforce any right or provision of the TERMS AND CONDITIONS will not constitute a waiver of such right or provision.
+
+If any provision of the TERMS AND CONDITIONS is found by a court of competent jurisdiction to be invalid, the parties nevertheless agree that the court should endeavor to give effect to the parties’ intentions as reflected in the provision, and the other provisions of the TERMS AND CONDITIONS shall remain in full force and effect.
+
+You agree that regardless of any statute or law to the contrary, any claim or cause of action arising out of or related to use of the Service or the TERMS AND CONDITIONS must be filed within one (1) year after such claim or cause of action arose or be forever barred.
+
+The section titles and paragraph headings in the TERMS AND CONDITIONS are for convenience only and have no legal or contractual effect.
+
+#### SCHEDULE 1: U-wifi Voice Specific Terms of Service
+**SERVICE DESCRIPTION**
+When you accept the TERMS AND CONDITIONS, you become the main account holder for each telephone number assigned to the U-wifi Voice service and all plans, features, and functionalities associated with each telephone number, whether those telephone numbers, plans, features, and functionalities are purchased initially or are added subsequently. The TERMS AND CONDITIONS applies to all such telephone numbers, plans, features, and functionalities, for both the main account and all sub accounts.
+
+**BILLING AND PAYMENTS**
+For U-wifi Voice service, non-recurring and usage-based charges generally billed in the billing cycle following the transaction include, but are not limited to, international calling (including surcharges for international termination to a wireless phone number), Operator Services, Directory Assistance (411 or xxx-555-1212), call trace, and overage minutes associated with defined minutes-of-use plans. Partial minutes are rounded up for per-minute usage charges.
+
+**INTERRUPTIONS, LIMITATIONS, AND MODIFICATIONS TO SERVICE**
+U-wifi Telecom also limits the maximum number of days that voicemail messages will be retained; the maximum number of voicemail messages that will be retained by the Service; the maximum size of any voicemail message; and the maximum disk space that will be allotted on RTA’s servers on your behalf. You agree that U-wifi will have no responsibility or liability for the deletion, for failure to store or to deliver any messages and other communications, for the modification or malformation of communications over the U-wifi Voice service, or for other content maintained or transmitted by U-wifi Voice service. You further acknowledge that U-wifi reserves the right to change these general practices and limits at any time without advance notice.
+
+**VOICE 911 LIMITATIONS**
+U-wifi makes no warranty that U-wifi Telecom voice service for access to 911 will be uninterrupted, timely, secure, or error-free or battery backup power will be sufficient to maintain the service throughout any and/or all power outages.
+
+You acknowledge and understand that U-wifi will not be liable for any losses incurred directly or indirectly as a result of service outage and/or inability to dial 911 using your U-wifi voice service or inability to access emergency service personnel for any reason, including but not limited to the 911 characteristics and limitations set forth in this document and/or the characteristics, limitations, and/or failure of the 911 network itself.
+
+Without limiting any provisions of the TERMS AND CONDITIONS, you agree to defend, indemnify, and hold harmless U-wifi, its subsidiaries, affiliates, officers, agents, directors, employees, and any other service provider who furnishes services to you in connection with the U-wifi Wireless Broadband or FTTH voice service, from any and all claims, losses (including loss of profits or revenue), liabilities, damages, fines, penalties, demands, actions, costs, and expenses (including, without limitation, reasonable attorney fees) by, or on behalf of you or any third party or user of the U-wifi voice service, regardless of the nature of the claim, including without limitation claims related to 911 dialing, arising from or in connection with any failure or outage of U-wifi Telecom voice service or any failure or outage of the 911 network itself.
+
+**U-wifi TELECOM ALARM AND OTHER DEVICE COMPATIBILITY**
+U-wifi makes no warranty that (I) U-wifi voice service used as a communications pathway for monitored burglar alarms, monitored fire alarms, and/or medical monitoring systems or devices, will be uninterrupted, timely, secure, or error-free, (II) the service will be compatible with any particular or all monitored burglar alarm(s), monitored fire alarm(s), or medical monitoring system(s) or device(s), or (III) battery backup power.
+
+Potential incompatibility with monitored fire burglar alarm, monitored fire alarm, and medical monitoring systems, and other devices: monitored fire alarm and burglar alarm systems and medical monitoring devices may not be compatible with U-wifi voice service.
+
+If you have or purchase a monitored fire alarm or burglar alarm system or a medical monitoring device that you intend to use with U-wifi voice as the communications pathway, you agree to the Terms and Conditions your provider for those systems/devices to determine compatibility with U-wifi voice service and to arrange for your provider to test such systems/devices after installation of U-wifi voice service. You also acknowledge and understand that even if such systems and devices are compatible with U-wifi voice service, they will not be able to communicate with monitoring stations during a power outage unless you maintain battery backup power for U-wifi or digital voice as described in these TERMS AND CONDITIONS. If you purchase a monitored burglar alarm or monitored fire alarm system after voice has been installed, you also agree to call U-wifi prior to installation of any such system. Subsequent installation of these systems may require re-wiring of U-wifi voice service, which may also result in time and material charges. (U-wifi does not provide support for, or re-wiring of U-wifi voice in support of, medical monitoring systems or devices).
+
+Once U-wifi voice has been installed for use with a monitored fire alarm or monitored burglar alarm system, you agree that you will not change or modify the inside wiring of your home without the Terms and Conditions U-wifi and your alarm service provider. You acknowledge and understand that if you change or modify your inside wiring it could result in a failure of your monitored burglar alarm or monitored fire alarm system.
+
+**U-wifi Voice over IP**
+By accepting the TERMS AND CONDITIONS, you use U-wifi voice service at your own risk and waive any claim against U-wifi for interference with or disruption of a monitored fire alarm or burglar alarm system, a medical monitoring device, or other such systems or devices due to the U-wifi voice service.
+
+**LOCAL NUMBER PORTABILITY**
+In the event you are transferring an existing phone number for your U-wifi Voice service (i.e., porting a number to U-wifi Voice service), you hereby authorize U-wifi to process your order for U-wifi Voice and to notify your existing provider of your decision to switch your local, local toll, and long distance services to U-wifi Voice service, and you represent that you are authorized to take this action. Not all telephone numbers are eligible for porting to U-wifi Voice service.
+`;
+---
+
+<Layout title="Terms and Conditions">
+    <div
+        class="flex flex-col text-white p-10 my-20 md:mx-20 mx-2 max-w-[1200px] place-content-center items-center overflow-y-auto min-h-screen min-w-screen gap-10 "
+    >
+        <section class="flex flex-col items-center justify-center gap-0 z-10">
+            <h1
+                class="font-display md:text-[40px] text-[30px] text-center font-normal tracking-tight"
+            >
+                {titles[0]}
+            </h1>
+            <div class="flex flex-wrap items-center justify-center gap-5">
+                <h2
+                    class="font-display md:text-[75px] text-[40px] text-center font-semibold tracking-tighter"
+                >
+                    {titles[1]}
+                </h2>
+
+            </div>
+            <Markdown content={description}/>
+
+           
+        </section>
+       
+    </div>
+</Layout>
+
+<style>
+   @keyframes jumbo {
+    from {
+        background-position: 50% 50%, 50% 50%;
+    }
+    to {
+        background-position: 350% 50%, 350% 50%;
+    }
+}
+
+.join-background {
+    background-image: repeating-linear-gradient(
+        150deg,
+        #000 18%,
+        #000 17%,
+        transparent 18%,
+        transparent 18%,
+        #000 14%
+    ),
+    repeating-linear-gradient(
+        100deg,
+        #00c207 10%,
+        #00c207 10%,
+        #7C47DD 20%,
+        #2e74de 25%,
+        #00c207 30%
+    );
+    background-size: 300%, 200%;
+    background-position: 50% 50%, 50% 50%;
+      z-index: 0 !important;
+}
+
+.join-background::after {
+    content: "";
+      z-index: 0 !important;
+ position: absolute;
+inset: 0;
+    background-image: repeating-linear-gradient(
+        100deg,
+        #000 0%,
+        #000 7%,
+        transparent 10%,
+        transparent 12%,
+        #000 16%
+    ),
+    repeating-linear-gradient(
+        100deg,
+        #00c207 10%,
+        #00c207 15%,
+        #7C47DD 20%,
+        #2e74de 25%,
+        #00c207 30%
+    );
+    background-size: 350%, 100%;
+    animation: jumbo 60s linear infinite;
+    filter: blur(60px) opacity(40%) saturate(200%);
+    mask: radial-gradient(ellipse at 100% 0%, black 40%, transparent 70%);
+}
+
+</style>
