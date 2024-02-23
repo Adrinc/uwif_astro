@@ -1,6 +1,21 @@
-<div class="baner">
-    <h1>A WINDOW INTO 5G WIRELESS INTERNET</h1>
-    <p>How 5G wireless technology connects you to the world from the comfort of your home.</p>
+---
+import {strapiURL} from '../../services/graphql.ts';
+interface Props {
+    title: string;
+    description: string;
+    imageUrl: string;
+}
+
+const { title, description, imageUrl } = Astro.props;
+const imageurl = `url(${strapiURL}${imageUrl})`;
+const test = `url(https://strapi.u-wifi.cbluna-dev.com/uploads/Banner_Background_9d18f0613c.webp)`
+
+
+---
+
+<div class="baner" style={`--image: ${imageurl};`}>
+    <h1>{title}</h1>
+    <p>{description}</p>
 </div>
 
 <style>
@@ -9,7 +24,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-image: url("/image/baner.png");
+        background-image: var(--image);
         background-size: cover;
         background-position: center;
         height: 200px;

@@ -1,9 +1,18 @@
 ---
 import FilaImagenTexto from "../FilaImagenTexto.astro";
+import { parse } from "marked";
+import {strapiURL} from '../../../services/graphql.ts';
 interface Props{
     strapiData: any;
 }
 const{ strapiData } = Astro.props;
+
+/* create a variable string name markdowntext with markdown text: "U-wifi Mobile App."   Mobile word shuld be color red and bold    */
+
+/* const markdowntext = "<span style='color: var(--tertiary-text-color)'> U-wifi </span> Mobile App."; */
+const AppParagraphs = strapiData.pageData.data.pageHiw.data.attributes.AppParagraphs;
+console.log(AppParagraphs);
+
 ---
 
 <section id="app">
@@ -13,6 +22,9 @@ const{ strapiData } = Astro.props;
     <div>
         <div class="contenedor">
             <div class="title">
+
+        <!--         <p set:html={parse(markdowntext)} class="text-red text-lg"></p> -->
+
             <span class="text-tertiaryTextColor">U-wifi </span>Mobile App
             </div>
         </div>
@@ -25,33 +37,33 @@ const{ strapiData } = Astro.props;
 
 
     <FilaImagenTexto 
-    image="/image/App1.png"
-    title="Setup’s quick. Just download the app." 
-    subtitle=" Step-by-step, we’ll make setup a breeze for your T-Mobile 5G Wi-Fi Gateway."  
+    image={`${strapiURL}${AppParagraphs[0].Media.data.attributes.url}`}
+    title={AppParagraphs[0].Headings[0].Heading}
+    subtitle={AppParagraphs[0].Textblock} 
     flex="row"/>
 
     <FilaImagenTexto 
-    image="/image/App2.png"
-    title="Location matters." 
-    subtitle="For the best possible connection, use the interactive placement assistant in the app to pinpoint the ideal location for your gateway."  
+    image={`${strapiURL}${AppParagraphs[1].Media.data.attributes.url}`}
+    title={AppParagraphs[1].Headings[0].Heading}
+    subtitle={AppParagraphs[1].Textblock}
     flex="row-reverse"/>
 
     <FilaImagenTexto 
-    image="/image/App3.png"
-    title="Keep an eye on your internet connection." 
-    subtitle="Make sure your internet connection is at its best and get help tackling issues with your Wi-Fi network manager."  
+    image={`${strapiURL}${AppParagraphs[2].Media.data.attributes.url}`}
+    title={AppParagraphs[2].Headings[0].Heading}
+    subtitle={AppParagraphs[2].Textblock}
     flex="row"/>
 
     <FilaImagenTexto 
-    image="/image/App4.png"
-    title="See who’s online." 
-    subtitle="Quickly identify each device that’s connected to your network."  
+    image={`${strapiURL}${AppParagraphs[3].Media.data.attributes.url}`}
+    title={AppParagraphs[3].Headings[0].Heading}
+    subtitle={AppParagraphs[3].Textblock}
     flex="row-reverse"/>
 
     <FilaImagenTexto 
-    image="/image/App5.png"
-    title="Set parental controls." 
-    subtitle="A few simple taps and you can control which devices connect to Wi-Fi and when. You have the power."  
+    image={`${strapiURL}${AppParagraphs[4].Media.data.attributes.url}`}
+    title={AppParagraphs[4].Headings[0].Heading}
+    subtitle={AppParagraphs[4].Textblock}
     flex="row"/>
 
     <div>
@@ -60,6 +72,9 @@ const{ strapiData } = Astro.props;
 
 
 <style>
+    .colorWord{
+        color: red;
+    }
     .green-ball-blured{
     top: 20%;
 	left: 70%;

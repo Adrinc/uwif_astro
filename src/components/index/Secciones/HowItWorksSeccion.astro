@@ -8,8 +8,12 @@ interface Props{
     strapiData: any;
 }
 const{ strapiData } = Astro.props;
+
 const StepsTitles = strapiData.pageData.data.pageHiw.data.attributes.StepsTitles;
 const StepsData = strapiData.pageData.data.pageHiw.data.attributes.Steps;
+const MediaData = strapiData.pageData.data.pageHiw.data.attributes.StepsMedia.data.attributes;
+const ButtonData = strapiData.pageData.data.pageHiw.data.attributes.StepsButtons;
+
 
 ---
 
@@ -43,9 +47,9 @@ const StepsData = strapiData.pageData.data.pageHiw.data.attributes.Steps;
 
         <div class="columnaderecha" >
             <span class="multi-ball-blured"></span>
-            <img alt="phone image" class="iconoGrande" src="/image/movilconlogo.png" alt="ui-icon">
+            <img alt={MediaData.alternativeText} class="iconoGrande" src={`${strapiURL}${MediaData.url}`} >
           
-                <BotonFlecha texto="Download App" link="#"  />
+                <BotonFlecha texto={ButtonData[0].Text} link={ButtonData[0].Link}  />
          
         </div>
     </div>

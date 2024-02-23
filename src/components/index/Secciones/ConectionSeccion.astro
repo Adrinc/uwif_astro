@@ -8,9 +8,12 @@ interface Props{
 }
 const{ strapiData } = Astro.props;
 
+const baner = strapiData.pageData.data.pageHiw.data.attributes.Banner;
+console.log(baner.Icon.data.attributes);
+
 ---
 <section  id="5g">
-    <Baner5GWifi />
+    <Baner5GWifi title={baner.Title} description={baner.Content} imageUrl={baner.Icon.data.attributes.url}  />
 <div class="main-container">
 
 
