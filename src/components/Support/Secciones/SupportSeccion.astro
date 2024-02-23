@@ -1,15 +1,30 @@
 ---
 import BotonFlecha from "../../global/BotonFlecha.astro";
+
+interface Props{
+    strapiData: any;
+}
+const{ strapiData } = Astro.props;
+
+
+
+const data = strapiData.pageData.data.pageSupport.data.attributes;
+const Header = data.Header.Headings[0].Heading;
+const Textblock = data.Header.Textblock;
+const Boton = data.Header.Buttons;
+
+
+
 ---
 
 
 <section id="faq&support">
 
 
-    <p class="title flex align-middle justify-center mb-8">SUPPORT</p>
+    <p class="title flex align-middle justify-center mb-8">{Header}</p>
     <div class="doted">
-		<p class="description flex align-middle justify-center text-center">Save time and manage your account online with our Self-service Center or using  <span class="font-bold">U-app.</span></p>
-		<BotonFlecha link="/selfservice" texto="CHECK IT OUT" backgroundColor="#00c207" iconColor="#ffffff"/>
+		<p class="description flex align-middle justify-center text-center">{Textblock}</p>
+		<BotonFlecha link={Boton[0].Link} texto={Boton[0].Text} backgroundColor="#00c207" iconColor="#ffffff"/>
 	</div>
    
 	<span class="green-ball-blured"></span>

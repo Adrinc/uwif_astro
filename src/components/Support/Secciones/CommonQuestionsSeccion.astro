@@ -1,50 +1,41 @@
 ---
 import DropMenu from "../../react_components/DropMenu";
 
-const dataIzquierda= [
-    {
-    question: "What are the different ways I can pay my bill?",
-    answer: "You can pay your bill online, by phone, by mail, or in person. We accept Visa, MasterCard, Discover, and American Express. You can also pay with a check or money order."
-    },
-    {
-        question: "What should I do if my gateway is lost or stolen?",
-        answer: "If your gateway is lost or stolen, please contact us immediately. We will deactivate your gateway and send you a new one. You will be responsible for the cost of the new gateway."
-    }
+interface Props{
+    strapiData: any;
+}
+const{ strapiData } = Astro.props;
 
-];
-const dataDerecha= [
 
-    {
-        question: "What should I do if my gateway is lost or stolen?",
-        answer: "If your gateway is lost or stolen, please contact us immediately. We will deactivate your gateway and send you a new one. You will be responsible for the cost of the new gateway."
-    },
-    {
-        question:"Can I use my all devices on U-wifi network?",
-        answer: "Yes, you can connect any device to the U-wifi network. However, we recommend that you use a gateway to connect your devices to the network. This will provide you with the best possible connection."
-    }
+const title = strapiData.pageData.data.pageSupport.data.attributes.FAQTitle;
+const list = strapiData.pageData.data.pageSupport.data.attributes.FAQList;
 
-];
+let half = Math.ceil(list.length / 2);
+let dataIzquierda = list.slice(0, half);
+let dataDerecha = list.slice(half, list.length);
+
+
 ---
 
 
 <section id="questions">
 
-    <h1>Common questions about U-wifi Internet</h1>
+    <h1>{title}</h1>
     <div class="questionContainer ">
 
         <div class="columnaIzquierda">
-            {dataIzquierda.map((item) => ( 
+            {dataIzquierda.map((item:any) => ( 
                     <div class="mb-8 gap-8">
-                    <DropMenu client:visible transition:persist question={item.question} answer={item.answer} />
+                    <DropMenu client:visible transition:persist question={item.Title} answer={item.Content} />
                     </div>
                 ))}
         </div>
 
         <div class="columnaDerecha">
-                {dataDerecha.map((item) => ( 
+                {dataDerecha.map((item:any) => ( 
 
                     <div class="mb-8 gap-8">
-                    <DropMenu client:visible transition:persist question={item.question} answer={item.answer} />
+                    <DropMenu client:visible transition:persist question={item.Title} answer={item.Content} />
                     </div>
                 ))}
         </div>

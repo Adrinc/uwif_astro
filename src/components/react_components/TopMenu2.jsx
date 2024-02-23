@@ -10,7 +10,7 @@ const TopMenu = () => {
         { name: 'SUPPORT', url: '/support', alterurl:"/support" },
         { name: 'ABOUT US', url: '/about', alterurl:"/about" },
         { name: 'LOCATIONS', url: '/location', alterurl:"/location" },
-        { name: 'SELF SERVICES', url: '/selfservice', alterurl:"/selfservice" },
+        { name: 'SELF SERVICES', url: '/self-service', alterurl:"/self-service" },
         
     ];
     const location = useLocation();

@@ -74,6 +74,20 @@ export const GetHowItWorksSeccionFull = () => {
               }
               
               #--------------
+              #GETAWAY (INCOMPLETE)
+                
+              #--------------
+           
+              GatewayParagraph{
+                Textblock,
+                Buttons{
+                  Text,
+                  Link
+                },
+                Headings{Heading},
+            
+              }
+              #--------------
             
           }
         }

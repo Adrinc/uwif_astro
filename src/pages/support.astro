@@ -5,15 +5,23 @@ import ContactNumbers from '../components/Support/Secciones/ContactNumbers.astro
 import CommonQuestionsSeccion from '../components/Support/Secciones/CommonQuestionsSeccion.astro';
 import Robot from '../components/global/Robot.astro';
 
+
+import {getPageData} from '../services/graphql.ts';
+import * as SupportQuerys from '../data/SupportQuerys.ts';
+
+
+
+const data = await getPageData(SupportQuerys.GetSupportFull());
+
 ---
 
 
 
 <Layout title="FAQ & SUPPORT">
 	
-<SupportSeccion />
-<ContactNumbers />
-<CommonQuestionsSeccion />
+<SupportSeccion strapiData={data}/>
+<ContactNumbers strapiData={data}/>
+<CommonQuestionsSeccion strapiData={data}/>
 <Robot/>
 
 </Layout>
