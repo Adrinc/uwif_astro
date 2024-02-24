@@ -98,7 +98,7 @@
       color: #ffffff;
       text-shadow:  2px 2px 0px #000000;
       text-transform: uppercase;
-      align-self: start;
+      align-self: flex-start;
       padding-left: 8px;
       font-weight: 800;
       font-size: clamp(14px, 8vw, 30px);
