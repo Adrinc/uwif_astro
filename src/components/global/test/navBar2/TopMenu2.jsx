@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import TopMenuStyle from './TopMenu.module.css';
+import TopMenuStyle from './TopMenu2.module.css';
 import { useLocation } from 'react-router-dom';
 
 
 const TopMenu = () => {
     const links = [
-        { name: 'HOME', url: '/', alterurl:"/#home" },
-    /*     { name: 'ACP', url: '/#acp', alterurl:"/acp" },
-        { name: 'PLAN', url: '/#plan', alterurl:"/#plan" }, */
+        { name: 'HOME', url: '/', alterurl:"/home" },
         { name: 'HOW IT WORKS', url: '/howitworks', alterurl:"/howitworks" },
         { name: 'SUPPORT', url: '/support', alterurl:"/support" },
         { name: 'ABOUT US', url: '/about', alterurl:"/about" },
@@ -106,7 +104,6 @@ const TopMenu = () => {
                     </div>
                     <div className='flex flex-row justify-center p-2'>
                         <img
-                        /* loading="lazy" */
                         src="/image/uwifilogo.png"
                         className={TopMenuStyle.imagemobile}
                         alt='uwifi logo'
@@ -131,25 +128,22 @@ const TopMenu = () => {
                       <a className="inline-block buttom-shadow py-2 px-4 text-xl font-bold leading-5 text-green-50 buttom-text-shadow drop-shadow-sm bg-green-500  hover:bg-green-600 focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 rounded-md" href="https://uwifi-web.vercel.app/login">Login</a>
                       </div>
                     </nav>
-                      <img
-                    alt='small chatbot'
-                    src="/image/chatbotsmall.svg"
-                    className={TopMenuStyle.chatbot2}
-                />
+
                 </div>
                 )}
 
             <div className={TopMenuStyle.mainContainer}>
             
+              <div>
 
                 <img
                  
                     src="/image/uwifilogo.png"
                     alt='uwifi logo'
-                    width="100" height="50"
                     className={TopMenuStyle.image}
                 />
-                <span className={TopMenuStyle.description}><span className={TopMenuStyle.boltext}>CALL NOW! </span> (123)456-789-000</span>
+              </div>
+
          
 
                 {isMobile && (
@@ -176,13 +170,9 @@ const TopMenu = () => {
                 </nav>
 
                 <div className="hidden md:block ">
-                    <div className="flex items-center justify-end"><a className="inline-block buttom-shadow py-2 px-4 text-xl font-bold leading-5 text-green-50 buttom-text-shadow drop-shadow-sm bg-green-500  hover:bg-green-600 focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 rounded-md" href="https://uwifi-web.vercel.app/login">Login</a></div>
+                    <div className="flex items-center justify-end"><a className="flex flex-row justify-center w-[150px] rounded-full buttom-shadow p-2 text-[24px] font-bold  text-green-50 buttom-text-shadow drop-shadow-sm bg-green-500  hover:bg-green-600 focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 " href="https://uwifi-web.vercel.app/login">Login</a></div>
                 </div>
-                <img
-                    alt='small chatbot'
-                    src="/image/chatbotsmall.svg"
-                    className={TopMenuStyle.chatbot}
-                />
+
             </div>
         </>
     );

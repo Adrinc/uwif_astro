@@ -1,11 +1,11 @@
 import { BrowserRouter } from 'react-router-dom'
 
-import TopMenu from './TopMenu.jsx';
+import NavBar from './NavBar.jsx';
 
 function RoterLinks() {
   return (
     <BrowserRouter>
-      <TopMenu />
+      <NavBar />
     </BrowserRouter>
   );
 }

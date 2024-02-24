@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import TopMenuStyle from './TopMenu2.module.css';
+import NavBarStyle from './NavBar.module.css';
 import { useLocation } from 'react-router-dom';
 
 
 const TopMenu = () => {
     const links = [
-        { name: 'HOME', url: '/', alterurl:"/#home" },
+        { name: 'HOME', url: '/', alterurl:"/home" },
         { name: 'HOW IT WORKS', url: '/howitworks', alterurl:"/howitworks" },
         { name: 'SUPPORT', url: '/support', alterurl:"/support" },
         { name: 'ABOUT US', url: '/about', alterurl:"/about" },
@@ -104,8 +104,9 @@ const TopMenu = () => {
                     </div>
                     <div className='flex flex-row justify-center p-2'>
                         <img
+                        /* loading="lazy" */
                         src="/image/uwifilogo.png"
-                        className={TopMenuStyle.imagemobile}
+                        className={NavBarStyle.imagemobile}
                         alt='uwifi logo'
                         width="100" height="50"
                         />
@@ -117,7 +118,7 @@ const TopMenu = () => {
                       <a 
                       key={link.name}
                       href={link.url} 
-                      className={link.name === selectedLink ? TopMenuStyle['selected-link-mobile'] : TopMenuStyle.linkmobil}
+                      className={link.name === selectedLink ? NavBarStyle['selected-link-mobile'] : NavBarStyle.linkmobil}
                       onClick={() => handleLinkClick(link.name)}
                   >
                       {link.name}
@@ -128,22 +129,25 @@ const TopMenu = () => {
                       <a className="inline-block buttom-shadow py-2 px-4 text-xl font-bold leading-5 text-green-50 buttom-text-shadow drop-shadow-sm bg-green-500  hover:bg-green-600 focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 rounded-md" href="https://uwifi-web.vercel.app/login">Login</a>
                       </div>
                     </nav>
-
+                      <img
+                    alt='small chatbot'
+                    src="/image/chatbotsmall.svg"
+                    className={NavBarStyle.chatbot2}
+                />
                 </div>
                 )}
 
-            <div className={TopMenuStyle.mainContainer}>
+            <div className={NavBarStyle.mainContainer}>
             
-              <div>
 
                 <img
                  
                     src="/image/uwifilogo.png"
                     alt='uwifi logo'
-                    className={TopMenuStyle.image}
+                    width="100" height="50"
+                    className={NavBarStyle.image}
                 />
-              </div>
-
+                <span className={NavBarStyle.description}><span className={NavBarStyle.boltext}>CALL NOW! </span> (123)456-789-000</span>
          
 
                 {isMobile && (
@@ -156,12 +160,12 @@ const TopMenu = () => {
                 )}
       
 
-                <nav className={`${TopMenuStyle.navigation} ${isMobile && showMenu ? !TopMenuStyle.showMenu : ''}`}>
+                <nav className={`${NavBarStyle.navigation} ${isMobile && showMenu ? !NavBarStyle.showMenu : ''}`}>
                     {links.map(link => (
                         <a 
                             key={link.name}
                             href={link.url} 
-                            className={link.name === selectedLink ? TopMenuStyle['selected-link'] : TopMenuStyle.link}
+                            className={link.name === selectedLink ? NavBarStyle['selected-link'] : NavBarStyle.link}
                             onClick={() => handleLinkClick(link.name)}
                         >
                             {link.name}
@@ -170,9 +174,13 @@ const TopMenu = () => {
                 </nav>
 
                 <div className="hidden md:block ">
-                    <div className="flex items-center justify-end"><a className="flex flex-row justify-center w-[150px] rounded-full buttom-shadow p-2 text-[24px] font-bold  text-green-50 buttom-text-shadow drop-shadow-sm bg-green-500  hover:bg-green-600 focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 " href="https://uwifi-web.vercel.app/login">Login</a></div>
+                    <div className="flex items-center justify-end"><a className="inline-block buttom-shadow py-2 px-4 text-xl font-bold leading-5 text-green-50 buttom-text-shadow drop-shadow-sm bg-green-500  hover:bg-green-600 focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 rounded-md" href="https://uwifi-web.vercel.app/login">Login</a></div>
                 </div>
-
+                <img
+                    alt='small chatbot'
+                    src="/image/chatbotsmall.svg"
+                    className={NavBarStyle.chatbot}
+                />
             </div>
         </>
     );

@@ -1,12 +1,15 @@
 ---
-
+interface Props{
+    title?:string;
+}
+const {title = "PLUS"} = Astro.props;
 ---
 
 
 <div class="divider">
 
     <div class="rounded"></div>
-    <h1 class="plus">PLUS</h1>
+    <h1 class="plus">{title}</h1>
     <hr class="rounded">
 </div>
 

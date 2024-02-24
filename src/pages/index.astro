@@ -9,8 +9,8 @@ import TabletSeccion from '../components/index/Secciones/TabletSeccion.astro';
 import BentogridSeccion2 from '../components/index/Secciones/BentogridSeccion2.astro';
 
 
-import {getPageData} from '../services/graphql.ts';
-import * as IndexData from '../data/homeQuerys.ts';
+import {getPageData} from '../services/graphql';
+import * as IndexData from '../data/homeQuerys';
 
 const data  = await getPageData(IndexData.GetHeroSeccionFull());
 
