@@ -1,28 +1,19 @@
 ---
 import BotonFlecha from '../../global/BotonFlecha.astro';
 import DifferentialCard from '../DifferentialCard.astro';
+import {strapiURL} from '../../../services/graphql.ts';
+interface Props{
+    strapiData: any;
+}
+const{ strapiData } = Astro.props;
 
-const data = [
-        {
-        iconUrl: '/icons/dolaricon.svg',
-        title: 'SUPER', 
-        subtitle: 'Affordable Plan',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-        },
-        {
-        iconUrl: '/icons/worldicon.svg',
-        title: 'HIGH SPEED', 
-        subtitle: 'Quality Internet',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-        },
-        {
-        iconUrl: '/icons/30arrowicon.svg',
-        title: '30 Day', 
-        subtitle: 'Workout Plan',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-        },
-    ];
-    
+const ProsTitle = strapiData.pageData.data.pageAboutUs.data.attributes.ProsTitle;
+const ProsBullets = strapiData.pageData.data.pageAboutUs.data.attributes.ProsBullets;
+const GenParagraph = strapiData.pageData.data.pageAboutUs.data.attributes.GenParagraph;
+
+
+
+
 ---
 
 
@@ -30,14 +21,14 @@ const data = [
     <div class="main">
 
         <hr class="rounded">
-        <h1 class="title">Our </h1>
+        <h1 class="title">{ProsTitle}</h1>
         <h2 class="subtitle">Differentials</h2>
     </div>
 
     <div class="row-pic-text">
         {
-            data.map((differential) => (
-                <DifferentialCard {...differential}  />
+            ProsBullets.map((item:any) => (
+                <DifferentialCard title={item.Title} subtitle={item.Subtitle} content={item.Content} iconUrl={`${strapiURL}${item.Icon.data.attributes.url}`} iconAlt={item.Icon.data.attributes.alternativeText} />
             ))
         }
     </div>
@@ -45,10 +36,10 @@ const data = [
     <img src="/image/ublanca.svg" alt="uwifi white">
 
     <div>
-        <p class="unlock">Unlock your full internet potential</p>
-        <p class="Mission">Our Mission is Your Achievement</p>
+        <p class="unlock">{GenParagraph.Headings[0].Heading}</p>
+        <p class="Mission">{GenParagraph.Headings[1].Heading}</p>
     </div>
-    <BotonFlecha texto='Let’s go!' link='#' backgroundColor='#01c938' width='300px' iconColor='#01c938' fontweight='500'/>
+    <BotonFlecha texto={GenParagraph.Buttons[0].Text} link={GenParagraph.Buttons[0].Link}  backgroundColor='#01c938' width='300px' iconColor='#01c938' fontweight='500'/>
 
 
     <span class="green-ball-blured"></span>

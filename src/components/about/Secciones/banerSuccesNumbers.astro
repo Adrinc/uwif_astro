@@ -1,31 +1,33 @@
+---
+import BulletCard from '../BulletCard.astro';
+import {strapiURL} from '../../../services/graphql.ts';
 
+interface Props{
+    strapiData: any;
+}
+const{ strapiData } = Astro.props;
+
+const NumbersTitle = strapiData.pageData.data.pageAboutUs.data.attributes.NumbersTitle;
+const NumbersBullets = strapiData.pageData.data.pageAboutUs.data.attributes.NumbersBullets;
+
+
+---
 <div class="baner">
     <span class="backbox"></span>
     <span class="frontbox"></span>
-    <h1>Our Success Numbers</h1>
+    <h1>{NumbersTitle}</h1>
     <div class="contenedor">
 
-       <div class="cajas-contenedor">
-        <img class="icon" src="/icons/cajitaicon.svg" alt="cajita icon">
-        <p class="box-title">+20K</p>
-        <p>Delivered Gateways</p>
-       </div>
+        {
+            NumbersBullets.map((bullet: any, index: number) => ( 
+            <>
+            <BulletCard iconUrl={`${strapiURL}${bullet.Icon.data.attributes.url}`} altIcon={bullet.Icon.data.attributes.alternativeTex} value={bullet.Title} description={bullet.Content}/>
+            {index < NumbersBullets.length - 1 && <div class="divider"></div>}
+            </>
 
-       <div class="divider"></div>
+            ))
+        }
 
-       <div class="cajas-contenedor">
-        <img class="icon" src="/icons/staricon.svg" alt="cajita icon">
-        <p class="box-title">+8K</p>
-        <p>5 stars ratings</p>
-       </div>
-
-       <div class="divider"></div>
-
-       <div class="cajas-contenedor">
-        <img class="icon" src="/icons/twopeopleicon.svg" alt="cajita icon">
-        <p class="box-title">+2K</p>
-        <p>Connected Clients</p>
-       </div>
 
        <span class="green-ball-blured"></span>
     </div>
@@ -50,15 +52,7 @@
     border-left: 4px solid rgba(3, 63, 3, 0.416);
     height: 200px;
     }
-    .icon {
-        width: clamp(20px, 3vw, 60px);
-        height: clamp(20px, 3vw, 60px);
-    }
-    .box-title {
-        font-size: clamp(16, 3vw, 50px);
-        font-weight: 700;
-        color: var(--primary-text-color);
-    }
+
     .contenedor {
         display: flex;
         flex-direction: row;
@@ -72,16 +66,7 @@
         padding: clamp(5px, 3vw, 100px);
         gap: clamp(0px, 3vw, 100px);
     }
-    .cajas-contenedor {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: center;
-        width: clamp(100px, 20vw, 300px);
-        height: clamp(100px, 20vw, 300px);
-       
-        padding: 20px;
-    }
+
     .baner {
         position: relative;
         display: flex;
@@ -155,29 +140,12 @@
         .frontbox {
             clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
         }
-        .cajas-contenedor {
-            flex-direction: row;
-            justify-content: space-between;
-        
-            width: 100%;
-            object-fit: contain;
-            gap: 20px;
-           
-        }
-        .icon {
-            width: 40px;
-            height: 40px;
-        }
+
         p{
             font-weight: 500;
         }
 	
 	}
 	
-	@media screen and (height< 450px) 
-	{
 
-		
-	}
-			
 </style>

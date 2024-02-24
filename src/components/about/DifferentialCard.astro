@@ -1,22 +1,23 @@
 ---
 interface Props {
-	title: string;
-	subtitle: string;
-	iconUrl: string;
-	description: string;
+	title?: string;
+	subtitle?: string;
+	iconUrl?: string;
+    iconAlt?: string;
+	content?: string;
 }
-const { title, subtitle, iconUrl, description } = Astro.props;
+const { title, subtitle, iconUrl,iconAlt, content } = Astro.props;
 ---
 
 
     <div class="contenedor-card">
         <div class="flex flex-col gap-2 p-4">
-            <img class="icon" src={iconUrl} alt="icon">
+            <img class="icon" src={iconUrl} alt={iconAlt}>
             <h1 class="title">{title}</h1>
             <h2 class="subtitle">{subtitle}</h2>
         </div>
         <hr class="rounded">
-        <p class="description">{description}</p>
+        <p class="content">{content}</p>
        
     </div>
 
@@ -25,11 +26,11 @@ const { title, subtitle, iconUrl, description } = Astro.props;
 
         .icon
         {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             transition: all 0.5s ease;
             transform-origin: bottom;
-            
+            filter: invert(1);
      
         }
 
@@ -74,7 +75,7 @@ const { title, subtitle, iconUrl, description } = Astro.props;
         text-align: left;
         text-shadow: 5px 5px 5px #000000;
     }
-    .description 
+    .content 
     {
        
 	    color: var(--primary-text-color);

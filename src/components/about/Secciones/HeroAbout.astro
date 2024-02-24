@@ -1,5 +1,18 @@
 ---
 import BotonFlecha from "../../global/BotonFlecha.astro";
+import {strapiURL} from '../../../services/graphql.ts';
+interface Props{
+    strapiData: any;
+}
+const{ strapiData } = Astro.props;
+
+const data = strapiData.pageData.data.pageAboutUs.data.attributes;
+
+const head = strapiData.pageData.data.pageAboutUs.data.attributes.Header;
+const Buttons = strapiData.pageData.data.pageAboutUs.data.attributes.Header.Buttons;
+const Imagen = strapiData.pageData.data.pageAboutUs.data.attributes.Header.Media.data.attributes;
+
+
 ---
 
 
@@ -8,18 +21,19 @@ import BotonFlecha from "../../global/BotonFlecha.astro";
 		<div class="contenedor">
 			<div class="columnaIzquierda">
 				<p class="title ">
-					Enhancing wireless excellence with every upgrade, while keeping it affordable.
+					{head.Headings[0].Heading}
 					
 				</p>
 
 				<div class="botones">
 	
-					<BotonFlecha texto="Read more" link="/signup"  backgroundColor="#7f44e5" borderColor="transparent" showIcon={false}  fontweight="500" width="300px"/>
-					<BotonFlecha texto="See all news" link="/contact"  borderColor="#ffffff" showIcon={false} fontweight="500" width="300px"/>
+					<BotonFlecha texto={Buttons[0].Text} link={Buttons[0].Link}  backgroundColor="#7f44e5" borderColor="transparent" showIcon={false}  fontweight="500" width="300px"/>
+					<BotonFlecha texto={Buttons[1].Text} link={Buttons[1].Link}  borderColor="#ffffff" showIcon={false} fontweight="500" width="300px"/>
+				
 				</div>
 			</div>
 			<div class="columnaDerecha">
-				<img src="/image/manwhitmac.png" alt="man with mac">
+				<img src={`${strapiURL}${Imagen.url}`} alt={Imagen.alternativeText}>
 			</div>
 		</div>
 		<span class="green-ball-blured"></span>
@@ -34,7 +48,7 @@ import BotonFlecha from "../../global/BotonFlecha.astro";
 		flex-wrap: wrap;
 		justify-content: flex-start;
 		gap: 40px;
-		background-color: #00b33e;
+	
 
 	}
 	 .green-ball-blured{
@@ -90,7 +104,7 @@ import BotonFlecha from "../../global/BotonFlecha.astro";
 		flex-direction: row;
 		justify-content: space-between;
 		border-radius: 10px;
-		background-color: #00b33e;
+		background: radial-gradient(50% 50% at 50% 50%, #5bcf84 0%, #00b33e 100%);
 		height: 80%;
 	}
 	.title{

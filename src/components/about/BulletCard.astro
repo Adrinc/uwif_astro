@@ -1,0 +1,70 @@
+---
+interface Props{
+    iconUrl: string;
+    altIcon?: string;
+    value: string;
+    description: string;
+
+}
+const {iconUrl, altIcon="cajita icon", value, description} = Astro.props;
+---
+
+
+
+<div class="cajas-contenedor">
+    <img class="icon" src={iconUrl} alt={altIcon}>
+    <p class="box-title">{value}</p>
+    <p>{description}</p>
+   </div>
+
+<style>
+   .cajas-contenedor {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        width: clamp(100px, 20vw, 300px);
+        height: clamp(100px, 20vw, 300px);
+       
+        padding: 20px;
+    }
+    .icon {
+        width: clamp(20px, 5vw, 80px);
+        height: clamp(20px, 5vw, 80px);
+        filter: invert(1);
+    }
+
+    .box-title {
+        font-size: clamp(16, 3vw, 50px);
+        font-weight: 700;
+        color: var(--primary-text-color);
+    }
+    p{
+    color: var(--primary-text-color);
+    font-size: clamp(1rem, 3vw, 30px);
+    font-weight: 300;
+    text-wrap: pretty;
+    text-align: center;
+    }
+
+    @media (max-width: 768px) 
+	{
+        .cajas-contenedor {
+            flex-direction: row;
+            justify-content: space-between;
+        
+            width: 100%;
+            object-fit: contain;
+            gap: 20px;
+           
+        }
+        .icon {
+            width: 40px;
+            height: 40px;
+        }
+        p{
+            font-weight: 500;
+        }
+    }
+
+</style>

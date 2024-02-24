@@ -1,24 +1,30 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import HeroAbout from '../components/about/Secciones/HeroAbout.astro';
-import BanerSuccesNumbers from '../components/about/banerSuccesNumbers.astro';
+import BanerSuccesNumbers from '../components/about/Secciones/banerSuccesNumbers.astro';
 import MeetOurSeccion from '../components/about/Secciones/MeetOurSeccion.astro';
 import OurDifferentialsSeccion from '../components/about/Secciones/OurDifferentialsSeccion.astro';
 import BanerJoinOurTeam from '../components/about/banerJoinOurTeam.astro';
 import AboutUSeccion from '../components/about/Secciones/AboutUSeccion.astro';
 
+import {getPageData} from '../services/graphql.ts';
+import * as AboutQuerys from '../data/AboutQuerys.ts';
+
+
+
+const data = await getPageData(AboutQuerys.GetAboutFull());
 ---
 
 
 
 <Layout title="ABOUT US">
 	
-<HeroAbout />
-<BanerSuccesNumbers />
-<AboutUSeccion />
-<MeetOurSeccion />
-<OurDifferentialsSeccion />
-<BanerJoinOurTeam />
+<HeroAbout strapiData={data}/>
+<BanerSuccesNumbers strapiData={data}/>
+<AboutUSeccion strapiData={data}/>
+<MeetOurSeccion strapiData={data}/>
+<OurDifferentialsSeccion strapiData={data}/>
+<BanerJoinOurTeam strapiData={data}/>
 
 
 </Layout>

@@ -24,9 +24,7 @@ let dataDerecha = ContactBullets.slice(half);
                 <div class="mb-8 gap-4">
                     <h2 class="carttile">{item.Title}</h2>
                     <p class="description">
-                      
-                            <p set:html={item.Content.replace(/\n/g, '<br>')}></p>
-                      
+                            <p set:html={item.Content.replace(/\n/g, '<br>')}/>
                     </p>
                 </div>
             ))
@@ -39,7 +37,7 @@ let dataDerecha = ContactBullets.slice(half);
                     <h2 class="carttile">{item.Title}</h2>
                     <p class="description">
                 
-                        <p set:html={item.Content.replace(/\n/g, '<br>')}></p>
+                        <p set:html={item.Content.replace(/\n/g, '<br>')}/>
                        
                     </p>
                 </div>
