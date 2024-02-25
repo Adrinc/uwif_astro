@@ -6,9 +6,9 @@ import { useLocation } from 'react-router-dom';
 const TopMenu = () => {
     const links = [
         { name: 'HOME', url: '/', alterurl:"/home" },
-        { name: 'HOW IT WORKS', url: '/howitworks', alterurl:"/howitworks" },
+        { name: 'HOW IT WORKS', url: '/how-it-works', alterurl:"/how-it-works" },
         { name: 'SUPPORT', url: '/support', alterurl:"/support" },
-        { name: 'ABOUT US', url: '/about', alterurl:"/about" },
+        { name: 'ABOUT', url: '/about', alterurl:"/about" },
         { name: 'LOCATIONS', url: '/location', alterurl:"/location" },
         { name: 'SELF SERVICES', url: '/self-service', alterurl:"/self-service" },
         
@@ -33,7 +33,7 @@ const TopMenu = () => {
         if(name.includes("acp")){
             setSelectedLink("ACP");
         }
-        else if(name.includes("howitworks")){
+        else if(name.includes("how-it-works")){
             setSelectedLink("HOW IT WORKS");
         }
         else{

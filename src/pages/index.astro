@@ -12,6 +12,7 @@ import BentogridSeccion2 from '../components/index/Secciones/BentogridSeccion2.a
 import {getPageData} from '../services/graphql';
 import * as IndexData from '../data/homeQuerys';
 
+
 const data  = await getPageData(IndexData.GetHeroSeccionFull());
 
 ---
@@ -28,6 +29,7 @@ const data  = await getPageData(IndexData.GetHeroSeccionFull());
 	<TabletSeccion strapiData={data}/>
 	<CarruselTextoHorizontal/>
 	<ACPSeccion strapiData={data}/>
+
 
 </Layout>
                   

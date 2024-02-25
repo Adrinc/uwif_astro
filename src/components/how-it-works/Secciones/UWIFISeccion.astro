@@ -1,17 +1,17 @@
 ---
 import FilaImagenTexto from "../../index/FilaImagenTexto.astro";
 import { parse } from "marked";
-import {strapiURL} from '../../../services/graphql.ts';
+import {strapiURL} from '../../../services/graphql';
 interface Props{
     strapiData: any;
 }
 const{ strapiData } = Astro.props;
 
-/* create a variable string name markdowntext with markdown text: "U-wifi Mobile App."   Mobile word shuld be color red and bold    */
+
 
 /* const markdowntext = "<span style='color: var(--tertiary-text-color)'> U-wifi </span> Mobile App."; */
 const AppParagraphs = strapiData.pageData.data.pageHiw.data.attributes.AppParagraphs;
-console.log(AppParagraphs);
+
 
 ---
 

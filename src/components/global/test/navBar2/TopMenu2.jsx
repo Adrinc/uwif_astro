@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom';
 const TopMenu = () => {
     const links = [
         { name: 'HOME', url: '/', alterurl:"/home" },
-        { name: 'HOW IT WORKS', url: '/howitworks', alterurl:"/howitworks" },
+        { name: 'HOW IT WORKS', url: '/how-it-works', alterurl:"/how-it-works" },
         { name: 'SUPPORT', url: '/support', alterurl:"/support" },
         { name: 'ABOUT US', url: '/about', alterurl:"/about" },
         { name: 'LOCATIONS', url: '/location', alterurl:"/location" },
