@@ -13,14 +13,18 @@
     "@astrojs/check": "^0.3.2",
     "@astrojs/react": "^3.0.10",
     "@astrojs/tailwind": "^5.1.0",
+    "@astrojs/vercel": "^7.3.4",
     "@react-three/drei": "^9.88.11",
     "@react-three/fiber": "^8.15.10",
     "@react-three/postprocessing": "^2.15.10",
     "@rive-app/react-canvas": "^4.8.1",
+    "@supabase/supabase-js": "^2.39.7",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
     "astro": "^4.3.5",
+    "dotenv": "^16.4.5",
     "leva": "^0.9.35",
+    "marked": "^9.1.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.20.1",
@@ -28,8 +32,7 @@
     "sass": "^1.69.5",
     "tailwindcss": "^3.3.5",
     "three": "^0.158.0",
-    "typescript": "^5.2.2",
-    "marked": "^9.1.5"
+    "typescript": "^5.2.2"
   },
   "devDependencies": {
     "@types/react-transition-group": "^4.4.10",

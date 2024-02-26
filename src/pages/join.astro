@@ -47,9 +47,9 @@ const FormDescription =
                 set:html={parse(description)}
                 class={`flex list-outside flex-col gap-3 text-primary-blue text-center [&>*>strong]:text-sky-500 [&>*>a]:text-secondary-red [&>h1]:text-[36px] [&>h1]:font-[600] [&>h1]:text-[#50d71e]  [&>h2]:text-[32px] [&>h3]:text-[26px] [&>ul]:flex [&>ul]:flex-col [&>ul]:gap-3`}
             /> -->
-            <Markdown content={description} textAlign="text-center"/>
+            <Markdown content={description} textAlign="text-center" />
             <BlurryContainer>
-                <form class="flex flex-col gap-5">
+                <form id="form_join" method="post" action="/api/insert/Subscribers"  class="flex flex-col gap-5">
                     <input
                         class="grow rounded-full w-full p-2 text-gray-400"
                         type="email"
@@ -65,12 +65,16 @@ const FormDescription =
                         id="zipcode"
                         name="zipcode"
                         required
-                        minlength="5" maxlength="10" 
+                        minlength="5"
+                        maxlength="10"
                         placeholder="Zip Code:"
                     />
 
                     {FormDescription}
-                    <button class="w-full rounded-full bg-gradient-to-r from-[#00c207] to-[#08964a] p-2">Notify Me!</button>
+                    <button type="submit"
+                        class="w-full rounded-full bg-gradient-to-r from-[#00c207] to-[#08964a] p-2"
+                        >Notify Me!</button
+                    >
                 </form>
             </BlurryContainer>
         </section>
@@ -86,62 +90,67 @@ const FormDescription =
 </Layout>
 
 <style>
-   @keyframes jumbo {
-    from {
-        background-position: 50% 50%, 50% 50%;
+    @keyframes jumbo {
+        from {
+            background-position:
+                50% 50%,
+                50% 50%;
+        }
+        to {
+            background-position:
+                350% 50%,
+                350% 50%;
+        }
     }
-    to {
-        background-position: 350% 50%, 350% 50%;
+
+    .join-background {
+        background-image: repeating-linear-gradient(
+                150deg,
+                #000 18%,
+                #000 17%,
+                transparent 18%,
+                transparent 18%,
+                #000 14%
+            ),
+            repeating-linear-gradient(
+                100deg,
+                #00c207 10%,
+                #00c207 10%,
+                #7c47dd 20%,
+                #2e74de 25%,
+                #00c207 30%
+            );
+        background-size: 300%, 200%;
+        background-position:
+            50% 50%,
+            50% 50%;
+        z-index: 0 !important;
     }
-}
 
-.join-background {
-    background-image: repeating-linear-gradient(
-        150deg,
-        #000 18%,
-        #000 17%,
-        transparent 18%,
-        transparent 18%,
-        #000 14%
-    ),
-    repeating-linear-gradient(
-        100deg,
-        #00c207 10%,
-        #00c207 10%,
-        #7C47DD 20%,
-        #2e74de 25%,
-        #00c207 30%
-    );
-    background-size: 300%, 200%;
-    background-position: 50% 50%, 50% 50%;
-      z-index: 0 !important;
-}
-
-.join-background::after {
-    content: "";
-      z-index: 0 !important;
- position: absolute;
-inset: 0;
-    background-image: repeating-linear-gradient(
-        100deg,
-        #000 0%,
-        #000 7%,
-        transparent 10%,
-        transparent 12%,
-        #000 16%
-    ),
-    repeating-linear-gradient(
-        100deg,
-        #00c207 10%,
-        #00c207 15%,
-        #7C47DD 20%,
-        #2e74de 25%,
-        #00c207 30%
-    );
-    background-size: 350%, 100%;
-    animation: jumbo 60s linear infinite;
-    filter: blur(60px) opacity(40%) saturate(200%);
-    mask: radial-gradient(ellipse at 100% 0%, black 40%, transparent 70%);
-}
-
+    .join-background::after {
+        content: "";
+        z-index: 0 !important;
+        position: absolute;
+        inset: 0;
+        background-image: repeating-linear-gradient(
+                100deg,
+                #000 0%,
+                #000 7%,
+                transparent 10%,
+                transparent 12%,
+                #000 16%
+            ),
+            repeating-linear-gradient(
+                100deg,
+                #00c207 10%,
+                #00c207 15%,
+                #7c47dd 20%,
+                #2e74de 25%,
+                #00c207 30%
+            );
+        background-size: 350%, 100%;
+        animation: jumbo 60s linear infinite;
+        filter: blur(60px) opacity(40%) saturate(200%);
+        mask: radial-gradient(ellipse at 100% 0%, black 40%, transparent 70%);
+    }
 </style>
