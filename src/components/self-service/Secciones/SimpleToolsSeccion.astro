@@ -1,21 +1,16 @@
 ---
 
 import BotonFlecha from "../../global/BotonFlecha.astro"
+interface Props{
+    strapiData: any;
+}
+const{ strapiData } = Astro.props;
 
-let buttons = [
-    {
-        texto: "CREATE AN ACCOUNT",
-        link: "#"
-    },
-    {
-        texto: "DOWNLOAD THE APP",
-        link: "#"
-    },
-    {
-        texto: "PAY YOUR BILL",
-        link: "#"
-    }
-]
+
+
+const Textblock = strapiData.pageData.data.pageSelfServ.data.attributes.Header.Textblock;
+const Buttons = strapiData.pageData.data.pageSelfServ.data.attributes.Header.Buttons;
+
 ---
 
 
@@ -24,15 +19,16 @@ let buttons = [
 <section id="simpletools">
     
        <div class="row-title">
-           <h1 class="title">Use these simple tools to manage your account and stay connected with <span class="font-bold">U-app.</span></h1>
+           <!-- <h1 class="title">Use these simple tools to manage your account and stay connected with <span class="font-bold">U-app.</span></h1> -->
+           <h1 class="title">{Textblock}</h1>
        </div>
         
         
    
         <div class="row-buttons">
             {
-                buttons.map((buttons) => (
-                    <BotonFlecha {...buttons} showIcon={false} paddingleft="20px" paddingright="20px" borderColor="transparent" borderColorHover="transparent" backgroundColor="var(--primary-buttom-color)" fontweight="300" iconColorHover="var(--tertiary-color)"/>
+                Buttons.map((items:any) => (
+                    <BotonFlecha texto={items.Text} link={items.Link} showIcon={false} paddingleft="20px" paddingright="20px" borderColor="transparent" borderColorHover="transparent" backgroundColor="var(--primary-buttom-color)" fontweight="300" iconColorHover="var(--tertiary-color)"/>
                 ))
             }
         </div>

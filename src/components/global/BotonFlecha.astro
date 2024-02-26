@@ -1,6 +1,6 @@
 ---
 interface Props {
-	texto: string;
+	texto?: string;
 	link: string;
 	backgroundColor?: string;
 	borderColor?: string;
@@ -25,7 +25,7 @@ interface Props {
 	marginBottomIncon?: string;
 }
 
-const {showIcon=true, marginLeftIncon="0px", marginRightIncon="0px", marginTopIncon="0px", marginBottomIncon="0px", paddingleft="20px", paddingright="12px", fontsize="24px", fontweight="200",  width="auto", texto, link, backgroundColor="transparent", iconColor='#00c207', iconColorHover='#00c207', borderColor = '#00c207', borderColorHover ='transparent',  borderWidth=3, textColor='#ffffff', textColorHover='#ffffff', gradientColorLeft='#2ed5de',gradientColorCenter='#2e74de', gradientColorRight='#d201d2'   } = Astro.props;
+const {showIcon=true, marginLeftIncon="0px", marginRightIncon="0px", marginTopIncon="0px", marginBottomIncon="0px", paddingleft="20px", paddingright="12px", fontsize="24px", fontweight="200",  width="auto", texto="-----", link, backgroundColor="transparent", iconColor='#00c207', iconColorHover='#00c207', borderColor = '#00c207', borderColorHover ='transparent',  borderWidth=3, textColor='#ffffff', textColorHover='#ffffff', gradientColorLeft='#2ed5de',gradientColorCenter='#2e74de', gradientColorRight='#d201d2'   } = Astro.props;
 ---
 <a href={link}>
     <button class="button-learn flex flex-row-reverse align-middle items-center justify-center" aria-label={texto}

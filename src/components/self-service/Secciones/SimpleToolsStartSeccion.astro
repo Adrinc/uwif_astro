@@ -1,20 +1,19 @@
 ---
-import BotonFlecha from "../../global/BotonFlecha.astro"
+import BotonFlecha from "../../global/BotonFlecha.astro";
 
-let buttons = [
-    {
-        texto: "Have an account? Login ",
-        link: "#"
-    },
-    {
-        texto: "Create my account ",
-        link: "#"
-    },
-    {
-        texto: "Reset my password ",
-        link: "#"
-    }
-]
+interface Props{
+    strapiData: any;
+}
+const{ strapiData } = Astro.props;
+
+
+const AccountParagraph = strapiData.pageData.data.pageSelfServ.data.attributes.AccountParagraph;
+const Headings = AccountParagraph.Headings[0].Heading;
+const Textblock = AccountParagraph.Textblock;
+const Buttons = AccountParagraph.Buttons;
+
+
+
 ---
 
 
@@ -24,13 +23,13 @@ let buttons = [
     
     <div class="contenedor">
           
-        <h1 class="title">Let’s get started</h1>
-        <h2 class="subtitle">Log in to manage your account, upgrade your plan, or shop for new phones.</h2>
+        <h1 class="title">{Headings}</h1>
+        <h2 class="subtitle">{Textblock}</h2>
         
         <div class="row-buttons">
             {
-                buttons.map((buttons) => (
-                    <BotonFlecha {...buttons} marginTopIncon="5px" paddingleft="30px" borderColor="transparent" borderColorHover="transparent" gradientColorCenter="transparent" gradientColorLeft="transparent" gradientColorRight="transparent"  fontweight="500" iconColor="var(--tertiary-color)" fontsize="30px" textColorHover="var(--tertiary-text-color)" />
+                Buttons.map((items:any) => (
+                    <BotonFlecha texto={items.Text} link={items.Link} marginTopIncon="5px" paddingleft="30px" borderColor="transparent" borderColorHover="transparent" gradientColorCenter="transparent" gradientColorLeft="transparent" gradientColorRight="transparent"  fontweight="500" iconColor="var(--tertiary-color)" fontsize="30px" textColorHover="var(--tertiary-text-color)" />
                 ))
             }
         </div>

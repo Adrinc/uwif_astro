@@ -100,12 +100,25 @@ export const GetSelfServiceFull = () => {
               
               #------------------FindOpenSeccion
               
-              StoreParagraph{
+              StoreParagraph
+              {
                 Headings{Heading},
                 Textblock,
-                Buttons{
+                Buttons
+                {
                   Text,
                   Link
+                }
+                Media
+                {
+                  data
+                  {
+                    attributes
+                    {
+                      url,
+                      alternativeText
+                    }
+                  }
                 }
               }
               
@@ -114,7 +127,6 @@ export const GetSelfServiceFull = () => {
             }
           }
         }
-            
       }
           `
   }

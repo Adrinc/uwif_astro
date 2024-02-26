@@ -8,17 +8,22 @@ import GetUwifiAppSeccion from '../components/self-service/Secciones/GetUwifiApp
 import ReadyToPayBillSeccion from '../components/self-service/Secciones/ReadyToPayBillSeccion.astro';
 import WatchHowToSeccion from '../components/self-service/Secciones/WatchHowToSeccion.astro';
 import FindOpenSeccion from '../components/self-service/Secciones/FindOpenSeccion.astro';
+
+import {getPageData} from '../services/graphql';
+import * as SelfServiceData from '../data/SelfServiceQuerys';
+
+const data = await getPageData(SelfServiceData.GetSelfServiceFull());
 ---
 
 <Layout title="Self services">
 	
-	<HeroSelfServices />
-	<SimpleToolsSeccion />
-	<SimpleToolsStartSeccion />
-	<GetUwifiAppSeccion />
-	<ReadyToPayBillSeccion />
-	<WatchHowToSeccion />
-	<FindOpenSeccion />
+	<HeroSelfServices strapiData={data}/>
+	<SimpleToolsSeccion strapiData={data}/>
+	<SimpleToolsStartSeccion strapiData={data}/>
+	<GetUwifiAppSeccion strapiData={data}/>
+	<ReadyToPayBillSeccion strapiData={data}/>
+	<WatchHowToSeccion strapiData={data}/>
+	<FindOpenSeccion strapiData={data}/>
 
 	<Robot/>
 </Layout>

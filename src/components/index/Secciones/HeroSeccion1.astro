@@ -9,35 +9,7 @@ interface Props{
 }
 const{ strapiData } = Astro.props;
 
-/* interface HomeData {
-	pageHome: {
-		data: {
-      attributes: {
-        HeroVideo: {
-          data: {
-            attributes: {
-              name: string;
-            };
-          };
-        };
-        HeroButtons: {
-          Text: string;
-          Link: string;
-        }[];
-      };
-    };
-  };
-}
- */
 
-
-
-/*  const response: HomeData = await getPageHomeData(IndexData.GetHero1Seccion()); */
-
-
-/*  const { data: { attributes: { HeroVideo } } } = response.pageHome; */
-/* 
- console.log(HeroVideo.data.attributes.name); */
 const hero1Seccion_Buttons = strapiData['pageData']['data']['pageHome']['data']['attributes']['HeroButtons'];
 const hero1Seccion_Videos = strapiData['pageData']['data']['pageHome']['data']['attributes']['HeroVideo']['data'];
 

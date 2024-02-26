@@ -1,50 +1,55 @@
 ---
 import BotonFlecha from "../../global/BotonFlecha.astro";
+import {strapiURL} from '../../../services/graphql';
+interface Props{
+    strapiData: any;
+}
+const{ strapiData } = Astro.props;
+
+const HowToParagraph = strapiData.pageData.data.pageSelfServ.data.attributes.HowToParagraph;
+const Headings = HowToParagraph.Headings[0].Heading;
+const Textblock = HowToParagraph.Textblock;
+const Buttons = HowToParagraph.Buttons;
+
+const MediaImage = HowToParagraph.Media.data.attributes.url;
+
+const imageurl = `url(${strapiURL}${MediaImage})`;
+
 ---
 
 
 <section id="WatchHowToSeccion">
 
-		<div class="contenedor">
+		<div class="contenedor" style={`--image: ${imageurl};`}>
 			
             <div class="columnaIzquierda">
 				<p class="title ">
-					Watch all HOW TO
-                    <br>
-					videos we have for U
+					{Headings}
 				</p>
                 <p class="description">
-                    Find out about self-service options from U-wifi, like how to pay your bill, how to use the app, and all info you need to get the best experience.
+                    {Textblock}
                 </p>
 
 				
-	
-                <BotonFlecha texto="Go watch our How to videos" link="#" showIcon={false} paddingleft="20px" paddingright="20px" borderColor="transparent" borderColorHover="transparent" backgroundColor="var(--primary-buttom-color)" fontweight="500" iconColorHover="var(--tertiary-color)"/>
+				<div class="row-buttons">
+                    {
+                        Buttons.map((items:any) => (
+                <BotonFlecha texto={items.Text} link={items.Link} showIcon={false} paddingleft="20px" paddingright="20px" borderColor="transparent" borderColorHover="transparent" backgroundColor="var(--primary-buttom-color)" fontweight="500" iconColorHover="var(--tertiary-color)"/>
 			
-			
+				))
+                    }
+                        
 
             </div>
 
 	
 		</div>
-		<span class="green-ball-blured"></span>
+	
 	
 </section>
 
 
 <style>
-	 .green-ball-blured{
-    top: -10%;
-	left: 0;
-	position: absolute;
-    width: clamp(0px, 50vw, 1000px);
-	height: clamp(0px, 50vw, 1000px);
-	border-radius: 100%;
-    background: linear-gradient(0deg, #02572b 0%, #02572a 100%);
-	filter: blur(100px);
-    opacity: 0.8;
-	z-index: -1;
-	}
 
 section
 	{
@@ -94,7 +99,7 @@ section
 		flex-direction: column;
 		border-radius: 25px;
 		height: 100%;
-        background-image: url("/image/selfservicepage/familia.png");
+        background-image: var(--image);
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
@@ -114,7 +119,18 @@ section
         z-index: 1;
 
     }
+	.row-buttons
+    {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        
+        width: 100%;
+        gap: 20px;
 
+       
+    }
 
 	.title{
    
@@ -164,6 +180,18 @@ section
 			padding: 16px;
 			width: 100%;
 		}
+		.row-buttons
+    {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        
+        width: 100%;
+        gap: 20px;
+
+       
+    }
 		img{
 		width: clamp(100px, 50vw, 200px);
 		object-fit: contain;

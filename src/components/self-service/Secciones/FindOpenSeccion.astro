@@ -1,37 +1,38 @@
 ---
 import BotonFlecha from "../../global/BotonFlecha.astro";
-let buttons = [
-    {
-        texto: "Find a store",
-        link: "#"
-    },
-    {
-        texto: "See how",
-        link: "#"
-    },
-]
+import {strapiURL} from '../../../services/graphql';
+interface Props{
+    strapiData: any;
+}
+const{ strapiData } = Astro.props;
+
+const StoreParagraph = strapiData.pageData.data.pageSelfServ.data.attributes.StoreParagraph;
+const Headings = StoreParagraph.Headings[0].Heading;
+const Textblock = StoreParagraph.Textblock;
+const Buttons = StoreParagraph.Buttons;
+const MediaImage = StoreParagraph.Media.data.attributes.url;
+const imageurl = `url(${strapiURL}${MediaImage})`;
+
 ---
 
 
 <section id="findOpenSeccion">
 
-		<div class="contenedor">
+		<div class="contenedor" style={`--image: ${imageurl};`}>
 			
             <div class="columnaIzquierda">
 				<p class="title ">
-					Find a open store
-                    <br>
-                    near U.
+					{Headings}
 				</p>
                 <p class="description">
-                    Select stores are operating 10 am to 6 pm local time.
+                    {Textblock}
                 </p>
 
 				
                 <div class="row-buttons">
                     {
-                        buttons.map((button) => (
-                            <BotonFlecha {...button} textColor="var(--tertiary-text-color)" marginTopIncon="5px" paddingleft="0px" borderColor="transparent" borderColorHover="transparent" gradientColorCenter="transparent" gradientColorLeft="transparent" gradientColorRight="transparent"  fontweight="500" iconColor="var(--primary-color)" fontsize="32px" textColorHover="var(--tertiary-text-color)" />
+                        Buttons.map((items:any) => (
+                            <BotonFlecha texto={items.Text} link={items.Link}  textColor="var(--tertiary-text-color)" marginTopIncon="5px" paddingleft="0px" borderColor="transparent" borderColorHover="transparent" gradientColorCenter="transparent" gradientColorLeft="transparent" gradientColorRight="transparent"  fontweight="500" iconColor="var(--primary-color)" fontsize="32px" textColorHover="var(--tertiary-text-color)" />
                         ))
                     }
                             
@@ -102,13 +103,13 @@ let buttons = [
 		
 		height: 100%;
 		max-height: 500px;
-        background-image: url("/image/selfservicepage/mapa.png");
+        background-image: var(--image);
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
         z-index: 2;
         padding-left: clamp(0px, 5vw, 100px);
-		background-color: aquamarine;
+		
         
         
 		

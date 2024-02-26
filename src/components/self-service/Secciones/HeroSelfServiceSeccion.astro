@@ -1,9 +1,21 @@
 ---
+import {strapiURL} from '../../../services/graphql';
+interface Props{
+    strapiData: any;
+}
+
+const{ strapiData } = Astro.props;
+
+const MediaImage = strapiData.pageData.data.pageSelfServ.data.attributes.Header.Media.data.attributes.url;
+const Headings = strapiData.pageData.data.pageSelfServ.data.attributes.Header.Headings[0].Heading;
+const imageurl = `url(${strapiURL}${MediaImage})`;
+
 
 ---
-<section id="heroselfservice">
+<section id="heroselfservice" style={`--image: ${imageurl};`}>
    
-    <p class="title">SELF <span class="text-primaryColor"> SERVICE </span> <span class="text-primaryTextColor"> CENTER</span></p>
+    <!-- <p class="title">SELF <span class="text-primaryColor"> SERVICE </span> <span class="text-primaryTextColor"> CENTER</span></p> -->
+    <p class="title">{Headings}</p>
 
 </section>
  
@@ -18,7 +30,7 @@
 		margin-top: 80px;
         margin-bottom: 50px;
 		height: 80vh;
-        background-image:  url("/image/selfservicepage/auroraboreal.jpg");
+        background-image: var(--image);
         background-size: cover;
         background-position: center;
  
@@ -36,7 +48,7 @@
 	z-index: -1;
 	}
 	.title{
-	color: var(--secondary-color);
+	color: var(--primary-text-color);
 	font-size: clamp(14px, 5vw, 120px);
 	font-weight: 700;
 	text-align: center;

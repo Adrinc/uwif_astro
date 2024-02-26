@@ -1,20 +1,18 @@
 ---
 import BotonFlecha from "../../global/BotonFlecha.astro"
 
-let buttons = [
-    {
-        texto: "Download the app",
-        link: "#"
-    },
-    {
-        texto: "See how it works ",
-        link: "#"
-    },
-    {
-        texto: "Login to your account",
-        link: "#"
-    }
-]
+
+interface Props{
+    strapiData: any;
+}
+const{ strapiData } = Astro.props;
+
+const BillParagraph = strapiData.pageData.data.pageSelfServ.data.attributes.BillParagraph;
+const Headings = BillParagraph.Headings[0].Heading;
+const Buttons = BillParagraph.Buttons;
+/* const MediaImage = BillParagraph.Media.data.attributes.url;
+const alternativeText = BillParagraph.Media.data.attributes.alternativeText; */
+
 ---
 
 
@@ -24,7 +22,7 @@ let buttons = [
     
     <div class="contenedor">
           
-                <h1 class="title">Ready to pay your bill?</h1>
+                <h1 class="title">{Headings}</h1>
            <!--      <h2 class="subtitle">You can also set up AutoPay or arrange to split your bill into two payments.</h2> -->
         
                 <div class="main-row-contenedor">
@@ -33,8 +31,8 @@ let buttons = [
                         <img src="/image/phone.svg" alt="">
                         <div class="row-buttons">
                             
-                            <BotonFlecha texto={buttons[0].texto} link={buttons[0].link} marginTopIncon="5px" paddingleft="30px" borderColor="transparent" borderColorHover="transparent" gradientColorCenter="transparent" gradientColorLeft="transparent" gradientColorRight="transparent"  fontweight="500" iconColor="var(--tertiary-color)" fontsize="30px" textColorHover="var(--tertiary-text-color)" />
-                            <BotonFlecha texto={buttons[1].texto} link={buttons[1].link} marginTopIncon="5px" paddingleft="30px" borderColor="transparent" borderColorHover="transparent" gradientColorCenter="transparent" gradientColorLeft="transparent" gradientColorRight="transparent"  fontweight="500" iconColor="var(--tertiary-color)" fontsize="30px" textColorHover="var(--tertiary-text-color)" />
+                            <BotonFlecha texto={Buttons[0].Text} link={Buttons[0].Link} marginTopIncon="5px" paddingleft="30px" borderColor="transparent" borderColorHover="transparent" gradientColorCenter="transparent" gradientColorLeft="transparent" gradientColorRight="transparent"  fontweight="500" iconColor="var(--tertiary-color)" fontsize="30px" textColorHover="var(--tertiary-text-color)" />
+                            <BotonFlecha texto={Buttons[1].Text} link={Buttons[1].Link} marginTopIncon="5px" paddingleft="30px" borderColor="transparent" borderColorHover="transparent" gradientColorCenter="transparent" gradientColorLeft="transparent" gradientColorRight="transparent"  fontweight="500" iconColor="var(--tertiary-color)" fontsize="30px" textColorHover="var(--tertiary-text-color)" />
                             
                         </div>
                     </div>
@@ -42,7 +40,7 @@ let buttons = [
                     <div class="columnaDerecha">
                         <img src="/image/monitor.svg" alt="">
                         <div class="row-buttons">
-                            <BotonFlecha texto={buttons[2].texto} link={buttons[2].link} marginTopIncon="5px" paddingleft="30px" borderColor="transparent" borderColorHover="transparent" gradientColorCenter="transparent" gradientColorLeft="transparent" gradientColorRight="transparent"  fontweight="500" iconColor="var(--tertiary-color)" fontsize="30px" textColorHover="var(--tertiary-text-color)" />
+                            <BotonFlecha texto={Buttons[2].Text} link={Buttons[2].Link} marginTopIncon="5px" paddingleft="30px" borderColor="transparent" borderColorHover="transparent" gradientColorCenter="transparent" gradientColorLeft="transparent" gradientColorRight="transparent"  fontweight="500" iconColor="var(--tertiary-color)" fontsize="30px" textColorHover="var(--tertiary-text-color)" />
                         </div>
                     </div>
                 </div>
