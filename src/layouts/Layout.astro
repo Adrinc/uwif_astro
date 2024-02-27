@@ -6,10 +6,11 @@ import FootUWIFI from '../components/global/foot/FootUWIFI.astro';
 import { ViewTransitions } from 'astro:transitions';
 interface Props {
 	title: string;
-	showMenus?: boolean;
+	showNavBar?: boolean;
+	showFooter?: boolean;
 }
 
-const { title, showMenus=true } = Astro.props;
+const { title, showNavBar=true, showFooter=true } = Astro.props;
 ---
 
 <!doctype html>
@@ -26,7 +27,7 @@ const { title, showMenus=true } = Astro.props;
 	<header>
 <!-- 		<TopMenuHead /> -->
 
-		{showMenus && <NavBar  transition:persist client:only />}
+		{showNavBar && <NavBar  transition:persist client:only />}
 	</header>
 	<body>	
 	<div id="top"></div>
@@ -37,9 +38,9 @@ const { title, showMenus=true } = Astro.props;
 		<slot />
 	</main>
 	</body>
-	<footer>
-		{showMenus && <FootUWIFI />}
-	</footer>
+	
+		{showFooter && <FootUWIFI />}
+	
 </html>
 <style is:global>
 	@font-face {
@@ -145,11 +146,6 @@ const { title, showMenus=true } = Astro.props;
 	  width: 100%;
 	  z-index: 100;
 	  font-family: var(--font-family-primary);
-	}
-	footer {
-		font-family: var(--font-family-primary);
-		padding-left: clamp(0px, 10vw, 100px);
-		padding-right: clamp(0px, 10vw, 100px);
 	}
 
   
