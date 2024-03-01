@@ -1,3 +1,5 @@
+import { mediaUrl } from "../constants"
+
 export const GetSelfServiceFull = () => {
     return  `
     query {
@@ -11,12 +13,7 @@ export const GetSelfServiceFull = () => {
               Header{
                 Textblock,
                 Media{
-                  data{
-                    attributes{
-                      alternativeText,
-                      url
-                    }
-                  }
+                  ${mediaUrl}
                 }
               }
               
@@ -52,12 +49,7 @@ export const GetSelfServiceFull = () => {
                   Link
                 }
                 Media{
-                  data{
-                    attributes{
-                      alternativeText,
-                      url
-                    }
-                  }
+                  ${mediaUrl}
                 }
               }
               
@@ -66,12 +58,7 @@ export const GetSelfServiceFull = () => {
               BillParagraph{
                 Headings{Heading},
                 Media{
-                  data{
-                    attributes{
-                      url,
-                      alternativeText
-                    }
-                  }
+                  ${mediaUrl}
                 }
                 Buttons{
                   Text,
@@ -89,12 +76,7 @@ export const GetSelfServiceFull = () => {
                   Link
                 }
                 Media{
-                  data{
-                    attributes{
-                      url,
-                      alternativeText
-                    }
-                  }
+                  ${mediaUrl}
                 }
               }
               
@@ -109,16 +91,8 @@ export const GetSelfServiceFull = () => {
                   Text,
                   Link
                 }
-                Media
-                {
-                  data
-                  {
-                    attributes
-                    {
-                      url,
-                      alternativeText
-                    }
-                  }
+                Media{
+                  ${mediaUrl}
                 }
               }
               

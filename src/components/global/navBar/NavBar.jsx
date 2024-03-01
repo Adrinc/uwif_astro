@@ -9,8 +9,8 @@ const TopMenu = () => {
         { name: 'HOW IT WORKS', url: '/how-it-works', alterurl:"/how-it-works" },
         { name: 'SUPPORT', url: '/support', alterurl:"/support" },
         { name: 'ABOUT', url: '/about', alterurl:"/about" },
-        { name: 'LOCATIONS', url: '/location', alterurl:"/location" },
-        { name: 'SELF SERVICES', url: '/self-service', alterurl:"/self-service" },
+        // { name: 'LOCATIONS', url: '/location', alterurl:"/location" },
+        // { name: 'SELF SERVICES', url: '/self-service', alterurl:"/self-service" },
         
     ];
     const location = useLocation();

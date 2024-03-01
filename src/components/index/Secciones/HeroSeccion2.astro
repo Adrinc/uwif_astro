@@ -1,6 +1,7 @@
 ---
 import Moden from '../../global/animations/ThreeFiber/scene3D/ModenScene/Main3D';
 import BuyOrApplyFree from '../../global/BuyOrApplyFree.astro';
+import Paragraph from '../../global/Paragraph.astro';
 
 interface Props{
     strapiData: any;
@@ -8,35 +9,29 @@ interface Props{
 const{ strapiData } = Astro.props;
 
 
-const hero2Seccion_text = strapiData['pageData']['data']['pageHome']['data']['attributes']['PrimaryParagraph'];
+const paragraphContent = strapiData['pageData']['data']['pageHome']['data']['attributes']['PrimaryParagraph'];
 
 
 ---
 <section id="#bestinternet">
-
-	
-	<main class="flex flex-row gap-4 box-border">
-		<div class="columna-izquierda" >
-
-			
-				<div class="gradient-text">{hero2Seccion_text.Headings[0].Heading}</div>
-				<div><span class="subtitle">{hero2Seccion_text.Headings[1].Heading}  <img class="image" loading="lazy" alt="uwifi white logo" srcset="faviui.png"/></span></div>
-				<p class="description">{hero2Seccion_text.Textblock}</p>
-			
-			<div class=" botones flex flex-row content-start max-md:justify-center">
-				<BuyOrApplyFree/>
+	<Paragraph headings={paragraphContent.Headings} textBlock={paragraphContent.Textblock}>
+		<div  class="flex items-center justify-center">
+			<div class="absolute ">
+				<svg width="418" height="432" viewBox="0 0 418 432" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M0 209C0 93.5725 93.5725 0 209 0C324.428 0 418 93.5725 418 209V432H144C64.471 432 0 367.529 0 288V209Z" fill="url(#paint0_linear_3911_747)"/>
+					<defs>
+					<linearGradient id="paint0_linear_3911_747" x1="25.6871" y1="-1.45048e-05" x2="517.691" y2="64.725" gradientUnits="userSpaceOnUse">
+					<stop stop-color="#5446E6"/>
+					<stop offset="1" stop-color="#7949DC"/>
+					</linearGradient>
+					</defs>
+					</svg>
 			</div>
-			
+			<div class=" h-[400px] flex relative inset-0">
+				<Moden client:visible transition:persist/>
+			</div>
 		</div>
-
-		<div class="flex justify-center items-center relative">
-			
-			
-			<span class="green-ball-blured" id="ball1"></span>
-			<div  class="moden"><Moden client:visible transition:persist/></div>
-
-		</div>
-	</main>
+	</Paragraph>
 </section>
 		  
 	<style>
@@ -56,17 +51,7 @@ const hero2Seccion_text = strapiData['pageData']['data']['pageHome']['data']['at
 		background: linear-gradient(#5746E5 20%, #8743E5 40%, #03FB75 100%);
 	}
 	
-		section{
-			position: relative;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			padding-left: clamp(0px, 5vw, 100px);
-			padding-right: clamp(0px, 5vw, 100px);
-			margin-bottom: 100px;
-
-
-		}
+	
 		.columna-izquierda{
 			display: flex;
 			flex-direction: column;
@@ -75,19 +60,8 @@ const hero2Seccion_text = strapiData['pageData']['data']['pageHome']['data']['at
 
 		}
 
-			.title, .best, .subtitle{
-			color: var(--primary-text-color);
-			font-size: clamp(40px, 5vw, 60px);
-			font-weight: 400;
-			letter-spacing: 2px;
-			text-align: left;
-			word-spacing: 5px;
-			text-wrap: balance;
-			}
+		
 			
-			.description{
-				font-family: var(--font-family-secondary);
-			}
 			.gradient-text{
 				font-size: clamp(40px, 5vw, 60px);
 			font-weight: 800;

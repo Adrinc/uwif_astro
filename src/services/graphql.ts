@@ -1,9 +1,4 @@
-
-/* const gqlURL = "https://strapi.iamet.cbluna-dev.com/graphql"; */
-const gqlURL = "https://strapi.u-wifi.cbluna-dev.com/graphql";
-
-/* export const strapiURL = "https://strapi.iamet.cbluna-dev.com"; */
-export const strapiURL = "https://strapi.u-wifi.cbluna-dev.com";
+import { gqlURL } from "../data/constants";
 
 export async function GQLQuery (query:string) {
     const resp  = await fetch(gqlURL,{

@@ -18,7 +18,7 @@ const { image, title, subtitle, flex  } = Astro.props;
   --flex-direction: ${flex};
   `
     }>
-        <img src={image} alt={title}/>
+        <img src={image} alt={title} class="object-contain"/>
         <div class="columna">
             <p class="title-columna">
                 {title}

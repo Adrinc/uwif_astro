@@ -1,5 +1,5 @@
 ---
-import {strapiURL} from '../../../services/graphql';
+import { setURL } from '../../../data/constants';
 
 
 interface Props{
@@ -21,7 +21,7 @@ const tablet_media = strapiData['pageData']['data']['pageHome']['data']['attribu
    
     <p class="title">{tablet.Headings[1].Heading.split(" ")[0]} <span class="text-primaryTextColor"> {tablet.Headings[1].Heading.split(" ").pop()}</span></p>
 
-    <img src=`${strapiURL}${tablet_media.url}` alt={tablet_media.name} class="image"/>
+    <img src=`${setURL(tablet_media.url)}` alt={tablet_media.name} class="image"/>
     <span class="green-ball-blured"></span>
     <p class="parrafo">{tablet.Textblock}</p>
 </section>

@@ -1,13 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import SupportSeccion from '../components/support/Secciones/SupportSeccion.astro';
-import ContactNumbers from '../components/support/Secciones/ContactNumbers.astro';
-import CommonQuestionsSeccion from '../components/support/Secciones/CommonQuestionsSeccion.astro';
 import Robot from '../components/global/Robot.astro';
 
 
 import {getPageData} from '../services/graphql';
-import * as SupportQuerys from '../data/SupportQuerys';
+import * as SupportQuerys from '../data/queries/SupportQuerys';
+import CommonQuestionsSeccion from '../components/Support/Secciones/CommonQuestionsSeccion.astro';
+import ContactNumbers from '../components/Support/Secciones/ContactNumbers.astro';
+import SupportSeccion from '../components/Support/Secciones/SupportSeccion.astro';
 
 
 
@@ -25,3 +25,4 @@ const data = await getPageData(SupportQuerys.GetSupportFull());
 <Robot/>
 
 </Layout>
+../data/queries/SupportQuerys

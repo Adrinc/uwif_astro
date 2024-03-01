@@ -8,7 +8,7 @@ import BanerJoinOurTeam from '../components/about/banerJoinOurTeam.astro';
 import AboutUSeccion from '../components/about/Secciones/AboutUSeccion.astro';
 
 import {getPageData} from '../services/graphql';
-import * as AboutQuerys from '../data/AboutQuerys';
+import * as AboutQuerys from '../data/queries/AboutQuerys';
 
 
 
@@ -28,3 +28,4 @@ const data = await getPageData(AboutQuerys.GetAboutFull());
 
 
 </Layout>
+../data/queries/AboutQuerys

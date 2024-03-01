@@ -10,7 +10,7 @@ import WatchHowToSeccion from '../components/self-service/Secciones/WatchHowToSe
 import FindOpenSeccion from '../components/self-service/Secciones/FindOpenSeccion.astro';
 
 import {getPageData} from '../services/graphql';
-import * as SelfServiceData from '../data/SelfServiceQuerys';
+import * as SelfServiceData from '../data/queries/SelfServiceQuerys';
 
 const data = await getPageData(SelfServiceData.GetSelfServiceFull());
 ---
@@ -32,3 +32,4 @@ const data = await getPageData(SelfServiceData.GetSelfServiceFull());
 
 
 
+../data/queries/SelfServiceQuerys

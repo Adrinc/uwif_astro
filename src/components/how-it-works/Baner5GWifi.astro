@@ -1,5 +1,6 @@
 ---
-import {strapiURL} from '../../services/graphql';
+import { setURL } from '../../data/constants';
+
 interface Props {
     title: string;
     description: string;
@@ -7,7 +8,7 @@ interface Props {
 }
 
 const { title, description, imageUrl } = Astro.props;
-const imageurl = `url(${strapiURL}${imageUrl})`;
+const imageurl = `url(${setURL(imageUrl)})`;
 
 
 

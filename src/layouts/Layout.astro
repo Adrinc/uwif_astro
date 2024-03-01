@@ -1,7 +1,7 @@
 ---
 
 import NavBar from '../components/global/navBar/RouterLinks.jsx';
-/* import TopMenuHead from '../components/global/test/header/TopMenuHead.astro'; */
+import TopMenuHead from '../components/global/test/header/TopMenuHead.astro';
 import FootUWIFI from '../components/global/foot/FootUWIFI.astro';
 import { ViewTransitions } from 'astro:transitions';
 interface Props {
@@ -21,12 +21,16 @@ const { title, showNavBar=true, showFooter=true } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="faviui.png" />
 		<meta name="generator" content={Astro.generator} />
+
+		<style>
+			@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,700&display=swap');
+		  </style>
+
 		<title>{title}</title>
 		<ViewTransitions />
 	</head>
 	<header>
-<!-- 		<TopMenuHead /> -->
-
+		<TopMenuHead />
 		{showNavBar && <NavBar  transition:persist client:only />}
 	</header>
 	<body>	
@@ -52,28 +56,10 @@ const { title, showNavBar=true, showFooter=true } = Astro.props;
 
   font-display: swap;
 }
-	@font-face {
-  font-family: 'OpenSans';
-  src: 
-  	url('/fonts/OpenSans.ttf') format('ttf'),
-	url('/fonts/OpenSansRegular.ttf') format('ttf'),
-	url('/fonts/OpenSansRegular.woff') format('woff'),
-	url('/fonts/OpenSansRegular.woff2') format('woff2');
 
-  font-display: swap;
-}
-	@font-face {
-  font-family: 'Catamaran';
-  src: 
-  	url('/fonts/Catamaran.ttf') format('ttf'),
-	url('/fonts/CatamaranRegular.woff') format('woff'),
-	url('/fonts/CatamaranRegular.woff2') format('woff2');
-
-  font-display: swap;
-}
 	:root {
 		--primary-color: #00c207;
-		--secondary-color: #7C47DD;
+		--secondary-color: #5446E6;
 		--tertiary-color: #ffffff;
 		--cuaternary-color: #24a342;
 
@@ -93,7 +79,7 @@ const { title, showNavBar=true, showFooter=true } = Astro.props;
 		--secondary-glass-color: #4e4e4e41;
 
 		--font-family-primary: 'Inter', sans-serif;
-		--font-family-secondary: 'OpenSans', sans-serif;
+		--font-family-secondary: 'Inter', sans-serif;
 		--accent: 136, 58, 234;
 		--accent-light: 224, 204, 250;
 		--accent-dark: 49, 10, 101;
@@ -147,6 +133,13 @@ const { title, showNavBar=true, showFooter=true } = Astro.props;
 	  z-index: 100;
 	  font-family: var(--font-family-primary);
 	}
+
+  h1 {
+    font-size:var(--fs-xxs);
+  }
+  /* h2 {
+    @apply text-xl;
+  } */
 
   
 

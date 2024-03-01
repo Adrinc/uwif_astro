@@ -1,6 +1,6 @@
 ---
+import { setURL } from "../../../data/constants";
 import BotonFlecha from "../../global/BotonFlecha.astro";
-import {strapiURL} from '../../../services/graphql';
 interface Props{
     strapiData: any;
 }
@@ -13,7 +13,7 @@ const Buttons = HowToParagraph.Buttons;
 
 const MediaImage = HowToParagraph.Media.data.attributes.url;
 
-const imageurl = `url(${strapiURL}${MediaImage})`;
+const imageurl = `url(${setURL(MediaImage)})`;
 
 ---
 

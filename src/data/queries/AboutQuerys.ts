@@ -1,3 +1,5 @@
+import { compIcon, mediaUrl } from "../constants"
+
 export const GetAboutFull = () => {
     return  `
     
@@ -20,34 +22,22 @@ export const GetAboutFull = () => {
                   Text
                 }
                 Media{
-                  data{
-                    attributes{
-                      url,
-                      alternativeText
-                    }
-                  }
+                  ${mediaUrl}
                 }
               }
               
               #------------------BanerSuccesNumbers
               NumbersTitle,
               NumbersBullets{
-                Icon{
-                  data{
-                    attributes{
-                      alternativeText,
-                      url
-                    }
-                  }
-                },
-                Title,
+                ${compIcon}
+                Title
                 Content
               }
               
               #------------------AboutUSeccion (ACTUALIZAR)
               AboutParagraphs{
-                Headings{Heading},
-                Textblock,
+                Headings{Heading}
+                Textblock
                 
               }
               
@@ -60,16 +50,9 @@ export const GetAboutFull = () => {
               
               ProsTitle,
               ProsBullets{
-                Icon{
-                  data{
-                    attributes{
-                      alternativeText,
-                      url
-                    }
-                  }
-                }
-                Title,
-                Subtitle,
+                ${compIcon}
+                Title
+                Subtitle
                 Content
               }
               GenParagraph{
@@ -89,12 +72,7 @@ export const GetAboutFull = () => {
                   Link
                 }
                 Media{
-                  data{
-                    attributes{
-                      url,
-                      alternativeText
-                    }
-                  }
+                  ${mediaUrl}
                 }
               }
               

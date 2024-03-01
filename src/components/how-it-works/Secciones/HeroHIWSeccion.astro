@@ -1,6 +1,6 @@
 ---
+import { setURL } from "../../../data/constants";
 import BotonFlecha from "../../global/BotonFlecha.astro";
-import {strapiURL} from '../../../services/graphql';
 import Steps from "../Steps.astro";
 
 
@@ -39,7 +39,7 @@ const ButtonData = strapiData.pageData.data.pageHiw.data.attributes.StepsButtons
 
             {
                 StepsData.map((Data:any, Index:any) => (
-                    <Steps imageUrl={`${strapiURL}${Data.Icon.data.attributes.url}`} step={Index+1} description={Data.Content} />
+                    <Steps imageUrl={`${setURL(Data.Icon.data.attributes.url)}`} step={Index+1} description={Data.Content} />
                 ))
             }
         </div>
@@ -47,7 +47,7 @@ const ButtonData = strapiData.pageData.data.pageHiw.data.attributes.StepsButtons
 
         <div class="columnaderecha" >
             <span class="multi-ball-blured"></span>
-            <img alt={MediaData.alternativeText} class="iconoGrande" src={`${strapiURL}${MediaData.url}`} >
+            <img alt={MediaData.alternativeText} class="iconoGrande" src={`${setURL(MediaData.url)}`} >
           
                 <BotonFlecha texto={ButtonData[0].Text} link={ButtonData[0].Link}  />
          

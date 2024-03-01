@@ -1,18 +1,14 @@
 ---
+import { setURL } from "../../../data/constants";
 import FilaImagenTexto from "../../index/FilaImagenTexto.astro";
 import { parse } from "marked";
-import {strapiURL} from '../../../services/graphql';
 interface Props{
     strapiData: any;
 }
 const{ strapiData } = Astro.props;
 
-
-
 /* const markdowntext = "<span style='color: var(--tertiary-text-color)'> U-wifi </span> Mobile App."; */
 const AppParagraphs = strapiData.pageData.data.pageHiw.data.attributes.AppParagraphs;
-
-
 ---
 
 <section id="app">
@@ -22,8 +18,6 @@ const AppParagraphs = strapiData.pageData.data.pageHiw.data.attributes.AppParagr
     <div>
         <div class="contenedor">
             <div class="title">
-
-        <!--         <p set:html={parse(markdowntext)} class="text-red text-lg"></p> -->
 
             <span class="text-tertiaryTextColor">U-wifi </span>Mobile App
             </div>
@@ -36,35 +30,14 @@ const AppParagraphs = strapiData.pageData.data.pageHiw.data.attributes.AppParagr
     </div>
 
 
-    <FilaImagenTexto 
-    image={`${strapiURL}${AppParagraphs[0].Media.data.attributes.url}`}
-    title={AppParagraphs[0].Headings[0].Heading}
-    subtitle={AppParagraphs[0].Textblock} 
-    flex="row"/>
+    {AppParagraphs.map((paragraph: any, index: number) => (
+        <FilaImagenTexto 
+            image={`${setURL(paragraph.Media.data.attributes.url)}`}
+            title={paragraph.Headings[0].Heading}
+            subtitle={paragraph.Textblock} 
+            flex={(index%2 ? "row" : "row-reverse")}/>
 
-    <FilaImagenTexto 
-    image={`${strapiURL}${AppParagraphs[1].Media.data.attributes.url}`}
-    title={AppParagraphs[1].Headings[0].Heading}
-    subtitle={AppParagraphs[1].Textblock}
-    flex="row-reverse"/>
-
-    <FilaImagenTexto 
-    image={`${strapiURL}${AppParagraphs[2].Media.data.attributes.url}`}
-    title={AppParagraphs[2].Headings[0].Heading}
-    subtitle={AppParagraphs[2].Textblock}
-    flex="row"/>
-
-    <FilaImagenTexto 
-    image={`${strapiURL}${AppParagraphs[3].Media.data.attributes.url}`}
-    title={AppParagraphs[3].Headings[0].Heading}
-    subtitle={AppParagraphs[3].Textblock}
-    flex="row-reverse"/>
-
-    <FilaImagenTexto 
-    image={`${strapiURL}${AppParagraphs[4].Media.data.attributes.url}`}
-    title={AppParagraphs[4].Headings[0].Heading}
-    subtitle={AppParagraphs[4].Textblock}
-    flex="row"/>
+      ))}
 
     <div>
 

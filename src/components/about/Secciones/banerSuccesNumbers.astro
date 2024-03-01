@@ -1,6 +1,6 @@
 ---
+import { setURL } from '../../../data/constants';
 import BulletCard from '../BulletCard.astro';
-import {strapiURL} from '../../../services/graphql';
 
 interface Props{
     strapiData: any;
@@ -21,7 +21,7 @@ const NumbersBullets = strapiData.pageData.data.pageAboutUs.data.attributes.Numb
         {
             NumbersBullets.map((bullet: any, index: number) => ( 
             <>
-            <BulletCard iconUrl={`${strapiURL}${bullet.Icon.data.attributes.url}`} altIcon={bullet.Icon.data.attributes.alternativeTex} value={bullet.Title} description={bullet.Content}/>
+            <BulletCard iconUrl={`${setURL(bullet.Icon.data.attributes.url)}`} altIcon={bullet.Icon.data.attributes.alternativeTex} value={bullet.Title} description={bullet.Content}/>
             {index < NumbersBullets.length - 1 && <div class="divider"></div>}
             </>
 

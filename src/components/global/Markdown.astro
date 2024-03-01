@@ -1,0 +1,12 @@
+---
+import { parse } from "marked";
+interface Props {
+	content: string;
+    classN?: string;
+    textAlign?: string;
+    titlesAlign?: string;
+}
+
+const { content, classN, textAlign="text-justify", titlesAlign="text-left"} = Astro.props;
+---
+    <span set:html={parse(content)} class={`${textAlign} md:text-[20px] flex list-outside flex-col gap-3 text-white/90 font-[300] [&>*>strong]:tracking-[-2px] [&>*>strong]:font-[700] [&>*>a]:text-colorSecondary [&>h1]:font-display [&>h1]:text-[32px] [&>h1]:font-[400] ${'[&>h1]:'+titlesAlign} [&>h1]:text-[#93f296] [&>h2]:text-[40px]  md:[&>h2]:text-[56px] [&>h2]:font-[200] ${'[&>h2]:'+titlesAlign} [&>h2]:inline-block [&>h2]:text-white [&>h3]:font-display [&>h3]:text-[18px] [&>h3]:font-[400] ${'[&>h3]:'+titlesAlign} [&>h3]:text-white [&>ul]:flex [&>ul]:flex-col [&>ul]:gap-3 ${classN} `}/>

@@ -1,5 +1,6 @@
 ---
-import {strapiURL} from '../../../services/graphql';
+import { setURL } from '../../../data/constants';
+
 interface Props{
     strapiData: any;
 }
@@ -8,7 +9,7 @@ const{ strapiData } = Astro.props;
 
 const MediaImage = strapiData.pageData.data.pageSelfServ.data.attributes.Header.Media.data.attributes.url;
 const Headings = strapiData.pageData.data.pageSelfServ.data.attributes.Header.Headings[0].Heading;
-const imageurl = `url(${strapiURL}${MediaImage})`;
+const imageurl = `url(${setURL(MediaImage)})`;
 
 
 ---

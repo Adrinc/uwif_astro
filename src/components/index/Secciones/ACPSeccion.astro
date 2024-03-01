@@ -1,7 +1,7 @@
 ---
+import { setURL } from '../../../data/constants';
 import BuyOrApplyFree from '../../global/BuyOrApplyFree.astro';
 import CardAcp from '../CardAcp.astro';
-import {strapiURL} from '../../../services/graphql';
 
 
 interface Props{
@@ -45,7 +45,7 @@ const textblock= acp_ACPParagraph.Textblock;
     <div class="fila-fc">
         <div class="columnas-fc">
             <span class="purple-ball-blured"></span>
-            <img alt={acp_Media.alternativeText} class="fc-logo" loading="lazy" src=`${strapiURL}${acp_Media.url}`>
+            <img alt={acp_Media.alternativeText} class="fc-logo" loading="lazy" src=`${setURL(acp_Media.url)}`>
             <div class="fc-info">
                 <p>AFFORDABLE</p>
                 <p>CONNECTIVITY</p>
@@ -61,7 +61,7 @@ const textblock= acp_ACPParagraph.Textblock;
        
         {
             Acp_data.map((Item: any) => (
-                <CardAcp titulo={Item.Title} descripcion={Item.Content} icono_url={`${strapiURL}`+Item.Icon.data.attributes.url}/>
+                <CardAcp titulo={Item.Title} descripcion={Item.Content} icono_url={setURL(Item.Icon.data.attributes.url)}/>
             ))
         }
       

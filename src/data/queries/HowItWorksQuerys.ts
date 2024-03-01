@@ -1,37 +1,22 @@
+import { compIcon, mediaUrl } from "../constants"
+
 export const GetHowItWorksSeccionFull = () => {
   return  `
   query {
       pageHiw{
         data{
           attributes{
-            
-            
-            
               #--------------
             
               StepsTitles{
                 Heading
               }
               Steps{
-                
-                Icon{
-                  data{
-                    attributes{
-                      url,
-                      alternativeText
-                    }
-                  }
-                }
-                
+                ${compIcon}
                 Content
               }
               StepsMedia{
-                data{
-                  attributes{
-                    url,
-                    alternativeText
-                  }
-                }
+                ${mediaUrl}
               }
               
               StepsButtons{
@@ -49,12 +34,7 @@ export const GetHowItWorksSeccionFull = () => {
                 }
                 Textblock,
                 Media{
-                  data{
-                    attributes{
-                      alternativeText,
-                      url
-                    }
-                  }
+                  ${mediaUrl}
                 }
               }
               
@@ -63,14 +43,7 @@ export const GetHowItWorksSeccionFull = () => {
               Banner{
                 Title,
                 Content,
-                Icon{
-                  data{
-                    attributes{
-                      url,
-                      alternativeText
-                    }
-                  }
-                }
+                ${compIcon}
               }
               
               #--------------
@@ -117,14 +90,7 @@ export const GetHowItWorksSeccion = () => {
                 }
                 Steps{
                   
-                  Icon{
-                    data{
-                      attributes{
-                        url,
-                        alternativeText
-                      }
-                    }
-                  }
+                  ${compIcon}
                   
                   Content
                 }
@@ -174,12 +140,7 @@ export const GetHowItWorksSeccion = () => {
                 }
                 Textblock,
                 Media{
-                  data{
-                    attributes{
-                      alternativeText,
-                      url
-                    }
-                  }
+                  ${mediaUrl}
                 }
               }
               
@@ -204,26 +165,12 @@ export const GetHowItWorksSeccion = () => {
         pageHiw{
           data{
             attributes{
-              
-              
-              
               Banner{
                 Title,
                 Content,
-                Icon{
-                  data{
-                    attributes{
-                      url,
-                      alternativeText
-                    }
-                  }
-                }
-              }
-              
-              #--------------
-              
-    
-              
+                ${compIcon}
+              }       
+              #--------------              
             }
           }
         }

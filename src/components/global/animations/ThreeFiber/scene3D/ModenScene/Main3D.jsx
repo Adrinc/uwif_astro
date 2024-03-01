@@ -8,7 +8,7 @@ export const Moden = () => {
 
   return (
     <Canvas
-    style={{height: '100%', width: '100%'}}
+    style={{ padding: 0, margin: 0}}
     dpr={[0.5, 1.2]}
     performance={{current: 1,min: 0.1,max: 1,debounce: 200,regress: 0.5}}
     shadows

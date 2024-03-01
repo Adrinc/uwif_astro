@@ -1,7 +1,7 @@
 ---
+import { setURL } from '../../../data/constants';
 import BotonFlecha from '../../global/BotonFlecha.astro';
 import DifferentialCard from '../DifferentialCard.astro';
-import {strapiURL} from '../../../services/graphql';
 interface Props{
     strapiData: any;
 }
@@ -28,7 +28,7 @@ const GenParagraph = strapiData.pageData.data.pageAboutUs.data.attributes.GenPar
     <div class="row-pic-text">
         {
             ProsBullets.map((item:any) => (
-                <DifferentialCard title={item.Title} subtitle={item.Subtitle} content={item.Content} iconUrl={`${strapiURL}${item.Icon.data.attributes.url}`} iconAlt={item.Icon.data.attributes.alternativeText} />
+                <DifferentialCard title={item.Title} subtitle={item.Subtitle} content={item.Content} iconUrl={`${setURL(item.Icon.data.attributes.url)}`} iconAlt={item.Icon.data.attributes.alternativeText} />
             ))
         }
     </div>

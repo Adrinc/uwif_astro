@@ -1,3 +1,4 @@
+import { compIcon, mediaUrl } from "../constants"
 
 
 
@@ -8,19 +9,11 @@ export const GetHeroSeccionFull = () => {
         pageHome{
           data{
             attributes{
-#-------------------------------------------------
-
-
               #-------------- 
               # HERO 1
               #-------------- 
               HeroVideo{
-                data{
-                  attributes{
-                    name,
-                    url
-                  }
-                }
+                ${mediaUrl}
               }
               HeroButtons{
                 Text,
@@ -49,14 +42,7 @@ export const GetHeroSeccionFull = () => {
 
               
               BentoGrid{
-                data{
-                  attributes{
-                    name,
-                    url,
-                    width,
-                    height
-                  }
-                }
+                ${mediaUrl}
               }
 
               #--------------
@@ -72,12 +58,12 @@ export const GetHeroSeccionFull = () => {
               }
               
               PricingTable{
-                Title,
-                Price,
-                Pricetime,
-                Subtitle,
+                Title
+                Price
+                Pricetime
+                Subtitle
                 Features{
-                  Content,
+                  Content
                 },
                 Buttons{
                   Text
@@ -89,16 +75,10 @@ export const GetHeroSeccionFull = () => {
               # FREE TABLET
               #--------------
               TabletParagraph{
-                Headings{Heading},
-                Textblock,
+                Headings{Heading}
+                Textblock
                 Media{
-                  data{
-                    attributes{
-                      alternativeText,
-                      name,
-                      url
-                    }
-                  }
+                  ${mediaUrl}
                 }
               }
 
@@ -110,41 +90,24 @@ export const GetHeroSeccionFull = () => {
                 Headings{
                   Heading
                 }
-                Textblock,
 
+                Textblock
 
                 Media{
-                  data{
-                    attributes{
-                      name,
-                      alternativeText,
-                      url
-                    }
-                  }
+                  ${mediaUrl}
                 }
 
                 Buttons{
-                  Text,
+                  Text
                   Link
                 }
               }
 
               InstallSteps{
-                Icon{
-                  data{
-                    attributes{
-                      alternativeText,
-                      name,
-                      url
-                    }
-                  }
-                }
-                Title,
+                ${compIcon}
+                Title
                 Content
               }
-
-
-  #-------------------------------------------------
             }
           }
         }
@@ -159,28 +122,13 @@ export const GetHero1Seccion = () => {
         pageHome{
           data{
             attributes{
-
-
-
-              
-              
               HeroVideo{
-                data{
-                  attributes{
-                    name,
-                    url
-                  }
-                }
+                ${mediaUrl}
               }
               HeroButtons{
                 Text,
                 Link
               }
-              
-              
-
-
-
             }
           }
         }
@@ -195,9 +143,6 @@ export const GetHero1Seccion = () => {
         pageHome{
           data{
             attributes{
-
-
-      
                 MarqueeButton{
                   Text,
                   Link
@@ -208,10 +153,6 @@ export const GetHero1Seccion = () => {
                   }
                   Textblock
                 }
-              
-   
-
-
             }
           }
         }
@@ -228,17 +169,8 @@ export const GetHero1Seccion = () => {
         pageHome{
           data{
             attributes{
-
-
                 BentoGrid{
-                    data{
-                      attributes{
-                        name,
-                        url,
-                        width,
-                        height
-                      }
-                    }
+                    ${mediaUrl}
                   }
    
 
@@ -260,8 +192,6 @@ export const GetHero1Seccion = () => {
         pageHome{
           data{
             attributes{
-
-
                 PricingParagraph{
                     Headings{
                       Heading
@@ -303,13 +233,7 @@ export const GetHero1Seccion = () => {
                     Headings{Heading},
                     Textblock,
                     Media{
-                      data{
-                        attributes{
-                          alternativeText,
-                          name,
-                          url
-                        }
-                      }
+                      ${mediaUrl}
                     }
                   
                   }
@@ -342,13 +266,7 @@ export const GetHero1Seccion = () => {
   
   
   Media{
-    data{
-      attributes{
-        name,
-        alternativeText,
-        url
-      }
-    }
+    ${mediaUrl}
   }
   
   
@@ -359,21 +277,10 @@ export const GetHero1Seccion = () => {
 }
         
         InstallSteps{
-          Icon{
-            data{
-              attributes{
-                alternativeText,
-                name,
-                url
-              }
-            }
-          }
+          ${compIcon}
           Title,
           Content
         }
-        
-
-
             }
           }
         }

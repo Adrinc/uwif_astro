@@ -1,7 +1,7 @@
 ---
 
+import { setURL } from "../../../data/constants";
 import BuyOrApplyFree from "../../global/BuyOrApplyFree.astro";
-import {strapiURL} from '../../../services/graphql.ts';
 
 
 interface Props{
@@ -16,14 +16,14 @@ const hero1Seccion_Videos = strapiData['pageData']['data']['pageHome']['data']['
 ---
 <section id="home">
 	 <video class="block md:hidden" autoplay muted loop id="myVideo" transition:persist>
-		<source src=`${strapiURL}${hero1Seccion_Videos[1].attributes.url}`  type="video/mp4">
+		<source src=`${setURL(hero1Seccion_Videos[1].attributes.url)}`  type="video/mp4">
 	</video>
 	<video class="hidden md:block" autoplay muted loop id="myVideoMobile" transition:persist>
-		<source src=`${strapiURL}${hero1Seccion_Videos[0].attributes.url}` type="video/mp4">
+		<source src=`${setURL(hero1Seccion_Videos[0].attributes.url)}` type="video/mp4">
 	</video>
 
-<div class="botones-back-column">
-	<div class="botones-back">
+<div class="botones-back-column w-full flex place-content-center">
+	<div class="botones-back  rounded-full bg-black/40 backdrop-blur-lg">
 		<BuyOrApplyFree
 			buttonText1={hero1Seccion_Buttons[0].Text}
 			buttonLink1={hero1Seccion_Buttons[0].Link}
@@ -51,10 +51,7 @@ const hero1Seccion_Videos = strapiData['pageData']['data']['pageHome']['data']['
 			height: 80vh;
 		}
 		.botones-back-column{
-			position: absolute;
 			display: flex;
-			flex-direction: column;
-			justify-content: flex-end;
 			align-items: center;
 		
         	
@@ -63,14 +60,10 @@ const hero1Seccion_Videos = strapiData['pageData']['data']['pageHome']['data']['
 		}
 		.botones-back{
 			flex-direction: row;
-		
-			background-color: #000000b3;
-		
 			display: flex;
 			align-items: center;
-			border-radius: 0 50px 50px 0;
 			padding: 16px;
-			margin-bottom: clamp(10px, 5vw, 80px);
+			margin-bottom: clamp(10px, 2vw, 80px);
 		
 		}
 		.texto-or{

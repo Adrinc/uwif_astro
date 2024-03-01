@@ -10,26 +10,26 @@ import BentogridSeccion2 from '../components/index/Secciones/BentogridSeccion2.a
 
 
 import {getPageData} from '../services/graphql';
-import * as IndexData from '../data/homeQuerys';
+import * as IndexData from '../data/queries/homeQuerys';
 
 
 const data  = await getPageData(IndexData.GetHeroSeccionFull());
 
+console.log(data.pageData);
 ---
 
 <Layout title="Home">
 	
 	<HeroSeccion1 strapiData={data}/>
-	<CarruselTextoHorizontal/>
+	<!-- <CarruselTextoHorizontal/> -->
 	<HeroSeccion2 strapiData={data}/>
-	<CarruselTextoHorizontal/>
+	<!-- <CarruselTextoHorizontal/> -->
 	<BentogridSeccion2 strapiData={data}/>
-	<CarruselTextoHorizontal/>
+	<!-- <CarruselTextoHorizontal/> -->
 	<JustOnePlanSeccion strapiData={data}/> 
 	<TabletSeccion strapiData={data}/>
-	<CarruselTextoHorizontal/>
+	<!-- <CarruselTextoHorizontal/> -->
 	<ACPSeccion strapiData={data}/>
 
 
 </Layout>
-                  

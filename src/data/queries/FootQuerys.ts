@@ -1,3 +1,5 @@
+import { compIcon } from "../constants"
+
 export const GetFootFull = () => {
     return  `
 
@@ -19,28 +21,14 @@ export const GetFootFull = () => {
               TextButton{
                 Text,
                 Link,
-                Icon{
-                  data{
-                    attributes{
-                      url,
-                      alternativeText
-                    }
-                  }
-                }
+                ${compIcon}
               }
               
               
               SocialMedia{
                   Text,
                   Link,
-                    Icon{
-                      data{
-                        attributes{
-                          alternativeText,
-                          url
-                        }
-                      }
-                    }
+                  ${compIcon}
                 }
               
               

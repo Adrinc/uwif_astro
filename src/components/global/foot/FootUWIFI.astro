@@ -1,18 +1,18 @@
 ---
 import {getPageData} from '../../../services/graphql';
-import * as SelfServiceData from '../../../data/FootQuerys';
-import {strapiURL} from '../../../services/graphql';
+import * as SelfServiceData from '../../../data/queries/FootQuerys';
 
 import BotonU from "../../global/BotonU.astro";
+import { setURL } from '../../../data/constants';
 
 const data = await getPageData(SelfServiceData.GetFootFull());
 const Slogan = data.pageData.data.generalFooter.data.attributes.Slogan;
 const Button = data.pageData.data.generalFooter.data.attributes.Button;
 const TextButton = data.pageData.data.generalFooter.data.attributes.TextButton;
 const SocialMedia = data.pageData.data.generalFooter.data.attributes.SocialMedia;
-const InstagramIcon = `${strapiURL}${SocialMedia[0].Icon.data.attributes.url}`;
-const FacebookIcon = `${strapiURL}${SocialMedia[1].Icon.data.attributes.url}`;
-const MetaIcon = `${strapiURL}${SocialMedia[2].Icon.data.attributes.url}`;
+const InstagramIcon = setURL(SocialMedia[0].Icon.data.attributes.url);
+const FacebookIcon = setURL(SocialMedia[1].Icon.data.attributes.url);
+const MetaIcon = setURL(SocialMedia[2].Icon.data.attributes.url);
 
 
 ---
@@ -43,7 +43,7 @@ const MetaIcon = `${strapiURL}${SocialMedia[2].Icon.data.attributes.url}`;
         </div>
         <div class="columnaDerecha">
             <div class="flex flex-row justify-center p-4 items-center gap-1 w-full md:w-auto">
-                <img class="top-icon" src=`${strapiURL}${TextButton[1].Icon.data.attributes.url}` alt={TextButton[1].Icon.data.attributes.ur}>
+                <img class="top-icon" src=`${setURL(TextButton[1].Icon.data.attributes.url)}` alt={TextButton[1].Icon.data.attributes.ur}>
                 <a href={TextButton[1].Link} class="title">{TextButton[1].Text}</a>
             </div>
             <p class="infotext">Copyright © 2023 U-wifi Wireless</p>
@@ -215,4 +215,4 @@ const MetaIcon = `${strapiURL}${SocialMedia[2].Icon.data.attributes.url}`;
 
 	}
 
-    </style>
+    </style>../../../data/queries/FootQuerys

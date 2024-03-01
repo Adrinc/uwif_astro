@@ -1,0 +1,55 @@
+---
+import Markdown from './Markdown.astro';
+import BuyOrApplyFree from './BuyOrApplyFree.astro';
+
+interface Props {
+	headings?: any;
+    logo?: any;
+    logoIsInline?: boolean;
+    textBlock: string;
+    buttons?: any;
+    backgroundColor?: string;
+    centerContent?: boolean;
+}
+
+
+const {headings, logo={url: "/image/uwifi_stroke.png", alternativeText: "alternative text"}, logoIsInline= true, textBlock, backgroundColor="transparent", centerContent=false} = Astro.props;
+---
+<div class="w-full flex place-content-center my-40">
+    
+    <div class="flex md:flex-row flex-col items-center max-w-[1200px] mx-10">
+
+        <!-- DIV PARA TEXTO -->
+        <div class="flex flex-col gap-5 md:w-3/5">
+        
+            <!-- Sección de títulos -->
+            <div class={`${centerContent ? "" : "md:justify-start"} flex flex-wrap md:gap-4 items-center justify-center leading-none`}>
+                {headings && headings.map((heading: any, index: number) => (
+                    <>
+                        <Markdown content={heading.Heading.toString()}/>
+                        {index + 1 === headings.length &&
+                            <img
+                                src={logo["url"]}
+                                class="w-[60px] h-[60px] mx-2"
+                                alt="Logo"
+                            />
+                        }
+                    </>
+                ))}
+            </div>
+            
+            <Markdown content={textBlock} classN="md:pr-20" textAlign={`${centerContent ? "text-center" : "md:text-justify text-center"}`}/>
+            
+            <div class={`flex md:justify-start justify-center ${centerContent ? "md:justify-center" : ""}`}>
+                <BuyOrApplyFree/>
+            </div>
+        
+        </div>
+        
+        <div class=" flex flex-grow justify-center place-items-center">
+            <slot/>
+        </div>
+    </div>
+</div>
+
+

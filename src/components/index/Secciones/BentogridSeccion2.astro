@@ -1,6 +1,5 @@
 ---
-
-import {strapiURL} from '../../../services/graphql';
+import { setURL } from '../../../data/constants';
 
 
 interface Props{
@@ -15,9 +14,9 @@ const bento = strapiData['pageData']['data']['pageHome']['data']['attributes']['
 <section id="#bentogrid" class="">
 
 
-    <img class="web hidden md:block" src=`${strapiURL}${bento.data[0].attributes.url}` alt={bento.data[0].attributes.name}>
+    <img class="web hidden md:block" src=`${setURL(bento.data[0].attributes.url)}` alt={bento.data[0].attributes.name}>
     <img class="tablet hidden sm:block md:hidden" src="/image/bento/btablet.png" alt="">
-    <img class="movil block sm:hidden" src=`${strapiURL}${bento.data[1].attributes.url}` alt={bento.data[1].attributes.name}>
+    <img class="movil block sm:hidden" src=`${setURL(bento.data[1].attributes.url)}` alt={bento.data[1].attributes.name}>
 <!--     <img class="tablet hidden sm:block md:hidden" src=`${strapiURL}${bento.data[2].attributes.url}` alt={bento.data[2].attributes.name}> -->
 
 </section>

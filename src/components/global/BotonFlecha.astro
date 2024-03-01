@@ -25,10 +25,10 @@ interface Props {
 	marginBottomIncon?: string;
 }
 
-const {showIcon=true, marginLeftIncon="0px", marginRightIncon="0px", marginTopIncon="0px", marginBottomIncon="0px", paddingleft="20px", paddingright="12px", fontsize="24px", fontweight="200",  width="auto", texto="-----", link, backgroundColor="transparent", iconColor='#00c207', iconColorHover='#00c207', borderColor = '#00c207', borderColorHover ='transparent',  borderWidth=3, textColor='#ffffff', textColorHover='#ffffff', gradientColorLeft='#2ed5de',gradientColorCenter='#2e74de', gradientColorRight='#d201d2'   } = Astro.props;
+const {showIcon=true, marginLeftIncon="0px", marginRightIncon="0px", marginTopIncon="0px", marginBottomIncon="0px", paddingleft="12px", paddingright="8px", fontsize="20px", fontweight="200",  width="auto", texto="-----", link, backgroundColor="transparent", iconColor='#00c207', iconColorHover='#00c207', borderColor = "#00c207", borderColorHover ='transparent',  borderWidth=2, textColor='#ffffff', textColorHover='#ffffff', gradientColorLeft='#5446E6', gradientColorRight='#00c207'   } = Astro.props;
 ---
 <a href={link}>
-    <button class="button-learn flex flex-row-reverse align-middle items-center justify-center" aria-label={texto}
+    <button class="button-learn flex flex-row-reverse align-middle items-center justify-center md:text-[18px] text-[14px] font-semibold tracking-[-.03em] gap-3" aria-label={texto}
 	data-text={texto}
 	style={
 	`
@@ -50,16 +50,13 @@ const {showIcon=true, marginLeftIncon="0px", marginRightIncon="0px", marginTopIn
 	--border-color-hover: ${borderColorHover};
 	--border-width: ${borderWidth}px;
 	--gradient-left: ${gradientColorLeft}; 
-	--gradient-center: ${gradientColorCenter}; 
 	--gradient-right: ${gradientColorRight};
 	--width: ${width};
 	`
 	}>
-	
+		
 
-	
-
-	<svg alt-arial="button icon" class="icono" width="31" height="32" viewBox="0 0 31 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+	<svg alt-arial="button icon" class={`${backgroundColor !="transparent" ? "bg-white" : `bg-[#00c207]`} icono rounded-full`} width="31" height="32" viewBox="0 0 31 32" fill="none" xmlns="http://www.w3.org/2000/svg">
 		<g id="chevron-right 1">
 		<path id="Vector" d="M11.6987 23.5705L19.4126 15.8566L11.6987 8.1427" stroke={iconColor} stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
 		</g>
@@ -91,13 +88,11 @@ const {showIcon=true, marginLeftIncon="0px", marginRightIncon="0px", marginTopIn
 position: relative;
 color:var(--text-color);
 background: var(--background-color);
-font-size: clamp(10px, 20vw, var(--font-size));
 text-align: var(--text-align);
-font-weight: var(--font-weight);
 border-radius: 50px;
 border: var(--border-width) solid;
 border-color: var(--border-color);
-padding: 12px;
+padding: 8px;
 padding-left: var(--padding-left);
 padding-right: var(--padding-right);
 transition: all 0.5s ease;
@@ -116,7 +111,7 @@ vertical-align: middle;
   right: 0;
   bottom: 0;
   left: 0;
-  background: linear-gradient(to right, var(--gradient-left), var(--gradient-center), var(--gradient-right));
+  background: linear-gradient(to right, var(--gradient-left), var(--gradient-right));
   opacity: 0;
   transition: opacity 0.5s ease;
   border-radius: 50px;
@@ -159,7 +154,6 @@ height: clamp(0.5rem, 1vw, 85px);
 	}
 @media (max-width: 450px) {
 	.button-learn {
-		font-size: clamp(8px, 10vw, 16px);
 		padding: clamp(8px, 1vw, 12px);
 	}
 	.icono{
@@ -170,7 +164,6 @@ height: clamp(0.5rem, 1vw, 85px);
 	}
 @media  screen and (height< 391px) {
 	.button-learn {
-		font-size: clamp(8px, 10vh, 16px);
 		padding: 8px;
 		align-self: center;
 		font-weight: 600;

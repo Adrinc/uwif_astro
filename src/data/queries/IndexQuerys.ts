@@ -1,3 +1,4 @@
+import { mediaUrl } from "../constants"
 
 
 
@@ -13,12 +14,7 @@ query {
           Link
         }
         HeroVideo{
-          data{
-            attributes{
-              url,
-              name
-            }
-          }
+          ${mediaUrl}
         }
       }
     }
