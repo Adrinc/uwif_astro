@@ -1,6 +1,7 @@
 ---
 import { setURL } from '../../../data/constants';
 import BuyOrApplyFree from '../../global/BuyOrApplyFree.astro';
+import Paragraph from '../../global/Paragraph.astro';
 import CardAcp from '../CardAcp.astro';
 
 
@@ -15,7 +16,7 @@ const acp_ACPParagraph= strapiData['pageData']['data']['pageHome']['data']['attr
 const acp_Media= strapiData['pageData']['data']['pageHome']['data']['attributes']['ACPParagraph']['Media']['data']['attributes'];
 const acp_Botones= strapiData['pageData']['data']['pageHome']['data']['attributes']['ACPParagraph']['Buttons']
 
-const headings= acp_ACPParagraph['Headings'][0].Heading;
+const headings= acp_ACPParagraph['Headings'];
 const textblock= acp_ACPParagraph.Textblock;
 
 
@@ -23,40 +24,12 @@ const textblock= acp_ACPParagraph.Textblock;
 ---
 
 <section id="acp">
-	
-   <div class="row-acp">
+    <span class="purple-ball-blured"></span>
 
-     <!--   <p class="title">
-        We are an 
-        <span class="acp"> ACP </span> 
-        Provider!
-        </p> -->
-
-        <p class="title">{headings}</p>
-
-   </div>
+    <img width="100px" height="100px" alt={acp_Media.alternativeText} loading="lazy" src=`${setURL(acp_Media.url)}`>
+    <Paragraph headings={headings} textBlock={textblock} textAtLeft={false} centerContent={true}>
+    </Paragraph>
    
-    <p class="description">
-        {textblock}
-<!--         <span style="display: inline-block; font-weight: 500" >UWIFI Plan.</span> -->
-    </p>
-
-   
-    <div class="fila-fc">
-        <div class="columnas-fc">
-            <span class="purple-ball-blured"></span>
-            <img alt={acp_Media.alternativeText} class="fc-logo" loading="lazy" src=`${setURL(acp_Media.url)}`>
-            <div class="fc-info">
-                <p>AFFORDABLE</p>
-                <p>CONNECTIVITY</p>
-                <p>PROGRAM</p>
-            </div>
-        </div>
-    </div>
-
-      
-    <BuyOrApplyFree buttonText1={acp_Botones[0].Text} buttonLink1={acp_Botones[0].Link} buttonText2={acp_Botones[1].Text} buttonLink2={acp_Botones[1].Link}/>
-
     <div class="main-enroll-active-use">
        
         {
@@ -107,12 +80,12 @@ const textblock= acp_ACPParagraph.Textblock;
 
    	.purple-ball-blured{
         top: -25;
-		left: 30%;
+		left: 40%;
 		position: absolute;
-        width: clamp(200px, 50vw, 600px);
-		height: clamp(200px, 50vw, 600px);
+        width: clamp(100px, 30vw, 400px);
+		height: clamp(100px, 30vw, 400px);
 		border-radius: 100%;
-        background: linear-gradient(#5746E5 20%, #48099f 40%);
+        background: linear-gradient(#5646e579 20%, #48099f 40%);
 		filter: blur(100px);
 		z-index: -1;
 	

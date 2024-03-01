@@ -1,7 +1,7 @@
 ---
 import Moden from '../../global/animations/ThreeFiber/scene3D/ModenScene/Main3D';
-import BuyOrApplyFree from '../../global/BuyOrApplyFree.astro';
 import Paragraph from '../../global/Paragraph.astro';
+import ShapeBackground from '../../global/ShapeBackground.astro';
 
 interface Props{
     strapiData: any;
@@ -10,22 +10,14 @@ const{ strapiData } = Astro.props;
 
 
 const paragraphContent = strapiData['pageData']['data']['pageHome']['data']['attributes']['PrimaryParagraph'];
-
-
 ---
 <section id="#bestinternet">
-	<Paragraph headings={paragraphContent.Headings} textBlock={paragraphContent.Textblock}>
-		<div  class="flex items-center justify-center">
-			<div class="absolute ">
-				<svg width="418" height="432" viewBox="0 0 418 432" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path d="M0 209C0 93.5725 93.5725 0 209 0C324.428 0 418 93.5725 418 209V432H144C64.471 432 0 367.529 0 288V209Z" fill="url(#paint0_linear_3911_747)"/>
-					<defs>
-					<linearGradient id="paint0_linear_3911_747" x1="25.6871" y1="-1.45048e-05" x2="517.691" y2="64.725" gradientUnits="userSpaceOnUse">
-					<stop stop-color="#5446E6"/>
-					<stop offset="1" stop-color="#7949DC"/>
-					</linearGradient>
-					</defs>
-					</svg>
+	<span class="green-ball-blurred"/>
+	<span class="purple-ball-blurred"/>
+	<Paragraph headings={paragraphContent.Headings} textBlock={paragraphContent.Textblock} logo={paragraphContent.IconLogo}>
+		<div  class="flex items-center justify-center m-3">
+			<div class="absolute">
+				<ShapeBackground/>
 			</div>
 			<div class=" h-[400px] flex relative inset-0">
 				<Moden client:visible transition:persist/>
@@ -34,136 +26,30 @@ const paragraphContent = strapiData['pageData']['data']['pageHome']['data']['att
 	</Paragraph>
 </section>
 		  
-	<style>
-
-	.green-ball-blured{
+<style>
+	.green-ball-blurred{
 		position: absolute;
-		top: 10%;
+		top: 23%;
 		left: 15%;
-		width: clamp(400px, 25vw, 550px);
-		height: clamp(400px, 25vw, 550px);
+		width: clamp(250px, 15vw, 350px);
+		height: clamp(250px, 15vw, 350px);
 		border-radius: 100%;
-		
 		rotate: -45deg;
-	
 		filter: blur(100px);
 		z-index: -1;
-		background: linear-gradient(#5746E5 20%, #8743E5 40%, #03FB75 100%);
+		background: linear-gradient(#03fb77a0 20%, #8743e56a 40%, #2356ff89 100%);
 	}
 	
-	
-		.columna-izquierda{
-			display: flex;
-			flex-direction: column;
-			justify-content: space-between;
-			gap: 50px;
-
-		}
-
-		
-			
-			.gradient-text{
-				font-size: clamp(40px, 5vw, 60px);
-			font-weight: 800;
-			letter-spacing: 2px;
-			text-align: left;
-			word-spacing: 5px;
-			text-wrap: balance;
-			
-
-			background: linear-gradient(270deg, var(--primary-color)2.9%, var(--secondary-color) 100%);
-			background-clip: text;
-			-webkit-background-clip: text;
-			-webkit-text-fill-color: transparent;
-			}
-	
-			.subtitle{
-			
-				font-weight: 300;
-				line-height: 160%;
-				margin-top: 50px;
-			}
-		
-		  
-			.image {
-			display: inline-block;
-			aspect-ratio: 1.1;
-		
-			width: clamp(2.5rem, 5vw, 5.3rem); 
-			height: clamp(2.5rem, 5vw, 5.3rem);
-			margin-bottom: 2rem;
-			}
-
-			.icono {
-			display: inline-block;
-			aspect-ratio: 1.1;
-			}
-			
-			
-
-			.moden{
-			width: clamp(280px, 50vw, 600px);
-			height: clamp(280px, 50vw, 600px);
-		
-			}
-			
-			.description {
-			  color: var(--primary-text-color);
-			  font-weight: 300;
-			  text-wrap: pretty;
-			  font-size: clamp(1rem, 3vw, 2rem);
-			}
-
-			.cta-text {
-			  justify-content: center;
-			  color: var(--primary-text-color);
-			  text-align: center;
-			  align-self: center;
-			  font-size: clamp(14px, 1.5vw, 1.5rem);
-			  font-weight: 200;
-			}
-	
-			@media (max-width: 900px) {
-				main {
-				flex-direction: column;
-				align-items: center;
-				gap: 1rem;
-				}
-			.moden{
-			width: 100%;
-			height: clamp(280px, 50vw, 500px);
-	
-			}
-			.title, .best, .subtitle, .description, .cta-text{
-				text-align: center;
-				align-self: center;
-			}
-			.botones{
-				justify-content: center;
-			}
-
-			.green-ball-blured{
+	.purple-ball-blurred{
 		position: absolute;
-		top: 0;
-		left: 10%;
-		width: clamp(350px, 5vw, 550px);
-		height: clamp(350px, 5vw, 550px);
-		
-	}
-
-			}
-			@media  screen and (height< 450px) {
-				section{
-		
-				
-					margin-bottom: clamp(200px, 50vh, 300px);
-				}
-				.moden{
-		
-			height: clamp(150px, 50vw, 400px);
-	
-			}
-			}
-			
-	
+		top: 7%;
+		right: 10%;
+		width: clamp(300px, 30vw, 500px);
+		height: clamp(300px, 30vw, 500px);
+		border-radius: 100%;
+		rotate: -45deg;
+		filter: blur(80px);
+		z-index: -10;
+		background: linear-gradient( #8743e5d6 0%, #8743e58e 60%, #2356ff89 100%);
+	}		
  </style>

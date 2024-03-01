@@ -11,12 +11,10 @@ const{ strapiData } = Astro.props;
 const bento = strapiData['pageData']['data']['pageHome']['data']['attributes']['BentoGrid'];
 ---
 
-<section id="#bentogrid" class="">
-
-
-    <img class="web hidden md:block" src=`${setURL(bento.data[0].attributes.url)}` alt={bento.data[0].attributes.name}>
-    <img class="tablet hidden sm:block md:hidden" src="/image/bento/btablet.png" alt="">
-    <img class="movil block sm:hidden" src=`${setURL(bento.data[1].attributes.url)}` alt={bento.data[1].attributes.name}>
+<section id="#bentogrid" class="w-full flex items-center justify-center">
+    <img class="web hidden md:block object-contain max-w-[1200px]" src=`${setURL(bento.data[0].attributes.url)}` alt={bento.data[0].attributes.name}>
+    <img class="tablet hidden sm:block md:hidden object-contain" src="/image/bento/btablet.png" alt="">
+    <img class="movil block sm:hidden object-contain" src=`${setURL(bento.data[1].attributes.url)}` alt={bento.data[1].attributes.name}>
 <!--     <img class="tablet hidden sm:block md:hidden" src=`${strapiURL}${bento.data[2].attributes.url}` alt={bento.data[2].attributes.name}> -->
 
 </section>

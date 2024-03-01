@@ -1,0 +1,21 @@
+---
+interface Props {
+	startColor?: string;
+  endColor?: string;
+  tailToLeft?: boolean;
+}
+
+
+const {startColor="#5446E6", endColor="#7949DC", tailToLeft=true} = Astro.props;
+---
+<svg width="350" height="350" viewBox="0 0 418 432" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g transform={`${tailToLeft ? "scale(-1, 1) translate(-418, 0)" : ""}`}>
+    <path d="M0 209C0 93.5725 93.5725 0 209 0C324.428 0 418 93.5725 418 209V432H144C64.471 432 0 367.529 0 288V209Z" fill="url(#paint0_linear_3911_747)"/>
+      <defs>
+        <linearGradient id="paint0_linear_3911_747" x1="25.6871" y1="-1.45048e-05" x2="517.691" y2="64.725" gradientUnits="userSpaceOnUse">
+          <stop stop-color={startColor}/>
+          <stop offset="1" stop-color="#7949DC"/>
+        </linearGradient>
+      </defs>
+    </g>
+    </svg>

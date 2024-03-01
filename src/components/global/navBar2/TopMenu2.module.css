@@ -17,19 +17,24 @@
   
     font-display: swap;
   }
+
+  @font-face {
+    font-family: 'Poppins';
+    src: 
+        url('/fonts/Poppins.ttf') format('ttf');
+    font-display: swap;
+  }
   .mainContainer {
-  
-      
       display: flex;
       flex-direction: row;
-      border-bottom: #ffffff72 2px solid;
-      background-color: #00220191;
-      backdrop-filter: blur(10px); 
+      border-bottom: rgba(255, 255, 255, 0.2) 1px solid;
+      background-color: rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(100px); 
       justify-content: space-between;
       align-items: center;
       width: 100%;
-      padding-top: clamp(20px, 25vw, 10px);
-      padding-bottom: clamp(20px, 25vw, 10px);
+      padding-top: clamp(15px, 25vw, 10px);
+      padding-bottom: clamp(15px, 25vw, 10px);
       padding-left: clamp(0px, 5vw, 100px);
       padding-right: clamp(0px, 5vw, 100px);
       gap:20px;
@@ -45,8 +50,6 @@
       max-height: 50px;
       align-self: center;
       scale: 1.5;
-  
-
     }
 
   
@@ -65,11 +68,9 @@
       justify-content: space-evenly;
       align-self: center;
       align-items: center;
-      background-color: #ffffff4b;
-      backdrop-filter: blur(50px); 
-      border: 2px solid #ffffff23;
+      border: 1px solid #ffffff75;
+      background-color: rgba(255, 255, 255, 0.2);
       border-radius: 50px;
-      
       gap: 30px;
       padding: 10px;
       padding-left: clamp(0px, 5vw, 20px);
@@ -80,10 +81,11 @@
 
   
     .link, .selected-link{
+      font-family: "Poppins";
+      letter-spacing: 1px;
       color: #ffffff;
       text-align: center;
-      font-weight: 600;
-      font-size: clamp(16px, 1.5vw, 24px);
+      font-weight: 300;
     transition: all 0.3s ease;
 
     }
@@ -177,11 +179,10 @@
         display: none; /* Oculta el menú de navegación en pantallas pequeñas */
     }
     .selected-link-mobile, .linkmobil{
-  
       padding: 8px;
       font-weight: 600;
       font-size: clamp(14px, 8vw, 20px);
-      border-bottom: #fff 1px solid;
+      border-bottom: #ffffff6c 1px solid;
       width: 100%;
     }
     .image {

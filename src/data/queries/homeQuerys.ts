@@ -33,6 +33,9 @@ export const GetHeroSeccionFull = () => {
                   Heading
                 }
                 Textblock
+                IconLogo{
+                  ${mediaUrl}
+                }
               }
             
 

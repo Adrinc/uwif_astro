@@ -15,27 +15,28 @@ interface Props {
 	}[];
 }
 
-const { Price, Buttons, title="SUPER 5G", Features=[""], Subtitle="FREE for ACP Subscribers", Pricetime="/month with" } = Astro.props;
+const { Price, Buttons, title, Features=[""], Subtitle="FREE for ACP Subscribers", Pricetime="/month with" } = Astro.props;
 
 
 ---
 
 <div class="contenedor-tarjeta">
-    <div class="tarjeta">
+    <div class="tarjeta bg-gradient-to-r from-white/20 to-white/5 md:mr-10 max-w-[350px] rounded-tl-[300px] rounded-tr-[300px] rounded-bl-[150px] p-5 my-5 border border-white/20">
         <div>
-			<h1 class="title"> {title} </h1>
+			<!-- <h1 class="title"> {title} </h1> -->
 			<div class="precio-contenedor">
 				<p class="price">${Price}</p>
-				<p class="text-white text-xl text-left max-md:text-sm"> {Pricetime.split(' ').slice(0, -1).join(' ')} <span class="text-white font-bold text-xl text-left">{Pricetime.split(' ').pop()}</span></p> 
+				<span class="text-white font-light text-left max-md:text-sm"> {Pricetime}</span> 
 			</div>
-			<p class="title self-start">{Subtitle}</p>
+			<h3 class="text-primaryColor text-center text-[30px] font-light">{Subtitle}</h3>
+			<br>
 		</div>
        
 			<ul class="fila">
 				{
 					Features.map((feature) => (
-						<li class="description">
-							<span class="icono">
+						<li class="">
+							<span class="icono ">
 								<img alt="icono check"  class="image" src="/image/checkwhite.svg"/>
 							</span>
 							{typeof feature === 'string' ? feature : feature.Content}
@@ -43,23 +44,9 @@ const { Price, Buttons, title="SUPER 5G", Features=[""], Subtitle="FREE for ACP 
 					))
 				}
 			</ul>
-        
-        
-      
-<div class="buyOrApply">
-
-	<BuyOrApplyFree 
-	direction='column'
-	buttonText1={Buttons[0].Text}
-	buttonLink1={Buttons[0].Link}
-	buttonText2={Buttons[1].Text}
-	buttonLink2={Buttons[1].Link}
-/>
-	
-</div>
-      
-		<a href={Buttons[2].Text} class="description font-bold link">{Buttons[2].Text}</a>
-		<a href={Buttons[3].Link} class="link">{Buttons[3].Text}</a>
+        <br>
+		<!-- <a href={Buttons[2].Text} class="description font-bold link">{Buttons[2].Text}</a> -->
+		<a href={Buttons[3].Link} class="flex font-[16px] font-bold text-center w-full justify-center">{Buttons[3].Text}</a>
     </div>
 </div>
 
@@ -73,15 +60,7 @@ const { Price, Buttons, title="SUPER 5G", Features=[""], Subtitle="FREE for ACP 
 		scale: 0.8;
 	}
 
-	.contenedor-tarjeta
-	{
-		align-content: flex-start;
-		width: clamp(300px, 50vw, 500px);
-		height: clamp(800px, 100vw, 900px);
-		border-radius: 20px;
-		padding: clamp(4px, 30vw, 30px);
-		background:  linear-gradient(180deg, #00C937 0%, #7A47DD 100%);
-	}
+
 	.link{
 		display:flex;
 		color: #ffffff72;
@@ -112,22 +91,6 @@ const { Price, Buttons, title="SUPER 5G", Features=[""], Subtitle="FREE for ACP 
 		gap:10px;
 		padding-left: clamp(1rem, 50vw, 4rem);
 		padding-right: clamp(1rem, 50vw, 4rem);
-	}
-
-
-	.tarjeta
-	{
-		display: flex;
-		flex-direction: column;
-		flex-grow: 1;
-		flex-wrap: nowrap;
-		
-		justify-content: space-evenly;
-		align-items: center;
-		height: 100%;
-	
-		gap: 10px;
-		
 	}
 
 	.price 
@@ -226,8 +189,8 @@ const { Price, Buttons, title="SUPER 5G", Features=[""], Subtitle="FREE for ACP 
 
 			.icono {
 			display: inline-block;
-			width: 30px;
-			height: 30px;
+			width: 20px;
+			height: 20px;
 			align-self: center;
 			
 			}
@@ -266,8 +229,6 @@ const { Price, Buttons, title="SUPER 5G", Features=[""], Subtitle="FREE for ACP 
 	  .description {
 			display:flex;
 			flex-direction: row;
-		
-		
 			align-items: center;
 			justify-content: flex-start;
 			  color: #fff;
@@ -277,15 +238,7 @@ const { Price, Buttons, title="SUPER 5G", Features=[""], Subtitle="FREE for ACP 
 			  word-spacing: 2px;
 			  gap:0px;
 			}
-		.contenedor-tarjeta
-		{
-		align-content: center;
-		width: clamp(300px, 50vw, 500px);
-		height: clamp(800px, 50vh, 100vh);
-		border-radius: 20px;
-		padding: clamp(4px, 30vw, 30px);
-		background:  linear-gradient(180deg, #00C937 0%, #7A47DD 100%);
-		}
+		
 	}
 
 </style>

@@ -1,6 +1,7 @@
 ---
 import Markdown from './Markdown.astro';
 import BuyOrApplyFree from './BuyOrApplyFree.astro';
+import { setURL } from '../../data/constants';
 
 interface Props {
 	headings?: any;
@@ -10,28 +11,29 @@ interface Props {
     buttons?: any;
     backgroundColor?: string;
     centerContent?: boolean;
+    textAtLeft? : boolean;
 }
 
+const {headings, logo, logoIsInline= true, textBlock, backgroundColor="transparent", centerContent=false, textAtLeft=true} = Astro.props;
 
-const {headings, logo={url: "/image/uwifi_stroke.png", alternativeText: "alternative text"}, logoIsInline= true, textBlock, backgroundColor="transparent", centerContent=false} = Astro.props;
 ---
-<div class="w-full flex place-content-center my-40">
-    
-    <div class="flex md:flex-row flex-col items-center max-w-[1200px] mx-10">
+<div class="w-full flex place-content-center my-20 bg-${backgroundColor}">
+    <div class={`flex ${textAtLeft ? "md:flex-row" : "md:flex-row-reverse"} flex flex-col items-center max-w-[1200px] mx-10`}>
 
         <!-- DIV PARA TEXTO -->
-        <div class="flex flex-col gap-5 md:w-3/5">
+        <div class={`${centerContent ? "" : "md:w-3/5"} flex flex-col gap-5`}>
         
             <!-- Sección de títulos -->
             <div class={`${centerContent ? "" : "md:justify-start"} flex flex-wrap md:gap-4 items-center justify-center leading-none`}>
                 {headings && headings.map((heading: any, index: number) => (
                     <>
                         <Markdown content={heading.Heading.toString()}/>
-                        {index + 1 === headings.length &&
+                        {logo &&
+                            index + 1 === headings.length  &&
                             <img
-                                src={logo["url"]}
+                                src={setURL(logo.data.attributes.url)}
                                 class="w-[60px] h-[60px] mx-2"
-                                alt="Logo"
+                                alt={logo.data.attributes.alternativeText}
                             />
                         }
                     </>
@@ -46,9 +48,13 @@ const {headings, logo={url: "/image/uwifi_stroke.png", alternativeText: "alterna
         
         </div>
         
-        <div class=" flex flex-grow justify-center place-items-center">
+        {!centerContent ?  
+         <div class=" flex flex-grow justify-center place-items-center">
             <slot/>
         </div>
+        : ""
+        }
+       
     </div>
 </div>
 
