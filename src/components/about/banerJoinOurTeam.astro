@@ -8,9 +8,9 @@ const{ strapiData } = Astro.props;
 
 
 const data = strapiData.pageData.data.pageAboutUs.data.attributes;
-const JoinTeamParagraph = strapiData.pageData.data.pageAboutUs.data.attributes.JoinTeamParagraph;
-const Media = strapiData.pageData.data.pageAboutUs.data.attributes.JoinTeamParagraph.Media.data.attributes;
-const Buttons = strapiData.pageData.data.pageAboutUs.data.attributes.JoinTeamParagraph.Buttons[0];
+const JoinTeamParagraph = data.JoinTeamParagraph;
+const Media = JoinTeamParagraph.Media.data.attributes;
+const Buttons = JoinTeamParagraph.Buttons[0];
 const imageurl = `url(${setURL(Media.url)})`;
 ---
 

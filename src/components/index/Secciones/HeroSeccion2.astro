@@ -14,16 +14,18 @@ const paragraphContent = strapiData['pageData']['data']['pageHome']['data']['att
 <section id="#bestinternet">
 	<span class="green-ball-blurred"/>
 	<span class="purple-ball-blurred"/>
+
 	<Paragraph headings={paragraphContent.Headings} textBlock={paragraphContent.Textblock} logo={paragraphContent.IconLogo}>
 		<div  class="flex items-center justify-center m-3">
 			<div class="absolute">
-				<ShapeBackground/>
+				<!-- <ShapeBackground/> -->
 			</div>
-			<div class=" h-[400px] flex relative inset-0">
+			<div class="  md:h-[40vw] md:w-[40vh] max-w-[60vh] max-h-[60vh] flex relative inset-0">
 				<Moden client:visible transition:persist/>
 			</div>
 		</div>
 	</Paragraph>
+	
 </section>
 		  
 <style>
@@ -42,7 +44,7 @@ const paragraphContent = strapiData['pageData']['data']['pageHome']['data']['att
 	
 	.purple-ball-blurred{
 		position: absolute;
-		top: 7%;
+		top: 60vh;
 		right: 10%;
 		width: clamp(300px, 30vw, 500px);
 		height: clamp(300px, 30vw, 500px);

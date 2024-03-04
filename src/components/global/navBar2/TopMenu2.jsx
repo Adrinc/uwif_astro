@@ -104,7 +104,7 @@ const TopMenu = () => {
                     </div>
                     <div className='flex flex-row justify-center p-2'>
                         <img
-                        src="/image/uwifilogo.png"
+                        src="/image/uwifilogo.webp"
                         className={TopMenuStyle.imagemobile}
                         alt='uwifi logo'
                         width="100" height="50"
@@ -137,7 +137,7 @@ const TopMenu = () => {
               <div>
 
                 <img
-                    src="/image/uwifilogo.png"
+                    src="/image/uwifilogo.webp"
                     alt='uwifi logo'
                     className={TopMenuStyle.image}
                 />
@@ -155,7 +155,7 @@ const TopMenu = () => {
                 )}
       
 
-                <nav className={`${TopMenuStyle.navigation} ${isMobile && showMenu ? !TopMenuStyle.showMenu : ''}`}>
+                <nav className={`md:text-[1.2vw] ${TopMenuStyle.navigation} ${isMobile && showMenu ? !TopMenuStyle.showMenu : ''}`}>
                     {links.map(link => (
                         <a 
                             key={link.name}

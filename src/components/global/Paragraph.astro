@@ -17,30 +17,30 @@ interface Props {
 const {headings, logo, logoIsInline= true, textBlock, backgroundColor="transparent", centerContent=false, textAtLeft=true} = Astro.props;
 
 ---
-<div class="w-full flex place-content-center my-20 bg-${backgroundColor}">
-    <div class={`flex ${textAtLeft ? "md:flex-row" : "md:flex-row-reverse"} flex flex-col items-center max-w-[1200px] mx-10`}>
+<div class={`w-full flex place-content-center my-20 bg-${backgroundColor}`}>
+    <div class={`flex ${textAtLeft ? "md:flex-row" : "md:flex-row-reverse"} flex flex-col items-center md:max-w-[1600px] md:mx-[5vw] px-3`}>
 
         <!-- DIV PARA TEXTO -->
         <div class={`${centerContent ? "" : "md:w-3/5"} flex flex-col gap-5`}>
         
             <!-- Sección de títulos -->
-            <div class={`${centerContent ? "" : "md:justify-start"} flex flex-wrap md:gap-4 items-center justify-center leading-none`}>
+            <div class={`${centerContent ? "" : "md:justify-start"} flex flex-wrap  gap-x-4 items-center justify-center leading-none`}>
                 {headings && headings.map((heading: any, index: number) => (
-                    <>
-                        <Markdown content={heading.Heading.toString()}/>
+                    <div class={`flex ${logoIsInline ? "gap-x-4": "flex-col "} items-center`}>
+                        <Markdown textAlign='text-center' content={heading.Heading.toString()}/>
                         {logo &&
                             index + 1 === headings.length  &&
                             <img
                                 src={setURL(logo.data.attributes.url)}
-                                class="w-[60px] h-[60px] mx-2"
+                                class="h-[60px]"
                                 alt={logo.data.attributes.alternativeText}
                             />
                         }
-                    </>
+                    </div>
                 ))}
             </div>
             
-            <Markdown content={textBlock} classN="md:pr-20" textAlign={`${centerContent ? "text-center" : "md:text-justify text-center"}`}/>
+            <Markdown content={textBlock} classN="md:text-[1.5vw] md:pr-20 " textAlign={`${centerContent ? "text-center" : "md:text-justify text-center"}`}/>
             
             <div class={`flex md:justify-start justify-center ${centerContent ? "md:justify-center" : ""}`}>
                 <BuyOrApplyFree/>
