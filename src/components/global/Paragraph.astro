@@ -14,11 +14,13 @@ interface Props {
     textAtLeft? : boolean;
 }
 
-const {headings, logo, logoIsInline= true, textBlock, backgroundColor="transparent", centerContent=false, textAtLeft=true} = Astro.props;
+
+const {headings, logo, logoIsInline= true, textBlock, buttons, backgroundColor="transparent", centerContent=false, textAtLeft=true} = Astro.props;
+console.log("los botones son", buttons);
 
 ---
 <div class={`w-full flex place-content-center my-20 bg-${backgroundColor}`}>
-    <div class={`flex ${textAtLeft ? "md:flex-row" : "md:flex-row-reverse"} flex flex-col items-center md:max-w-[1600px] md:mx-[5vw] px-3`}>
+    <div class={`flex ${textAtLeft ? "md:flex-row" : "md:flex-row-reverse"} flex flex-col items-center md:max-w-[1600px] md:mx-[5vw] px-5`}>
 
         <!-- DIV PARA TEXTO -->
         <div class={`${centerContent ? "" : "md:w-3/5"} flex flex-col gap-5`}>

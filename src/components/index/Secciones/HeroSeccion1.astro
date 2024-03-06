@@ -2,6 +2,7 @@
 
 import { setURL } from "../../../data/constants";
 import BuyOrApplyFree from "../../global/BuyOrApplyFree.astro";
+import CarouselSection from '../../index/Secciones/CarouselSection.astro';
 
 
 interface Props{
@@ -15,12 +16,10 @@ const hero1Seccion_Videos = strapiData['pageData']['data']['pageHome']['data']['
 
 ---
 <section id="home">
-	 <video class="block md:hidden" autoplay muted loop id="myVideo" transition:persist>
-		<source src=`${setURL(hero1Seccion_Videos[1].attributes.url)}`  type="video/mp4">
-	</video>
-	<video class="hidden md:block" autoplay muted loop id="myVideoMobile" transition:persist>
-		<source src=`${setURL(hero1Seccion_Videos[0].attributes.url)}` type="video/mp4">
-	</video>
+	<div class="block" id="mySlider">
+		<CarouselSection/>
+
+	</div>
 
 <div class="botones-back-column w-full flex place-content-center">
 	<div class="botones-back md:rounded-full rounded-3xl bg-black/40 backdrop-blur-lg border border-white/20">
@@ -69,7 +68,7 @@ const hero1Seccion_Videos = strapiData['pageData']['data']['pageHome']['data']['
 		.texto-or{
 			font-size: clamp(10px, 20vw, 24px);
 		}	
-		#myVideo, #myVideoMobile {
+		#mySlider {
 		position: absolute;
        
 		width: 100vw;

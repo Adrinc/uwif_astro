@@ -1,0 +1,214 @@
+---
+import 'keen-slider/keen-slider.min.css'
+const carouselHeight="h-[90vh]";
+
+import Paragraph from '../../global/Paragraph.astro';
+
+
+---
+
+<main class={`bg-green-500 flex items-center justify-center relative`}>
+    
+    <!-- Aquí es donde realmente se define el tamaño. Altura: 80 vh -->
+    <section class={`w-full ${carouselHeight}`}>
+        <!-- Desktop Version -->
+        <div
+            id="slider-wrapper"
+            class="w-full flex h-full"
+        >
+            <!-- Image Slider -->
+            <div
+            id="image-slider"
+            class="w-full absolute"
+            >
+                <!-- For Sizing -->
+                <!-- To set the size of the Image Slider, because it works via 'position: absolute;' -->
+                <div>
+                    <div
+                        class={`w-full ${carouselHeight} -z-10 object-cover bg-black`}
+                    />
+                </div>
+
+                <!-- Image Slider Items -->
+                <!-- Image 1 -->
+                <div
+                    class="keen-slider__slide absolute top-0 w-full justify-center "
+                >
+                    <div class="overflow-hidden">
+                        <img
+                            class={`w-full object-cover ${carouselHeight}`}
+                            src="https://picsum.photos/id/70/600/400"
+                        />
+                    </div>
+                </div>
+
+                <!-- Image 2 -->
+                <div
+                    class="keen-slider__slide absolute top-0 w-full justify-center opacity-0"
+                >
+                    <div class=" overflow-hidden">
+                        <img
+                            class={`w-full object-cover ${carouselHeight}`}
+                            src="https://picsum.photos/id/83/600/400"
+                        />
+                    </div>
+                </div>
+
+                <!-- Image 3 -->
+                <div
+                    class="keen-slider__slide absolute top-0 w-full  justify-center opacity-0"
+                >
+                    <div class=" overflow-hidden">
+                        <img
+                            class={`w-full object-cover ${carouselHeight}`}
+                            src="https://picsum.photos/id/94/600/400"
+                        />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Text Slider -->
+            <div id="text-slider" class="keen-slider absolute bg-[#080514]/70">
+                <!-- Text Slider Items -->
+                <!-- Text 1 -->
+                <div
+                    class="keen-slider__slide h-full w-full flex flex-col justify-center"
+                >
+                    <Paragraph textBlock='' headings={[{"Heading":"## **It's all** for"}]} centerContent={true}/>
+                </div>
+
+                <!-- Text 2 -->
+                <div
+                    class="keen-slider__slide h-full w-full flex flex-col justify-center"
+                >
+                    <div class="text-lg text-white font-medium">
+                        2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
+                        recusandae nisi mollitia vel facere dolorem ad sapiente nesciunt,
+                        assumenda quod quisquam a qui voluptatem magni beatae iste
+                        molestias impedit voluptatum.
+                    </div>
+                </div>
+
+                <!-- Text 3 -->
+                <div
+                    class="keen-slider__slide h-full w-full flex flex-col justify-center"
+                >
+                    <div class="text-lg text-white font-medium">
+                        3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
+                        recusandae nisi mollitia vel facere dolorem ad sapiente nesciunt,
+                        assumenda quod quisquam a qui voluptatem magni beatae iste
+                        molestias impedit voluptatum.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script>
+    import KeenSlider from "keen-slider";
+    
+document.addEventListener("DOMContentLoaded", async function () {
+    // Params
+    const animationDuration = 2000;
+    const autoplayDelay = 10000;
+
+    // UI
+    const sectionWrapper = document.querySelector("#slider-wrapper");
+
+    // Image Slider
+    const imageSlider = new KeenSlider(
+        "#image-slider",
+        {
+            loop: true,
+            defaultAnimation: {
+                duration: animationDuration,
+            },
+            detailsChanged: (s: any) => {
+                s.slides.forEach((element: any, idx: any) => {
+                element.style.opacity = s.track.details.slides[idx].portion;
+                });
+            },
+            renderMode: "custom",
+        },
+        [
+            (slider: any) => {
+                let timeout: any;
+                let mouseOver = false;
+                function clearNextTimeout() {
+                clearTimeout(timeout);
+                }
+                function nextTimeout() {
+                clearTimeout(timeout);
+                if (mouseOver) return;
+                timeout = setTimeout(() => {
+                    slider.next();
+                }, autoplayDelay);
+                }
+                slider.on("created", () => {
+                slider.container.addEventListener("mouseover", () => {
+                    mouseOver = true;
+                    clearNextTimeout();
+                });
+                slider.container.addEventListener("mouseout", () => {
+                    mouseOver = false;
+                    nextTimeout();
+                });
+                nextTimeout();
+                });
+                slider.on("dragStarted", clearNextTimeout);
+                slider.on("animationEnded", nextTimeout);
+                slider.on("updated", nextTimeout);
+            },
+        ]
+    );
+
+    // Text Slider
+    const textSlider = new KeenSlider(
+        "#text-slider",
+        {
+            defaultAnimation: {
+                duration: animationDuration,
+            },
+            loop: true,
+            slides: {
+                origin: "center",
+                perView: 1
+            },
+            vertical: true,
+            detailsChanged: (s: any) => {
+                const slides = s.track.details.slides;
+               
+            },
+            initial: 0,
+        },
+        [SyncSlidersPlugin(imageSlider)]
+    );
+
+
+    // Sync sliders
+    function SyncSlidersPlugin(secondSlider: any) {
+        return (firstSlider: any) => {
+        firstSlider.on("created", () => {
+            // Sync
+            secondSlider.on("slideChanged", (secondSlider: any) => {
+                const nextId = secondSlider.track.details.rel;
+
+                firstSlider.moveToIdx(nextId);
+            });
+
+            firstSlider.on("slideChanged", (firstSlider: any) => {
+                const nextId = firstSlider.track.details.rel;
+
+                secondSlider.moveToIdx(nextId);
+            });
+
+            // Click on Wrapper
+            sectionWrapper && sectionWrapper.addEventListener("click", () => {
+                firstSlider.next();
+            });
+        });
+        };
+    }
+});
+</script>

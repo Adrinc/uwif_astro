@@ -36,6 +36,10 @@ export const GetHeroSeccionFull = () => {
                 IconLogo{
                   ${mediaUrl}
                 }
+                Buttons{
+                  Text
+                  Link
+                }
               }
             
 

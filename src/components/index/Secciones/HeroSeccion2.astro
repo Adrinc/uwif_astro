@@ -1,57 +1,23 @@
 ---
 import Moden from '../../global/animations/ThreeFiber/scene3D/ModenScene/Main3D';
 import Paragraph from '../../global/Paragraph.astro';
-import ShapeBackground from '../../global/ShapeBackground.astro';
+import BlurryBall from '../../global/BlurryBall.astro';
 
 interface Props{
     strapiData: any;
 }
 const{ strapiData } = Astro.props;
-
-
 const paragraphContent = strapiData['pageData']['data']['pageHome']['data']['attributes']['PrimaryParagraph'];
+console.log("el contenido del párrafo es:", paragraphContent);
 ---
-<section id="#bestinternet">
-	<span class="green-ball-blurred"/>
-	<span class="purple-ball-blurred"/>
-
-	<Paragraph headings={paragraphContent.Headings} textBlock={paragraphContent.Textblock} logo={paragraphContent.IconLogo}>
-		<div  class="flex items-center justify-center m-3">
-			<div class="absolute">
-				<!-- <ShapeBackground/> -->
-			</div>
+<section class="relative" >
+	<BlurryBall position="top-[-400px] end-[200px]" background='var(--secondary-color)' size="400px"/>
+	
+	<Paragraph headings={paragraphContent.Headings} textBlock={paragraphContent.Textblock} logo={paragraphContent.IconLogo} buttons={paragraphContent.Buttons} >
+		<div class="flex items-center justify-center m-3">
 			<div class="  md:h-[40vw] md:w-[40vh] max-w-[60vh] max-h-[60vh] flex relative inset-0">
 				<Moden client:visible transition:persist/>
 			</div>
 		</div>
 	</Paragraph>
-	
 </section>
-		  
-<style>
-	.green-ball-blurred{
-		position: absolute;
-		top: 23%;
-		left: 15%;
-		width: clamp(250px, 15vw, 350px);
-		height: clamp(250px, 15vw, 350px);
-		border-radius: 100%;
-		rotate: -45deg;
-		filter: blur(100px);
-		z-index: -1;
-		background: linear-gradient(#03fb77a0 20%, #8743e56a 40%, #2356ff89 100%);
-	}
-	
-	.purple-ball-blurred{
-		position: absolute;
-		top: 60vh;
-		right: 10%;
-		width: clamp(300px, 30vw, 500px);
-		height: clamp(300px, 30vw, 500px);
-		border-radius: 100%;
-		rotate: -45deg;
-		filter: blur(80px);
-		z-index: -10;
-		background: linear-gradient( #8743e5d6 0%, #8743e58e 60%, #2356ff89 100%);
-	}		
- </style>

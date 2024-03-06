@@ -1,0 +1,31 @@
+---
+interface Props {
+	background?: string;
+    size?: string;
+	position?: string;
+}
+
+const {background="green-500", size="300px", position} = Astro.props;
+
+---
+<div
+style={
+	`
+	--size: ${size};
+	--background: ${background}
+	`
+	} 
+class={`absolute styling -z-10 rounded-full blur-[150px] ${position}`}>
+</div>
+
+
+
+<style>
+	.styling{
+	width: var(--size);
+	height: var(--size);
+	max-width: 80vw;
+	max-height: 80vw;
+	background: var(--background);
+}
+ </style>
