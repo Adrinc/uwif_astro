@@ -2,6 +2,7 @@
 
 import { setURL } from "../../../data/constants";
 import BuyOrApplyFree from "../../global/BuyOrApplyFree.astro";
+import Markdown from "../../global/Markdown.astro";
 import CarouselSection from '../../index/Secciones/CarouselSection.astro';
 
 
@@ -15,13 +16,19 @@ const hero1Seccion_Buttons = strapiData['pageData']['data']['pageHome']['data'][
 const hero1Seccion_Videos = strapiData['pageData']['data']['pageHome']['data']['attributes']['HeroVideo']['data'];
 
 ---
-<section id="home">
+<section id="home" class="relative">
 	<div class="block" id="mySlider">
 		<CarouselSection/>
-
 	</div>
 
-<div class="botones-back-column w-full flex place-content-center">
+<div class="absolute flex flex-col w-full h-full items-center justify-between place-content-center md:py-[3vh]">
+	<div class="rounded-b-full bg-black/30 backdrop-blur-md border border-white/10 py-10 px-20 mx-10">
+		<Markdown textAlign="text-center" classN={"leading-none"} content={
+		`
+# **High-speed internet**
+at a pleasantly surprising cost.
+`}/>
+	</div>
 	<div class="botones-back md:rounded-full rounded-3xl bg-black/40 backdrop-blur-lg border border-white/20">
 		<BuyOrApplyFree
 			buttonText1={hero1Seccion_Buttons[0].Text}

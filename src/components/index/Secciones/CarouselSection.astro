@@ -4,7 +4,7 @@ const carouselHeight="h-[90vh]";
 
 import Paragraph from '../../global/Paragraph.astro';
 
-
+const bottomRadius="md:rounded-b-[400px] rounded-b-full"
 ---
 
 <main class={`flex items-center justify-center relative`}>
@@ -25,7 +25,7 @@ import Paragraph from '../../global/Paragraph.astro';
                 <!-- To set the size of the Image Slider, because it works via 'position: absolute;' -->
                 <div>
                     <div
-                        class={`w-full ${carouselHeight} -z-10 object-cover bg-black`}
+                        class={`w-full ${carouselHeight} -z-10 object-cover bg-black ${bottomRadius}`}
                     />
                 </div>
 
@@ -34,7 +34,7 @@ import Paragraph from '../../global/Paragraph.astro';
                 <div
                     class="keen-slider__slide absolute top-0 w-full justify-center "
                 >
-                    <div class="overflow-hidden">
+                    <div class={`overflow-hidden ${bottomRadius}`}>
                         <video autoplay muted loop 
                             class={`w-full object-cover ${carouselHeight}`}
                             src="/videos/Slide01.mp4"
@@ -46,7 +46,7 @@ import Paragraph from '../../global/Paragraph.astro';
                 <div
                     class="keen-slider__slide absolute top-0 w-full justify-center opacity-0"
                 >
-                    <div class=" overflow-hidden">
+                    <div class={`overflow-hidden ${bottomRadius}`}>
                         <video autoplay muted loop 
                             class={`w-full object-cover ${carouselHeight}`}
                             src="/videos/Slide02.mp4"
@@ -58,7 +58,7 @@ import Paragraph from '../../global/Paragraph.astro';
                 <div
                     class="keen-slider__slide absolute top-0 w-full  justify-center opacity-0"
                 >
-                    <div class=" overflow-hidden">
+                    <div class={`overflow-hidden ${bottomRadius}`}>
                         <video autoplay muted loop 
                         class={`w-full object-cover ${carouselHeight}`}
                         src="/videos/Slide03.mp4"
@@ -70,7 +70,7 @@ import Paragraph from '../../global/Paragraph.astro';
                 <div
                     class="keen-slider__slide absolute top-0 w-full  justify-center opacity-0"
                 >
-                    <div class=" overflow-hidden">
+                    <div class={`overflow-hidden ${bottomRadius}`}>
                         <video autoplay muted loop 
                         class={`w-full object-cover ${carouselHeight}`}
                         src="/videos/Slide04.mp4"
@@ -80,34 +80,34 @@ import Paragraph from '../../global/Paragraph.astro';
             </div>
 
             <!-- Text Slider -->
-            <div id="text-slider" class="keen-slider absolute bg-[#080514]/60">
+            <div id="text-slider" class={`keen-slider absolute bg-[#080514]/50 ${bottomRadius}`}>
                 <!-- Text Slider Items -->
                 <!-- Text 1 -->
                 <div
                     class="keen-slider__slide h-full w-full flex flex-col justify-center"
                 >
-                    <Paragraph textBlock='' headings={[{"Heading":"## **Ready for** <br> the new U."}]} centerContent={true}/>
+                    <Paragraph textBlock='' headings={[{"Heading":"### **Ready for** <br> the new U."}]} centerContent={true}/>
                 </div>
 
                 <!-- Text 2 -->
                 <div
                     class="keen-slider__slide h-full w-full flex flex-col justify-center"
                 >
-                <Paragraph textBlock='' headings={[{"Heading":"## **It's all** <br> about U."}]} centerContent={true}/>
+                <Paragraph textBlock='' headings={[{"Heading":"### **It's all** <br> about U."}]} centerContent={true}/>
                 </div>
 
                 <!-- Text 3 -->
                 <div
                     class="keen-slider__slide h-full w-full flex flex-col justify-center"
                 >
-                <Paragraph textBlock='' headings={[{"Heading":"## Connect with the ones <br> **U care about**"}]} centerContent={true}/>
+                <Paragraph textBlock='' headings={[{"Heading":"### Connect with the ones <br> **U care about**"}]} centerContent={true}/>
                 </div>
 
                 <!-- Text 4 -->
                 <div
                     class="keen-slider__slide h-full w-full flex flex-col justify-center"
                 >
-                <Paragraph textBlock='' headings={[{"Heading":"## Always on <br> **dual connections.**"}]} centerContent={true}/>
+                <Paragraph textBlock='' headings={[{"Heading":"### Always on <br> **dual connections.**"}]} centerContent={true}/>
                 </div>
             </div>
         </div>
