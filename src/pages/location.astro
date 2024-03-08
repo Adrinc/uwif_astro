@@ -4,11 +4,18 @@ import HeroLocationSeccion from '../components/location/Secciones/HeroLocationSe
 import WelcomeToWifiSeccion from '../components/location/Secciones/WelcomeToWifiSeccion.astro';
 import ThreeCards from '../components/location/ThreeCards.astro';
 import CallNow from '../components/location/CallNow.astro';
+import { getPageData } from '../services/graphql';
+import { LocationQuery } from '../data/queries/LocationQuerys';
+
+const data = await getPageData(LocationQuery());
+
+const layoutData = data.layoutData;
+const seoData = data.pageData['data']['sectionLocationsConst']['data']['attributes']['SEO']
 ---
 
 
 
-<Layout title="LOCATION">
+<Layout seoData={seoData} dataLayout={layoutData}>
 	
 <HeroLocationSeccion />
 <WelcomeToWifiSeccion />

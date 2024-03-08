@@ -1,4 +1,4 @@
-import { compIcon, mediaUrl } from "../constants"
+import { compIcon, mediaUrl, sectionSEO } from "../constants"
 
 
 
@@ -115,13 +115,15 @@ export const GetHeroSeccionFull = () => {
                 Title
                 Content
               }
+
+              ${sectionSEO}
             }
           }
         }
       }
           
           `
-  }
+  };
 
 export const GetHero1Seccion = () => {
     return  `

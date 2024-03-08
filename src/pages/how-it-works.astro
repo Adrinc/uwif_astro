@@ -9,12 +9,12 @@ import * as HowItWorksData from '../data/queries/HowItWorksQuerys';
 
 
 const data = await getPageData(HowItWorksData.GetHowItWorksSeccionFull());
-
-
+const layoutData = data.layoutData;
+const seoData = data.pageData['data']['pageHiw']['data']['attributes']['SEO']
 
 ---
 
-<Layout title="How it works?">
+<Layout seoData={seoData} dataLayout={layoutData}>
 	
 
 	<HeroHIWSeccion strapiData={data}/> 
@@ -22,8 +22,3 @@ const data = await getPageData(HowItWorksData.GetHowItWorksSeccionFull());
 	<ConectionSeccion strapiData={data}/>
 
 </Layout>
-
-
-
-
-../data/queries/HowItWorksQuerys

@@ -1,4 +1,4 @@
-import { compIcon, mediaUrl } from "../constants"
+import { compIcon, mediaUrl, sectionSEO } from "../constants"
 
 export const GetHowItWorksSeccionFull = () => {
   return  `
@@ -50,6 +50,16 @@ export const GetHowItWorksSeccionFull = () => {
               #GETAWAY (INCOMPLETE)
                 
               #--------------
+
+              InternetParagraph{
+                Headings{
+                  Heading
+                }
+                Textblock
+                Media{
+                  ${mediaUrl}
+                }
+              }
            
               GatewayParagraph{
                 Textblock,
@@ -61,7 +71,7 @@ export const GetHowItWorksSeccionFull = () => {
             
               }
               #--------------
-            
+            ${sectionSEO}
           }
         }
       }

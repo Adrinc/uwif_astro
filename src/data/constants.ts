@@ -19,7 +19,6 @@ export const sectionSEO = `SEO{
     MetaTitle
     MetaDescription
     Keywords
-    preventIndexing
     Schema
   }`;
 

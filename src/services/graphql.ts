@@ -1,4 +1,5 @@
 import { gqlURL } from "../data/constants";
+import { MenuQuery } from "../data/queries/LayoutQuery";
 
 export async function GQLQuery (query:string) {
     const resp  = await fetch(gqlURL,{
@@ -14,8 +15,9 @@ export async function GQLQuery (query:string) {
 export async function getPageData(query:string, getLayoutData:boolean=true){
     let layoutData ={};
     if(getLayoutData){
-        //layoutData = await GQLQuery(LayoutQuery());
+        layoutData = await GQLQuery(MenuQuery());
     }
+
     const pageData = await GQLQuery(query);
 
     return {

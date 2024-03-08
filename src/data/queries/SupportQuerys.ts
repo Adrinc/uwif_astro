@@ -1,3 +1,5 @@
+import { sectionSEO } from "../constants";
+
 export const GetSupportFull = () => {
     return  `
     query {
@@ -39,6 +41,7 @@ export const GetSupportFull = () => {
             
             
             #------------------  
+            ${sectionSEO}
             }
           }
         }
@@ -46,4 +49,4 @@ export const GetSupportFull = () => {
       }
           
           `
-  }
+  };

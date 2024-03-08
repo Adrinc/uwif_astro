@@ -1,6 +1,6 @@
 import { compIcon, mediaUrl, sectionSEO } from "../constants"
 
-export const joinData = () => {
+export const joinQuery = () => {
     return  `
     query pageLaunch {
         pagePreLaunch{
@@ -21,6 +21,10 @@ export const joinData = () => {
                   Pattern
                   Placeholder
                 }
+                Button{
+                  Text
+                  Link
+                }
               }
               Buttons{
                 Text
@@ -36,4 +40,4 @@ export const joinData = () => {
         }
       }
 `
-  }
+  };

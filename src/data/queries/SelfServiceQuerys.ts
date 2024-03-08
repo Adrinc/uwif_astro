@@ -1,4 +1,4 @@
-import { mediaUrl } from "../constants"
+import { mediaUrl, sectionSEO } from "../constants"
 
 export const GetSelfServiceFull = () => {
     return  `
@@ -97,10 +97,11 @@ export const GetSelfServiceFull = () => {
               }
               
               
-            #------------------  
+            #------------------ 
+            ${sectionSEO} 
             }
           }
         }
       }
           `
-  }
+  };

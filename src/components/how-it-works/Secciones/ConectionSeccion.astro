@@ -2,14 +2,17 @@
 import BotonFlecha from "../../global/BotonFlecha.astro";
 import Baner5GWifi from "../Baner5GWifi.astro";
 import App from "../../global/animations/Rive/antenas.jsx";
+import Markdown from "../../global/Markdown.astro";
 
 interface Props{
     strapiData: any;
 }
 const{ strapiData } = Astro.props;
 
-const baner = strapiData.pageData.data.pageHiw.data.attributes.Banner;
 
+const dataPage = strapiData.pageData.data.pageHiw.data.attributes;
+
+const baner = dataPage.Banner;
 
 ---
 <section  id="5g">
@@ -24,23 +27,20 @@ const baner = strapiData.pageData.data.pageHiw.data.attributes.Banner;
 
     <div class="row-how-5g">
         <div class="column-left-how-5g">
-            <div class="title">How our 5G internet is different</div>
-            <div class="description">While cable internet relies on wired connections, UWIFI Internet uses the power of over-the-air 5G to provide reliable connectivity where wires can’t reach. Plus, we won’t tangle you up in long-term contracts.</div>
+            <Markdown classN="[&>h1]:text-white [&>h1]:font-bold [&>p]:font-[100]" content={dataPage['InternetParagraph']['Textblock'].split('\n\n')[0]}></Markdown>
         </div>
         <div class="column-right-how-5g">
-            <div class="title">How our 5G home internet works</div>
-            <div class="description">UWIFI 5G network is built on a series of cell sites that use radio waves to send and receive data. Your gateway converts the nearest 5G signal into Wi-Fi, allowing you to access the internet wirelessly.</div>
+            <Markdown classN="[&>h1]:text-white [&>h1]:font-bold [&>p]:font-[100]" content={dataPage['InternetParagraph']['Textblock'].split('\n\n')[1]}></Markdown>
         </div>
     </div>
 
   
-        <p class="title-big">Does the placement of your 5G gateway matter?</p>
+        <p class="title-big">{dataPage['GatewayParagraph']['Headings'][0]['Heading']}</p>
 
         <div class="row-how-5g">
-            <div class="column-left-how-5g">
-                <div class="title">How our 5G internet is different</div>
-                <div class="description">window facilitates a strong connection to the closest 5G cell tower or data hub, resulting in faster download and upload speeds, lower latency, and increased capacity compared to locations with weaker connections.</div>
-                <BotonFlecha texto="Device Details" link="/#" />
+            <div class="column-left-how-5g ">
+                <Markdown classN="[&>h1]:text-white [&>h1]:font-bold [&>p]:font-[100]" content={dataPage['GatewayParagraph']['Textblock']}></Markdown>
+                <BotonFlecha texto={dataPage['GatewayParagraph']['Buttons'][0]['Text']} link={dataPage['GatewayParagraph']['Buttons'][0]['Link']} />
             </div>
           
             <div class="flex flex-row bg-slate-400 w-[600px] h-[300px] rounded-lg"></div>

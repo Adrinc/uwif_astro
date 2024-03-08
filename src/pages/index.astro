@@ -14,9 +14,12 @@ import * as IndexData from '../data/queries/homeQuerys';
 
 const data  = await getPageData(IndexData.GetHeroSeccionFull());
 
+const dataLayout = data.layoutData;
+const seoData = data.pageData['data']['pageHome']['data']['attributes']['SEO'];
+
 ---
 
-<Layout title="Home">
+<Layout seoData={seoData} dataLayout={dataLayout} >
 
 	<HeroSeccion1 strapiData={data}/>
 	<HeroSeccion2 strapiData={data}/>

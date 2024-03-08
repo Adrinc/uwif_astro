@@ -12,12 +12,14 @@ import SupportSeccion from '../components/Support/Secciones/SupportSeccion.astro
 
 
 const data = await getPageData(SupportQuerys.GetSupportFull());
+const layoutData = data.layoutData;
+const seoData = data.pageData['data']['pageSupport']['data']['attributes']['SEO']
 
 ---
 
 
 
-<Layout title="FAQ & SUPPORT">
+<Layout seoData={seoData} dataLayout={layoutData}>
 	
 <SupportSeccion strapiData={data}/>
 <ContactNumbers strapiData={data}/>
@@ -25,4 +27,3 @@ const data = await getPageData(SupportQuerys.GetSupportFull());
 <Robot/>
 
 </Layout>
-../data/queries/SupportQuerys

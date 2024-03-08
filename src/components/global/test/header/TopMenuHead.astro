@@ -1,12 +1,18 @@
 ---
+interface Props{
+  data:any;
+}
 
-
+const {data} = Astro.props;
 ---
 
 <div class="main bg-white/25 ">
 
-    <p>Info@wifi.com</p>
-    <p>(555) 12 34 56</p>
+    {data.map((button:any)=>(
+       <a href={button['Link']}>
+        <p>{button['Text']}</p>
+        </a>
+    ))}
 
   </div>
   

@@ -13,9 +13,13 @@ import {getPageData} from '../services/graphql';
 import * as SelfServiceData from '../data/queries/SelfServiceQuerys';
 
 const data = await getPageData(SelfServiceData.GetSelfServiceFull());
+
+const dataLayout = data.layoutData;
+
+const seoData = data.pageData['data']['pageSelfServ']['data']['attributes']['SEO'];
 ---
 
-<Layout title="Self services">
+<Layout seoData={seoData} dataLayout={dataLayout}>
 	
 	<HeroSelfServices strapiData={data}/>
 	<SimpleToolsSeccion strapiData={data}/>
@@ -27,9 +31,3 @@ const data = await getPageData(SelfServiceData.GetSelfServiceFull());
 
 	<Robot/>
 </Layout>
-
-
-
-
-
-../data/queries/SelfServiceQuerys

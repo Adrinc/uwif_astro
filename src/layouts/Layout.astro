@@ -4,33 +4,41 @@ import NavBar from '../components/global/navBar2/RouterLinks.jsx';
 import TopMenuHead from '../components/global/test/header/TopMenuHead.astro';
 import FootUWIFI from '../components/global/foot/FootUWIFI.astro';
 import { ViewTransitions } from 'astro:transitions';
+
 interface Props {
-	title: string;
 	showNavBar?: boolean;
 	showFooter?: boolean;
+	dataLayout:any;
+	seoData:any
 }
 
-const { title, showNavBar=true, showFooter=true } = Astro.props;
+const {showNavBar=true, showFooter=true, dataLayout, seoData } = Astro.props;
+
+console.log(dataLayout)
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="faviui.png" />
-		<meta name="generator" content={Astro.generator} />
-
+		<meta name="generator" content={Astro.generator}>
+		
+		<title>{seoData['MetaTitle']}</title>
+		
+		<meta name="title" content={seoData['MetaTitle']}>
+		<meta name="description" content={seoData['MetaDescription']}>
+		<meta name="keywords" content={seoData['Keywords']}>
+		
 		<style>
 			@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,700&display=swap');
 		  </style>
 
-		<title>{title}</title>
 		<ViewTransitions />
 	</head>
 	<header>
-		<TopMenuHead />
+		<TopMenuHead data={dataLayout['data']['generalMenu']['data']['attributes']['ContactOptions']}/>
 		{showNavBar && <NavBar  transition:persist client:only />}
 	</header>
 	<body>	
@@ -43,7 +51,7 @@ const { title, showNavBar=true, showFooter=true } = Astro.props;
 	</main>
 	</body>
 	
-		{showFooter && <FootUWIFI />}
+		{showFooter && <FootUWIFI/>}
 	
 </html>
 <style is:global>

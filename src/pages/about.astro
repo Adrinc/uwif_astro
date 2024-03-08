@@ -8,24 +8,23 @@ import BanerJoinOurTeam from '../components/about/banerJoinOurTeam.astro';
 import AboutUSeccion from '../components/about/Secciones/AboutUSeccion.astro';
 
 import {getPageData} from '../services/graphql';
-import * as AboutQuerys from '../data/queries/AboutQuerys';
+import { GetAboutFull } from '../data/queries/AboutQuerys';
 
 
-
-const data = await getPageData(AboutQuerys.GetAboutFull());
+const data = await getPageData(GetAboutFull());
+console.log(data.pageData);
 ---
 
 
 
-<Layout title="ABOUT US">
+<Layout dataLayout={data.layoutData} seoData={data.pageData['data']['pageAboutUs']['data']['attributes']['SEO']}>
 	
 <HeroAbout strapiData={data}/>
 <BanerSuccesNumbers strapiData={data}/>
-<AboutUSeccion strapiData={data}/>
-<MeetOurSeccion strapiData={data}/>
+<AboutUSeccion strapiData={data.pageData['data']['pageAboutUs']['data']['attributes']['AboutParagraphs']}/>
+<MeetOurSeccion strapiData={data.pageData['data']['pageAboutUs']['data']['attributes']['AboutParagraphs']}/>
 <OurDifferentialsSeccion strapiData={data}/>
 <BanerJoinOurTeam strapiData={data}/>
 
 
 </Layout>
-../data/queries/AboutQuerys

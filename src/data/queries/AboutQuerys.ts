@@ -1,17 +1,10 @@
-import { compIcon, mediaUrl } from "../constants"
+import { compIcon, mediaUrl, sectionSEO } from "../constants"
 
 export const GetAboutFull = () => {
-    return  `
-    
-    
-    query {
-
+    return  `query {
         pageAboutUs{
           data{
             attributes{
-              #------------------
-              #------------------HeroAbout
-              
               Header{
                 Textblock,
                 Headings{
@@ -38,7 +31,9 @@ export const GetAboutFull = () => {
               AboutParagraphs{
                 Headings{Heading}
                 Textblock
-                
+                Media{
+                  ${mediaUrl}
+                }
               }
               
               
@@ -74,14 +69,12 @@ export const GetAboutFull = () => {
                 Media{
                   ${mediaUrl}
                 }
+
               }
-              
-            #------------------  
+              ${sectionSEO}
             }
           }
         }
             
-      }
-      
-          `
-  }
+      } `
+  };
