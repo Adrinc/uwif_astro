@@ -43,10 +43,13 @@ console.log("los botones son", buttons);
             </div>
             
             <Markdown content={textBlock} classN="md:text-[1.5vw] md:pr-20 " textAlign={`${centerContent ? "text-center" : "md:text-justify text-center"}`}/>
-            
+
+            {buttons && 
             <div class={`flex md:justify-start justify-center ${centerContent ? "md:justify-center" : ""}`}>
                 <BuyOrApplyFree/>
             </div>
+            }
+            
         
         </div>
         

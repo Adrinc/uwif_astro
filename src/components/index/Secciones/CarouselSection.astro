@@ -7,7 +7,7 @@ import Paragraph from '../../global/Paragraph.astro';
 
 ---
 
-<main class={`bg-green-500 flex items-center justify-center relative`}>
+<main class={`flex items-center justify-center relative`}>
     
     <!-- Aquí es donde realmente se define el tamaño. Altura: 80 vh -->
     <section class={`w-full ${carouselHeight}`}>
@@ -16,7 +16,7 @@ import Paragraph from '../../global/Paragraph.astro';
             id="slider-wrapper"
             class="w-full flex h-full"
         >
-            <!-- Image Slider -->
+            <!-- Video Slider -->
             <div
             id="image-slider"
             class="w-full absolute"
@@ -35,9 +35,9 @@ import Paragraph from '../../global/Paragraph.astro';
                     class="keen-slider__slide absolute top-0 w-full justify-center "
                 >
                     <div class="overflow-hidden">
-                        <img
+                        <video autoplay muted loop 
                             class={`w-full object-cover ${carouselHeight}`}
-                            src="https://picsum.photos/id/70/600/400"
+                            src="/videos/Slide01.mp4"
                         />
                     </div>
                 </div>
@@ -47,9 +47,9 @@ import Paragraph from '../../global/Paragraph.astro';
                     class="keen-slider__slide absolute top-0 w-full justify-center opacity-0"
                 >
                     <div class=" overflow-hidden">
-                        <img
+                        <video autoplay muted loop 
                             class={`w-full object-cover ${carouselHeight}`}
-                            src="https://picsum.photos/id/83/600/400"
+                            src="/videos/Slide02.mp4"
                         />
                     </div>
                 </div>
@@ -59,46 +59,55 @@ import Paragraph from '../../global/Paragraph.astro';
                     class="keen-slider__slide absolute top-0 w-full  justify-center opacity-0"
                 >
                     <div class=" overflow-hidden">
-                        <img
-                            class={`w-full object-cover ${carouselHeight}`}
-                            src="https://picsum.photos/id/94/600/400"
-                        />
+                        <video autoplay muted loop 
+                        class={`w-full object-cover ${carouselHeight}`}
+                        src="/videos/Slide03.mp4"
+                    />
+                    </div>
+                </div>
+
+                <!-- Image 4 -->
+                <div
+                    class="keen-slider__slide absolute top-0 w-full  justify-center opacity-0"
+                >
+                    <div class=" overflow-hidden">
+                        <video autoplay muted loop 
+                        class={`w-full object-cover ${carouselHeight}`}
+                        src="/videos/Slide04.mp4"
+                    />
                     </div>
                 </div>
             </div>
 
             <!-- Text Slider -->
-            <div id="text-slider" class="keen-slider absolute bg-[#080514]/70">
+            <div id="text-slider" class="keen-slider absolute bg-[#080514]/60">
                 <!-- Text Slider Items -->
                 <!-- Text 1 -->
                 <div
                     class="keen-slider__slide h-full w-full flex flex-col justify-center"
                 >
-                    <Paragraph textBlock='' headings={[{"Heading":"## **It's all** for"}]} centerContent={true}/>
+                    <Paragraph textBlock='' headings={[{"Heading":"## **Ready for** <br> the new U."}]} centerContent={true}/>
                 </div>
 
                 <!-- Text 2 -->
                 <div
                     class="keen-slider__slide h-full w-full flex flex-col justify-center"
                 >
-                    <div class="text-lg text-white font-medium">
-                        2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
-                        recusandae nisi mollitia vel facere dolorem ad sapiente nesciunt,
-                        assumenda quod quisquam a qui voluptatem magni beatae iste
-                        molestias impedit voluptatum.
-                    </div>
+                <Paragraph textBlock='' headings={[{"Heading":"## **It's all** <br> about U."}]} centerContent={true}/>
                 </div>
 
                 <!-- Text 3 -->
                 <div
                     class="keen-slider__slide h-full w-full flex flex-col justify-center"
                 >
-                    <div class="text-lg text-white font-medium">
-                        3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
-                        recusandae nisi mollitia vel facere dolorem ad sapiente nesciunt,
-                        assumenda quod quisquam a qui voluptatem magni beatae iste
-                        molestias impedit voluptatum.
-                    </div>
+                <Paragraph textBlock='' headings={[{"Heading":"## Connect with the ones <br> **U care about**"}]} centerContent={true}/>
+                </div>
+
+                <!-- Text 4 -->
+                <div
+                    class="keen-slider__slide h-full w-full flex flex-col justify-center"
+                >
+                <Paragraph textBlock='' headings={[{"Heading":"## Always on <br> **dual connections.**"}]} centerContent={true}/>
                 </div>
             </div>
         </div>
@@ -110,8 +119,8 @@ import Paragraph from '../../global/Paragraph.astro';
     
 document.addEventListener("DOMContentLoaded", async function () {
     // Params
-    const animationDuration = 2000;
-    const autoplayDelay = 10000;
+    const animationDuration = 2500;
+    const autoplayDelay = 5000;
 
     // UI
     const sectionWrapper = document.querySelector("#slider-wrapper");
@@ -143,7 +152,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                 if (mouseOver) return;
                 timeout = setTimeout(() => {
                     slider.next();
-                }, autoplayDelay);
+                }, (autoplayDelay));
                 }
                 slider.on("created", () => {
                 slider.container.addEventListener("mouseover", () => {
@@ -168,7 +177,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         "#text-slider",
         {
             defaultAnimation: {
-                duration: animationDuration,
+                duration: (animationDuration),
             },
             loop: true,
             slides: {
