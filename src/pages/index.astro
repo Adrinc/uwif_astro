@@ -15,13 +15,14 @@ import * as IndexData from '../data/queries/homeQuerys';
 const data  = await getPageData(IndexData.GetHeroSeccionFull());
 
 const dataLayout = data.layoutData;
-const seoData = data.pageData['data']['pageHome']['data']['attributes']['SEO'];
+const pageData= data.pageData['data']['pageHome']['data']['attributes'];
+const seoData = pageData['SEO'];
 
 ---
 
 <Layout seoData={seoData} dataLayout={dataLayout} >
 
-	<HeroSeccion1 strapiData={data}/>
+	<HeroSeccion1 sectionData={pageData}/>
 	<HeroSeccion2 strapiData={data}/>
 	<BentogridSeccion2 strapiData={data}/>
 	<JustOnePlanSeccion strapiData={data}/> 

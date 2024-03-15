@@ -12,9 +12,17 @@ export const GetHeroSeccionFull = () => {
               #-------------- 
               # HERO 1
               #-------------- 
-              HeroVideo{
-                ${mediaUrl}
-              }
+              Title
+        Slides{
+          Background{
+            ${mediaUrl}
+          }
+          TextBLogo
+          Logo{
+            ${mediaUrl}
+          }
+          TextALogo
+        }
               HeroButtons{
                 Text,
                 Link

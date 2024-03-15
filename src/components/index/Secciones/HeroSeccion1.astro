@@ -7,34 +7,29 @@ import CarouselSection from '../../index/Secciones/CarouselSection.astro';
 
 
 interface Props{
-    strapiData: any;
+    sectionData: any;
 }
-const{ strapiData } = Astro.props;
+const{ sectionData } = Astro.props;
 
-
-const hero1Seccion_Buttons = strapiData['pageData']['data']['pageHome']['data']['attributes']['HeroButtons'];
-const hero1Seccion_Videos = strapiData['pageData']['data']['pageHome']['data']['attributes']['HeroVideo']['data'];
-
+const buttons = sectionData['HeroButtons'];
+const slides = sectionData['Slides'];
 ---
+
 <section id="home" class="relative">
 	<div class="block" id="mySlider">
-		<CarouselSection/>
+		<CarouselSection slidesContent={slides}/>
 	</div>
 
 <div class="absolute flex flex-col w-full h-full items-center justify-between place-content-center md:py-[3vh]">
-	<div class="rounded-b-full bg-black/30 backdrop-blur-md border border-white/10 py-10 px-20 mx-10">
-		<Markdown textAlign="text-center" classN={"leading-none"} content={
-		`
-# **High-speed internet**
-at a pleasantly surprising cost.
-`}/>
+	<div class="rounded-b-full bg-black/30 backdrop-blur-md border border-white/10 py-3 md:py-10 px-10 md:px-20  md:mx-10">
+		<Markdown textAlign="text-center" classN={"leading-none"} content={sectionData['Title']}/>
 	</div>
 	<div class="botones-back md:rounded-full rounded-3xl bg-black/40 backdrop-blur-lg border border-white/20">
 		<BuyOrApplyFree
-			buttonText1={hero1Seccion_Buttons[0].Text}
-			buttonLink1={hero1Seccion_Buttons[0].Link}
-			buttonText2={hero1Seccion_Buttons[1].Text}
-			buttonLink2={hero1Seccion_Buttons[1].Link}
+			buttonText1={buttons[0].Text}
+			buttonLink1={buttons[0].Link}
+			buttonText2={buttons[1].Text}
+			buttonLink2={buttons[1].Link}
 		/>
 	</div>
 

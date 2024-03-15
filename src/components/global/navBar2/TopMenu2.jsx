@@ -104,7 +104,7 @@ const TopMenu = () => {
                     </div>
                     <div className='flex flex-row justify-center p-2'>
                         <img
-                        src="/image/uwifilogo.webp"
+                        src="/image/u-wifi logo.webp"
                         className={TopMenuStyle.imagemobile}
                         alt='uwifi logo'
                         width="100" height="50"
@@ -135,11 +135,12 @@ const TopMenu = () => {
             <div className={TopMenuStyle.mainContainer}>
             
               <div>
-
                 <img
-                    src="/image/uwifilogo.webp"
+                    src="/image/u-wifi logo.webp"
                     alt='uwifi logo'
-                    className={TopMenuStyle.image}
+                    width={50}
+                    height={50}
+                  
                 />
               </div>
 

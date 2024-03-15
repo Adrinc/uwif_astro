@@ -9,12 +9,20 @@ query {
   uwifiHome{
     data{
       attributes{
+        Title
+        Slides{
+          Background{
+            ${mediaUrl}
+          }
+          TextBLogo
+          Logo{
+            ${mediaUrl}
+          }
+          TextALogo
+        }
         HeroButtons{
           Text,
           Link
-        }
-        HeroVideo{
-          ${mediaUrl}
         }
       }
     }

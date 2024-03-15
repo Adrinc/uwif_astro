@@ -1,114 +1,72 @@
 ---
-import 'keen-slider/keen-slider.min.css'
-const carouselHeight="h-[90vh]";
+import "keen-slider/keen-slider.min.css";
+import { setURL } from "../../../data/constants";
+import Markdown from "../../global/Markdown.astro";
 
-import Paragraph from '../../global/Paragraph.astro';
+const carouselHeight = "h-[90vh]";
+const bottomRadius = "md:rounded-b-[400px] rounded-b-full";
 
-const bottomRadius="md:rounded-b-[400px] rounded-b-full"
+interface Props {
+    slidesContent: any;
+}
+const { slidesContent } = Astro.props;
 ---
 
 <main class={`flex items-center justify-center relative`}>
-    
     <!-- Aquí es donde realmente se define el tamaño. Altura: 80 vh -->
     <section class={`w-full ${carouselHeight}`}>
         <!-- Desktop Version -->
-        <div
-            id="slider-wrapper"
-            class="w-full flex h-full"
-        >
+        <div id="slider-wrapper" class="w-full flex h-full">
             <!-- Video Slider -->
-            <div
-            id="image-slider"
-            class="w-full absolute"
-            >
+            <div id="image-slider" class="w-full absolute">
                 <!-- For Sizing -->
-                <!-- To set the size of the Image Slider, because it works via 'position: absolute;' -->
-                <div>
-                    <div
-                        class={`w-full ${carouselHeight} -z-10 object-cover bg-black ${bottomRadius}`}
-                    />
-                </div>
-
+                    <div class={`w-full ${carouselHeight} -z-10 object-cover bg-black ${bottomRadius}`}/>
                 <!-- Image Slider Items -->
-                <!-- Image 1 -->
-                <div
-                    class="keen-slider__slide absolute top-0 w-full justify-center "
-                >
-                    <div class={`overflow-hidden ${bottomRadius}`}>
-                        <video autoplay muted loop 
-                            class={`w-full object-cover ${carouselHeight}`}
-                            src="/videos/Slide01.mp4"
-                        />
-                    </div>
-                </div>
+                {slidesContent &&
+                        slidesContent.map((slide: any, index: number) => (
+                            <div class="keen-slider__slide absolute top-0 w-full justify-center">
+                                <div class={`overflow-hidden ${bottomRadius}`}>
+                                    <video
+                                        autoplay
+                                        muted
+                                        loop
+                                        class={`w-full object-cover ${carouselHeight}`}
+                                        src={`${setURL(slide["Background"]["data"][0]["attributes"]["url"])}`}
+                                    />
+                                </div>
+                            </div>
+                        ))
+                }
 
-                <!-- Image 2 -->
-                <div
-                    class="keen-slider__slide absolute top-0 w-full justify-center opacity-0"
-                >
-                    <div class={`overflow-hidden ${bottomRadius}`}>
-                        <video autoplay muted loop 
-                            class={`w-full object-cover ${carouselHeight}`}
-                            src="/videos/Slide02.mp4"
-                        />
-                    </div>
-                </div>
-
-                <!-- Image 3 -->
-                <div
-                    class="keen-slider__slide absolute top-0 w-full  justify-center opacity-0"
-                >
-                    <div class={`overflow-hidden ${bottomRadius}`}>
-                        <video autoplay muted loop 
-                        class={`w-full object-cover ${carouselHeight}`}
-                        src="/videos/Slide03.mp4"
-                    />
-                    </div>
-                </div>
-
-                <!-- Image 4 -->
-                <div
-                    class="keen-slider__slide absolute top-0 w-full  justify-center opacity-0"
-                >
-                    <div class={`overflow-hidden ${bottomRadius}`}>
-                        <video autoplay muted loop 
-                        class={`w-full object-cover ${carouselHeight}`}
-                        src="/videos/Slide04.mp4"
-                    />
-                    </div>
-                </div>
             </div>
 
             <!-- Text Slider -->
-            <div id="text-slider" class={`keen-slider absolute bg-[#080514]/50 ${bottomRadius}`}>
+            <div
+                id="text-slider"
+                class={`keen-slider absolute bg-[#080514]/50 ${bottomRadius}`}
+            >
                 <!-- Text Slider Items -->
-                <!-- Text 1 -->
-                <div
-                    class="keen-slider__slide h-full w-full flex flex-col justify-center"
-                >
-                    <Paragraph textBlock='' headings={[{"Heading":"### **Ready for** <br> the new U."}]} centerContent={true}/>
-                </div>
+                {slidesContent &&
+                        slidesContent.map((slide: any, index: number) => (
+                            <div class="keen-slider__slide h-full w-full flex flex-col items-center justify-center">
+                                {slide['TextBLogo'] &&
+                                    <Markdown content={slide['TextBLogo']} textAlign="text-center" classN="leading-none"/>                
+                                }
 
-                <!-- Text 2 -->
-                <div
-                    class="keen-slider__slide h-full w-full flex flex-col justify-center"
-                >
-                <Paragraph textBlock='' headings={[{"Heading":"### **It's all** <br> about U."}]} centerContent={true}/>
-                </div>
+                                {slide['Logo'] &&
+                                    <img
+                                        class="m-3"
+                                        width={70}
+                                        src={`${setURL(slide["Logo"]["data"]["attributes"]["url"])}`}
+                                    />
+                                }
 
-                <!-- Text 3 -->
-                <div
-                    class="keen-slider__slide h-full w-full flex flex-col justify-center"
-                >
-                <Paragraph textBlock='' headings={[{"Heading":"### Connect with the ones <br> **U care about**"}]} centerContent={true}/>
-                </div>
-
-                <!-- Text 4 -->
-                <div
-                    class="keen-slider__slide h-full w-full flex flex-col justify-center"
-                >
-                <Paragraph textBlock='' headings={[{"Heading":"### Always on <br> **dual connections.**"}]} centerContent={true}/>
-                </div>
+                                {slide['TextALogo'] &&
+                                    <Markdown content={slide['TextALogo']} textAlign="text-center" classN="leading-none"/>                
+                                }
+                            </div>
+                        ))
+                }               
             </div>
         </div>
     </section>
@@ -116,108 +74,108 @@ const bottomRadius="md:rounded-b-[400px] rounded-b-full"
 
 <script>
     import KeenSlider from "keen-slider";
-    
-document.addEventListener("DOMContentLoaded", async function () {
-    // Params
-    const animationDuration = 2500;
-    const autoplayDelay = 5000;
 
-    // UI
-    const sectionWrapper = document.querySelector("#slider-wrapper");
+    document.addEventListener("DOMContentLoaded", async function () {
+        // Params
+        const animationDuration = 1000;
+        const autoplayDelay = 4000;
 
-    // Image Slider
-    const imageSlider = new KeenSlider(
-        "#image-slider",
-        {
-            loop: true,
-            defaultAnimation: {
-                duration: animationDuration,
+        // UI
+        const sectionWrapper = document.querySelector("#slider-wrapper");
+
+        // Image Slider
+        const imageSlider = new KeenSlider(
+            "#image-slider",
+            {
+                loop: true,
+                defaultAnimation: {
+                    duration: animationDuration,
+                },
+                detailsChanged: (s: any) => {
+                    s.slides.forEach((element: any, idx: any) => {
+                        element.style.opacity =
+                            s.track.details.slides[idx].portion;
+                    });
+                },
+                renderMode: "custom",
             },
-            detailsChanged: (s: any) => {
-                s.slides.forEach((element: any, idx: any) => {
-                element.style.opacity = s.track.details.slides[idx].portion;
+            [
+                (slider: any) => {
+                    let timeout: any;
+                    let mouseOver = false;
+                    function clearNextTimeout() {
+                        clearTimeout(timeout);
+                    }
+                    function nextTimeout() {
+                        clearTimeout(timeout);
+                        if (mouseOver) return;
+                        timeout = setTimeout(() => {
+                            slider.next();
+                        }, autoplayDelay);
+                    }
+                    slider.on("created", () => {
+                        slider.container.addEventListener("mouseover", () => {
+                            mouseOver = true;
+                            clearNextTimeout();
+                        });
+                        slider.container.addEventListener("mouseout", () => {
+                            mouseOver = false;
+                            nextTimeout();
+                        });
+                        nextTimeout();
+                    });
+                    slider.on("dragStarted", clearNextTimeout);
+                    slider.on("animationEnded", nextTimeout);
+                    slider.on("updated", nextTimeout);
+                },
+            ],
+        );
+
+        // Text Slider
+        const textSlider = new KeenSlider(
+            "#text-slider",
+            {
+                defaultAnimation: {
+                    duration: animationDuration,
+                },
+                loop: true,
+                slides: {
+                    origin: "center",
+                    perView: 1,
+                },
+                vertical: true,
+                detailsChanged: (s: any) => {
+                    const slides = s.track.details.slides;
+                },
+                initial: 0,
+            },
+            [SyncSlidersPlugin(imageSlider)],
+        );
+
+        // Sync sliders
+        function SyncSlidersPlugin(secondSlider: any) {
+            return (firstSlider: any) => {
+                firstSlider.on("created", () => {
+                    // Sync
+                    secondSlider.on("slideChanged", (secondSlider: any) => {
+                        const nextId = secondSlider.track.details.rel;
+
+                        firstSlider.moveToIdx(nextId);
+                    });
+
+                    firstSlider.on("slideChanged", (firstSlider: any) => {
+                        const nextId = firstSlider.track.details.rel;
+
+                        secondSlider.moveToIdx(nextId);
+                    });
+
+                    // Click on Wrapper
+                    sectionWrapper &&
+                        sectionWrapper.addEventListener("click", () => {
+                            firstSlider.next();
+                        });
                 });
-            },
-            renderMode: "custom",
-        },
-        [
-            (slider: any) => {
-                let timeout: any;
-                let mouseOver = false;
-                function clearNextTimeout() {
-                clearTimeout(timeout);
-                }
-                function nextTimeout() {
-                clearTimeout(timeout);
-                if (mouseOver) return;
-                timeout = setTimeout(() => {
-                    slider.next();
-                }, (autoplayDelay));
-                }
-                slider.on("created", () => {
-                slider.container.addEventListener("mouseover", () => {
-                    mouseOver = true;
-                    clearNextTimeout();
-                });
-                slider.container.addEventListener("mouseout", () => {
-                    mouseOver = false;
-                    nextTimeout();
-                });
-                nextTimeout();
-                });
-                slider.on("dragStarted", clearNextTimeout);
-                slider.on("animationEnded", nextTimeout);
-                slider.on("updated", nextTimeout);
-            },
-        ]
-    );
-
-    // Text Slider
-    const textSlider = new KeenSlider(
-        "#text-slider",
-        {
-            defaultAnimation: {
-                duration: (animationDuration),
-            },
-            loop: true,
-            slides: {
-                origin: "center",
-                perView: 1
-            },
-            vertical: true,
-            detailsChanged: (s: any) => {
-                const slides = s.track.details.slides;
-               
-            },
-            initial: 0,
-        },
-        [SyncSlidersPlugin(imageSlider)]
-    );
-
-
-    // Sync sliders
-    function SyncSlidersPlugin(secondSlider: any) {
-        return (firstSlider: any) => {
-        firstSlider.on("created", () => {
-            // Sync
-            secondSlider.on("slideChanged", (secondSlider: any) => {
-                const nextId = secondSlider.track.details.rel;
-
-                firstSlider.moveToIdx(nextId);
-            });
-
-            firstSlider.on("slideChanged", (firstSlider: any) => {
-                const nextId = firstSlider.track.details.rel;
-
-                secondSlider.moveToIdx(nextId);
-            });
-
-            // Click on Wrapper
-            sectionWrapper && sectionWrapper.addEventListener("click", () => {
-                firstSlider.next();
-            });
-        });
-        };
-    }
-});
+            };
+        }
+    });
 </script>

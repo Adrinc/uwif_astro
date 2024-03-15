@@ -8,7 +8,6 @@ interface Props{
 }
 const{ strapiData } = Astro.props;
 const paragraphContent = strapiData['pageData']['data']['pageHome']['data']['attributes']['PrimaryParagraph'];
-console.log("el contenido del párrafo es:", paragraphContent);
 ---
 <section class="relative" >
 	<BlurryBall position="top-[-400px] end-[200px]" background='var(--secondary-color)' size="400px"/>
