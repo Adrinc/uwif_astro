@@ -1,7 +1,7 @@
 ---
 import BotonFlecha from "../../global/BotonFlecha.astro";
 import Baner5GWifi from "../Baner5GWifi.astro";
-import App from "../../global/animations/Rive/antenas.jsx";
+import RiveAntenas from "../../global/animations/Rive/antenas.jsx";
 import Markdown from "../../global/Markdown.astro";
 
 interface Props{
@@ -22,7 +22,8 @@ const baner = dataPage.Banner;
 
 
     <div class="rive-animation">
-        <App transition:persist client:only/>
+        <RiveAntenas transition:persist client:only/>
+
     </div>
 
     <div class="row-how-5g">

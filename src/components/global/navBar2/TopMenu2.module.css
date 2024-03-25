@@ -33,6 +33,7 @@
       justify-content: space-between;
       align-items: center;
       width: 100%;
+      height: 100px;
       padding-top: clamp(15px, 25vw, 10px);
       padding-bottom: clamp(15px, 25vw, 10px);
       padding-left: clamp(0px, 5vw, 100px);
@@ -139,6 +140,13 @@
       padding: 20px;
       z-index: 100;
   }
+
+  .riveanimation{
+
+    width: 200px;
+    height: 130%;
+  
+}
   
   @media screen and (max-width: 1400px) {
     .boltext{

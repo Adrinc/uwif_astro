@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import TopMenuStyle from './TopMenu2.module.css';
 import { useLocation } from 'react-router-dom';
-
+import Wifilogo from "../animations/Rive/uwifilogo.jsx";
+/* import Wifilogos from "../animations/Rive/uwifilogo.jsx"; */
 
 const TopMenu = () => {
     const links = [
         { name: 'HOME', url: '/', alterurl:"/home" },
         { name: 'HOW IT WORKS', url: '/how-it-works', alterurl:"/how-it-works" },
         { name: 'SUPPORT', url: '/support', alterurl:"/support" },
-        { name: 'ABOUT US', url: '/about', alterurl:"/about" },
-        // { name: 'LOCATIONS', url: '/location', alterurl:"/location" },
-        // { name: 'SELF SERVICES', url: '/self-service', alterurl:"/self-service" },
-        
+        { name: 'ABOUT US', url: '/about', alterurl:"/about" }
+
     ];
     const location = useLocation();
     let currentPath = location.pathname;
@@ -134,14 +133,15 @@ const TopMenu = () => {
 
             <div className={TopMenuStyle.mainContainer}>
             
-              <div>
-                <img
+              <div className={TopMenuStyle.riveanimation}>
+          {/*       <img
                     src="/image/u-wifi logo.webp"
                     alt='uwifi logo'
                     width={50}
                     height={50}
                   
-                />
+                /> */}
+                  <Wifilogo />
               </div>
 
          
