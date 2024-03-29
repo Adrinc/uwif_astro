@@ -5,6 +5,7 @@ import UWIFISeccion from '../components/how-it-works/Secciones/UWIFISeccion.astr
 import ConectionSeccion from '../components/how-it-works/Secciones/ConectionSeccion.astro';
 import {getPageData} from '../services/graphql';
 import * as HowItWorksData from '../data/queries/HowItWorksQuerys';
+import AnimationSection from '../components/how-it-works/Secciones/AnimationSection.astro';
 
 
 
@@ -15,8 +16,7 @@ const seoData = data.pageData['data']['pageHiw']['data']['attributes']['SEO']
 ---
 
 <Layout seoData={seoData} dataLayout={layoutData}>
-	
-
+	<AnimationSection/>
 	<HeroHIWSeccion strapiData={data}/> 
 	<UWIFISeccion strapiData={data}/>
 	<ConectionSeccion strapiData={data}/>

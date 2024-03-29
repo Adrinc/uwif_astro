@@ -1,6 +1,9 @@
 ---
 import { setURL } from "../../../data/constants";
+import BlurryBall from "../../global/BlurryBall.astro";
 import BotonFlecha from "../../global/BotonFlecha.astro";
+import ButtonList from "../../global/ButtonList.astro";
+import Paragraph from "../../global/Paragraph.astro";
 import Steps from "../Steps.astro";
 
 
@@ -8,200 +11,33 @@ interface Props{
     strapiData: any;
 }
 const{ strapiData } = Astro.props;
-
-const StepsTitles = strapiData.pageData.data.pageHiw.data.attributes.StepsTitles;
-const StepsData = strapiData.pageData.data.pageHiw.data.attributes.Steps;
-const MediaData = strapiData.pageData.data.pageHiw.data.attributes.StepsMedia.data.attributes;
-const ButtonData = strapiData.pageData.data.pageHiw.data.attributes.StepsButtons;
+const pageData = strapiData.pageData.data.pageHiw.data.attributes;
+const StepsTitles = pageData.StepsTitles;
+const StepsData = pageData.Steps;
+const MediaData = pageData.StepsMedia.data.attributes;
+const ButtonsData = pageData.StepsButtons;
 
 
 ---
 
 
-<section id="howit">
+<section id="howit" class="w-full flex flex-col items-center justify-center">
+   <Paragraph textBlock="" headings={StepsTitles} centerHeadings={false} centerContent={true}/>
 
-	<span class="green-ball-blured"></span>
-    <div class="contenedor">
-        <div class="title">
-           {StepsTitles[0].Heading}
-
-        </div>
-    </div>
-    <div class="contenedor">
-        <div class="title">
-            {StepsTitles[1].Heading}
-        </div>
-    </div>
-
-    <div class="row_dos_columnas">
-
-        <div class="columnaizquierda">
-
-            {
-                StepsData.map((Data:any, Index:any) => (
-                    <Steps imageUrl={`${setURL(Data.Icon.data.attributes.url)}`} step={Index+1} description={Data.Content} />
-                ))
-            }
+    <div class="flex flex-col md:flex-row items-center justify-center max-w-[1400px] px-10 relative">
+        <BlurryBall position="top-[-200px] end-[150px]" background='var(--secondary-color)' size="400px"/>
+        <div>
+            {StepsData.map((Data:any, Index:any) => (
+                <Steps imageUrl={`${setURL(Data.Icon.data.attributes.url)}`} step={Index+1} description={Data.Content} />
+            ))}
         </div>
 
 
-        <div class="columnaderecha" >
-            <span class="multi-ball-blured"></span>
-            <img alt={MediaData.alternativeText} class="iconoGrande" src={`${setURL(MediaData.url)}`} >
-          
-                <BotonFlecha texto={ButtonData[0].Text} link={ButtonData[0].Link}  />
-         
+        <div class="flex flex-col items-center" >
+            <img alt={MediaData.alternativeText} class="p-10" src={`${setURL(MediaData.url)}`} >
+          <ButtonList buttons={ButtonsData}/>         
         </div>
     </div>
 
 
 </section>
-
-
-
-<style>
-
-.green-ball-blured{
-    top: -20%;
-	left: -30%;
-	position: absolute;
-    width: clamp(200px, 50vw, 620px);
-	height: clamp(200px, 50vw, 600px);
-	border-radius: 100%;
-    background: #0c5406;
-	filter: blur(150px);
-	z-index: -1;
-	}
-.multi-ball-blured{
-	position: absolute;
-    top: 0;
-	left: 0;
-    width: clamp(200px, 50vw, 400px);
-	height: clamp(200px, 50vw, 400px);
-	border-radius: 100%;
-    rotate: -90deg;
-    background: linear-gradient(#5746E5 20%, #8743E5 20%, #20b340 60%);
-	filter: blur(100px);
-	z-index: -1;
-	}
-
-    section{
-        position:relative;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        padding: clamp(0px, 10vw, 100px);
-        width: 100%;
-        margin-top: 80px;
-    }
-
-
-
-
-    .iconoGrande{
-        width: clamp(100px, 20vw, 250px);
-        height: clamp(100px, 50vw 400px);
-    }
-  
-
-    .row_dos_columnas{
-        display: flex;
-        flex-direction: row;
-
-        align-items: flex-start;
-        align-content: flex-start;
-        width: 100%;
-        height: 100%;
-       
-    
-        margin-top: 50px;
-        gap: 20px;
-    }
-    .columnaizquierda{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: center;
-        align-content: flex-start;
-        width: 70%;
-        height: 60vh;
-
-    }
-    .columnaderecha{
-        position:relative;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-content: center;
-        align-items: center;
-        align-content: center;
-        width: 30%;
-        height: 60vh;
-        gap:20px;
-  
-    
-    }
-
-	.contenedor{
-		display: flex;
-		flex-direction: row;
-		justify-content: left;
-		align-items: left;
-		width: 100%;
-		text-wrap: pretty;
-	}
-
-
-	.title{
-	
-        color: var(--primary-text-color);
-			font-size: clamp(1.5rem, 3vw, 60px);
-			font-weight: 600;
-            text-wrap: balance;
-			}
-
-    @media (max-width: 768px) {
-        section{
-            gap:1rem;
-        }
-
-
-    
-	.contenedor{
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		align-items: center;
-		
-	}
-    
-    .row_dos_columnas {
-    flex-direction: column;
-    align-items: center;
-    align-content: center;
-    gap: 1rem;
-    }
-    .columnaizquierda{
-        width: 100%;
-        height: 100%;
-        gap: 1rem;
-
-    }
-    .columnaderecha{
-        width: 100%;
-        height: 100%;
-    }
-
-    .title{
-	    text-align: center;
-    }
-  }
-  @media  screen and (height< 450px) {
-				section{
-		
-				
-					margin-bottom: clamp(50px, 50vh, 100px);
-				}
-		
-			}
-</style>

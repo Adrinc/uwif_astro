@@ -70,6 +70,10 @@ export const GetHeroSeccionFull = () => {
                   Heading
                 }
                 Textblock
+                Buttons{
+                  Text
+                  Link
+                }
               }
               
               PricingTable{

@@ -2,9 +2,11 @@
 import Markdown from './Markdown.astro';
 import BuyOrApplyFree from './BuyOrApplyFree.astro';
 import { setURL } from '../../data/constants';
+import ButtonList from './ButtonList.astro';
 
 interface Props {
 	headings?: any;
+    centerHeadings?:boolean;
     logo?: any;
     logoIsInline?: boolean;
     textBlock: string;
@@ -15,7 +17,7 @@ interface Props {
 }
 
 
-const {headings, logo, logoIsInline= true, textBlock, buttons, backgroundColor="transparent", centerContent=false, textAtLeft=true} = Astro.props;
+const {headings, logo, logoIsInline= true, textBlock, buttons, backgroundColor="transparent", centerHeadings=true, centerContent=false, textAtLeft=true} = Astro.props;
 
 ---
 <div class={`w-full flex place-content-center my-20 bg-${backgroundColor}`}>
@@ -28,7 +30,7 @@ const {headings, logo, logoIsInline= true, textBlock, buttons, backgroundColor="
             <div class={`${centerContent ? "" : "md:justify-start"} flex flex-wrap  gap-x-4 items-center justify-center leading-none`}>
                 {headings && headings.map((heading: any, index: number) => (
                     <div class={`flex ${logoIsInline ? "gap-x-4": "flex-col "} items-center`}>
-                        <Markdown textAlign='text-center' content={heading.Heading.toString()}/>
+                        <Markdown textAlign={`${centerHeadings ? "": "md:text-left" } text-center`} content={heading.Heading.toString()}/>
                         {logo &&
                             index + 1 === headings.length  &&
                             <img
@@ -45,7 +47,7 @@ const {headings, logo, logoIsInline= true, textBlock, buttons, backgroundColor="
 
             {buttons && 
             <div class={`flex md:justify-start justify-center ${centerContent ? "md:justify-center" : ""}`}>
-                <BuyOrApplyFree/>
+                <ButtonList buttons={buttons} />
             </div>
             }
             

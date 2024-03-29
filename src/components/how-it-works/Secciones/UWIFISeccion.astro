@@ -1,127 +1,32 @@
 ---
 import { setURL } from "../../../data/constants";
-import FilaImagenTexto from "../../index/FilaImagenTexto.astro";
-import { parse } from "marked";
+import Paragraph from "../../global/Paragraph.astro";
+import ShapeBackground from "../../global/ShapeBackground.astro";
 interface Props{
     strapiData: any;
 }
 const{ strapiData } = Astro.props;
 
-/* const markdowntext = "<span style='color: var(--tertiary-text-color)'> U-wifi </span> Mobile App."; */
 const AppParagraphs = strapiData.pageData.data.pageHiw.data.attributes.AppParagraphs;
 ---
 
-<section id="app">
-    <span class="green-ball-blured"></span>
-    <span class="multi-ball-blured"></span>
-    <span class="purple-ball-blured"></span>
-    <div>
-        <div class="contenedor">
-            <div class="title">
-
-            <span class="text-tertiaryTextColor">U-wifi </span>Mobile App
-            </div>
-        </div>
-        <div class="contenedor">
-            <div class="subtitle">
-                Take control of your home internet with one <span class="text-secondaryColor">simple app.</span>
-            </div>
-        </div>
-    </div>
-
-
+<section id="">
     {AppParagraphs.map((paragraph: any, index: number) => (
-        <FilaImagenTexto 
-            image={`${setURL(paragraph.Media.data.attributes.url)}`}
-            title={paragraph.Headings[0].Heading}
-            subtitle={paragraph.Textblock} 
-            flex={(index%2 ? "row" : "row-reverse")}/>
+
+        <Paragraph textBlock={paragraph.Textblock} headings={paragraph.Headings} centerHeadings={false} textAtLeft={index%2 ? true:false} >
+        <div class="relative flex items-center justify-center">
+            <img
+                class="absolute h-[450px] p-8 object-contain"
+                src={setURL(paragraph.Media.data.attributes.url)}
+                alt={paragraph.Media.data.attributes.alternativeText}
+                title={paragraph.Media.data.attributes.caption}
+            />
+            <ShapeBackground tailToLeft={index%2 ? true : false} startColor={index%2 ? 'var(--primary-color)' : 'var(--secondary-color)'} endColor="transparent"/>
+        </div>
+        </Paragraph>
 
       ))}
 
     <div>
 
 </section>
-
-
-<style>
-    .colorWord{
-        color: red;
-    }
-    .green-ball-blured{
-    top: 20%;
-	left: 70%;
-	position: absolute;
-    width: clamp(200px, 50vw, 600px);
-	height: clamp(200px, 50vw, 600px);
-	border-radius: 100%;
-    background: #0a5702;
-	filter: blur(150px);
-	z-index: -1;
-	}
-    .multi-ball-blured{
-	position: absolute;
-    top: 70%;
-	left: 0%;
-    width: clamp(200px, 50vw, 700px);
-	height: clamp(200px, 50vw, 700px);
-	border-radius: 100%;
-    rotate: 90deg;
-    background: linear-gradient(180deg, rgba(3, 251, 117, 0.50) 0%, rgba(6, 255, 240, 0.50) 100%);
-	filter: blur(150px);
-	z-index: -1;
-	}
-    .purple-ball-blured{
-	position: absolute;
-    top: 80%;
-	left: -10%;
-    width: clamp(200px, 50vw, 600px);
-	height: clamp(200px, 50vw, 600px);
-	border-radius: 100%;
-    rotate: 90deg;
-    background: linear-gradient(180deg, rgba(87, 70, 229, 0.50) 0%, rgba(135, 67, 229, 0.50) 52.6%, rgba(0, 198, 55, 0.50) 100%);
-	filter: blur(70px);
-	z-index: -1;
-	}
-
-      section{
-        position:relative;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        padding: clamp(0px, 10vw, 100px);
-        gap:20px;
-    }
-    	.contenedor{
-		display: flex;
-		flex-direction: row;
-		width: 100%;
-		text-wrap: pretty;
-	}
-	.title{
-	
-    color: var(--primary-text-color);
-    font-size: clamp(1.5rem, 5vw, 80px);
-    font-weight: 400;
-    text-wrap: balance;
-    }
-    .subtitle{
-    color: var(--primary-text-color);
-    font-size: clamp(1.5rem, 5vw, 60px);
-    font-weight: 600;
-    text-wrap: balance;
-    font-family: var(--font-family-secondary);
-    text-warp: balance;
-    }
-    @media (max-width: 768px) {
-        .title, .subtitle{
-            text-align: center;
-        }
-        .contenedor{
-        justify-content: center;
-    }
-}
-
-
-
-</style>

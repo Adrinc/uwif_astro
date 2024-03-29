@@ -1,6 +1,7 @@
 ---
 
 import { setURL } from "../../../data/constants";
+import ButtonList from "../../global/ButtonList.astro";
 import BuyOrApplyFree from "../../global/BuyOrApplyFree.astro";
 import Markdown from "../../global/Markdown.astro";
 import CarouselSection from '../../index/Secciones/CarouselSection.astro';
@@ -25,12 +26,9 @@ const slides = sectionData['Slides'];
 		<Markdown textAlign="text-center" classN={"leading-none"} content={sectionData['Title']}/>
 	</div>
 	<div class="botones-back md:rounded-full rounded-3xl bg-black/40 backdrop-blur-lg border border-white/20">
-		<BuyOrApplyFree
-			buttonText1={buttons[0].Text}
-			buttonLink1={buttons[0].Link}
-			buttonText2={buttons[1].Text}
-			buttonLink2={buttons[1].Link}
-		/>
+		{buttons && 
+                <ButtonList buttons={buttons} />
+            }
 	</div>
 
 </div>

@@ -1,0 +1,32 @@
+---
+import BotonFlecha from "./BotonFlecha.astro";
+
+interface Props {
+    fillAll?:boolean;
+    color?: String;
+	buttons: any;
+}
+const{
+    fillAll = false,
+    color,
+    buttons
+}= Astro.props;
+
+const fillColor = fillAll ? color : "";
+
+---
+
+<div class="flex flex-wrap gap-5">
+    {
+        buttons.map((button: any, index: number) => (
+            <BotonFlecha
+                texto={button.Text && button.Text}
+                link={button.Link}
+                backgroundColor={`${ index === 0 ? fillAll ? color ? color : "var(--primary-color)" : "transparent" : `var(--secondary-color)`}`}
+                borderColor={`${ index === 0 ? color ? color : `var(--primary-color)` : `var(--secondary-color)`}`}
+                iconColor={`${ index === 0 ? fillAll ? color ? color : "var(--primary-color)" : `var(--primary-text-color)` : `var(--secondary-color)`}`}
+                iconBackgroundColor={`${ index === 0 ? fillAll ? "white": color ? color : "var(--primary-color)" : "white"}`}
+            />
+        ))
+    }
+<div/>

@@ -1,4 +1,5 @@
 ---
+import BlurryBall from '../../global/BlurryBall.astro';
 import Paragraph from '../../global/Paragraph.astro';
 import TarjetaPaqueteEspecial from '../TarjetaPaqueteEspecial.astro';
 
@@ -10,99 +11,12 @@ const{ strapiData } = Astro.props;
 const paragraphData= strapiData['pageData']['data']['pageHome']['data']['attributes']['PricingParagraph'];
 const tableData= strapiData['pageData']['data']['pageHome']['data']['attributes']['PricingTable'];
 
+console.log(paragraphData.Buttons)
 
 ---
-<section id="plan">
-  <span class="green-ball-blurred"></span>
-  <Paragraph headings={paragraphData.Headings} textBlock={paragraphData.Textblock} textAtLeft={false}>
+<section id="plan" class="relative">
+  <BlurryBall position="top-[0px] start-[200px]" background='var(--secondary-color)' size="400px"/>
+  <Paragraph headings={paragraphData.Headings} textBlock={paragraphData.Textblock} textAtLeft={false} buttons={paragraphData.Buttons}>
     <TarjetaPaqueteEspecial title={tableData.Title} Subtitle={tableData.Subtitle} Price={tableData.Price} Pricetime={tableData.Pricetime} Features={tableData.Features} Buttons={tableData.Buttons}/>
   </Paragraph>
-  <!-- <div class="main-container">
-    
-    <div class="columna-izquierda">
-      <div class="title" id="homeinternet">
-
-        {data_text.Headings[0].Heading.split("for a")[0]}
-        <span class="text-tertiaryTextColor">
-          <br>
-          {data_text.Headings[0].Heading.split("for a").pop().replace("experience.","")}
-        </span>
-        <br> 
-        {data_text.Headings[0].Heading.split(' ').pop()}
-        </div>
-        
-   <div class="title" id="oneplan">
-     {data_text.Headings[1].Heading.split(" ",1).pop()}
-     <span class="text-tertiaryTextColor">{data_text.Headings[1].Heading.split(" ",2).pop()}</span> 
-     {data_text.Headings[1].Heading.split(" ",3).pop()}
-
-   </div>
-   <div class="subtitle">
-     <p>
-      {data_text.Headings[2].Heading.replace("simple.","")}
-      <span class="text-secondaryColor font-bold">{data_text.Headings[2].Heading.split(' ').pop()}</span> </p>
-   </div>
- 
-   <p class="description">{data_text.Textblock.replace(" Only the best for","")}</p>
-   <p class="description-inferior">Only the best for  <img alt="uwifi logo white" class="image" loading="lazy" srcset="faviui.png"/></span></p>
-
-  </div>
-
-<div class="columna-derecha">
-	<span class="green-ball-blured" id="ball3"></span>
-</div>
-
-</div> -->
 </section>
-
-
-<style>
-  .green-ball-blurred{
-    left: 20vh;
-		position: absolute;
-    width: clamp(0px, 30vw, 400px);
-		height: clamp(0px, 30vw, 400px);
-		border-radius: 100%;
-    rotate: -90deg;
-    background: linear-gradient(#48e54318 20%, #03fb77ce 70%);
-		filter: blur(120px);
-		z-index: -1;
-	}
-
-
-
-
-  @media (max-width: 900px) {
-    .main-container {
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-    }
-    .columna-izquierda{
-      gap:10px;
-    }
-
-	.title{
-    color: var(--primary-text-color);
-    font-size: clamp(1.5rem, 3vw, 80px);
-    font-weight: bold;
-    text-align: center;
-    }
-    .description, .description-inferior, .subtitle 
-  {
-    text-align: center;
-    justify-content: center;
-    align-self: center;
-  }
-  .image {
-
-      margin-bottom: 10px;
-			}
-      p{
-        text-align: center;
-        align-self: center;
-      }
-
-  }
-</style>

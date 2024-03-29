@@ -1,47 +1,36 @@
 ---
 import BotonFlecha from "../../global/BotonFlecha.astro";
+import Markdown from "../../global/Markdown.astro";
 
 ---
 
 
-<section id="heroLocation"><span class="green-ball-blured"></span>
+<section id="heroLocation" class="w-full flex items-center justify-center">
 	
 
-	<div class="contenedor">
-			
-		<h1 class="title">U-wifi in <span class=" font-bold">Astro Valley</span></h1>
-		<p class="description">Fast, reliable and unlimited internet access tailored for Astro Valley Residents</p>
+	<div class="contenedor max-w-[1200px] my-[150px] flex flex-col items-center justify-center rounded-[35px] bg-gradient-to-r from-[#22D05D] to-[#008837] p-10">
+		<Markdown content="# U-wifi in **Astro Valley**" />
+		<Markdown textAlign="text-center" classN="m-10" content="Fast, reliable and unlimited internet access tailored for Astro Valley Resident" />
 		
-		<div class="twoColumns">
-			<div class="columnL">
-
-				<div class="columnLRow1">
-					<p class="font-extrabold text-9xl text-primaryTextColor">$30</p>
-					<div class="flex flex-column align-middle">
-						<p class="text-left font-medium text-lg text-white">/month with  <br> Autopay</p>
-					</div>
-				</div>
-				<div class="w-full p-5">
-
-					<BotonFlecha link="/contact" texto="BUY NOW" borderColor="#ffffff" iconColor="#ffffff" width="100%"/>
-				</div>
+		<div class="flex flex-row w-full gap-5">
+		<div class="flex flex-col gap-4 bg-black/30 p-4 w-full items-center rounded-[20px]">
+			<div class="text flex flex-wrap items-center gap-2">
+				<p class="font-extrabold text-7xl text-primaryTextColor">$30</p>
+				<p class="text-left text-lg text-white font-light">/month with  <br> Autopay</p>
 			</div>
-		
-		
-			<div class="columnR">
-				<div class="columnLRow1">
-					<p class="font-extrabold text-9xl text-primaryTextColor">Free</p>
-					<div class="flex flex-column align-middle">
-						<p class="text-left font-medium text-lg text-white">for ACP <br> Subscribers</p>
-					</div>
-
-				</div>
-				<div class="w-full p-5">
-				<BotonFlecha link="/contact" texto="APPLY FOR FREE WIFI" backgroundColor="#7C47DD" borderColor="#ffffff" iconColor="#ffffff" width="100%"/>
-				</div>
-			</div>
+			<BotonFlecha link="/contact" texto="BUY NOW" borderColor="#ffffff" iconColor="#ffffff" width="100%"/>
 		</div>
 
+		<div class="flex flex-col gap-4 bg-black/30 p-4 w-full items-center rounded-[20px]">
+			<div class="text flex flex-wrap items-center gap-2">
+				<p class="font-extrabold text-7xl text-primaryTextColor">Free</p>
+				<p class="text-left text-lg text-white font-light">for ACP <br> Subscribers</p>
+			</div>
+			<BotonFlecha link="/contact" texto="APPLY FOR FREE WI-FI" backgroundColor="#7C47DD" borderColor="#ffffff" iconColor="#ffffff" width="100%"/>
+		</div>
+	</div>
+
+		
 		
 	</div>
 			
@@ -51,45 +40,7 @@ import BotonFlecha from "../../global/BotonFlecha.astro";
 
 <style>
 
-	 .green-ball-blured{
-    top: 0%;
-	left: 0;
-	position: absolute;
-    width: clamp(0px, 50vw, 1000px);
-	height: clamp(0px, 50vw, 1000px);
-	border-radius: 100%;
-    background: linear-gradient(0deg, #02572b 0%, #02572a 100%);
-	filter: blur(100px);
-    opacity: 0.8;
-	z-index: -1;
-	}
-	section
-	{
-		position: relative;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		box-sizing: border-box;
-		padding-left: clamp(0px, 5vw, 100px);
-		padding-right: clamp(0px, 5vw, 100px);
-		margin-top: 100px;
-		margin-bottom: 100px;
-		width: 100vw;
-		height: 90vh;
-	}
 
-	.contenedor
-	{
-		display: flex;
-		flex-direction: column;
-		justify-content: space-evenly;
-		align-items: center;
-		border-radius: 10px;
-	/* 	background-color: #00b33e; */
-		background: radial-gradient(50% 50% at 50% 50%, #5bcf84 0%, #00b33e 100%);
-		height: 80%;
-		padding: clamp(0px, 5vw, 60px);
-	}
 	.title{
 			color: var(--primary-text-color);
 			font-size: clamp(24px, 5vw, 75px);

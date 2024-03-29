@@ -21,23 +21,20 @@ const { Price, Buttons, title, Features=[""], Subtitle="FREE for ACP Subscribers
 ---
 
 <div class="contenedor-tarjeta">
-    <div class="tarjeta bg-gradient-to-r from-white/20 to-white/5 md:mr-10 max-w-[350px] rounded-tl-[300px] rounded-tr-[300px] rounded-bl-[150px] p-5 my-5 border border-green-400">
-        <div>
-			<!-- <h1 class="title"> {title} </h1> -->
-			<div class="precio-contenedor">
-				<p class="price">${Price}</p>
-				<span class="text-white font-light text-left max-md:text-sm"> {Pricetime}</span> 
+    <div class="tarjeta bg-gradient-to-r from-white/20 to-white/5 md:mr-10 max-w-[350px] rounded-tl-[300px] rounded-tr-[300px] rounded-bl-[150px] p-5 my-5 border border-green-400 flex flex-col items-center justify-center">
+			<div class="flex flex-row max-w-[250px] gap-2 items-center justify-center p-2">
+				<p class="font-bold md:text-[70px] text-[40px]">${Price}</p>
+				<p class="text-white font-light text-left text-[13px]"> {Pricetime}</p> 
 			</div>
-			<h3 class="text-primaryColor text-center text-[30px] font-light">{Subtitle}</h3>
+			<h3 class="text-white font-bold text-center text-[30px]">{Subtitle}</h3>
 			<br>
-		</div>
        
-			<ul class="fila">
+			<ul class="flex flex-col gap-3">
 				{
 					Features.map((feature) => (
-						<li class="">
-							<span class="icono ">
-								<img alt="icono check"  class="image" src="/image/checkwhite.svg"/>
+						<li class="flex flex-row gap-3">
+							<span class=" w-[20px] h-[20px]">
+								<img alt="icono check"  class="image bg-primaryColor rounded-full inline-block " src="/image/checkwhite.svg"/>
 							</span>
 							{typeof feature === 'string' ? feature : feature.Content}
 						</li>
@@ -49,196 +46,3 @@ const { Price, Buttons, title, Features=[""], Subtitle="FREE for ACP Subscribers
 		<a href={Buttons[3].Link} class="flex font-[16px] font-bold text-center w-full justify-center">{Buttons[3].Text}</a>
     </div>
 </div>
-
-
-
-
-
-
-<style>
-	.buyOrApply{
-		scale: 0.8;
-	}
-
-
-	.link{
-		display:flex;
-		color: #ffffff72;
-		font-weight: 400;
-		font-style: normal;
-		justify-content: center;
-		align-items: center;
-		font-size: clamp(1rem, 50vw, 1.5rem);
-		text-decoration: underline;
-		transition: 0.2s ease-in;
-	}
-	.link:hover{
-		color: #ffffff;
-		font-weight: 500;
-		
-		
-		text-decoration: underline;
-		transition: 0.2s ease-in;
-	}
-
-	.precio-contenedor{
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		align-content: center;
-		justify-content: center;
-		align-items: center;
-		align-self: center;
-		gap:10px;
-		padding-left: clamp(1rem, 50vw, 4rem);
-		padding-right: clamp(1rem, 50vw, 4rem);
-	}
-
-	.price 
-	{
-		color: #ffffff;
-		font-weight: 700;
-		font-size: clamp(1.5rem, 50vw, 5rem);
-		text-align: right;
-  	}
-	.modelo{
-
-		color: #ffffff;
-		font-weight: 500;
-		font-size: 40px;
-	
-	}
-
-
-
-	.duration 
-	{
-		color: #ffffff;
-		align-self: flex-start;
-		font-weight: 500;
-		white-space: nowrap;
-		font-size: xx-large;
-	}
-
-	.fila{
-		display: flex;
-		flex-direction: column;
-		
-		justify-content: center;
-		align-self: flex-start;
-		
-		gap:10px;
-	
-		
-	}
-	.imagen{
-
-		object-fit: fill;
-	
-	}
-
-
-
-	.title{
-			display: flex;
-			color:#ffff;
-			font-size: clamp(20px, 5vw, 35px);
-			font-weight: bold;
-			text-align: center;
-			justify-content: center;
-			
-	
-			}
-	
-		
-			.description {
-			display:flex;
-			flex-direction: row;
-		
-		
-			align-items: center;
-			justify-content: flex-start;
-			line-height: normal;
-			  color: #fff;
-			  font-weight: 200;
-			  font-size: clamp(14px, 3vw, 22px);
-			  font-weight: 400;
-			  word-spacing: 2px;
-			  gap:10px;
-			}
-	
-  
-			
-			button {
-			color: #fff;
-			width: 10em;
-			
-			font-size: 24px;
-			font-weight: 400;
-			border-radius: 50px;
-			padding: 12px 10px;
-			background-color: #01C938;
-			transition: border 0.2s ease;
-			}
-			button:hover {
-			color: #fff;
-			background-image: linear-gradient(to right, #2ed5de,#2e74de, #d201d2);
-			border-color: #000000;
-			transition: 0.2s ease-in;
-			}
-		
-
-			.icono {
-			display: inline-block;
-			width: 20px;
-			height: 20px;
-			align-self: center;
-			
-			}
-			.image {
-			display: flex;
-			width: clamp(10px, 50vw, 30px);
-			height: clamp(10px, 50vw, 30px);
-			align-self: center;
-		
-			
-			}
-			.uwifiicon{
-			display: flex;
-			width: 22px;
-			height: 22px;
-			align-self: safe;
-			}
-
-			@media (max-width: 768px) {
-				.title{
-			display: flex;
-			color:#ffff;
-			font-size: clamp(20px, 5vw, 25px);
-			font-weight: bold;
-			text-align: center;
-			justify-content: center;
-			
-	
-			}
-			.price 
-	{
-		font-weight: 500;
-		font-size: clamp(1.5rem, 50vw, 40px);
-		
-  	}
-	  .description {
-			display:flex;
-			flex-direction: row;
-			align-items: center;
-			justify-content: flex-start;
-			  color: #fff;
-			  font-weight: 200;
-			  font-size: clamp(14px, 3vw, 22px);
-			  font-weight: 400;
-			  word-spacing: 2px;
-			  gap:0px;
-			}
-		
-	}
-
-</style>

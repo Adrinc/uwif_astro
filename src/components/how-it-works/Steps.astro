@@ -1,4 +1,6 @@
 ---
+import Markdown from '../global/Markdown.astro';
+
 interface Props{
     imageUrl:string;
 	step:number;
@@ -10,66 +12,8 @@ const { imageUrl, step, description  } = Astro.props;
 ---
 
 
-<div class="lista">
-    <img class="icono" src={imageUrl} alt="ui-icon">
-        <p class="bigchar">{step}</p>
-    <p class="description"> {description}</p>
+<div class="flex flex-row items-center justify-start gap-5">
+    <img class="w-[50px] h-[50px] object-contain" src={imageUrl} alt="ui-icon">
+    <p class="md:text-[100px] text-[50px] font-bold">{step}</p>
+    <Markdown content={description} classN="md:text-[35px]"/>
 </div>
-
-<style>
-    .lista{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    gap: 40px;
-
-    }
-    .bigchar{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        font-size: clamp(2rem, 7vw, 110px);
-        font-weight: 700;
-        color: var(--primary-text-color);
-        width: 70px;
-    }
-    
-    .icono{
-        width: clamp(50px, 10vw, 120px);
-        height: clamp(90px, 10vw, 180px);
-
-       
-    }
-    .description{
-        color: var(--primary-text-color);
-        font-size: clamp(1rem, 3vw, 40px);
-        font-family: var(--font-family-secondary);
-        text-wrap: pretty;
-        text-overflow: ellipsis;
-        width: 70%;
-       
-    }
-
-    @media (max-width: 768px) {
-        .lista{
-
-        gap: 1rem;
-
-    }
-        .bigchar{
-            font-size: clamp(1.5rem, 7vw, 110px);
-            width: 50px;
-        }
-        .icono{
-            width: clamp(50px, 10vw, 120px);
-            height: clamp(90px, 10vw, 180px);
-        }
-        .description{
-            font-size: clamp(1rem, 3vw, 40px);
-            width: 90%;
-        }
-    }
-</style>

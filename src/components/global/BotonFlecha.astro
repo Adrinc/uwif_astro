@@ -9,6 +9,7 @@ interface Props {
 	textColor?: string;
 	textColorHover?: string;
 	iconColor?: string;
+	iconBackgroundColor?:string;
 	iconColorHover?: string;
 	gradientColorLeft?: string;
 	gradientColorCenter?: string;
@@ -25,7 +26,7 @@ interface Props {
 	marginBottomIncon?: string;
 }
 
-const {showIcon=true, marginLeftIncon="0px", marginRightIncon="0px", marginTopIncon="0px", marginBottomIncon="0px", paddingleft="12px", paddingright="8px", fontsize="20px", fontweight="200",  width="auto", texto="-----", link, backgroundColor="transparent", iconColor='#00c207', iconColorHover='#00c207', borderColor = "#00c207", borderColorHover ='transparent',  borderWidth=2, textColor='#ffffff', textColorHover='#ffffff', gradientColorLeft='#5446E6', gradientColorRight='#00c207'   } = Astro.props;
+const {showIcon=true, marginLeftIncon="0px", marginRightIncon="0px", marginTopIncon="0px", marginBottomIncon="0px", paddingleft="12px", paddingright="8px", fontsize="20px", fontweight="200",  width="auto", texto="-----", link, backgroundColor="transparent", iconColor='#00c207', iconColorHover='#00c207', iconBackgroundColor="bg-[#00c207]", borderColor = "#00c207", borderColorHover ='transparent',  borderWidth=2, textColor='#ffffff', textColorHover='#ffffff', gradientColorLeft='#5446E6', gradientColorRight='#00c207'   } = Astro.props;
 ---
 <a href={link}>
     <button class="button-learn flex flex-row-reverse align-middle items-center justify-center md:text-[1.3vw] text-[14px] font-semibold tracking-[-.03em] gap-3" aria-label={texto}
@@ -45,6 +46,7 @@ const {showIcon=true, marginLeftIncon="0px", marginRightIncon="0px", marginTopIn
 	--text-color: ${textColor};
 	--text-color-hover: ${textColorHover};
 	--icon-color: ${iconColor};
+	--icon-background-color: ${iconBackgroundColor};
 	--icon-color-hover: ${iconColorHover};
 	--border-color: ${borderColor};
 	--border-color-hover: ${borderColorHover};
@@ -55,7 +57,7 @@ const {showIcon=true, marginLeftIncon="0px", marginRightIncon="0px", marginTopIn
 	`
 	}>
 		
-	<div  class={`${backgroundColor !="transparent" ? "bg-white" : `bg-[#00c207]`} icono rounded-full p-1`}>
+	<div  class={`${backgroundColor !="transparent" ? "bg-white" : iconBackgroundColor} icono rounded-full p-1`}>
 		<svg xmlns="http://www.w3.org/2000/svg" height="22" viewBox="0 -960 960 960" width="22"><path fill={iconColor} d="M632.652-592.346 298.696-258.391q-15.522 15.522-37.044 15.24-21.522-.283-37.043-15.805-15.522-15.522-15.522-37.327 0-21.804 15.522-37.326l333.39-333.39H285.652q-22.087 0-37.543-15.457-15.457-15.457-15.457-37.544 0-22.087 15.457-37.544 15.456-15.457 37.543-15.457h400q22.088 0 37.544 15.457 15.457 15.457 15.457 37.544v400q0 22.087-15.457 37.544-15.456 15.457-37.544 15.457-22.087 0-37.543-15.457-15.457-15.457-15.457-37.544v-272.346Z"/></svg>
 	</div>
 
@@ -75,6 +77,7 @@ const {showIcon=true, marginLeftIncon="0px", marginRightIncon="0px", marginTopIn
 	margin-top: var(--margin-top-icon);
 	margin-bottom: var(--margin-bottom-icon);
 	transition: stroke 1s ease-in-out;
+	background: var(--icon-background-color);
 }
 .icono:hover{
 	stroke: var(--icon-color-hover);
