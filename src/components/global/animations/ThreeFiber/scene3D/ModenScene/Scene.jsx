@@ -16,11 +16,11 @@ export default function Scene()
     <Suspense fallback={null}>
         <EffectComposer multisampling={4}>
             <ToneMapping {...toneMappingConfig}/>
+            <Bloom {...bloomConfig} />
+            <ChromaticAberration {...chromaticAberrationConfig} />
           
      
       
-            <Bloom {...bloomConfig} />
-            <ChromaticAberration {...chromaticAberrationConfig} />
          
         </EffectComposer>
     </Suspense>
@@ -35,12 +35,12 @@ export default function Scene()
     <PresentationControls
     config={{ mass: 2, tension: 500 }}
     snap={{ mass: 4, tension: 1500 }}
-    rotation={[0.2,-2,0]}
+    rotation={[0,0,0]}
     polar={[-Math.PI / 3, Math.PI / 3]}
     azimuth={[-Math.PI / 1.4, Math.PI / 2]}
 
 >
-<Moden  position={[-0.2,0,0]} />
+<Moden  position={[0,0,0]} rotation={[0,-1.58,0]}  />
 </PresentationControls>
 
 

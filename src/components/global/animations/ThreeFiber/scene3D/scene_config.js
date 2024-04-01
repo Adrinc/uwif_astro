@@ -37,12 +37,12 @@ export const vignetteConfig = {
   export const bloomConfig = {
     mipmapBlur: true,
     intensity: 1,
-    luminanceThreshold: 0.7,
-    luminanceSmoothing: 0.7,
+    luminanceThreshold: 0.3,
+    luminanceSmoothing: 1,
     resolutionX: Resolution.AUTO_SIZE,
     resolutionY: Resolution.AUTO_SIZE,
     kernelSize: 1,
-    blendFunction: BlendFunction.OVERLAY,
+    blendFunction: BlendFunction.COLOR_DODGE,
 
   };
   
@@ -54,6 +54,6 @@ export const vignetteConfig = {
   
   export const toneMappingConfig = {
     blendFunction: BlendFunction.SCREEN,
-    mode: 3
+    mode: 1
     };
 
