@@ -10,8 +10,8 @@ interface Props {
 const { content, classN, textAlign="text-justify", titlesAlign="text-left"} = Astro.props;
 ---
     <span set:html={parse(content)} class={`${textAlign}
-    md:text-[22px] text-[16px] flex list-outside flex-col gap-3 text-white/90 font-[300]
-    [&>*>strong]:tracking-[-2px] [&>*>strong]:font-[700] [&>*>a]:text-colorSecondary
+    md:text-[20px] text-[16px] flex list-outside flex-col gap-3 text-white/80 font-[200] tracking-[0.25px]
+    [&>*>strong]:tracking-[-1.5px] [&>*>strong]:font-[600] [&>*>a]:text-colorSecondary
     [&>h1]:text-[45px] md:[&>h1]:text-[4.25vw] [&>h1]:font-[200] ${'[&>h1]:'+titlesAlign}
     [&>h2]:text-[40px] md:[&>h2]:text-[3.75vw] [&>h2]:font-[200] ${'[&>h2]:'+titlesAlign} [&>h2]:inline-block [&>h2]:text-white
     [&>h3]:text-[30px] md:[&>h3]:text-[3.25vw] [&>h3]:font-[200] ${'[&>h3]:'+titlesAlign} [&>h3]:text-white

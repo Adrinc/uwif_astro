@@ -1,0 +1,29 @@
+---
+import { setURL } from '../../data/constants';
+
+interface Props {
+	button: any;
+}
+const{
+    button
+}= Astro.props;
+
+---
+<div class="flex flex-col items-center justify-center gap-3">
+    <a href={button.Link} target=”_blank”>
+        <div class="flex flex-col items-center justify-center rounded-full md:h-[150px] md:w-[150px] h-[100px] w-[100px] bg-white p-5">
+            <img
+                src={setURL(button.Icon.data.attributes.url)}
+                class="md:w-[150px] w-[100px] object-contain"
+                alt={button.Icon.data.attributes.alternativeText}
+                title={button.Icon.data.attributes.caption}
+            />
+        </div>
+    </a>
+    <a class="flex flex-row items-center justify-center gap-2" href={button.Link} target=”_blank”>
+        <h3 class="font-bold md:text-[18px] text-[15px] tracking[-1px]">{button.Text}</h3>
+        <div  class={`rounded-full p-1 border border-white`}>
+            <svg xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 -960 960 960" width="16"><path fill="white" d="M632.652-592.346 298.696-258.391q-15.522 15.522-37.044 15.24-21.522-.283-37.043-15.805-15.522-15.522-15.522-37.327 0-21.804 15.522-37.326l333.39-333.39H285.652q-22.087 0-37.543-15.457-15.457-15.457-15.457-37.544 0-22.087 15.457-37.544 15.456-15.457 37.543-15.457h400q22.088 0 37.544 15.457 15.457 15.457 15.457 37.544v400q0 22.087-15.457 37.544-15.456 15.457-37.544 15.457-22.087 0-37.543-15.457-15.457-15.457-15.457-37.544v-272.346Z"/></svg>
+        </div>
+    </a>
+</div>

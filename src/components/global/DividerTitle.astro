@@ -1,0 +1,23 @@
+---
+interface Props {
+    startColor?: string;
+    endColor?: string;
+    gradientId: string;
+}
+
+
+const {startColor="#5446E6", endColor="#7949DC", gradientId=""} = Astro.props;
+---
+<div class="w-full mt-[-50px]">
+<svg width="100%" viewBox="0 0 1440 331" fill="none"  preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+  <g>
+    <path d="M712 331C977.747 331 1197 284.924 1440 170.652V-6.10352e-05C1299.69 51.639 1104.44 182 712 182C363.868 182 137.143 54.2872 0 -6.10352e-05V170.652C177 270.2 446.253 331 712 331Z"  fill={`url(#${gradientId}`}/>
+      <defs>
+        <linearGradient id={gradientId} x1="25.6871" y1="-1.45048e-05" x2="1000" y2="64.725" gradientUnits="userSpaceOnUse">
+          <stop stop-color={startColor}/>
+          <stop offset="1" stop-color={endColor}/>
+        </linearGradient>
+      </defs>
+    </g>
+    </svg>
+</div>

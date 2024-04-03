@@ -1,6 +1,5 @@
 ---
 import Markdown from './Markdown.astro';
-import BuyOrApplyFree from './BuyOrApplyFree.astro';
 import { setURL } from '../../data/constants';
 import ButtonList from './ButtonList.astro';
 
@@ -14,13 +13,14 @@ interface Props {
     backgroundColor?: string;
     centerContent?: boolean;
     textAtLeft? : boolean;
+    removeVerMargin?: boolean;
 }
 
 
-const {headings, logo, logoIsInline= true, textBlock, buttons, backgroundColor="transparent", centerHeadings=true, centerContent=false, textAtLeft=true} = Astro.props;
+const {headings, logo, logoIsInline= true, textBlock, buttons, backgroundColor="transparent", centerHeadings=true, centerContent=false, textAtLeft=true, removeVerMargin=false} = Astro.props;
 
 ---
-<div class={`w-full flex place-content-center my-20 bg-${backgroundColor}`}>
+<div class={`w-full flex place-content-center ${removeVerMargin ? "": "my-20"} bg-${backgroundColor}`}>
     <div class={`flex ${textAtLeft ? "md:flex-row" : "md:flex-row-reverse"} flex flex-col items-center md:max-w-[1600px] md:mx-[5vw] px-5`}>
 
         <!-- DIV PARA TEXTO -->
