@@ -1,5 +1,5 @@
 
-import { useRive, Layout, Fit, Alignment } from "@rive-app/react-canvas";
+import { useRive, Layout, Fit } from "@rive-app/react-canvas";
 
 export const RiveDemo = () => {
   const { RiveComponent } = useRive({
@@ -10,7 +10,6 @@ export const RiveDemo = () => {
     // This is optional.Provides additional layout control.
     layout: new Layout({
       fit: Fit.Contain  , // Change to: rive.Fit.Contain, or Cover
-      alignment: Alignment.Center,
     }),
     autoplay: true,
   });

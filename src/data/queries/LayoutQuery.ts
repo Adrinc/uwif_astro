@@ -6,6 +6,7 @@ export const MenuQuery=()=>{
         data{
           attributes{
             Logo{
+              Text
               Link
               Icon{
                 ${mediaUrl}

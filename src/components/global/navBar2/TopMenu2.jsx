@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import TopMenuStyle from './TopMenu2.module.css';
 import { useLocation } from 'react-router-dom';
-import Wifilogo from "../animations/Rive/uwifilogo.jsx";
+import Wifilogo from "../animations/Rive/riveComponent.jsx";
 /* import Wifilogos from "../animations/Rive/uwifilogo.jsx"; */
 
 const TopMenu = () => {
@@ -9,7 +9,8 @@ const TopMenu = () => {
         { name: 'HOME', url: '/', alterurl:"/home" },
         { name: 'HOW IT WORKS', url: '/how-it-works', alterurl:"/how-it-works" },
         { name: 'SUPPORT', url: '/support', alterurl:"/support" },
-        { name: 'ABOUT US', url: '/about', alterurl:"/about" }
+        { name: 'ABOUT US', url: '/about', alterurl:"/about" },
+        { name: 'PARTNERS', url: '/partners', alterurl:"/partners" }
 
     ];
     const location = useLocation();
@@ -141,7 +142,7 @@ const TopMenu = () => {
                     height={50}
                   
                 /> */}
-                  <Wifilogo />
+                  <Wifilogo/>
               </div>
 
          
