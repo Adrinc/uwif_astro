@@ -14,7 +14,8 @@ export const GetFootFull = () => {
               Slogan,
               Button{
                 Text,
-                Link
+                Link,
+                ${compIcon}
               }
               
               
@@ -30,7 +31,7 @@ export const GetFootFull = () => {
                   Link,
                   ${compIcon}
                 }
-              
+              Caption
               
               #----------------
             }

@@ -2,6 +2,7 @@
 
 // import FootUWIFI from '../components/global/foot/FootUWIFI.astro';
 // import { ViewTransitions } from 'astro:transitions';
+import FootUWIFI from '../components/global/foot/FootUWIFI.astro';
 import Navbar from '../components/global/menu/Navbar.astro';
 
 interface Props {
@@ -17,7 +18,7 @@ const navData= dataLayout.data.generalMenu.data.attributes;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" transition:animate="slide">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -42,7 +43,7 @@ const navData= dataLayout.data.generalMenu.data.attributes;
 		</main>
 	</body>
 	
-		<!-- {showFooter && <FootUWIFI/>} -->
+		{showFooter && <FootUWIFI/>}
 	
 </html>
 <style is:global>
@@ -57,7 +58,7 @@ const navData= dataLayout.data.generalMenu.data.attributes;
 }
 
 	:root {
-		--primary-color: #00c207;
+		--primary-color: #49be2b;
 		--secondary-color: #5446E6;
 		--tertiary-color: #ffffff;
 		--cuaternary-color: #24a342;

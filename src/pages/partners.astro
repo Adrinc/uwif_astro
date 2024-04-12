@@ -23,7 +23,7 @@ const seoData = pageData.SEO;
 ---
 
 <Layout seoData={seoData} dataLayout={dataLayout}>
-    <div class="md:py-[250px] py-[150px] relative">
+    <div class=" py-[80px] relative">
         <BlurryBall position="top-[200px] start-[150px]" size="350px" blur='200px'/>
 	    <Paragraph headings={paragraphData.Headings} textBlock={paragraphData.Textblock} centerContent={true} removeVerMargin={true}/>
         {partnersData.map((partner: any, index: any) => (            
@@ -37,7 +37,7 @@ const seoData = pageData.SEO;
                             startColor={index%2 ? '#63CD6B':undefined}
                             endColor={index%2 ? '#16922A' : undefined}/>
                     }
-                    <Markdown content={partner.Titles[0].Heading} classN='absolute [&>h2]:text-[18px] md:[&>h2]:text-[3vw] md:pb-[3vw] pb-[2vw]'/>
+                    <Markdown content={partner.Titles[0].Heading} classN='absolute [&>h2]:text-[17px] md:[&>h2]:text-[3vw] md:pb-[3vw] pb-[2vw]'/>
                 </div>
                 
                 <div class="flex flex-wrap items-center justify-center gap-10 mt-[40px] md:mb-[0px] mb-[40px]">

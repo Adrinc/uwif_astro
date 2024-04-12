@@ -12,7 +12,6 @@ import { GetAboutFull } from '../data/queries/AboutQuerys';
 
 
 const data = await getPageData(GetAboutFull());
-console.log(data.pageData);
 ---
 
 
@@ -20,7 +19,7 @@ console.log(data.pageData);
 <Layout dataLayout={data.layoutData} seoData={data.pageData['data']['pageAboutUs']['data']['attributes']['SEO']}>
 	
 <HeroAbout strapiData={data}/>
-<BanerSuccesNumbers strapiData={data}/>
+<!-- <BanerSuccesNumbers strapiData={data}/> -->
 <AboutUSeccion strapiData={data.pageData['data']['pageAboutUs']['data']['attributes']['AboutParagraphs']}/>
 <MeetOurSeccion strapiData={data.pageData['data']['pageAboutUs']['data']['attributes']['AboutParagraphs']}/>
 <OurDifferentialsSeccion strapiData={data}/>
