@@ -1,4 +1,4 @@
-import { compIcon } from "../constants"
+import { compIcon, mediaUrl } from "../constants"
 
 export const GetFootFull = () => {
     return  `
@@ -9,7 +9,12 @@ export const GetFootFull = () => {
           data{
             attributes{
 
-              
+              Logo{
+                Link
+                Icon{
+                  ${mediaUrl}
+                }
+              }
               #----------------
               Slogan,
               Button{

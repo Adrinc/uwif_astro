@@ -1,4 +1,6 @@
 ---
+import Markdown from '../global/Markdown.astro';
+
 interface Props {
     titulo?:string;
     descripcion?:string;
@@ -17,69 +19,12 @@ const{
 ---
 
 
-<div class="enroll-active-use">
-    <div class="flex  flex-col items-center gap-6">
-        <img class="icono" src={icono_url} alt={icono_alt}/>
-        <p class="title">{titulo}</p>
-    </div>
-    <p class="description">
-       {descripcion}
-    </p>
+<div class="flex flex-col items-center bg-gradient-to-r from-white/0 to-white/5 grow w-full py-5 px-10 rounded-[20px] gap-2 border border-white/10">
+    <div class="relative flex items-center justify-center w-[60px] h-[60px]">
+        <div class="absolute w-full h-full rounded-full bg-gradient-to-t from-[var(--secondary-color)] to-[var(--cuaternary-color)] m-1 motion-safe:animate-[spin_2s_ease-in-out_infinite]">
+        </div>
+        <img class="absolute bg-white w-full h-full rounded-full w-[51px] h-[51px] p-3 invert" src={icono_url} alt={icono_alt}/>
+    </div>    
+    <Markdown content={`### **${titulo}**`}/>
+    <Markdown content={descripcion} textAlign='text-center' classN='md:text-[16px]'>
 </div>
-
-
-<style>
-    .icono{
-        filter: invert(1) grayscale(1) brightness(2);
-        width: clamp(50px, 20vw, 100px);
-        height: clamp(50px, 20vw, 100px);
-    }
-        .enroll-active-use:before {
-    content: "";
-    position: absolute;
-    box-sizing: inherit;
-}
-    .enroll-active-use{
-        position: relative;
-      
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 12px;
-        background-color: rgb(0, 0, 0);
-        border: 3px solid #ffffff;
-        box-shadow: 10px 10px 0 0px #000000;
-        width: clamp(50px, 70vw, 450px);
-        inset: 0;
-        border-radius: 15px;
-       
-
-    }
-    .enroll-active-use::after{
-   
-        position: absolute;
-        content: "";
-        background-color: var(--secondary-color);
-        border-color: #5746E5;
-        inset: 1rem -20px -20px 1rem;
-        border-radius: 1rem;
-        z-index: -10;
-    }
-
-
-   .title{
-        font-size: clamp(12px, 40vw, 40px);
-        text-align: justify;
-        text-justify: inter-word;
-        text-wrap: pretty;
-        color: #ffffff;
-    }
-    .description{
-        font-size: clamp(12px, 20vw, 22px);
-        text-align: justify;
-        font-weight: 300;
-        text-wrap: pretty;
-        padding: clamp(0px, 10vw, 12px);
-        color: #ffffff;
-    }
-</style>

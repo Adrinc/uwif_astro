@@ -16,12 +16,11 @@ interface Props {
 }
 
 const { Price, Buttons, title, Features=[""], Subtitle="FREE for ACP Subscribers", Pricetime="/month with" } = Astro.props;
-
-
+const primaryColor= "#49be2b";
 ---
 
 <div class="contenedor-tarjeta overflow-hidden">
-    <div class="overflow-hidden tarjeta bg-gradient-to-r from-white/20 to-white/5 md:mr-10 max-w-[350px] rounded-tl-[300px] rounded-tr-[300px] rounded-bl-[150px] py-5 my-5 border border-secondaryColor flex flex-col items-center justify-center">
+    <div class={`overflow-hidden tarjeta bg-gradient-to-r from-[#49be2b]/20 to-[#49be2b]/5 md:mr-10 max-w-[350px] rounded-tl-[300px] rounded-tr-[300px] rounded-bl-[150px] py-5 my-5 border border-[#49be2b]/20 flex flex-col items-center justify-center`}>
 			<div class="flex flex-row max-w-[250px] gap-2 items-center justify-center p-2">
 				<p class="font-bold md:text-[70px] text-[40px]">${Price}</p>
 				<p class="text-white font-light text-left text-[13px]"> {Pricetime}</p> 

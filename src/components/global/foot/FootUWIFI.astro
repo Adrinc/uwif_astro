@@ -3,20 +3,53 @@ import {getPageData} from '../../../services/graphql';
 import * as SelfServiceData from '../../../data/queries/FootQuerys';
 
 import { setURL } from '../../../data/constants';
+import Markdown from '../Markdown.astro';
+import BlurryBall from '../BlurryBall.astro';
 
 const currentYear  = new Date().getFullYear();
 
 const data = await getPageData(SelfServiceData.GetFootFull());
 const footerData = data.pageData.data.generalFooter.data.attributes;
+const logo = footerData.Logo;
 const slogan = footerData.Slogan;
 const caption = footerData.Caption.replace('[year]', currentYear.toString());
 const topButton = footerData.Button;
 const menu = footerData.TextButton;
 const socialMedia = footerData.SocialMedia;
+
+console.log(logo)
 ---
-<footer>
+<div class="relative overflow-hidden">
+    <!-- BACKGROUND -->
+    <BlurryBall position="top-[-100px] left-1/2 -translate-x-1/2 -translate-y-1/2" background='var(--primary-color)' size='250px'/>
+    <BlurryBall position="top-[-60px] start-0" background='var(--secondary-color)' size='200px'/>
+    <BlurryBall position="bottom-[-60px] end-0" background='var(--secondary-color)' size='150px'/>
+
+    <!-- LOGO AND SLOGAN (CONTAINER) -->
+    <div class="flex flex-col m-4 items-center justify-center">
+        <!-- LOGO -->
+        <a href={logo.Link}>
+            <img class="w-[130px] object-contain" src={setURL(logo.Icon.data.attributes.url)}>  
+        </a>
+
+        <!-- SLOGAN -->
+        <Markdown content={slogan}/>
+
+        <!-- MENU OPTIONS -->
+        <div class="flex flex-wrap items-center justify-center">
+        {
+            menu.map((option: any) => (
+            <a
+                class={`flex  text-center transition ease-in-out delay-100 px-1 py-1 m-2 md:hover:scale-75 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline rounded-full font-medium min-[1400px]:text-[1vw] text-[14px] tracking-[-0.1px] menuOption text-white/50`}
+                href={option.Link}>
+                    {option.Text}
+            </a>
+            ))
+        }
+        </div>
+    </div>
     <div class="flex flex-wrap md:rounded-full rounded-[20px] bg-white/5 m-5 px-3 py-1 items-center md:justify-between justify-center gap-3">
-        <div class="flex flex-row md:gap-2 gap-4">
+        <div class="flex flex-row md:gap-2 gap-4 md:w-auto w-full items-center justify-center">
             {
             socialMedia.map((button: any, index: number) => (
                 <a href={button.Link} target="_blank">
@@ -33,4 +66,4 @@ const socialMedia = footerData.SocialMedia;
             <img class="w-[30px] h-[30px] rounded-full p-1 bg-white motion-safe:animate-[bounce_2s_ease-in-out_infinite] " src={setURL(topButton.Icon.data.attributes.url)}>     
         </div>
     </div>
-</footer>
+</div>

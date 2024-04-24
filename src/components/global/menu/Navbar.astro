@@ -10,7 +10,7 @@ interface Props {
 }
 
 const { options, logo, featButton } = Astro.props;
-const menuOpStyle="flex items-center transition ease-in-out delay-100 px-3 py-1 m-2 md:hover:scale-75  hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline rounded-full font-bold min-[1400px]:text-[1.2vw] text-[18px] tracking-[-0.5px]";
+const menuOpStyle="flex items-center transition ease-in-out delay-100 px-3 py-1 m-2 md:hover:scale-75  hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline rounded-full font-semibold min-[1400px]:text-[1.2vw] text-[18px] tracking-[-0.5px]";
 ---
 
 
@@ -34,7 +34,7 @@ const menuOpStyle="flex items-center transition ease-in-out delay-100 px-3 py-1 
 <nav class="navbar" id="top">
     <div class="antialiased">
         <div
-            class="w-full text-white bg-black/20 backdrop-blur-[20px] border-y border-white/20 py-3"
+            class="w-full text-white bg-black/30 backdrop-blur-[20px] border-y border-white/20 py-3"
         >
             <div
                 x-data="{ open: false }"
@@ -84,7 +84,7 @@ const menuOpStyle="flex items-center transition ease-in-out delay-100 px-3 py-1 
                     class="w-full flex-col hidden pb-4 md:pb-0 md:flex md:justify-evenly md:flex-row text-white"
                 >
                     <div
-                        class="flex md:flex-row flex-col md:bg-white/10 md:rounded-full md:border md:border-white/20 text-white"
+                        class="flex md:flex-row flex-col md:bg-white/5 md:rounded-full md:border md:border-white/10 text-white"
                     >
 
                     {options.map((button: any, index: number) => (
@@ -163,6 +163,6 @@ const menuOpStyle="flex items-center transition ease-in-out delay-100 px-3 py-1 
 
 <style>
     .navbar a.menuOption.active {
-        border: solid var(--secondary-color);
+        border: solid white;
     }
 </style>

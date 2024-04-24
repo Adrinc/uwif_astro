@@ -27,9 +27,12 @@ const { slidesContent } = Astro.props;
                             <div class="keen-slider__slide absolute top-0 w-full justify-center">
                                 <div class={`overflow-hidden ${bottomRadius}`}>
                                     <video
-                                        autoplay
+                                        id={slide["Background"]["data"][0]["attributes"]["url"]}
                                         muted
                                         loop
+                                        // autoplay={false}
+                                        controls={false}
+                                        preload='auto'
                                         class={`w-full object-cover ${carouselHeight}`}
                                         src={`${setURL(slide["Background"]["data"][0]["attributes"]["url"])}`}
                                     />

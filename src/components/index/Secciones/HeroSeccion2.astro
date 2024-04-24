@@ -2,6 +2,7 @@
 import Moden from '../../global/animations/ThreeFiber/scene3D/ModenScene/Main3D';
 import Paragraph from '../../global/Paragraph.astro';
 import BlurryBall from '../../global/BlurryBall.astro';
+import ShapeBackground from '../../global/ShapeBackground.astro';
 
 interface Props{
     strapiData: any;
@@ -10,11 +11,14 @@ const{ strapiData } = Astro.props;
 const paragraphContent = strapiData['pageData']['data']['pageHome']['data']['attributes']['PrimaryParagraph'];
 ---
 <section class="relative" >
-	<BlurryBall position="top-[-400px] end-[200px]" background='var(--secondary-color)' size="400px"/>
+	<!-- <BlurryBall position="top-[-400px] end-[200px]" background='var(--secondary-color)' size="400px"/> -->
 	<BlurryBall position="bottom-[100px] start-[300px]" background='linear-gradient(0deg, var(--primary-color) 10%, var(--secondary-color) 100%)' size="150px" blur="90px"/>
 	<Paragraph headings={paragraphContent.Headings} textBlock={paragraphContent.Textblock} logo={paragraphContent.IconLogo} buttons={paragraphContent.Buttons} >
 		<div class="flex items-center justify-center m-3">
-			<div class="  md:h-[40vw] md:w-[40vh] max-w-[60vh] max-h-[60vh] flex relative inset-0">
+			<div class="md:h-[50vw] md:w-[50vh] w-full h-[80vw] max-w-[60vh] md:max-h-[60vh] max-h-[80vh] flex relative inset-0 items-center justify-center">
+				<div class="absolute w-full flex flex-row items-center justify-center">
+					<ShapeBackground gradientId='gatewayContainer'/>
+				</div>
 				<Moden client:visible transition:persist/>
 			</div>
 		</div>
