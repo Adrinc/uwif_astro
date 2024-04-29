@@ -12,8 +12,10 @@ const { imageUrl, step, description  } = Astro.props;
 ---
 
 
-<div class="flex flex-row items-center justify-start gap-5">
-    <img class="w-[50px] h-[50px] object-contain" src={imageUrl} alt="ui-icon">
-    <p class="md:text-[100px] text-[50px] font-bold">{step}</p>
-    <Markdown content={description} classN="md:text-[35px]"/>
+<div class="flex flex-col items-center justify-center p-10 gap-5 relative w-full">
+    <!-- <img class="w-[50px] h-[50px] object-contain" src={imageUrl} alt="ui-icon"> -->
+    <Markdown content={description} classN="md:text-[24px] text-[20px] tracking-[-0.65px] font-medium z-10" textAlign='text-center'/>
+    <div class="absolute">
+        <p class="z-0 md:text-[180px] text-[120px] text-transparent font-bold bg-gradient-to-r from-black/40 to-black/5 inline-block bg-clip-text">{step}</p>
+    </div>
 </div>

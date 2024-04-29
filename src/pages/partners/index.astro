@@ -1,16 +1,13 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import HeroSelfServices from '../components/self-service/Secciones/HeroSelfServiceSeccion.astro';
 
-
-import {getPageData} from '../services/graphql';
-import * as PartnersData from '../data/queries/PartnersQuery';
-import Paragraph from '../components/global/Paragraph.astro';
-import BubbleImgButton from '../components/global/BubbleImgButton.astro';
-import Markdown from '../components/global/Markdown.astro';
-import DividerTitle from '../components/global/DividerTitle.astro';
-import { color } from 'three/examples/jsm/nodes/Nodes.js';
-import BlurryBall from '../components/global/BlurryBall.astro';
+import {getPageData} from '../../services/graphql';
+import * as PartnersData from '../../data/queries/PartnersQuery';
+import BlurryBall from '../../components/global/BlurryBall.astro';
+import Paragraph from '../../components/global/Paragraph.astro';
+import DividerTitle from '../../components/global/DividerTitle.astro';
+import Markdown from '../../components/global/Markdown.astro';
+import BubbleImgButton from '../../components/global/BubbleImgButton.astro';
+import Layout from '../../layouts/Layout.astro';
 
 const data = await getPageData(PartnersData.partnersQuery());
 

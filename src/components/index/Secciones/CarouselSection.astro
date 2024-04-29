@@ -12,7 +12,7 @@ interface Props {
 const { slidesContent } = Astro.props;
 ---
 
-<main class={`flex items-center justify-center relative`}>
+<main class={`flex items-center justify-center relative pointer-events-none`}>
     <!-- Aquí es donde realmente se define el tamaño. Altura: 80 vh -->
     <section class={`w-full ${carouselHeight}`}>
         <!-- Desktop Version -->
@@ -30,9 +30,9 @@ const { slidesContent } = Astro.props;
                                         id={slide["Background"]["data"][0]["attributes"]["url"]}
                                         muted
                                         loop
-                                        // autoplay={false}
+                                        playsinline
+                                        autoplay={true}
                                         controls={false}
-                                        preload='auto'
                                         class={`w-full object-cover ${carouselHeight}`}
                                         src={`${setURL(slide["Background"]["data"][0]["attributes"]["url"])}`}
                                     />

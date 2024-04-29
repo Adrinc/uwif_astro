@@ -10,8 +10,8 @@ const{ strapiData } = Astro.props;
 
 
 const dataPage = strapiData.pageData.data.pageHiw.data.attributes;
-
 const baner = dataPage.Banner;
+const internetPar = dataPage.InternetParagraph;
 
 ---
 <section  id="5g">
@@ -20,11 +20,9 @@ const baner = dataPage.Banner;
 
     <div class="row-how-5g">
         <div class="column-left-how-5g">
-            <Markdown classN="[&>h1]:text-white [&>h1]:font-bold [&>p]:font-[100]" content={dataPage['InternetParagraph']['Textblock'].split('\n\n')[0]}></Markdown>
+            <Markdown classN="[&>h1]:text-white [&>h1]:font-bold [&>p]:font-[100]" content={dataPage['InternetParagraph']['Textblock']}></Markdown>
         </div>
-        <div class="column-right-how-5g">
-            <Markdown classN="[&>h1]:text-white [&>h1]:font-bold [&>p]:font-[100]" content={dataPage['InternetParagraph']['Textblock'].split('\n\n')[1]}></Markdown>
-        </div>
+        
     </div>
 
   

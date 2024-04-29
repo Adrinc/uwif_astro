@@ -1,0 +1,48 @@
+---
+
+import {getPageData} from '../../../services/graphql';
+import * as PartnersData from '../../../data/queries/PartnersQuery';
+import BlurryBall from '../../../components/global/BlurryBall.astro';
+import Paragraph from '../../../components/global/Paragraph.astro';
+import DividerTitle from '../../../components/global/DividerTitle.astro';
+import Markdown from '../../../components/global/Markdown.astro';
+import BubbleImgButton from '../../../components/global/BubbleImgButton.astro';
+import Layout from '../../../layouts/Layout.astro';
+
+const data = await getPageData(PartnersData.partnersQuery());
+
+const pageData = data['pageData']['data']['pagePartner']['data']['attributes'];
+const paragraphData = pageData.HeaderParagraph;
+const partnersData = pageData.SegPartners;
+
+const dataLayout = data.layoutData;
+const seoData = pageData.SEO;
+---
+
+<Layout seoData={seoData} dataLayout={dataLayout}>
+    <div class=" py-[80px] relative">
+        <BlurryBall position="top-[200px] start-[150px]" size="350px" blur='200px'/>
+	    <Paragraph headings={[{'Heading':"esto es una prueba"}]} textBlock={paragraphData.Textblock} centerContent={true} removeVerMargin={true}/>
+        {partnersData.map((partner: any, index: any) => (            
+            <div class="md:mt-[10px] mt-[50px]">
+            
+
+                <div class="w-full relative flex items-end justify-center">
+                    {
+                        <DividerTitle
+                            gradientId={`gradient-partners-${index}`}
+                            startColor={index%2 ? '#63CD6B':undefined}
+                            endColor={index%2 ? '#16922A' : undefined}/>
+                    }
+                    <Markdown content={partner.Titles[0].Heading} classN='absolute [&>h2]:text-[17px] md:[&>h2]:text-[3vw] md:pb-[3vw] pb-[2vw]'/>
+                </div>
+                
+                <div class="flex flex-wrap items-center justify-center gap-10 mt-[40px] md:mb-[0px] mb-[40px]">
+                    {partner.Buttons.map((button: any, index: number) => (
+                        <BubbleImgButton button={button}/>
+                    ))}
+                </div>
+            </div>))
+        }
+</div>
+</Layout>

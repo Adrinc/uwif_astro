@@ -21,10 +21,10 @@ const{
 
 <div class="flex flex-col items-center bg-gradient-to-r from-white/0 to-white/5 grow w-full py-5 px-10 rounded-[20px] gap-2 border border-white/10">
     <div class="relative flex items-center justify-center w-[60px] h-[60px]">
-        <div class="absolute w-full h-full rounded-full bg-gradient-to-t from-[var(--secondary-color)] to-[var(--cuaternary-color)] m-1 motion-safe:animate-[spin_2s_ease-in-out_infinite]">
+        <div class="absolute w-[60px] h-[60px] rounded-full bg-gradient-to-t from-[var(--secondary-color)] to-[var(--cuaternary-color)] m-1 motion-safe:animate-[spin_2s_ease-in-out_infinite]">
         </div>
-        <img class="absolute bg-white w-full h-full rounded-full w-[51px] h-[51px] p-3 invert" src={icono_url} alt={icono_alt}/>
+        <img class="absolute bg-white w-full h-full rounded-full w-[45px] h-[45px] p-3 invert" src={icono_url} alt={icono_alt}/>
     </div>    
     <Markdown content={`### **${titulo}**`}/>
-    <Markdown content={descripcion} textAlign='text-center' classN='md:text-[16px]'>
+    <p class="md:text-[16px] text-[14px] text-white/80 font-[200] tracking-[0.25px]">{descripcion}</p>
 </div>
