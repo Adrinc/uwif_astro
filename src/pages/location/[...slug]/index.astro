@@ -1,0 +1,31 @@
+---
+import { getPageData } from "../../../services/graphql";
+import {LocationPagesQuery} from "../../../data/queries/LocationPageQuery";
+
+const data = await getPageData(LocationPagesQuery());
+const pageData:Array<any> = data.pageData['data']['locations']['data'];
+
+console.log(pageData);
+
+const {slug} = Astro.params;
+console.log(Astro.params);
+console.log(slug);
+
+const page = pageData.find((page)=>page['attributes']['Slug'] === slug);
+
+console.log(page);
+
+if(!page) return Astro.redirect("/404");
+
+const {Name, ShortDescription, Introduction} = page['attributes'];
+---
+
+<h1>
+    {Name}
+</h1>
+<h2>
+    {ShortDescription}
+</h2>
+<h3>
+    {Introduction}
+</h3>
