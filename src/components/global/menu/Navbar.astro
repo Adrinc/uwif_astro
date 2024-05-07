@@ -1,6 +1,7 @@
 ---
 import { setURL } from "../../../data/constants";
 import BotonFlecha from "../BotonFlecha.astro";
+import ButtonList from "../ButtonList.astro";
 import Logo from "../animations/Rive/riveComponent.jsx";
 
 interface Props {
@@ -10,7 +11,7 @@ interface Props {
 }
 
 const { options, logo, featButton } = Astro.props;
-const menuOpStyle="flex items-center transition ease-in-out delay-100 px-3 py-1 m-2 md:hover:scale-75  hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline rounded-full font-semibold min-[1400px]:text-[1.2vw] text-[18px] tracking-[-0.5px]";
+const menuOpStyle="flex items-center transition ease-in-out delay-100 px-3 py-1 m-2 md:hover:scale-75  hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline rounded-full font-semibold min-[1400px]:text-[1.1vw] text-[18px] tracking-[-0.5px]";
 ---
 
 
@@ -38,21 +39,19 @@ const menuOpStyle="flex items-center transition ease-in-out delay-100 px-3 py-1 
         >
             <div
                 x-data="{ open: false }"
-                class="z-10 flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8"
+                class="z-10 flex flex-col max-w-[1500px] px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8"
             >
                 <div
-                    class="flex flex-row items-center justify-between"
+                    class="md:w-[350px] flex flex-row items-center justify-between"
                 >
                     <!-- LOGO -->
-
+                    
                     <a
                         href={logo.Link}
-                        class="w-[120px] h-[50px]"
+                        class="w-[120px] h-[60px]"
                     >
                         <Logo src={setURL(logo.Icon.data.attributes.url)}, stateMachines={logo.Text} autoplay={true} transition:persist client:only/>    
-                    </a
-                    >
-                   
+                    </a>
 
                     <!-- HAMBURGER ICON -->
                     <button
@@ -84,7 +83,7 @@ const menuOpStyle="flex items-center transition ease-in-out delay-100 px-3 py-1 
                     class="w-full flex-col hidden pb-4 md:pb-0 md:flex md:justify-evenly md:flex-row text-white"
                 >
                     <div
-                        class="flex md:flex-row flex-col md:bg-white/5 md:rounded-full md:border md:border-white/10 text-white"
+                        class="flex md:flex-row flex-col shrink-0 md:bg-white/5 md:rounded-full md:border md:border-white/10 text-white"
                     >
 
                     {options.map((button: any, index: number) => (
@@ -144,17 +143,22 @@ const menuOpStyle="flex items-center transition ease-in-out delay-100 px-3 py-1 
                     }
                     </div>
                 </nav>
+
+
                 <div
                     :class="{'flex': open, 'hidden': !open}"
-                    class="md:block hidden w-[120px]"
+                    class="md:block hidden max-w-[300px] shrink-0"
                 >
-                    <BotonFlecha
-                        texto={featButton.Text}
-                        link={featButton.Link}
-                        backgroundColor={"var(--primary-color)"}
-                        iconColor={`var(--primary-text-color)`}
-                        iconBackgroundColor={"var(--primary-color)"}
-                    />
+
+                <div class="flex min-[1150px]:flex-row flex-col gap-5">
+                  
+                        <ButtonList
+
+                          buttons={featButton}
+                        />
+                  
+                </div>
+                   
                 </div>
             </div>
         </div>

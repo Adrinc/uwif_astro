@@ -8,8 +8,8 @@ import vercel from "@astrojs/vercel/serverless";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://Adrinc.github.io',
+  site: 'https://u-wifi.com',
   integrations: [tailwind(), react()],
   output: "server",
-  adapter: vercel()
+  adapter: vercel(),
 });
