@@ -11,5 +11,12 @@ export default defineConfig({
   site: 'https://Adrinc.github.io',
   integrations: [tailwind(), react()],
   output: "server",
-  adapter: vercel()
+  adapter: vercel(),
+  i18n:{
+    defaultLocale: "en",
+    locales: ["es", "en"],
+    routing:{
+      prefixDefaultLocale: false
+    }
+  }
 });

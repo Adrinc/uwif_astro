@@ -1,10 +1,10 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import BlurryContainer from "../components/global/BlurryContainer.astro";
-import Markdown from "../components/global/Markdown.astro";
-import { getPageData } from "../services/graphql";
-import { joinQuery } from "../data/queries/JoinQuery";
-import { setURL } from "../data/constants";
+import Layout from "../../layouts/Layout.astro";
+import BlurryContainer from "../../components/global/BlurryContainer.astro";
+import Markdown from "../../components/global/Markdown.astro";
+import { getPageData } from "../../services/graphql";
+import { joinQuery } from "../../data/queries/JoinQuery";
+import { setURL } from "../../data/constants";
 
 const data = await getPageData(joinQuery());
 

@@ -12,7 +12,7 @@ import {getPageData} from '../services/graphql';
 import * as IndexData from '../data/queries/homeQuerys';
 
 
-const data  = await getPageData(IndexData.GetHeroSeccionFull());
+const data  = await getPageData(IndexData.GetHeroSeccionFull(Astro.currentLocale!));
 
 const dataLayout = data.layoutData;
 const pageData= data.pageData['data']['pageHome']['data']['attributes'];

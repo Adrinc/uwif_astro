@@ -1,6 +1,6 @@
 ---
-import { getPageData } from "../../../services/graphql";
-import {LocationPagesQuery} from "../../../data/queries/LocationPageQuery";
+import { getPageData } from "../../../../services/graphql";
+import {LocationPagesQuery} from "../../../../data/queries/LocationPageQuery";
 
 const data = await getPageData(LocationPagesQuery());
 const pageData:Array<any> = data.pageData['data']['locations']['data'];

@@ -1,12 +1,10 @@
 import { compIcon, mediaUrl, sectionSEO } from "../constants"
 
 
-
-
-export const GetHeroSeccionFull = () => {
+export const GetHeroSeccionFull = (language:string) => {
     return  `
     query {
-        pageHome{
+        pageHome(locale:"${language}"){
           data{
             attributes{
               #-------------- 

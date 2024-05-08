@@ -1,0 +1,40 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import HeroSeccion1 from '../../components/index/Secciones/HeroSeccion1.astro';
+import HeroSeccion2 from '../../components/index/Secciones/HeroSeccion2.astro';
+import ACPSeccion from '../../components/index/Secciones/ACPSeccion.astro';
+import JustOnePlanSeccion from '../../components/index/Secciones/JustOnePlanSeccion.astro';
+import TabletSeccion from '../../components/index/Secciones/TabletSeccion.astro';
+import BentogridSeccion2 from '../../components/index/Secciones/BentogridSeccion2.astro';
+
+
+import {getPageData} from '../../services/graphql';
+import * as IndexData from '../../data/queries/homeQuerys';
+import { getLangFromUrl } from '../../data/constants';
+
+// export const currentLanguage =  Astro.currentLocale==undefined?"en":await Astro.currentLocale;
+
+// console.log("await " + await Astro.currentLocale);
+
+
+
+const lang = getLangFromUrl(Astro.url);
+
+
+const data  = await getPageData(IndexData.GetHeroSeccionFull(lang));
+
+
+const dataLayout = data.layoutData;
+const pageData= data.pageData['data']['pageHome']['data']['attributes'];
+const seoData = pageData['SEO'];
+
+---
+
+<Layout seoData={seoData} dataLayout={dataLayout} >
+	<HeroSeccion1 sectionData={pageData}/>
+	<JustOnePlanSeccion strapiData={data}/> 
+	<BentogridSeccion2 strapiData={data}/>
+	<HeroSeccion2 strapiData={data}/>
+	<TabletSeccion strapiData={data}/>
+	<ACPSeccion strapiData={data}/>
+</Layout>

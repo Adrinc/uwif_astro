@@ -4,6 +4,13 @@ export const gqlURL = `${strapiUrl}/graphql`;
 export const setURL = (url: string) => {
     return `${strapiUrl}${url}`;
 };
+export const defaultLang = 'en';
+
+export function getLangFromUrl(url: URL) {
+    const [, lang] = url.pathname.split('/');
+    if (lang=="es") return 'es';
+    return defaultLang;
+  }
 
 export const mediaUrl = `
   data {

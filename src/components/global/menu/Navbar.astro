@@ -2,6 +2,7 @@
 import { setURL } from "../../../data/constants";
 import BotonFlecha from "../BotonFlecha.astro";
 import Logo from "../animations/Rive/riveComponent.jsx";
+import { getRelativeLocaleUrl } from 'astro:i18n';
 
 interface Props {
     logo: any;
@@ -11,6 +12,7 @@ interface Props {
 
 const { options, logo, featButton } = Astro.props;
 const menuOpStyle="flex items-center transition ease-in-out delay-100 px-3 py-1 m-2 md:hover:scale-75  hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline rounded-full font-semibold min-[1400px]:text-[1.2vw] text-[18px] tracking-[-0.5px]";
+const astro=Astro;
 ---
 
 
@@ -46,7 +48,7 @@ const menuOpStyle="flex items-center transition ease-in-out delay-100 px-3 py-1 
                     <!-- LOGO -->
 
                     <a
-                        href={logo.Link}
+                        href={getRelativeLocaleUrl(Astro.currentLocale==undefined?'en':Astro.currentLocale, logo.Link)}
                         class="w-[120px] h-[50px]"
                     >
                         <Logo src={setURL(logo.Icon.data.attributes.url)}, stateMachines={logo.Text} autoplay={true} transition:persist client:only/>    
@@ -91,7 +93,7 @@ const menuOpStyle="flex items-center transition ease-in-out delay-100 px-3 py-1 
                         button.SubOptions.length === 0 ? 
                             <a
                                 class={`${menuOpStyle} menuOption`}
-                                href={button.Link}>
+                                href={getRelativeLocaleUrl(Astro.currentLocale==undefined?'en':Astro.currentLocale, button.Link)}>
                                 {button.Text}
                             </a>
                             :
@@ -134,7 +136,7 @@ const menuOpStyle="flex items-center transition ease-in-out delay-100 px-3 py-1 
                                 {button.SubOptions.map((suboption: any, index: number) => (
                                     <a
                                 class={`${menuOpStyle} text-black md:text-[15px] menuOption`}
-                                href={suboption.Link}>{suboption.Text}</a>
+                                href={getRelativeLocaleUrl(Astro.currentLocale==undefined?'en':Astro.currentLocale, suboption.Link)}>{suboption.Text}</a>
                                 ))}
                                 
                                 </div>
@@ -156,10 +158,29 @@ const menuOpStyle="flex items-center transition ease-in-out delay-100 px-3 py-1 
                         iconBackgroundColor={"var(--primary-color)"}
                     />
                 </div>
+                <div id="switch-lang" class="relative flex cursor-pointer items-center justify-center self-center rounded-full shadow-sm bg-secondaryColor p-2 ml-5">
+                    <div class=`h-[35px] w-[35px] rounded-full text-center ${Astro.currentLocale =="es"?"opacity-50":""}`>EN</div>
+                    <div class=`h-[35px] w-[35px] rounded-full text-center ${Astro.currentLocale =="en"?"opacity-50":""}`>ES</div>
+                </div>
             </div>
         </div>
     </div>
 </nav>
+
+<script>
+    const switchLang = document.getElementById('switch-lang');
+
+    switchLang?.addEventListener('click', ()=>{
+        console.log("click")
+        console.log(window.location.pathname);
+        let newPath
+        window.location.pathname.includes('/es/')
+        ?newPath = "/"+window.location.pathname.split('/es/')[1]
+        :newPath="/es"+window.location.pathname;
+
+        window.location.href=newPath;
+    })
+</script>
 
 <style>
     .navbar a.menuOption.active {

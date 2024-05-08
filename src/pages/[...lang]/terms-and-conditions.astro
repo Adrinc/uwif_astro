@@ -1,8 +1,8 @@
 ---
-import Markdown from "../components/global/Markdown.astro";
-import Layout from "../layouts/Layout.astro";
-import { getPageData } from "../services/graphql";
-import {TermsAndConditionsQuery} from "../data/queries/TermsAndConditionsQuery";
+import Markdown from "../../components/global/Markdown.astro";
+import Layout from "../../layouts/Layout.astro";
+import { getPageData } from "../../services/graphql";
+import {TermsAndConditionsQuery} from "../../data/queries/TermsAndConditionsQuery";
 
 
 const data = await getPageData(TermsAndConditionsQuery());

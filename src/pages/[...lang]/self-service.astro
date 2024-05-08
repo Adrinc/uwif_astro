@@ -1,0 +1,33 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import HeroSelfServices from '../../components/self-service/Secciones/HeroSelfServiceSeccion.astro';
+import SimpleToolsSeccion from '../../components/self-service/Secciones/SimpleToolsSeccion.astro';
+import Robot from '../../components/global/Robot.astro';
+import SimpleToolsStartSeccion from '../../components/self-service/Secciones/SimpleToolsStartSeccion.astro';
+import GetUwifiAppSeccion from '../../components/self-service/Secciones/GetUwifiAppSeccion.astro';
+import ReadyToPayBillSeccion from '../../components/self-service/Secciones/ReadyToPayBillSeccion.astro';
+import WatchHowToSeccion from '../../components/self-service/Secciones/WatchHowToSeccion.astro';
+import FindOpenSeccion from '../../components/self-service/Secciones/FindOpenSeccion.astro';
+
+import {getPageData} from '../../services/graphql';
+import * as SelfServiceData from '../../data/queries/SelfServiceQuerys';
+
+const data = await getPageData(SelfServiceData.GetSelfServiceFull());
+
+const dataLayout = data.layoutData;
+
+const seoData = data.pageData['data']['pageSelfServ']['data']['attributes']['SEO'];
+---
+
+<Layout seoData={seoData} dataLayout={dataLayout}>
+	
+	<HeroSelfServices strapiData={data}/>
+	<SimpleToolsSeccion strapiData={data}/>
+	<SimpleToolsStartSeccion strapiData={data}/>
+	<GetUwifiAppSeccion strapiData={data}/>
+	<ReadyToPayBillSeccion strapiData={data}/>
+	<WatchHowToSeccion strapiData={data}/>
+	<FindOpenSeccion strapiData={data}/>
+
+	<Robot/>
+</Layout>
