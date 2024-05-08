@@ -6,10 +6,11 @@ import ConectionSeccion from '../../components/how-it-works/Secciones/ConectionS
 import {getPageData} from '../../services/graphql';
 import * as HowItWorksData from '../../data/queries/HowItWorksQuerys';
 import AnimationSection from '../../components/how-it-works/Secciones/AnimationSection.astro';
+import { getLangFromUrl } from '../../data/constants';
 
 
-
-const data = await getPageData(HowItWorksData.GetHowItWorksSeccionFull());
+const lang = getLangFromUrl(Astro.url);
+const data = await getPageData(HowItWorksData.GetHowItWorksSeccionFull(lang), lang);
 const layoutData = data.layoutData;
 const seoData = data.pageData['data']['pageHiw']['data']['attributes']['SEO']
 

@@ -1,8 +1,8 @@
 import { sectionSEO } from "../constants"
 
-export const TermsAndConditionsQuery=()=>{
+export const TermsAndConditionsQuery=(language:string)=>{
     return `query{
-        pageTermsAndCond{
+        pageTermsAndCond(locale:"${language}"){
           data{
             attributes{
               Content{

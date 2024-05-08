@@ -3,10 +3,10 @@ import { mediaUrl } from "../constants"
 
 
 //export query
-export const GetHero1Seccion = () => {
+export const GetHero1Seccion = (language:string) => {
   return  `
 query {
-  uwifiHome{
+  uwifiHome(locale:"${language}"){
     data{
       attributes{
         Title

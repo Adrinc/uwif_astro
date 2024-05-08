@@ -1,21 +1,23 @@
 ---
-import {getPageData} from '../../../services/graphql';
-import * as SelfServiceData from '../../../data/queries/FootQuerys';
-
 import { setURL } from '../../../data/constants';
 import Markdown from '../Markdown.astro';
 import BlurryBall from '../BlurryBall.astro';
 
+interface Props{
+    dataFooter:any;
+}
+
+const {dataFooter}=Astro.props;
+
 const currentYear  = new Date().getFullYear();
 
-const data = await getPageData(SelfServiceData.GetFootFull());
-const footerData = data.pageData.data.generalFooter.data.attributes;
-const logo = footerData.Logo;
-const slogan = footerData.Slogan;
-const caption = footerData.Caption.replace('[year]', currentYear.toString());
-const topButton = footerData.Button;
-const menu = footerData.TextButton;
-const socialMedia = footerData.SocialMedia;
+
+const logo = dataFooter.Logo;
+const slogan = dataFooter.Slogan;
+const caption = dataFooter.Caption.replace('[year]', currentYear.toString());
+const topButton = dataFooter.Button;
+const menu = dataFooter.TextButton;
+const socialMedia = dataFooter.SocialMedia;
 
 console.log(logo)
 ---

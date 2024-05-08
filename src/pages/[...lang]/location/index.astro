@@ -6,8 +6,11 @@ import ThreeCards from '../../../components/location/ThreeCards.astro';
 import CallNow from '../../../components/location/CallNow.astro';
 import { getPageData } from '../../../services/graphql';
 import { LocationQuery } from '../../../data/queries/LocationQuerys';
+import { getLangFromUrl } from '../../../data/constants';
 
-const data = await getPageData(LocationQuery());
+const lang = getLangFromUrl(Astro.url);
+
+const data = await getPageData(LocationQuery(lang), lang);
 
 const layoutData = data.layoutData;
 // const seoData = data.pageData['data']['sectionLocationsConst']['data']['attributes']['SEO']

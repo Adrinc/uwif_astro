@@ -3,9 +3,10 @@ import Markdown from "../../components/global/Markdown.astro";
 import Layout from "../../layouts/Layout.astro";
 import { getPageData } from "../../services/graphql";
 import {TermsAndConditionsQuery} from "../../data/queries/TermsAndConditionsQuery";
+import { getLangFromUrl } from "../../data/constants";
 
-
-const data = await getPageData(TermsAndConditionsQuery());
+const lang = getLangFromUrl(Astro.url);
+const data = await getPageData(TermsAndConditionsQuery(lang), lang);
 const layoutData = data.layoutData;
 
 const pageData = data.pageData['data']['pageTermsAndCond']['data']['attributes']

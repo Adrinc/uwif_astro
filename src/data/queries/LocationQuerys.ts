@@ -1,8 +1,8 @@
 import { mediaUrl, sectionSEO } from "../constants"
 
-export const LocationQuery = () => {
+export const LocationQuery = (language:string) => {
     return  `query{
-        sectionLocationsConst{
+        sectionLocationsConst(locale:"${language}"){
           data{
             attributes{
                  Title

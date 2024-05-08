@@ -1,8 +1,8 @@
-import { mediaUrl } from "../constants";
+import { compIcon, mediaUrl } from "../constants";
 
-export const MenuQuery=()=>{
-    return `query{
-      generalMenu{
+export const LayoutQuery = (language: string) => {
+  return `query{
+      generalMenu(locale:"${language}"){
         data{
           attributes{
             Logo{
@@ -31,6 +31,43 @@ export const MenuQuery=()=>{
               Text
               Link
             }
+          }
+        }
+      }
+      generalFooter(locale:"${language}"){
+        data{
+          attributes{
+
+            Logo{
+              Link
+              Icon{
+                ${mediaUrl}
+              }
+            }
+            #----------------
+            Slogan,
+            Button{
+              Text,
+              Link,
+              ${compIcon}
+            }
+            
+            
+            TextButton{
+              Text,
+              Link,
+              ${compIcon}
+            }
+            
+            
+            SocialMedia{
+                Text,
+                Link,
+                ${compIcon}
+              }
+            Caption
+            
+            #----------------
           }
         }
       }

@@ -4,9 +4,10 @@ import BlurryContainer from "../../components/global/BlurryContainer.astro";
 import Markdown from "../../components/global/Markdown.astro";
 import { getPageData } from "../../services/graphql";
 import { joinQuery } from "../../data/queries/JoinQuery";
-import { setURL } from "../../data/constants";
+import { getLangFromUrl, setURL } from "../../data/constants";
 
-const data = await getPageData(joinQuery());
+const lang = getLangFromUrl(Astro.url)
+const data = await getPageData(joinQuery(lang), lang);
 
 const pageData = data.pageData["data"]["pagePreLaunch"]["data"]["attributes"];
 const seoData = pageData["SEO"];

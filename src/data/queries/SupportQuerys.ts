@@ -1,9 +1,9 @@
 import { sectionSEO } from "../constants";
 
-export const GetSupportFull = () => {
+export const GetSupportFull = (language:string) => {
     return  `
     query {
-        pageSupport{
+        pageSupport(locale:"${language}"){
           data{
             attributes{
               #------------------

@@ -21,7 +21,7 @@ import { getLangFromUrl } from '../../data/constants';
 const lang = getLangFromUrl(Astro.url);
 
 
-const data  = await getPageData(IndexData.GetHeroSeccionFull(lang));
+const data  = await getPageData(IndexData.GetHeroSeccionFull(lang), lang);
 
 
 const dataLayout = data.layoutData;

@@ -1,6 +1,6 @@
-export const LocationPagesQuery = () => {
+export const LocationPagesQuery = (language:string) => {
     return `query{
-        locations{
+        locations(locale:"${language}"){
           data{
             attributes{
               Name

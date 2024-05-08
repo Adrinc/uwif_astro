@@ -1,9 +1,9 @@
 import {mediaUrl, sectionSEO } from "../constants"
 
-export const partnersQuery = () => {
+export const partnersQuery = (language:string) => {
     return  `
     query queryPartners {
-        pagePartner{
+        pagePartner(locale:"${language}"){
           data{
             attributes{
               HeaderParagraph{

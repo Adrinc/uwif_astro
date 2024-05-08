@@ -1,15 +1,15 @@
 ---
 import { getPageData } from "../../../../services/graphql";
 import {LocationPagesQuery} from "../../../../data/queries/LocationPageQuery";
+import { getLangFromUrl } from "../../../../data/constants";
 
-const data = await getPageData(LocationPagesQuery());
+const lang = getLangFromUrl(Astro.url);
+
+const data = await getPageData(LocationPagesQuery(lang), lang);
 const pageData:Array<any> = data.pageData['data']['locations']['data'];
 
-console.log(pageData);
 
 const {slug} = Astro.params;
-console.log(Astro.params);
-console.log(slug);
 
 const page = pageData.find((page)=>page['attributes']['Slug'] === slug);
 

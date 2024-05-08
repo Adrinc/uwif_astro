@@ -1,17 +1,17 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import HeroAbout from '../../components/about/Secciones/HeroAbout.astro';
-import BanerSuccesNumbers from '../../components/about/Secciones/banerSuccesNumbers.astro';
 import MeetOurSeccion from '../../components/about/Secciones/MeetOurSeccion.astro';
 import OurDifferentialsSeccion from '../../components/about/Secciones/OurDifferentialsSeccion.astro';
 import BanerJoinOurTeam from '../../components/about/banerJoinOurTeam.astro';
 import AboutUSeccion from '../../components/about/Secciones/AboutUSeccion.astro';
-
 import {getPageData} from '../../services/graphql';
 import { GetAboutFull } from '../../data/queries/AboutQuerys';
+import { getLangFromUrl } from '../../data/constants';
 
+const lang = getLangFromUrl(Astro.url)
 
-const data = await getPageData(GetAboutFull());
+const data = await getPageData(GetAboutFull(lang), lang);
 ---
 
 

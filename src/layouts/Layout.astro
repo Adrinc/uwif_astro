@@ -17,7 +17,12 @@ const {
 	dataLayout,
 	seoData,
 } = Astro.props;
+
+console.log(dataLayout)
+
 const navData = dataLayout.data.generalMenu.data.attributes;
+
+const footerData = dataLayout.data.generalFooter.data.attributes;
 ---
 
 <!doctype html>
@@ -61,7 +66,7 @@ const navData = dataLayout.data.generalMenu.data.attributes;
 		</main>
 	</body>
 
-	{showFooter && <FootUWIFI />}
+	{showFooter && <FootUWIFI dataFooter={footerData}/>}
 
 
 	<style is:global>

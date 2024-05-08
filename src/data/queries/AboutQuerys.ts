@@ -1,8 +1,8 @@
 import { compIcon, mediaUrl, sectionSEO } from "../constants"
 
-export const GetAboutFull = () => {
+export const GetAboutFull = (language:string) => {
     return  `query {
-        pageAboutUs{
+        pageAboutUs(locale:"${language}"){
           data{
             attributes{
               Header{

@@ -1,10 +1,10 @@
 import { mediaUrl, sectionSEO } from "../constants"
 
-export const GetSelfServiceFull = () => {
+export const GetSelfServiceFull = (language:string) => {
     return  `
     query {
 
-        pageSelfServ{
+        pageSelfServ(locale:"${language}"){
           data{
             attributes{
               #------------------

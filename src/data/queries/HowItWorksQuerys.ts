@@ -1,9 +1,9 @@
 import { compIcon, mediaUrl, sectionSEO } from "../constants"
 
-export const GetHowItWorksSeccionFull = () => {
+export const GetHowItWorksSeccionFull = (language:string) => {
   return  `
   query {
-      pageHiw{
+      pageHiw(locale:"${language}"){
         data{
           attributes{
               #--------------

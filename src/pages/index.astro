@@ -10,9 +10,11 @@ import BentogridSeccion2 from '../components/index/Secciones/BentogridSeccion2.a
 
 import {getPageData} from '../services/graphql';
 import * as IndexData from '../data/queries/homeQuerys';
+import { getLangFromUrl } from '../data/constants';
 
+const lang = getLangFromUrl(Astro.url);
 
-const data  = await getPageData(IndexData.GetHeroSeccionFull(Astro.currentLocale!));
+const data  = await getPageData(IndexData.GetHeroSeccionFull(lang), lang);
 
 const dataLayout = data.layoutData;
 const pageData= data.pageData['data']['pageHome']['data']['attributes'];

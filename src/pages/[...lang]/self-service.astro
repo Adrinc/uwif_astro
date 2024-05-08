@@ -8,11 +8,13 @@ import GetUwifiAppSeccion from '../../components/self-service/Secciones/GetUwifi
 import ReadyToPayBillSeccion from '../../components/self-service/Secciones/ReadyToPayBillSeccion.astro';
 import WatchHowToSeccion from '../../components/self-service/Secciones/WatchHowToSeccion.astro';
 import FindOpenSeccion from '../../components/self-service/Secciones/FindOpenSeccion.astro';
-
 import {getPageData} from '../../services/graphql';
 import * as SelfServiceData from '../../data/queries/SelfServiceQuerys';
+import { getLangFromUrl } from '../../data/constants';
 
-const data = await getPageData(SelfServiceData.GetSelfServiceFull());
+const lang = getLangFromUrl(Astro.url);
+
+const data = await getPageData(SelfServiceData.GetSelfServiceFull(lang), lang);
 
 const dataLayout = data.layoutData;
 

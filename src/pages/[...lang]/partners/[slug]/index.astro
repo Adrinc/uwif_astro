@@ -8,8 +8,11 @@ import DividerTitle from '../../../../components/global/DividerTitle.astro';
 import Markdown from '../../../../components/global/Markdown.astro';
 import BubbleImgButton from '../../../../components/global/BubbleImgButton.astro';
 import Layout from '../../../../layouts/Layout.astro';
+import { getLangFromUrl } from '../../../../data/constants';
 
-const data = await getPageData(PartnersData.partnersQuery());
+const lang = getLangFromUrl(Astro.url);
+
+const data = await getPageData(PartnersData.partnersQuery(lang), lang);
 
 const pageData = data['pageData']['data']['pagePartner']['data']['attributes'];
 const paragraphData = pageData.HeaderParagraph;

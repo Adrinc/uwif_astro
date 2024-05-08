@@ -1,5 +1,5 @@
 import { gqlURL } from "../data/constants";
-import { MenuQuery } from "../data/queries/LayoutQuery";
+import { LayoutQuery } from "../data/queries/LayoutQuery";
 
 export async function GQLQuery (query:string) {
     const resp  = await fetch(gqlURL,{
@@ -12,10 +12,10 @@ export async function GQLQuery (query:string) {
     })
     return await resp.json();
 }
-export async function getPageData(query:string, getLayoutData:boolean=true){
+export async function getPageData(query:string, lang:string, getLayoutData:boolean=true){
     let layoutData ={};
     if(getLayoutData){
-        layoutData = await GQLQuery(MenuQuery());
+        layoutData = await GQLQuery(LayoutQuery(lang));
     }
 
     const pageData = await GQLQuery(query);
@@ -30,7 +30,6 @@ export async function getPageHomeData(query:string){
     const pageHome = await GQLQuery(query);
 
     return {
-
         pageHome
     }
 }

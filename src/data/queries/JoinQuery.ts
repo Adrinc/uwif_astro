@@ -1,9 +1,9 @@
 import { compIcon, mediaUrl, sectionSEO } from "../constants"
 
-export const joinQuery = () => {
+export const joinQuery = (language:string) => {
     return  `
     query pageLaunch {
-        pagePreLaunch{
+        pagePreLaunch(locale:"${language}"){
           data{
             attributes{
               Headings{

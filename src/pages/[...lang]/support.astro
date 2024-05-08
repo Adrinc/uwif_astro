@@ -1,8 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Robot from '../../components/global/Robot.astro';
-
-
+import { getLangFromUrl } from '../../data/constants';
 import {getPageData} from '../../services/graphql';
 import * as SupportQuerys from '../../data/queries/SupportQuerys';
 import CommonQuestionsSeccion from '../../components/Support/Secciones/CommonQuestionsSeccion.astro';
@@ -10,8 +9,8 @@ import ContactNumbers from '../../components/Support/Secciones/ContactNumbers.as
 import SupportSeccion from '../../components/Support/Secciones/SupportSeccion.astro';
 
 
-
-const data = await getPageData(SupportQuerys.GetSupportFull());
+const lang = getLangFromUrl(Astro.url);
+const data = await getPageData(SupportQuerys.GetSupportFull(lang), lang);
 const layoutData = data.layoutData;
 const seoData = data.pageData['data']['pageSupport']['data']['attributes']['SEO']
 
