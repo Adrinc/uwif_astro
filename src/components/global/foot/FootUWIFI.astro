@@ -2,6 +2,7 @@
 import { setURL } from '../../../data/constants';
 import Markdown from '../Markdown.astro';
 import BlurryBall from '../BlurryBall.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
 
 interface Props{
     dataFooter:any;
@@ -30,7 +31,7 @@ console.log(logo)
     <!-- LOGO AND SLOGAN (CONTAINER) -->
     <div class="flex flex-col m-4 items-center justify-center">
         <!-- LOGO -->
-        <a href={logo.Link}>
+        <a href={getRelativeLocaleUrl(Astro.currentLocale!,logo.Link)}>
             <img class="w-[130px] object-contain" src={setURL(logo.Icon.data.attributes.url)}>  
         </a>
 
@@ -43,7 +44,7 @@ console.log(logo)
             menu.map((option: any) => (
             <a
                 class={`flex  text-center transition ease-in-out delay-100 px-1 py-1 m-2 md:hover:scale-75 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline rounded-full font-medium min-[1400px]:text-[1vw] text-[14px] tracking-[-0.1px] menuOption text-white/50`}
-                href={option.Link}>
+                href={getRelativeLocaleUrl(Astro.currentLocale!, option.Link)}>
                     {option.Text}
             </a>
             ))

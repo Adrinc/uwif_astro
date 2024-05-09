@@ -1,23 +1,16 @@
 import {mediaUrl, sectionSEO } from "../constants"
 
 export const partnersQuery = (language:string) => {
-    return  `
-    query queryPartners {
-        pagePartner(locale:"${language}"){
-          data{
-            attributes{
-              HeaderParagraph{
-                Headings{
-                  Heading
-                }
-                Textblock
-                Buttons{
-                  Text
-                  Link
-                }
+    return  `query queryPartners {
+      pagePartner(locale: "${language}") {
+        data {
+          attributes {
+            HeaderParagraph {
+              Headings {
+                Heading
               }
               Textblock
-              Buttons{
+              Buttons {
                 Text
                 Link
               }
@@ -26,16 +19,16 @@ export const partnersQuery = (language:string) => {
           }
         }
       }
-      partnerCategories{
-        data{
-          attributes{
+      partnerCategories(locale: "en") {
+        data {
+          attributes {
             Name
-            partners{
-              data{
-                attributes{
+            partners {
+              data {
+                attributes {
                   Name
                   Slug
-                  Logo{
+                  Logo {
                     ${mediaUrl}
                   }
                 }
@@ -45,5 +38,5 @@ export const partnersQuery = (language:string) => {
         }
       }
     }
-`
+    `
   };
