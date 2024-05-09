@@ -16,22 +16,34 @@ export const partnersQuery = (language:string) => {
                   Link
                 }
               }
-              SegPartners{
-                Titles{
-                  Heading
-                }
-                Buttons{
-                  Text
-                  Link
-                  Icon{
+              Textblock
+              Buttons{
+                Text
+                Link
+              }
+            }
+            ${sectionSEO}
+          }
+        }
+      }
+      partnerCategories{
+        data{
+          attributes{
+            Name
+            partners{
+              data{
+                attributes{
+                  Name
+                  Slug
+                  Logo{
                     ${mediaUrl}
                   }
                 }
               }
-              ${sectionSEO}
             }
           }
         }
       }
+    }
 `
   };

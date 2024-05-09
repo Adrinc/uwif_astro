@@ -21,15 +21,16 @@ const {headings, logo, logoIsInline= true, textBlock, buttons, backgroundColor="
 
 ---
 <div class={`w-full flex place-content-center ${removeVerMargin ? "": "my-20"} bg-${backgroundColor}`}>
-    <div class={`flex ${textAtLeft ? "md:flex-row" : "md:flex-row-reverse"} flex flex-col items-center md:max-w-[1600px] md:mx-[5vw] px-5`}>
+    <div class={`flex ${centerContent ? "md:flex-col" : textAtLeft ? "md:flex-row" : "md:flex-row-reverse"} flex flex-col items-center md:max-w-[1300px] md:mx-[5vw] px-5`}>
 
         <!-- DIV PARA TEXTO -->
-        <div class={`${centerContent ? "" : "md:w-3/5"} flex flex-col gap-5`}>
+        <div class={`${centerContent ? "" : "md:w-full"} flex flex-col gap-5`}>
         
             <!-- Sección de títulos -->
             <div class={`${centerContent ? "" : "md:justify-start"} flex flex-wrap  gap-x-4 items-center justify-center leading-none`}>
                 {headings && headings.map((heading: any, index: number) => (
-                    <div class={`flex ${logoIsInline ? "gap-x-4": "flex-col "} items-center`}>
+                    <div                             data-twe-animation-init data-twe-animation-reset="true" data-twe-animation-start="onHover" data-twe-animation="[fade-in-down_1s_ease-in-out]"
+ class={`flex ${logoIsInline ? "gap-x-4": "flex-col "} items-center`}>
                         <Markdown textAlign={`${centerHeadings ? "": "md:text-left" } text-center`} content={heading.Heading.toString()}/>
                         {logo &&
                             index + 1 === headings.length  &&
@@ -54,12 +55,11 @@ const {headings, logo, logoIsInline= true, textBlock, buttons, backgroundColor="
         
         </div>
         
-        {!centerContent ?  
+
          <div class=" flex flex-grow justify-center place-items-center">
             <slot/>
         </div>
-        : ""
-        }
+
        
     </div>
 </div>

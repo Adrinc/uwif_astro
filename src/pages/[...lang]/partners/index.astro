@@ -4,11 +4,11 @@ import {getPageData} from '../../../services/graphql';
 import * as PartnersData from '../../../data/queries/PartnersQuery';
 import BlurryBall from '../../../components/global/BlurryBall.astro';
 import Paragraph from '../../../components/global/Paragraph.astro';
-import DividerTitle from '../../../components/global/DividerTitle.astro';
-import Markdown from '../../../components/global/Markdown.astro';
-import BubbleImgButton from '../../../components/global/BubbleImgButton.astro';
+// import DividerTitle from '../../../components/global/DividerTitle.astro';
+// import Markdown from '../../../components/global/Markdown.astro';
+// import BubbleImgButton from '../../../components/global/BubbleImgButton.astro';
 import Layout from '../../../layouts/Layout.astro';
-import { getLangFromUrl } from '../../../data/constants';
+import { getLangFromUrl, setURL } from '../../../data/constants';
 
 const lang = getLangFromUrl(Astro.url);
 
@@ -16,36 +16,40 @@ const data = await getPageData(PartnersData.partnersQuery(lang), lang);
 
 const pageData = data['pageData']['data']['pagePartner']['data']['attributes'];
 const paragraphData = pageData.HeaderParagraph;
-const partnersData = pageData.SegPartners;
+const partnersData = data['pageData']['data']['partnerCategories']['data'];
 
 const dataLayout = data.layoutData;
 const seoData = pageData.SEO;
+
+const imgTemp= partnersData[0].attributes.partners.data[0].attributes.Logo;
+console.log("Esto debería ser la imagen: ",imgTemp);
 ---
 
 <Layout seoData={seoData} dataLayout={dataLayout}>
     <div class=" py-[80px] relative">
         <BlurryBall position="top-[200px] start-[150px]" size="350px" blur='200px'/>
-	    <Paragraph headings={paragraphData.Headings} textBlock={paragraphData.Textblock} centerContent={true} removeVerMargin={true}/>
-        {partnersData.map((partner: any, index: any) => (            
-            <div class="md:mt-[10px] mt-[50px]">
-            
-
-                <div class="w-full relative flex items-end justify-center">
-                    {
-                        <DividerTitle
-                            gradientId={`gradient-partners-${index}`}
-                            startColor={index%2 ? '#63CD6B':undefined}
-                            endColor={index%2 ? '#16922A' : undefined}/>
-                    }
-                    <Markdown content={partner.Titles[0].Heading} classN='absolute [&>h2]:text-[17px] md:[&>h2]:text-[3vw] md:pb-[3vw] pb-[2vw]'/>
+	    <Paragraph headings={[{'Heading':"## **Unlocking healthcare** solutions for"}]} textBlock={paragraphData.Textblock} removeVerMargin={true}>
+            <div class="rounded-full bg-gradient-to-b from-primaryColor to-secondaryColor">
+                <div class="rounded-full flex flex-col gap-8 p-8 bg-primaryColor m-8">
+                <div class="flex flex-col items-center justify-center rounded-full md:h-[150px] md:w-[150px] h-[100px] w-[100px] bg-white p-5">
+                    <img
+                        src={setURL(imgTemp.data.attributes.url)}
+                        class="md:w-[150px] w-[100px] object-contain"
+                        alt={imgTemp.data.attributes.alternativeText}
+                        title={imgTemp.data.attributes.caption}
+                    />
                 </div>
-                
-                <div class="flex flex-wrap items-center justify-center gap-10 mt-[40px] md:mb-[0px] mb-[40px]">
-                    {partner.Buttons.map((button: any, index: number) => (
-                        <BubbleImgButton button={button}/>
-                    ))}
+                <div class="flex flex-col items-center justify-center rounded-full md:h-[150px] md:w-[150px] h-[100px] w-[100px] bg-white p-5">
+                    <img
+                        src={setURL(imgTemp.data.attributes.url)}
+                        class="md:w-[150px] w-[100px] object-contain"
+                        alt={imgTemp.data.attributes.alternativeText}
+                        title={imgTemp.data.attributes.caption}
+                    />
                 </div>
-            </div>))
-        }
+                </div>
+            </div>
+        </Paragraph>
+       
 </div>
 </Layout>

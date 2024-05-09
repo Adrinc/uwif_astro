@@ -3,6 +3,8 @@ export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
 		extend: {      
+			safelist: ['animate-[fade-in_1s_ease-in-out]', 'animate-[fade-in-down_1s_ease-in-out]'],
+			
 			fontFamily: {
 				sans: ["Inter", "OpenSans"],
 				display: ['Poppins']
