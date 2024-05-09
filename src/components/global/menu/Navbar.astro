@@ -158,9 +158,9 @@ const astro=Astro;
                         iconBackgroundColor={"var(--primary-color)"}
                     />
                 </div>
-                <div id="switch-lang" class="relative flex cursor-pointer items-center justify-center self-center rounded-full shadow-sm bg-secondaryColor p-2 ml-5">
-                    <div class=`h-[35px] w-[35px] rounded-full text-center ${Astro.currentLocale =="es"?"opacity-50":""}`>EN</div>
-                    <div class=`h-[35px] w-[35px] rounded-full text-center ${Astro.currentLocale =="en"?"opacity-50":""}`>ES</div>
+                <div id="switch-lang" class="relative flex cursor-pointer items-center justify-center self-center rounded-full shadow-sm bg-secondaryColor ml-5">
+                    <div class=`h-[50px] w-[50px] rounded-full flex items-center justify-center text-center p-2  ${Astro.currentLocale =="es"?"opacity-50 bg-none":"bg-primaryColor"}`>EN</div>
+                    <div class=`h-[50px] w-[50px] rounded-full flex items-center justify-center text-center p-2 ${Astro.currentLocale =="en"?"opacity-50 bg-none":"bg-primaryColor"}`>ES</div>
                 </div>
             </div>
         </div>
