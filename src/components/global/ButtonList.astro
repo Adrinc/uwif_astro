@@ -21,10 +21,10 @@ const{
             <BotonFlecha
                 texto={button.Text && button.Text}
                 link={button.Link}
-                backgroundColor={`${ index === 0 ? fillAll ? color ? color : "var(--secondary-color)" : "transparent" : `var(--primary-color)`}`}
-                borderColor={`${ index === 0 ? color ? color : `var(--secondary-color)` : `var(--primary-color)`}`}
-                iconColor={`${ index === 0 ? fillAll ? color ? color : "var(--secondary-color)" : `var(--primary-text-color)` : `var(--primary-color)`}`}
-                iconBackgroundColor={`${ index === 0 ? fillAll ? "white": color ? color : "var(--secondary-color)" : "white"}`}
+                backgroundColor={`${ index === 0 ? fillAll ? color ? color : "secondaryColor" : "transparent" : `primaryColor`}`}
+                borderColor={`${ index === 0 ? color ? color : `secondaryColor` : `primaryColor`}`}
+                iconColor={`${ index === 0 ? fillAll ? color ? color : "secondaryColor" : `primaryTextColor` : `primaryColor`}`}
+                iconBackgroundColor={`${ index === 0 ? fillAll ? "white": color ? color : "secondaryColor" : "white"}`}
             />
         </div>
         ))

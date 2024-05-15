@@ -1,26 +1,23 @@
 /** @type {import('tailwindcss').Config} */
+
+const colors = require('tailwindcss/colors');
+
 export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
-		extend: {      
-			safelist: ['animate-[fade-in_1s_ease-in-out]', 'animate-[fade-in-down_1s_ease-in-out]'],
-			
+		extend: {      			
 			fontFamily: {
 				sans: ["Inter", "OpenSans"],
 				display: ['Poppins']
 		  	},
-		 
 			colors: {
-				primaryColor: 'var(--primary-color)',
-				secondaryColor: 'var(--secondary-color)',
-				primaryTextColor: 'var(--primary-text-color)',
-				secondaryTextColor: 'var(--secondary-text-color)',
-				tertiaryTextColor: 'var(--tertiary-text-color)',
-				primaryBg: 'var(--primary-bg-color)',
-				secondaryBg: 'var(--secondary-bg-color)',
-				primaryGradient: 'var(--primary-gradient)',
-				secondaryGradient: 'var(--secondary-gradient)',
-				tertiaryGradient: 'var(--tertiary-gradient)',
+				primaryColor: 'rgba(73, 190, 43, <alpha-value>)',
+				secondaryColor: 'rgba(84, 70, 230, <alpha-value>)',
+				primaryTextColor: 'rgba(255, 255, 255, <alpha-value>)',
+				secondaryTextColor: 'rgba(133, 133, 133, <alpha-value>)',
+				tertiaryTextColor: 'rgba(1, 201, 56, <alpha-value>)',
+				primaryBg: 'rgba(17, 17, 24, <alpha-value>)',
+				secondaryBg: 'rgba(233, 233, 233, <alpha-value>)',
 		  	},
 
 			screens: {
@@ -41,5 +38,4 @@ export default {
 			  }
 		},
 	},
-	plugins: [ require('tailwindcss-animated')],
 }

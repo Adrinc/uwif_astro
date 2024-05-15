@@ -14,7 +14,7 @@ const {startColor="#5446E6", endColor="#7949DC", tailToLeft=true, gradientId} = 
     <path d="M0 209C0 93.5725 93.5725 0 209 0C324.428 0 418 93.5725 418 209V432H144C64.471 432 0 367.529 0 288V209Z" fill={`url(#${gradientId}`}/>
       <defs>
         <linearGradient id={gradientId} x1="25.6871" y1="-1.45048e-05" x2="517.691" y2="64.725" gradientUnits="userSpaceOnUse">
-          <stop stop-color={startColor}/>
+          <stop style={`stop-color:${startColor}`}/>
           <stop offset="1" stop-color={endColor}/>
         </linearGradient>
       </defs>
