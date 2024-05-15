@@ -50,6 +50,7 @@ const menuOpStyle="flex items-center transition ease-in-out delay-100 px-3 py-1 
                     <a href={getRelativeLocaleUrl(Astro.currentLocale==undefined?'en':Astro.currentLocale, logo.Link)}
                         class="w-[120px] h-[50px]"
                         href={logo.Link}>
+                        <Logo src={setURL(logo.Icon.data.attributes.url)}, stateMachines={logo.Text} autoplay={true} transition:persist client:only/>    
                     </a>
 
                     <button
