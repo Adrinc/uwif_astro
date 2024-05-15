@@ -1,9 +1,8 @@
 ---
-import Moden from '../../global/animations/ThreeFiber/scene3D/ModenScene/Main3D';
 import Paragraph from '../../global/Paragraph.astro';
 import BlurryBall from '../../global/BlurryBall.astro';
 import ShapeBackground from '../../global/ShapeBackground.astro';
-import RiveComponent from '../../global/animations/Rive/riveBento';
+import RiveComponent from '../../global/animations/Rive/riveComponent';
 
 interface Props{
     strapiData: any;
@@ -17,12 +16,12 @@ const paragraphContent = strapiData['pageData']['data']['pageHome']['data']['att
 	<Paragraph headings={paragraphContent.Headings} textBlock={paragraphContent.Textblock} logo={paragraphContent.IconLogo} buttons={paragraphContent.Buttons} >
 		<div class="flex items-center justify-center m-3">
 			<div class="md:h-[50vw] md:w-[50vh] w-full h-[80vw] max-w-[60vh] md:max-h-[60vh] max-h-[80vh] flex relative inset-0 items-center justify-center">
-				<div class="absolute w-full flex flex-row items-center justify-center -z-0">
+				<div class="absolute w-full flex flex-row items-center justify-center -z-10">
 					<ShapeBackground gradientId='gatewayContainer'/>
 				</div>
-				<RiveComponent src="/rive/moden2d.riv" 
+				<RiveComponent src="/rive/bentovideo.riv" 
 				stateMachines="State Machine 1" 
-				artboart="Moden Art"
+				artboard="Moden Art"
 				autoplay={true} 
 				transition:persist 
 				client:only/>

@@ -1,6 +1,6 @@
 ---
 import { setURL } from '../../../data/constants';
-import RiveComponent from '../../global/animations/Rive/riveBento';
+import RiveComponent from '../../global/animations/Rive/riveComponent';
 
 
 
@@ -34,7 +34,7 @@ Si el ancho de la pagina es menor a 768px el artboart del componente rive sera: 
      <RiveComponent 
      src="/rive/bentovideo.riv" 
      stateMachines="State Machine 1"
-     artboart="Main_bento_Desktop"
+     artboard="Main_bento_Desktop"
      autoplay={true} 
      transition:persist 
      client:only/>
@@ -44,7 +44,7 @@ Si el ancho de la pagina es menor a 768px el artboart del componente rive sera: 
     <RiveComponent 
     src="/rive/bentovideo.riv" 
     stateMachines="State Machine 1" 
-    artboart="Main_bento_Mobile"
+    artboard="Main_bento_Mobile"
     autoplay={true} 
     transition:persist 
     client:only/>

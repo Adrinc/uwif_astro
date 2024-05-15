@@ -1,9 +1,11 @@
 import { useRive, Layout, Fit, Alignment } from "@rive-app/react-canvas";
 
-export const RiveElement = ({ src, stateMachines, autoplay }) => {
+export const RiveElement = (props) => {
+  const { src, stateMachines, autoplay, artboard } = props;
   const { RiveComponent } = useRive({
     src: src,
-    stateMachines: stateMachines,
+    stateMachines: stateMachines?? null,
+    artboard: artboard ?? null,
     layout: new Layout({
       fit: Fit.Contain,
       alignment: Alignment.Center,
@@ -14,14 +16,9 @@ export const RiveElement = ({ src, stateMachines, autoplay }) => {
   return <RiveComponent />;
 };
 
-export default function Animation({src, stateMachines, autoplay}) {
-  // Definir las variables que quieres pasar al componente RiveElement
-  // const src = "/rive/uwifilogo.riv";
-  // const stateMachines = "uwifistart";
-  // const autoplay = true;
-
+export default function Animation(props) {
+  const { src, stateMachines, autoplay, artboard } = props;
   return (
-    // Pasar las variables al componente RiveElement
-    <RiveElement src={src} stateMachines={stateMachines} autoplay={autoplay}/>
+    <RiveElement src={src} stateMachines={stateMachines} autoplay={autoplay} artboard={artboard}/>
   );
 }
