@@ -3,7 +3,7 @@ import Moden from '../../global/animations/ThreeFiber/scene3D/ModenScene/Main3D'
 import Paragraph from '../../global/Paragraph.astro';
 import BlurryBall from '../../global/BlurryBall.astro';
 import ShapeBackground from '../../global/ShapeBackground.astro';
-import RiveComponent from '../../global/animations/Rive/riveComponent';
+import RiveComponent from '../../global/animations/Rive/riveBento';
 
 interface Props{
     strapiData: any;
@@ -20,7 +20,12 @@ const paragraphContent = strapiData['pageData']['data']['pageHome']['data']['att
 				<div class="absolute w-full flex flex-row items-center justify-center -z-10">
 					<ShapeBackground gradientId='gatewayContainer'/>
 				</div>
-				<RiveComponent src="/rive/moden2d.riv" stateMachines="State Machine 1" autoplay={true} transition:persist client:only/>
+				<RiveComponent src="/rive/moden2d.riv" 
+				stateMachines="State Machine 1" 
+				artboart="Moden Art"
+				autoplay={true} 
+				transition:persist 
+				client:only/>
 			</div>
 		</div>
 	</Paragraph>
