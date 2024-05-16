@@ -15,13 +15,15 @@ const paragraphContent = strapiData['pageData']['data']['pageHome']['data']['att
 	<!-- <BlurryBall position="top-[-400px] end-[200px]" background='var(--secondary-color)' size="400px"/> -->
 	<BlurryBall position="bottom-[100px] start-[300px]" background='linear-gradient(0deg, var(--primary-color) 10%, var(--secondary-color) 100%)' size="150px" blur="90px"/>
 	<Paragraph headings={paragraphContent.Headings} textBlock={paragraphContent.Textblock} logo={paragraphContent.IconLogo} buttons={paragraphContent.Buttons} >
-		<div class="flex items-center justify-center m-3">
-			<div class="md:h-[50vw] md:w-[50vh] w-full h-[80vw] max-w-[60vh] md:max-h-[60vh] max-h-[80vh] flex relative inset-0 items-center justify-center">
+		<div class="flex items-center justify-center m-3 w-[500px] h-[500px] ">
+			<!-- <div class="md:h-[50vw] md:w-[50vh] w-full h-[80vw] max-w-[60vh] md:max-h-[60vh] max-h-[80vh] flex relative inset-0 items-center justify-center">
 				<div class="absolute w-full flex flex-row items-center justify-center -z-0">
 					<ShapeBackground gradientId='gatewayContainer'/>
 				</div>
 				<RiveComponent src="/rive/moden2d.riv" stateMachines="State Machine 1" autoplay={true} transition:persist client:only/>
-			</div>
+			</div> -->
+			<RiveComponent src="/rive/moden2d.riv" stateMachines="State Machine 1" autoplay={true} transition:persist client:only/>
+
 		</div>
 	</Paragraph>
 </section>

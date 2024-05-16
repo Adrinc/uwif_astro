@@ -6,19 +6,18 @@ interface Props {
 	blur?: string;
 }
 
-const {background="green", size="300px", blur="150px", position} = Astro.props;
+const {background="white", size="300px", blur="150px", position} = Astro.props;
 
 ---
 <div
 style={
 	`
 	--size: ${size};
-	--background: ${background};
 	--filter: blur(${blur});
 	-webkit-filter: blur(${blur});
 	`
 	} 
-class={`absolute styling -z-10 rounded-full ${position}`}>
+class={`absolute styling -z-10 rounded-full ${position} bg-${background}`}>
 </div>
 
 
@@ -29,6 +28,5 @@ class={`absolute styling -z-10 rounded-full ${position}`}>
 	height: var(--size);
 	max-width: 80vw;
 	max-height: 80vw;
-	background: var(--background);
 }
  </style>

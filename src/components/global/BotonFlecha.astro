@@ -19,24 +19,14 @@ interface Props {
 	showIcon?: boolean;
 }
 
-const {showIcon=true, width="auto", texto="", link, backgroundColor="transparent", iconColor='#00c207', iconColorHover='#00c207', iconBackgroundColor="bg-[#00c207]", borderColor = "#00c207", borderColorHover ='transparent',  borderWidth=2, textColor='#ffffff', textColorHover='#ffffff', gradientColorLeft='#5446E6', gradientColorRight='#00c207'   } = Astro.props;
-const colorTest= "secondaryColor";
-console.log("El color que tenemos es ", iconColor)
+const {showIcon=true,  texto="", link, backgroundColor="transparent", iconColor='#00c207', iconColorHover='#00c207', iconBackgroundColor="bg-[#00c207]", borderColor = "red-500", borderColorHover ='transparent',  borderWidth=2, textColor='#ffffff', textColorHover='#ffffff', gradientColorLeft='#5446E6', gradientColorRight='#00c207'   } = Astro.props;
 ---
 <a href={link} target={`${link.includes('://') ? '_blank' : ''}`}>
-    <button  class={`p-2 button-learn bg-${backgroundColor} text-${textColor} flex flex-row-reverse align-middle items-center justify-center min-[1400px]:text-[1vw] text-[18px] font-semibold tracking-[-.03em] gap-3 shrink-0 rounded-full`} aria-label={texto}
-	data-text={texto}
-	style={
-	`
-	--border-color: ${borderColor};
-	--border-color-hover: ${borderColorHover};
-	--border-width: ${borderWidth}px;
-	--width: ${width};
-	`
-	}>
-	
+    <button  class={`p-2 button-learn bg-${backgroundColor} text-${textColor} border ${borderColor} flex flex-row items-center justify-center min-[1400px]:text-[1vw] text-[18px] font-semibold tracking-[-.03em] gap-3 shrink-0 rounded-full`} aria-label={texto}
+	>
+	{texto}
 	<div  class={`${backgroundColor !="transparent" ? "bg-white" : iconBackgroundColor} ${showIcon ? "block" : "hidden"} rounded-full p-1 `}>
-		<svg xmlns="http://www.w3.org/2000/svg" height="22" viewBox="0 -960 960 960" class={`fill-${iconColor} h-[22px] w-[22px]]`} width="22"><path d="M632.652-592.346 298.696-258.391q-15.522 15.522-37.044 15.24-21.522-.283-37.043-15.805-15.522-15.522-15.522-37.327 0-21.804 15.522-37.326l333.39-333.39H285.652q-22.087 0-37.543-15.457-15.457-15.457-15.457-37.544 0-22.087 15.457-37.544 15.456-15.457 37.543-15.457h400q22.088 0 37.544 15.457 15.457 15.457 15.457 37.544v400q0 22.087-15.457 37.544-15.456 15.457-37.544 15.457-22.087 0-37.543-15.457-15.457-15.457-15.457-37.544v-272.346Z"/></svg>
+		<svg xmlns="http://www.w3.org/2000/svg" height="22" viewBox="0 -960 960 960" class={`${iconColor} h-[22px] w-[22px]]`} width="22"><path d="M632.652-592.346 298.696-258.391q-15.522 15.522-37.044 15.24-21.522-.283-37.043-15.805-15.522-15.522-15.522-37.327 0-21.804 15.522-37.326l333.39-333.39H285.652q-22.087 0-37.543-15.457-15.457-15.457-15.457-37.544 0-22.087 15.457-37.544 15.456-15.457 37.543-15.457h400q22.088 0 37.544 15.457 15.457 15.457 15.457 37.544v400q0 22.087-15.457 37.544-15.456 15.457-37.544 15.457-22.087 0-37.543-15.457-15.457-15.457-15.457-37.544v-272.346Z"/></svg>
 	</div>
 
 	
@@ -61,21 +51,12 @@ console.log("El color que tenemos es ", iconColor)
 
 
   
-.button-learn {
-border: var(--border-width) solid;
-border-color: var(--border-color);
-transition: all 0.5s ease;
-vertical-align: middle;
-}
 
 
 
 
-.button-learn::after {
-  content: attr(data-text);
-  z-index: 2;
-  /* color: var(--text-color); */
-}
+
+
 .button-learn:hover {
 /* color: var(--text-color-hover); */
 
