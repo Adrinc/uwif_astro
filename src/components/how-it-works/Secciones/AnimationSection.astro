@@ -1,9 +1,14 @@
 ---
-import RiveAntenas from "../../global/animations/Rive/antenas.jsx";
+import RiveComponent from "../../global/animations/Rive/riveComponent.jsx";
 ---
 
 <section>
     <div class="flex flex-row w-full md:h-[350px] h-[150px] items-center justify-center mt-[50px]">
-        <RiveAntenas test="/rive/antenas4.riv" transition:persist client:only/>
+        <RiveComponent 
+        src="/rive/antenas4.riv" 
+        stateMachines="Motion" 
+				autoplay={true} 
+				transition:persist 
+        transition:persist client:only/>
     </div>
 </section>
