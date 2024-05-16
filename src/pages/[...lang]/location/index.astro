@@ -13,12 +13,12 @@ const lang = getLangFromUrl(Astro.url);
 const data = await getPageData(LocationQuery(lang), lang);
 
 const layoutData = data.layoutData;
-// const seoData = data.pageData['data']['sectionLocationsConst']['data']['attributes']['SEO']
+const seoData = data.pageData['data']['sectionLocationsConst']['data']['attributes']['SEO']
 ---
 
 
 
-<Layout dataLayout={layoutData}>
+<Layout dataLayout={layoutData} seoData={seoData}>
 	
 <HeroLocationSeccion />
 <WelcomeToWifiSeccion />

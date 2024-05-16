@@ -28,7 +28,7 @@ const Buttons = strapiData.pageData.data.pageSelfServ.data.attributes.Header.But
         <div class="row-buttons">
             {
                 Buttons.map((items:any) => (
-                    <BotonFlecha texto={items.Text} link={items.Link} showIcon={false} paddingleft="20px" paddingright="20px" borderColor="transparent" borderColorHover="transparent" backgroundColor="var(--primary-buttom-color)" fontweight="300" iconColorHover="var(--tertiary-color)"/>
+                    <BotonFlecha texto={items.Text} link={items.Link} showIcon={false} />
                 ))
             }
         </div>

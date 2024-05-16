@@ -22,9 +22,9 @@ const{
                 texto={button.Text && button.Text}
                 link={button.Link}
                 backgroundColor={`${ index === 0 ? fillAll ? color ? color : "secondaryColor" : "transparent" : `primaryColor`}`}
-                borderColor={`${ index === 0 ? color ? color : `secondaryColor` : `primaryColor`}`}
-                iconColor={`${ index === 0 ? fillAll ? color ? color : "secondaryColor" : `primaryTextColor` : `primaryColor`}`}
-                iconBackgroundColor={`${ index === 0 ? fillAll ? "white": color ? color : "secondaryColor" : "white"}`}
+                borderColor={`${ index === 0 ? color ? color : `border-secondaryColor` : `border-primaryColor`}`}
+                iconColor={`${ index === 0 ? fillAll ? color ? color : "fill-primaryTextColor" : `fill-white` : `fill-primaryColor`}`}
+                iconBackgroundColor={`${ index === 0 ? fillAll ? "bg-white": color ? color : "bg-secondaryColor" : "bg-white"}`}
             />
         </div>
         ))
