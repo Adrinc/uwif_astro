@@ -11,15 +11,12 @@ interface Props {
 	iconColor?: string;
 	iconBackgroundColor?:string;
 	iconColorHover?: string;
-	gradientColorLeft?: string;
-	gradientColorCenter?: string;
-	gradientColorRight?: string;
 	width?: string;
 	fontweight?: string;
 	showIcon?: boolean;
 }
 
-const {showIcon=true,  texto="", link, backgroundColor="transparent", iconColor='#00c207', iconColorHover='#00c207', iconBackgroundColor="bg-[#00c207]", borderColor = "red-500", borderColorHover ='transparent',  borderWidth=2, textColor='#ffffff', textColorHover='#ffffff', gradientColorLeft='#5446E6', gradientColorRight='#00c207'   } = Astro.props;
+const {showIcon=true,  texto="", link, backgroundColor="transparent", iconColor='#00c207', iconColorHover='#00c207', iconBackgroundColor="bg-[#00c207]", borderColor = "red-500", borderColorHover ='transparent',  borderWidth=2, textColor='#ffffff', textColorHover='#ffffff'  } = Astro.props;
 ---
 <a href={link} target={`${link.includes('://') ? '_blank' : ''}`}>
     <button  class={`p-2 button-learn bg-${backgroundColor} text-${textColor} border ${borderColor} flex flex-row items-center justify-center min-[1400px]:text-[1vw] text-[18px] font-semibold tracking-[-.03em] gap-3 shrink-0 rounded-full`} aria-label={texto}
