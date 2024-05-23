@@ -17,18 +17,7 @@ const bento = strapiData['pageData']['data']['pageHome']['data']['attributes']['
 ---
 
 <section id="#bentogrid" class="w-full h-50 flex items-center justify-center">
-<!--     <img class="web hidden md:block object-contain max-w-[1200px]" src=`${setURL(bento.data[0].attributes.url)}` alt={bento.data[0].attributes.name}>
-    <img class="tablet hidden sm:block md:hidden object-contain" src="/image/bento/btablet.png" alt="">
-    <img class="movil block sm:hidden object-contain" src=`${setURL(bento.data[1].attributes.url)}` alt={bento.data[1].attributes.name}> -->
-<!--     <img class="tablet hidden sm:block md:hidden" src=`${strapiURL}${bento.data[2].attributes.url}` alt={bento.data[2].attributes.name}> -->
 
-
-
-
-<!-- 
-Si el ancho de la pagina es menor a 768px el artboart del componente rive sera: Desktop, en caso contrario sera Tablet
-
- -->
  <div class="wtfaq web">
 
      <RiveComponent 
@@ -86,7 +75,13 @@ section{
     }
 
         @media (max-width: 768px) {
-            .web{
+
+section{
+    margin-top: 0px;
+        margin-bottom: 0px;
+        height: 30vh;
+}            
+.web{
                 display: none;
             }
             .tablet{
