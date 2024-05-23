@@ -4,14 +4,16 @@ import * as dotenv from "dotenv";
 dotenv.config();
 import react from "@astrojs/react";
 
-import vercel from "@astrojs/vercel/serverless";
+import node from '@astrojs/node';
 
-// https://astro.build/config
+
 export default defineConfig({
   site: 'https://u-wifi.com',
   integrations: [tailwind(), react()],
   output: "server",
-  adapter: vercel(),
+  adapter: node({
+    mode: 'standalone',
+  }),
   i18n:{
     defaultLocale: "en",
     locales: ["es", "en"],

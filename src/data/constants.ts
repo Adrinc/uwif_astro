@@ -1,4 +1,4 @@
-export const strapiUrl = "https://strapi.u-wifi.cbluna-dev.com";
+export const strapiUrl = import.meta.env.PUBLIC_STRAPI_URL;
 export const gqlURL = `${strapiUrl}/graphql`;
 
 export const setURL = (url: string) => {

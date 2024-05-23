@@ -1,5 +1,5 @@
 interface ImportMetaEnv {
-    readonly STRAPI_URL: string;
+    readonly PUBLIC_STRAPI_URL: string;
     readonly SUPABASE_URL: string;
     readonly SUPABASE_ANON_KEY: string;
 }
