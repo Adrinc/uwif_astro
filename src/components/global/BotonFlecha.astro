@@ -19,7 +19,7 @@ interface Props {
 const {showIcon=true,  texto="", link, backgroundColor="transparent", iconColor='#00c207', iconColorHover='#00c207', iconBackgroundColor="bg-[#00c207]", borderColor = "red-500", borderColorHover ='transparent',  borderWidth=2, textColor='#ffffff', textColorHover='#ffffff'  } = Astro.props;
 ---
 <a href={link} target={`${link.includes('://') ? '_blank' : ''}`}>
-    <button  class={`p-2 button-learn bg-${backgroundColor} text-${textColor} border ${borderColor} flex flex-row items-center justify-center min-[1400px]:text-[1vw] text-[18px] font-semibold tracking-[-.03em] gap-3 shrink-0 rounded-full`} aria-label={texto}
+    <button  class={` ${showIcon ? "p-2" : "px-6 py-2"} button-learn bg-${backgroundColor} text-${textColor} border-[1.5px] ${borderColor} flex flex-row items-center justify-center min-[1400px]:text-[1vw] text-[18px] font-semibold tracking-[-.03em] gap-3 shrink-0 rounded-full`} aria-label={texto}
 	>
 	{texto}
 	<div  class={`${backgroundColor !="transparent" ? "bg-white" : iconBackgroundColor} ${showIcon ? "block" : "hidden"} rounded-full p-1 `}>

@@ -40,7 +40,7 @@ const menuOpStyle="flex items-center transition ease-in-out delay-100 px-3 py-1 
         >
             <div
                 x-data="{ open: false }"
-                class="z-10 flex flex-col max-w-[1500px] px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8"
+                class="z-10 flex flex-col max-w-[1600px] px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8"
             >
                 <div
                     class="md:w-[350px] flex flex-row items-center justify-between"
@@ -140,6 +140,8 @@ const menuOpStyle="flex items-center transition ease-in-out delay-100 px-3 py-1 
                         </div>
                         ))
                     }
+
+                    <ButtonList buttons={featButton} hasIcon={false} fillAll={true}/>
                     </div>
                 </nav>
 
@@ -149,14 +151,13 @@ const menuOpStyle="flex items-center transition ease-in-out delay-100 px-3 py-1 
                     class="md:block hidden max-w-[300px] shrink-0"
                 >
 
-                <div class="flex min-[1150px]:flex-row flex-col gap-5">
+                <!-- <div class="flex min-[1150px]:flex-row flex-col gap-5">
                   
                         <ButtonList
-
                           buttons={featButton}
                         />
                   
-                </div>
+                </div> -->
                    
                 </div>
                 <div id="switch-lang" class="relative flex cursor-pointer items-center justify-center self-center rounded-full shadow-sm bg-secondaryColor ml-5">

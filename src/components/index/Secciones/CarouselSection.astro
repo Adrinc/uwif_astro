@@ -4,7 +4,7 @@ import { setURL } from "../../../data/constants";
 import Markdown from "../../global/Markdown.astro";
 
 const carouselHeight = "h-[90vh]";
-const bottomRadius = "md:rounded-b-[150px] rounded-b-[20px]";
+const bottomRadius = "";
 
 interface Props {
     slidesContent: any;
@@ -46,7 +46,7 @@ const { slidesContent } = Astro.props;
             <!-- Text Slider -->
             <div
                 id="text-slider"
-                class={`keen-slider absolute bg-[#080514]/50 ${bottomRadius}`}
+                class={`keen-slider absolute bg-gradient-to-t from-primaryBg to-primaryBg/40  ${bottomRadius}`}
             >
                 <!-- Text Slider Items -->
                 {slidesContent &&

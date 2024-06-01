@@ -2,30 +2,33 @@
 import { getPageData } from "../../../../services/graphql";
 import {LocationPagesQuery} from "../../../../data/queries/LocationPageQuery";
 import { getLangFromUrl } from "../../../../data/constants";
+import CallNow from "../../../../components/location/CallNow.astro";
+import HeroLocationSeccion from "../../../../components/location/Secciones/HeroLocationSeccion.astro";
+import WelcomeToWifiSeccion from "../../../../components/location/Secciones/WelcomeToWifiSeccion.astro";
+import ThreeCards from "../../../../components/location/ThreeCards.astro";
+import Layout from "../../../../layouts/Layout.astro";
 
 const lang = getLangFromUrl(Astro.url);
 
 const data = await getPageData(LocationPagesQuery(lang), lang);
+const layoutData= data.layoutData;
 const pageData:Array<any> = data.pageData['data']['locations']['data'];
 
 
 const {slug} = Astro.params;
 
 const page = pageData.find((page)=>page['attributes']['Slug'] === slug);
-
-console.log(page);
-
 if(!page) return Astro.redirect("/404");
 
 const {Name, ShortDescription, Introduction} = page['attributes'];
+const {Title, CallButton, PricingButtons, Features, FeaturesButton, InstallParagraph, StepsBullets, FAQTitle, FAQList } = data.pageData['data']['sectionLocationsConst']['data']['attributes'];
 ---
 
-<h1>
-    {Name}
-</h1>
-<h2>
-    {ShortDescription}
-</h2>
-<h3>
-    {Introduction}
-</h3>
+<Layout dataLayout={layoutData} seoData={page.attributes.SEO}>
+	
+    <HeroLocationSeccion title={Title} name={Name} description={ShortDescription} buttons={PricingButtons} />
+    <WelcomeToWifiSeccion />
+    <ThreeCards/>
+    <CallNow/>
+    
+    </Layout>

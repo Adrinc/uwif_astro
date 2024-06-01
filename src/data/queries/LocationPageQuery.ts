@@ -1,5 +1,53 @@
+import { compButton, compIcon, mediaUrl, sectionSEO } from "../constants"
+
 export const LocationPagesQuery = (language:string) => {
     return `query{
+      sectionLocationsConst(locale:"${language}"){
+        data{
+          attributes{
+            Title
+            CallButton{
+              ${compButton}
+            }
+            PricingButtons{
+              Titles{
+                Heading
+              }
+              Button{
+                Text
+                Link
+              }
+            }
+            Features{
+              Heading
+            }
+            FeaturesButton{
+              Text
+              Link
+            }
+            InstallParagraph{
+              Headings{
+                Heading
+              }
+             Textblock
+              Media{
+                ${mediaUrl}
+              }
+            }
+            
+            StepsBullets{
+              Title
+              ${compIcon}
+            }
+            FAQTitle
+            FAQList{
+              Title
+              Subtitle
+              Content
+            }
+          }
+        }
+      }
         locations(locale:"${language}"){
           data{
             attributes{
@@ -7,6 +55,7 @@ export const LocationPagesQuery = (language:string) => {
               Slug
               ShortDescription
               Introduction
+              ${sectionSEO}
             }
           }
         }
