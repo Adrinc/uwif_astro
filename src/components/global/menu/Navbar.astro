@@ -12,7 +12,7 @@ interface Props {
 }
 
 const { options, logo, featButton } = Astro.props;
-const menuOpStyle="flex items-center transition ease-in-out delay-100 px-3 py-1 m-2 md:hover:scale-75  hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline rounded-full font-semibold min-[1400px]:text-[1.1vw] text-[18px] tracking-[-0.5px]";
+const menuOpStyle="flex items-center transition ease-in-out delay-100 px-3 py-1 m-2 min-[1100px]:hover:scale-75  hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline rounded-full font-semibold min-[1400px]:text-[1.1vw] text-[18px] tracking-[-0.5px]";
 ---
 
 
@@ -40,11 +40,12 @@ const menuOpStyle="flex items-center transition ease-in-out delay-100 px-3 py-1 
         >
             <div
                 x-data="{ open: false }"
-                class="z-10 flex flex-col max-w-[1600px] px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8"
+                class="z-10 flex flex-col max-w-[1600px] px-4 mx-auto min-[1100px]:items-center min-[1100px]:justify-between min-[1100px]:flex-row min-[1100px]:px-6 lg:px-8"
             >
                 <div
-                    class="md:w-[350px] flex flex-row items-center justify-between"
+                    class="flex flex-row items-center justify-between"
                 >
+
                     <!-- LOGO -->
                     
                     <a href={getRelativeLocaleUrl(Astro.currentLocale==undefined?'en':Astro.currentLocale, logo.Link)}
@@ -52,9 +53,10 @@ const menuOpStyle="flex items-center transition ease-in-out delay-100 px-3 py-1 
                         href={logo.Link}>
                         <Logo src={setURL(logo.Icon.data.attributes.url)}, stateMachines={logo.Text} autoplay={true} transition:persist client:only/>    
                     </a>
+                    
 
                     <button
-                        class="rounded-lg md:hidden focus:outline-none focus:shadow-outline"
+                        class="rounded-lg min-[1100px]:hidden focus:outline-none focus:shadow-outline"
                         @click="open = !open"
                     >
                         <svg
@@ -79,10 +81,10 @@ const menuOpStyle="flex items-center transition ease-in-out delay-100 px-3 py-1 
                 <!-- NAV BAR -->
                 <nav
                     :class="{'flex': open, 'hidden': !open}"
-                    class="w-full flex-col hidden pb-4 md:pb-0 md:flex md:justify-evenly md:flex-row text-white"
+                    class="w-full flex-col hidden pb-4 min-[1100px]:pb-0 min-[1100px]:flex min-[1100px]:justify-evenly min-[1100px]:flex-row text-white"
                 >
                     <div
-                        class="flex md:flex-row flex-col shrink-0 md:bg-white/5 md:rounded-full md:border md:border-white/10 text-white"
+                        class="flex min-[1100px]:flex-row flex-col shrink-0 min-[1100px]:bg-white/5 min-[1100px]:rounded-full min-[1100px]:border min-[1100px]:border-white/10 text-white"
                     >
 
                     {options.map((button: any, index: number) => (
@@ -124,14 +126,14 @@ const menuOpStyle="flex items-center transition ease-in-out delay-100 px-3 py-1 
                                 x-transition:leave="transition ease-in duration-75"
                                 x-transition:leave-start="transform opacity-100 scale-100"
                                 x-transition:leave-end="transform opacity-0 scale-95"
-                                class="absolute right-0 w-full md:max-w-[180px] md:w-screen mt-2 origin-top-right z-20"
+                                class="absolute right-0 w-full min-[1100px]:max-w-[180px] min-[1100px]:w-screen mt-2 origin-top-right z-20"
                             >
                                 <div
                                     class="bg-white rounded-md shadow-lg dark-mode:bg-gray-700 divide-y"
                                 >
                                 {button.SubOptions.map((suboption: any, index: number) => (
                                     <a
-                                class={`${menuOpStyle} text-black md:text-[15px] menuOption`}
+                                class={`${menuOpStyle} text-black min-[1100px]:text-[15px] menuOption`}
                                 href={getRelativeLocaleUrl(Astro.currentLocale==undefined?'en':Astro.currentLocale, suboption.Link)}>{suboption.Text}</a>
                                 ))}
                                 
@@ -143,12 +145,18 @@ const menuOpStyle="flex items-center transition ease-in-out delay-100 px-3 py-1 
 
                     <ButtonList buttons={featButton} hasIcon={false} fillAll={true}/>
                     </div>
+
                 </nav>
+
+                <div id="switch-lang" class="relative flex cursor-pointer items-center justify-center self-center rounded-full shadow-sm border border-white/50 p-2 gap-2 ml-5">
+                    <div class=`h-[40px] w-[40px] rounded-full flex items-center justify-center text-center p-2 bg-contain bg-[url('https://u-strapi.virtalus.cbluna-dev.com/uploads/lang_en_82e2f780a3.webp')] ${Astro.currentLocale =="es"?"opacity-30":"opacity-100 border border-white border-2"}`></div>
+                    <div class=`h-[40px] w-[40px] rounded-full flex items-center justify-center text-center p-2 bg-contain bg-[url('https://u-strapi.virtalus.cbluna-dev.com/uploads/lang_es_ef5d96edf7.webp')] ${Astro.currentLocale =="en"?"opacity-30":"opacity-100 border border-white border-2"}`></div>
+                </div>
 
 
                 <div
                     :class="{'flex': open, 'hidden': !open}"
-                    class="md:block hidden max-w-[300px] shrink-0"
+                    class="min-[1100px]:block hidden max-w-[300px] shrink-0"
                 >
 
                 <!-- <div class="flex min-[1150px]:flex-row flex-col gap-5">
@@ -160,10 +168,7 @@ const menuOpStyle="flex items-center transition ease-in-out delay-100 px-3 py-1 
                 </div> -->
                    
                 </div>
-                <div id="switch-lang" class="relative flex cursor-pointer items-center justify-center self-center rounded-full shadow-sm bg-secondaryColor ml-5">
-                    <div class=`h-[50px] w-[50px] rounded-full flex items-center justify-center text-center p-2  ${Astro.currentLocale =="es"?"opacity-50 bg-none":"bg-primaryColor"}`>EN</div>
-                    <div class=`h-[50px] w-[50px] rounded-full flex items-center justify-center text-center p-2 ${Astro.currentLocale =="en"?"opacity-50 bg-none":"bg-primaryColor"}`>ES</div>
-                </div>
+               
             </div>
         </div>
     </div>
