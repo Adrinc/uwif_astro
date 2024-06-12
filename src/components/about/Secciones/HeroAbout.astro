@@ -9,7 +9,7 @@ const{ strapiData } = Astro.props;
 
 
 const headData = strapiData.pageData.data.pageAboutUs.data.attributes;
-
+const buttons = headData.Header.Buttons;
 ---
 
 
@@ -18,10 +18,12 @@ const headData = strapiData.pageData.data.pageAboutUs.data.attributes;
 			<div class="">
 				<h2 class="md:px-10 md:py-5 p-6 font-bold tracking-[-0.5px] md:text-[40px] text-[25px] md:text-start text-center">{headData.Header.Headings[0].Heading}</h2>
 				<div class="flex flex-wrap gap-5 px-10">
-	
-					<BotonFlecha texto={headData.Header.Buttons[0].Text} link={headData.Header.Buttons[0].Link}  backgroundColor="#7f44e5" borderColor="transparent" showIcon={false}  fontweight="500" width="300px"/>
-					<BotonFlecha texto={headData.Header.Buttons[1].Text} link={headData.Header.Buttons[1].Link}  borderColor="#ffffff" showIcon={false} fontweight="500" width="300px"/>
-				
+
+					{
+						buttons.map((button: any) => (
+							<BotonFlecha texto={button.Text} link={button.Link}/>
+						))
+					}				
 				</div>
 			</div>
 				<img class="max-h-[400px] object-contain" src={`${setURL(headData.Header.Media.data.attributes.url)}`} alt={headData.Header.Media.data.attributes.alternativeText}>

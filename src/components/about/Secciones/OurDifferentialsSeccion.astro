@@ -1,6 +1,7 @@
 ---
 import { setURL } from '../../../data/constants';
 import BotonFlecha from '../../global/BotonFlecha.astro';
+import IconBox from '../../global/iconBox.astro';
 import DifferentialCard from '../DifferentialCard.astro';
 interface Props{
     strapiData: any;
@@ -28,7 +29,9 @@ const GenParagraph = strapiData.pageData.data.pageAboutUs.data.attributes.GenPar
     <div class="row-pic-text">
         {
             ProsBullets.map((item:any) => (
-                <DifferentialCard title={item.Title} subtitle={item.Subtitle} content={item.Content} iconUrl={`${setURL(item.Icon.data.attributes.url)}`} iconAlt={item.Icon.data.attributes.alternativeText} />
+                // <DifferentialCard title={item.Title} subtitle={item.Subtitle} content={item.Content} iconUrl={`${setURL(item.Icon.data.attributes.url)}`} iconAlt={item.Icon.data.attributes.alternativeText} />
+                <IconBox titulo={item.Title} descripcion={item.Content} icono_url={`${setURL(item.Icon.data.attributes.url)}`}
+    icono_alt={item.Icon.data.attributes.alternativeText}/>
             ))
         }
     </div>

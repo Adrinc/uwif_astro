@@ -8,11 +8,11 @@ const { strapiData } = Astro.props;
 
 ---
 
-<section id="aboutmeetour">
+<section id="">
     {
         strapiData.map((text: any) => (
             <>
-                <hr class="rounded" />
+                
                 <h1 class="title">{text["Headings"][0]["Heading"]} </h1>
                 <div class="column-pic-text">
                     {/*{text["Media"]["data"] != null ? (
@@ -101,27 +101,7 @@ const { strapiData } = Astro.props;
         white-space: pre-wrap;
         width: 100%;
     }
-    .description::before {
-        content: open-quote;
-        font-size: clamp(12px, 10vw, 100px);
-        color: var(--cuaternary-color);
-        font-family: Catamaran;
-        line-height: 1;
-        position: absolute;
-        top: -10px;
-        left: -40px;
-    }
-    .description::after {
-        content: close-quote;
-        font-size: clamp(12px, 10vw, 100px);
-        color: var(--cuaternary-color);
-        font-family: Catamaran;
-        line-height: 1;
-        position: absolute;
-        bottom: -60px;
-        right: -20px;
-    }
-
+    
     @media (max-width: 768px) {
         .row-pic-text {
             flex-direction: column;
@@ -143,11 +123,6 @@ const { strapiData } = Astro.props;
             align-self: center;
             margin-top: 50px;
         }
-        .description::before {
-            content: "";
-        }
-        .description::after {
-            content: "";
-        }
+       
     }
 </style>
