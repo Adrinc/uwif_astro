@@ -19,7 +19,7 @@ const internetPar = dataPage.InternetParagraph;
 <section  id="5g" >
     <!-- <Baner5GWifi title={baner.Title} description={baner.Content} imageUrl={baner.Icon.data.attributes.url}/> -->
     <div class="flex md:flex-row flex-col">
-        <div class="flex flex-col justify-between items-end bg-blue-400/20 border border-blue-400/50 m-10 p-5 rounded-[20px] transform skew-y-2">
+        <div class="window-box flex flex-col justify-between items-end bg-blue-400/20 border border-blue-400/50 m-10 p-5 rounded-[20px] transform">
             <div >
                 <Markdown content={baner.Title} textAlign="text-center"></Markdown>
                 <Markdown content={baner.Content} textAlign="text-center"></Markdown>
@@ -42,3 +42,9 @@ const internetPar = dataPage.InternetParagraph;
 
     </div>
 </section>
+
+<style>
+    .window-box{
+        -webkit-transform: perspective(1200px) rotateY(20deg);
+    }
+</style>
