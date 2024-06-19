@@ -2,6 +2,8 @@
 import BotonFlecha from "../../global/BotonFlecha.astro";
 import Baner5GWifi from "../Baner5GWifi.astro";
 import Markdown from "../../global/Markdown.astro";
+import Paragraph from "../../global/Paragraph.astro";
+import { setURL } from "../../../data/constants";
 
 interface Props{
     strapiData: any;
@@ -14,133 +16,29 @@ const baner = dataPage.Banner;
 const internetPar = dataPage.InternetParagraph;
 
 ---
-<section  id="5g">
-    <Baner5GWifi title={baner.Title} description={baner.Content} imageUrl={baner.Icon.data.attributes.url}  />
-<div class="main-container">
+<section  id="5g" >
+    <!-- <Baner5GWifi title={baner.Title} description={baner.Content} imageUrl={baner.Icon.data.attributes.url}/> -->
+    <div class="flex md:flex-row flex-col">
+        <div class="flex flex-col justify-between items-end bg-blue-400/20 border border-blue-400/50 m-10 p-5 rounded-[20px] transform skew-y-2">
+            <div >
+                <Markdown content={baner.Title} textAlign="text-center"></Markdown>
+                <Markdown content={baner.Content} textAlign="text-center"></Markdown>
+            </div>
 
-    <div class="row-how-5g">
-        <div class="column-left-how-5g">
-            <Markdown classN="[&>h1]:text-white [&>h1]:font-bold [&>p]:font-[100]" content={dataPage['InternetParagraph']['Textblock']}></Markdown>
+            <img src={setURL(baner.Icon.data.attributes.url)} width="200px">
         </div>
-        
+
+        <div>
+            <Paragraph textBlock={dataPage['InternetParagraph']['Textblock']} removeHorMargin={true}/>
+        </div>
     </div>
 
-  
-        <p class="title-big">{dataPage['GatewayParagraph']['Headings'][0]['Heading']}</p>
+    <Paragraph textBlock={dataPage['GatewayParagraph']['Textblock']}/>
 
-        <div class="row-how-5g">
-            <div class="column-left-how-5g ">
-                <Markdown classN="[&>h1]:text-white [&>h1]:font-bold [&>p]:font-[100]" content={dataPage['GatewayParagraph']['Textblock']}></Markdown>
-                <BotonFlecha texto={dataPage['GatewayParagraph']['Buttons'][0]['Text']} link={dataPage['GatewayParagraph']['Buttons'][0]['Link']} />
-            </div>
-          
-            <div class="flex flex-row bg-slate-400 w-[600px] h-[300px] rounded-lg"></div>
-          
-        </div>
+    <div class="main-container">
+        
+  
+       
 
     </div>
 </section>
-
-
-<style>
-
-
-.main-container 
-{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding: clamp(0px, 5vw, 100px);
-    gap: 100px;
-    
-}
-.row-conection{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-.row-how-5g{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    gap: clamp(0px, 20vw, 100px);
-   
-}
-.rive-animation{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: clamp(150px, 50vw, 350px);
-    justify-content: center;
-    align-items: center;
-}
-.column-left-how-5g{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: clamp(10px, 5vw, 1rem);
-}
-.column-right-how-5g{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-  
-    gap: clamp(10px, 5vw, 1rem);
-}
-.title 
-  {
-    color:var(--primary-text-color);
-	font-size: clamp(1rem, 3vw, 40px);
-    font-weight: bold;
-    text-align: left;
-    text-wrap: balance;
-  }
-  .description
-  {
-    color:var(--primary-text-color);
-	font-size: clamp(1rem, 5vw, 1.5rem);
-    font-weight: 100;
-    text-align: justify;
-    text-wrap: pretty;
-    font-family: var(--font-family-secondary);
-  }
-  .title-big{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    color:var(--primary-text-color);
-    font-size: clamp(1rem, 10vw, 3rem);
-    font-weight: bold;
-    text-align: center;
-    width: 100%;
-  }
-
-  @media (max-width: 768px) {
-    .row-how-5g{
-        flex-direction: column;
-    }
-    .title-big,.title
-    {
-        text-align: center;
-    }
-    .description
-    {
-        text-align: justify;
-    }
-    .column-left-how-5g,.column-right-how-5g
-    {
-        align-items: center;
-    }
-
-}
-
-
-
-</style>

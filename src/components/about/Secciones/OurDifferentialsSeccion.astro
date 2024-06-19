@@ -2,7 +2,6 @@
 import { setURL } from '../../../data/constants';
 import BotonFlecha from '../../global/BotonFlecha.astro';
 import IconBox from '../../global/iconBox.astro';
-import DifferentialCard from '../DifferentialCard.astro';
 interface Props{
     strapiData: any;
 }
@@ -11,9 +10,6 @@ const{ strapiData } = Astro.props;
 const ProsTitle = strapiData.pageData.data.pageAboutUs.data.attributes.ProsTitle;
 const ProsBullets = strapiData.pageData.data.pageAboutUs.data.attributes.ProsBullets;
 const GenParagraph = strapiData.pageData.data.pageAboutUs.data.attributes.GenParagraph;
-
-
-
 
 ---
 
@@ -28,10 +24,10 @@ const GenParagraph = strapiData.pageData.data.pageAboutUs.data.attributes.GenPar
 
     <div class="row-pic-text">
         {
+
             ProsBullets.map((item:any) => (
                 // <DifferentialCard title={item.Title} subtitle={item.Subtitle} content={item.Content} iconUrl={`${setURL(item.Icon.data.attributes.url)}`} iconAlt={item.Icon.data.attributes.alternativeText} />
-                <IconBox titulo={item.Title} descripcion={item.Content} icono_url={`${setURL(item.Icon.data.attributes.url)}`}
-    icono_alt={item.Icon.data.attributes.alternativeText}/>
+                <IconBox title={item.Title} description={item.Content} icon={`${item.Icon.data.attributes}`}/>
             ))
         }
     </div>

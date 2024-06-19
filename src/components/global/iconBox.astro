@@ -1,20 +1,19 @@
 ---
+import { setURL } from '../../data/constants';
 import Markdown from '../global/Markdown.astro';
 
 interface Props {
-    titulo?:string;
-    descripcion?:string;
-    icono_url?:string;
-    icono_alt?:string;
+    title?:string;
+    subtitle?:string;
+    description?:string;
+    icon?:any;
 
 }
 const{
-    titulo="title",
-    descripcion="description",
-    icono_url="icono_url",
-    icono_alt="icono_alt"
+    title="Title",
+    description="Hi there.",
+    icon= {"url": "https://placehold.co/600x400", "alternativeText":"This is a placeholder"}
 }= Astro.props;
-
 
 ---
 
@@ -24,8 +23,8 @@ const{
         <div class="absolute w-[60px] h-[60px] rounded-full bg-gradient-to-t from-secondaryColor to-primaryColor m-1 motion-safe:animate-[spin_2s_ease-in-out_infinite]">
         <span></span>
         </div>
-        <img class="absolute w-[45px] h-[45px] bg-white rounded-full p-2 invert" src={icono_url} alt={icono_alt}/>
+        <img class="absolute w-[45px] h-[45px] bg-white rounded-full p-2 invert" src={setURL(icon.url)} alt={icon.alternativeText}/>
     </div>    
-    <Markdown content={`### **${titulo}**`}/>
-    <p class="md:text-[16px] text-[14px] text-white/80 font-[200] tracking-[0.25px]">{descripcion}</p>
+    <Markdown content={`### **${title}**`}/>
+    <p class="md:text-[16px] text-[14px] text-white/80 font-[200] tracking-[0.25px]">{description}</p>
 </div>

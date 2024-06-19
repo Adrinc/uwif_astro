@@ -14,14 +14,15 @@ interface Props {
     centerContent?: boolean;
     textAtLeft? : boolean;
     removeVerMargin?: boolean;
+    removeHorMargin?:boolean;
 }
 
 
-const {headings, logo, logoIsInline= true, textBlock, buttons, backgroundColor="transparent", centerHeadings=true, centerContent=false, textAtLeft=true, removeVerMargin=false} = Astro.props;
+const {headings, logo, logoIsInline= true, textBlock, buttons, backgroundColor="transparent", centerHeadings=true, centerContent=false, textAtLeft=true, removeVerMargin=false, removeHorMargin=false} = Astro.props;
 
 ---
 <div class={`w-full flex place-content-center ${removeVerMargin ? "": "my-20"} bg-${backgroundColor}`}>
-    <div class={`flex ${centerContent ? "md:flex-col" : textAtLeft ? "md:flex-row" : "md:flex-row-reverse"} flex flex-col items-center md:max-w-[1300px] md:mx-[5vw] px-5`}>
+    <div class={`flex ${centerContent ? "md:flex-col" : textAtLeft ? "md:flex-row" : "md:flex-row-reverse"} flex flex-col items-center md:max-w-[1300px]  ${removeHorMargin ? "": "md:mx-[5vw]"} px-5`}>
 
         <!-- DIV PARA TEXTO -->
         <div class={`${centerContent ? "" : "md:w-full"} flex flex-col gap-5`}>
