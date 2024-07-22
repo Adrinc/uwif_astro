@@ -24,10 +24,10 @@ const { Price, Buttons, title, Features=[""], Subtitle="FREE for ACP Subscribers
 				<p class="font-bold md:text-[70px] text-[40px]">${Price}</p>
 				<p class="text-white font-light text-left text-[13px]"> {Pricetime}</p> 
 			</div>
-			<h3 class="shadow-2xl  bg-gradient-to-r from-secondaryColor text-white font-bold text-center text-[30px]">{Subtitle}</h3>
-			<br>
+			<!-- <h3 class="shadow-2xl  bg-gradient-to-r from-secondaryColor text-white font-bold text-center text-[30px]">{Subtitle}</h3> -->
+			<!-- <br> -->
        
-			<ul class="flex flex-col gap-3 p-5">
+			<ul class="flex flex-col gap-3 pb-5">
 				{
 					Features.map((feature) => (
 						<li class="flex flex-row gap-3 font-light">
@@ -41,7 +41,15 @@ const { Price, Buttons, title, Features=[""], Subtitle="FREE for ACP Subscribers
 			</ul>
 		<!-- <a href={Buttons[2].Text} class="description font-bold link">{Buttons[2].Text}</a> -->
 		<div class="pb-4">
-			<BotonFlecha link={Buttons[3].Link} texto={Buttons[3].Text} />
+			{
+        
+				Buttons.map((button: any, index: number) => (
+					<div class="p-2" >
+								<BotonFlecha link={button.Link} texto={button.Text} />
+				</div>
+				))
+			}
+
 		</div>
 		<!-- <a href={Buttons[3].Link} class="flex font-[16px] font-bold text-center w-full justify-center">{Buttons[3].Text}</a> -->
     </div>

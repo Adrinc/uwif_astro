@@ -18,15 +18,16 @@ const{
 
 <div class="flex flex-wrap items-center justify-center">
     {
+        
         buttons.map((button: any, index: number) => (
             <div class="p-2" >
             <BotonFlecha
                 texto={button.Text && button.Text}
                 link={button.Link}
-                backgroundColor={`${ index === 0 ? fillAll ? color ? color : "secondaryColor" : "transparent" : `primaryColor`}`}
-                borderColor={`${ index === 0 ? color ? color : `border-secondaryColor` : `border-primaryColor`}`}
-                iconColor={`${ index === 0 ? fillAll ? color ? color : "fill-primaryTextColor" : `fill-white` : `fill-primaryColor`}`}
-                iconBackgroundColor={`${ index === 0 ? fillAll ? "bg-white": color ? color : "bg-secondaryColor" : "bg-white"}`}
+                backgroundColor={`${ index === buttons.indexOf(buttons[buttons.length - 1]) ? "primaryColor" : fillAll ? color ? color : "secondaryColor" : `transparent`}`}
+                borderColor={`${ index === buttons.indexOf(buttons[buttons.length - 1]) ? color ? color : `border-primaryColor` : `border-secondaryColor`}`}
+                iconColor={`${ index === buttons.indexOf(buttons[buttons.length - 1]) ? fillAll ? color ? color : "fill-primaryTextColor" : `fill-primaryColor` : `fill-white`}`}
+                iconBackgroundColor={`${ index === buttons.indexOf(buttons[buttons.length - 1]) ? fillAll ? "bg-white": color ? color : "bg-white" : "bg-secondaryColor"}`}
                 showIcon={hasIcon}
             />
         </div>
