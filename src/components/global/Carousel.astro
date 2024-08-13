@@ -1,0 +1,108 @@
+---
+import "keen-slider/keen-slider.min.css";
+import { setURL } from "../../data/constants";
+
+interface Props {
+ // eslint-disable-next-line @typescript-eslint/no-explicit-any
+ slides: any,
+ type?: string,
+ orientation?: string,
+ swiperId: string
+}
+
+const { slides, swiperId, orientation='horizontal', type= 'overlay'} = Astro.props;
+
+---
+ 
+<section class={`flex items-center justify-center pointer-events-none`}>
+<div id="slider-wrapper" class=" flex  ">
+  <div id="text-slider" class={`keen-slider`}>
+  <!-- Text Slider Items -->
+
+  {slides &&
+    slides.map((slide: any, index: number) => (
+    <div class="keen-slider__slide">
+      <img
+                                        class="m-3"
+                                        width={200}
+                                        src={`${setURL(slide["attributes"]["url"])}`}
+                                    />
+  </div>
+    ))
+  }
+</div>
+
+</div>
+</section>    
+
+<script>
+  import KeenSlider from "keen-slider";
+
+  document.addEventListener("DOMContentLoaded", async function () {
+      // Params
+      const animationDuration = 1000;
+      const autoplayDelay = 2000;
+
+      // UI
+      const sectionWrapper = document.querySelector("#slider-wrapper");
+
+      // Text Slider
+      const textSlider = new KeenSlider(
+          "#text-slider",
+          {
+              defaultAnimation: {
+                  duration: animationDuration,
+              },
+              loop: true,
+              mode: "free-snap",
+              selector: ".keen-slider__slide",
+              slides: {
+                   origin: "center",
+                  perView: 3,
+                  spacing: 1
+              },
+              //renderMode: "custom",
+              //mode: "free-snap",
+              initial: 0,
+          },
+          
+          [
+                (slider: any) => {
+                    let timeout: any;
+                    let mouseOver = false;
+                    let z = 50;
+
+                    function rotate() {
+                      const deg = 360 * slider.track.details.progress
+                      slider.container.style.transform = `translateZ(-${z}px) rotateY(${-deg}deg)`
+                    }
+
+                    function nextTimeout() {
+                        clearTimeout(timeout);
+                        if (mouseOver) return;
+                        timeout = setTimeout(() => {
+                            slider.next();
+                        }, autoplayDelay);
+                    }
+                    
+                    slider.on("created", () => {
+                      const deg = 360 / slider.slides.length
+
+                      slider.slides.forEach((element:any, idx: any) => {
+                        element.style.transform = `rotateY(${deg * idx}deg) translateZ(${z}px)`
+
+                        rotate()
+
+                      })
+                      
+                      
+                       
+                        nextTimeout();
+                    });
+                    slider.on("animationEnded", nextTimeout);
+                    //slider.on("detailsChanged", rotate)
+                },
+            ],
+      );
+      });
+</script>

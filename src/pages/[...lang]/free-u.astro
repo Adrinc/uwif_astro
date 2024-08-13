@@ -1,0 +1,35 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import {getPageData} from '../../services/graphql';
+import { getLangFromUrl } from '../../data/constants';
+import Carousel from '../../components/global/Carousel.astro';
+import { freeUQuery } from '../../data/queries/freeUQuery';
+import Markdown from '../../components/global/Markdown.astro';
+import BlurryBall from '../../components/global/BlurryBall.astro';
+
+
+const lang = getLangFromUrl(Astro.url)
+
+const data = await getPageData(freeUQuery(lang), lang);
+const pageData = data.pageData['data']['pageFreeU']['data']['attributes'];
+
+const intro = pageData.Introduction;
+const layoutData = data.layoutData;
+const seoData = pageData['SEO'];
+---
+
+<Layout seoData={seoData} dataLayout={layoutData}>
+	<div class="my-20 px-10 flex flex-col items-center justify-center w-full relative">
+		<BlurryBall position="top-[30px] end-[150px]" background='secondaryColor' />
+
+		<div class="md:max-w-[50vw] max-w-full text-center">
+
+		{intro.Headings.map((item:any, Index:any) => (
+					<Markdown content={item.Heading} textAlign='text-center' classN='leading-none' />
+		))}
+		
+		<Markdown content={intro.Textblock} textAlign='text-center' classN="my-5"/>
+		<Carousel slides={pageData.Carousel.data} type='simple' swiperId='freeUScreens'/>
+	</div>
+	</div>
+</Layout>
