@@ -1,11 +1,12 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import {getPageData} from '../../services/graphql';
-import { getLangFromUrl } from '../../data/constants';
+import { getLangFromUrl, setURL } from '../../data/constants';
 import Carousel from '../../components/global/Carousel.astro';
 import { freeUQuery } from '../../data/queries/freeUQuery';
 import Markdown from '../../components/global/Markdown.astro';
 import BlurryBall from '../../components/global/BlurryBall.astro';
+import DividerTitle from '../../components/global/DividerTitle.astro';
 
 
 const lang = getLangFromUrl(Astro.url)
@@ -13,23 +14,53 @@ const lang = getLangFromUrl(Astro.url)
 const data = await getPageData(freeUQuery(lang), lang);
 const pageData = data.pageData['data']['pageFreeU']['data']['attributes'];
 
-const intro = pageData.Introduction;
+const sectionIntro = pageData.Introduction;
+const sectionSteps = pageData.Steps;
+
 const layoutData = data.layoutData;
 const seoData = pageData['SEO'];
 ---
 
 <Layout seoData={seoData} dataLayout={layoutData}>
-	<div class="my-20 px-10 flex flex-col items-center justify-center w-full relative">
+	<div class="my-20  flex flex-col items-center justify-center w-full relative">
 		<BlurryBall position="top-[30px] end-[150px]" background='secondaryColor' />
 
-		<div class="md:max-w-[50vw] max-w-full text-center">
+		<div class="md:max-w-[50vw] max-w-full text-center px-10">
 
-		{intro.Headings.map((item:any, Index:any) => (
+		{sectionIntro.Headings.map((item:any) => (
 					<Markdown content={item.Heading} textAlign='text-center' classN='leading-none' />
 		))}
 		
-		<Markdown content={intro.Textblock} textAlign='text-center' classN="my-5"/>
+		<Markdown content={sectionIntro.Textblock} textAlign='text-center' classN="my-5"/>
 		<Carousel slides={pageData.Carousel.data} type='simple' swiperId='freeUScreens'/>
+	</div>
+
+	<div class="md:mt-[10px] mt-[50px] w-full">        
+		<div class="w-full relative flex items-end justify-center">
+			{
+				<DividerTitle
+					gradientId={`gradient-free-u`}
+					startColor={'transparent'}
+					endColor={'transparent'}
+					addBorder
+				/>
+			}
+			<div class="absolute w-full h-full flex flex-wrap items-end md:mb-6 mb-5 justify-center gap-20">
+				
+				{sectionSteps.map((item:any) => (
+					<div class="flex flex-col items-center justify-end max-w-[150px] flex-grow-0 flex-shrink-0 gap-4">
+							<img
+                                class="object-contain h-[80px] w-[80px]"
+                                src={`${setURL(item["Icon"]["data"]["attributes"]["url"])}`}
+                            />						
+					<Markdown content={item.Title} textAlign='text-center' classN='leading-none' />
+					
+					</div>
+		))}
+			</div>
+		</div>
+		
+
 	</div>
 	</div>
 </Layout>

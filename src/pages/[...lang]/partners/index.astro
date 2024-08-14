@@ -45,7 +45,7 @@ const currentPath = Astro.url.pathname;
                 
                 <div class="flex flex-wrap items-center justify-center gap-10 mt-[40px] md:mb-[0px] mb-[40px]">
                     {category.attributes.partners.data.map((partner: any, index: number) => (
-                        <BubbleImgButton img={partner.attributes.Logo.data} link={currentPath+'/'+partner.attributes.Slug} text={partner.attributes.Name}/>
+                        <BubbleImgButton img={partner.attributes.Logo.data} link={currentPath+''+partner.attributes.Slug+'/'} text={partner.attributes.Name}/>
                     ))}
                 </div>
             </div>))
