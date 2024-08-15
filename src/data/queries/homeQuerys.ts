@@ -79,6 +79,7 @@ export const GetHeroSeccionFull = (language:string) => {
                 Price
                 Pricetime
                 Subtitle
+                Description
                 Features{
                   Content
                 },

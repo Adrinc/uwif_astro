@@ -1,56 +1,77 @@
 ---
 import BotonFlecha from '../global/BotonFlecha.astro';
+import Markdown from '../global/Markdown.astro';
 interface Props {
-	title: string;
-	Subtitle: string;
+	Subtitle?: string;
+	Description?: string;
 	Price: string;
 	Pricetime: string;
+	isFeatured?: boolean;
 
 	Buttons: {
 		Text: string;
 		Link: string;
 	}[];
+
 	Features?: {
 		Content: string;
 	}[];
 }
 
-const { Price, Buttons, title, Features=[""], Subtitle="FREE for ACP Subscribers", Pricetime="/month with" } = Astro.props;
+const { Price, Buttons, Description, Features=[""], Subtitle, Pricetime="/month with", isFeatured=false } = Astro.props;
+
+const gradientStart= isFeatured ? "from-primaryColor/20" : "from-secondaryColor/20";
+const gradientEnd= isFeatured ? "to-primaryColor/5" : "to-secondaryColor/5";
+const borderColor= isFeatured ? "border-primaryColor/30" : "border-secondaryColor/30";
 ---
 
-<div class="contenedor-tarjeta overflow-hidden">
-    <div class={`overflow-hidden tarjeta bg-gradient-to-r from-[#49be2b]/20 to-[#49be2b]/5 md:mr-10 max-w-[350px] rounded-[30px] py-5 my-5 border border-[#49be2b]/20 flex flex-col items-center justify-center min-w-[350px]`}>
-			<div class="flex flex-row max-w-[250px] gap-2 items-center justify-center p-2">
-				<p class="font-bold md:text-[70px] text-[40px]">${Price}</p>
-				<p class="text-white font-light text-left text-[13px]"> {Pricetime}</p> 
-			</div>
-			<!-- <h3 class="shadow-2xl  bg-gradient-to-r from-secondaryColor text-white font-bold text-center text-[30px]">{Subtitle}</h3> -->
-			<!-- <br> -->
-       
-			<ul class="flex flex-col gap-3 pb-5">
-				{
-					Features.map((feature) => (
-						<li class="flex flex-row gap-3 font-light">
-							<span class=" w-[20px] h-[20px]">
-								<img alt="icono check"  class="image bg-primaryColor rounded-full inline-block " src="/image/checkwhite.svg"/>
-							</span>
-							{typeof feature === 'string' ? feature : feature.Content}
-						</li>
-					))
-				}
-			</ul>
-		<!-- <a href={Buttons[2].Text} class="description font-bold link">{Buttons[2].Text}</a> -->
-		<div class="pb-4">
-			{
-        
-				Buttons.map((button: any, index: number) => (
-					<div class="p-2" >
-								<BotonFlecha link={button.Link} texto={button.Text} />
+    <div class={`overflow-hidden bg-gradient-to-r ${gradientStart} ${gradientEnd} md:mr-10 md:max-w-[450px] max-w-full   md:min-w-[400px] min-w-full rounded-[30px] p-5 my-5 border ${borderColor} flex flex-col items-center justify-between`}>
+
+		<!-- S E C T I O N | T O P -->
+		<div class="top-section w-full">
+
+			<!-- C O N T E N T | H E A D E R -->
+			<div class="header-content flex flex-col justify-center w-full ">
+
+				<!-- H E A D E R | P R I C I N G -->		
+				<div class="flex flex-row justify-between leading-none  p-2 w-full">
+					{Subtitle && <p class="font-bold  md:text-[3vw] text-[40px]">{Subtitle}</p>}
+					
+					<div class="flex flex-col items-end leading-none">
+						{Price && <p class="text-green-100/80 font-bold md:text-[3vw] text-[40px]">${Price}</p>}
+						{Pricetime && <p class="text-white font-light text-left text-[13px]"> {Pricetime}</p>} 
+					</div>
+					
 				</div>
-				))
-			}
+
+				<div class="w-full p-2 ">
+					{Description && 
+					<Markdown content={Description} classN='text-white/80 !font-light !text-[14px] text-justify'/>
+				}
+				</div>
+			</div>
+       		
+			<!-- C O N T E N T | F E A T U R E S -->
+			<ul class="flex flex-col gap-3 py-5">
+				{Features.map((feature) => (
+					<li class="flex flex-row gap-2 text-[14px]">
+						<span class=" w-[20px] h-[20px]">
+							<img alt="icono check"  class="image bg-primaryColor rounded-full inline-block " src="/image/checkwhite.svg"/>
+						</span>
+						<Markdown content={typeof feature === 'string' ? feature : feature.Content} classN='!font-semibold !text-[14px]'/>
+						
+					</li>
+				))}
+			</ul>
 
 		</div>
-		<!-- <a href={Buttons[3].Link} class="flex font-[16px] font-bold text-center w-full justify-center">{Buttons[3].Text}</a> -->
+
+		<div>
+       		<!-- C O N T E N T | B U T T O N S -->
+			<div class="gap-3 flex items-center justify-center">
+			{Buttons.map((button: any, index: number) => (
+					<BotonFlecha link={button.Link} texto={button.Text} />
+			))}
+			</div>
+		</div>
     </div>
-</div>

@@ -17,15 +17,15 @@ console.log(paragraphData.Buttons)
 <section id="plan" class="relative">
   <BlurryBall position="md:top-[200px] top-[300px] start-[100px] opacity-50" background='primaryColor'/>
   <BlurryBall position="bottom-[-500px] end-[500px]" background='secondaryColor' size="400px"/>
+  
   <div class="w-full flex flex-col items-center justify-center">
     <div class="max-w-[1300px] flex flex-col items-center justify-center my-10">
       <Paragraph headings={paragraphData.Headings} textBlock={paragraphData.Textblock} textAtLeft={false} centerHeadings={true} centerContent={true} removeVerMargin={true}/>
-      <div class="flex flex-wrap items-center justify-center">
-{
-  tablesData.map((table: any, index: any) => (  
-  <TarjetaPaqueteEspecial title={table.Title} Subtitle={table.Subtitle} Price={table.Price} Pricetime={table.Pricetime} Features={table.Features} Buttons={table.Buttons}/>
-))
-}
+        
+      <div class="flex flex-wrap justify-center m-10 gap-10">
+        {tablesData.map((table: any, index: any) => (  
+           <TarjetaPaqueteEspecial Description={table.Description} Subtitle={table.Subtitle} Price={table.Price} Pricetime={table.Pricetime} Features={table.Features} Buttons={table.Buttons} isFeatured={index==0}/>
+        ))}
       </div>
 
     </div>
