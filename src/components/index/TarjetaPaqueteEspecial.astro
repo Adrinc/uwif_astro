@@ -46,7 +46,7 @@ const borderColor= isFeatured ? "border-primaryColor/30" : "border-secondaryColo
 
 				<div class="w-full p-2 ">
 					{Description && 
-					<Markdown content={Description} classN='text-white/80 !font-light !text-[14px] text-justify'/>
+					<Markdown content={Description} classN='text-white/80 !font-light !text-[16px] text-justify'/>
 				}
 				</div>
 			</div>
@@ -55,10 +55,10 @@ const borderColor= isFeatured ? "border-primaryColor/30" : "border-secondaryColo
 			<ul class="flex flex-col gap-3 py-5">
 				{Features.map((feature) => (
 					<li class="flex flex-row gap-2 text-[14px]">
-						<span class=" w-[20px] h-[20px]">
-							<img alt="icono check"  class="image bg-primaryColor rounded-full inline-block " src="/image/checkwhite.svg"/>
+						<span class=" shrink-0">
+							<img alt="icono check"  class="image bg-primaryColor w-[20px] h-[20px] rounded-full " src="/image/checkwhite.svg"/>
 						</span>
-						<Markdown content={typeof feature === 'string' ? feature : feature.Content} classN='!font-semibold !text-[14px]'/>
+						<Markdown content={typeof feature === 'string' ? feature : feature.Content} classN=' !text-[14px]'/>
 						
 					</li>
 				))}
