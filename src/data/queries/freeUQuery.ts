@@ -12,6 +12,13 @@ export const freeUQuery = (language:string) => {
                     }
                     Textblock
                 }
+
+                Paragraphs{
+                    Headings{
+                        Heading
+                    }
+                    Textblock
+                }
             
                 Carousel{
                     ${mediaUrl}

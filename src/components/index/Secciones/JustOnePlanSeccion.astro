@@ -41,11 +41,11 @@ console.log(paragraphData.Buttons)
   
   <Paragraph headings={paragraphData.Headings} textBlock={paragraphData.Textblock} centerHeadings={false} removeHorMargin={true} removeVerMargin={true}/>
   
-  <div class="max-w-[1200px] flex md:flex-row flex-col items-center justify-center rounded-[35px] bg-gradient-to-r from-secondaryColor/20 to-secondaryColor/50 border border-secondaryColor/30 p-10 m-10 gap-8">
+  <div class="w-full flex md:flex-row flex-col items-center justify-center rounded-[35px] bg-gradient-to-r from-secondaryColor/20 to-secondaryColor/50 border border-secondaryColor/30 p-10 m-10 gap-8">
 		
     <div class="flex flex-col w-full ">
-    <Markdown content={"## It's up to **U**."} textAlign="text-center" />
-    <Markdown content={"Use our **freeU** service to watch ads and cover your costs, or simply pay a flat monthly fee of $35. The choice is yours!"} />
+    <Markdown content={"## **It's up to U**."} />
+    <Markdown content={"Use our **freeU** service to watch ads and cover your costs, or simply pay a flat monthly fee of $35. The choice is yours!"} classN='!md:text-[16px] !text-[16px]' />
     <!-- C O N T E N T | F E A T U R E S -->
 			<ul class="flex flex-col gap-3 py-5">
 				{tablesData[1].Features.map((feature: any) => (
@@ -66,7 +66,7 @@ console.log(paragraphData.Buttons)
     <div class="flex flex-col gap-4 bg-black/30 p-4 w-full items-center rounded-[20px]">
       <div class="text flex flex-wrap items-center gap-2">
         <p class="font-bold  md:text-[3vw] text-[40px]">Free</p>
-        <p class="text-left text-md text-white font-light">Internet <br> supported by ads</p>
+        <p class="text-left text-[12px] text-white font-light">Internet <br> supported by ads</p>
       </div>
       <BotonFlecha link="/free-u" texto="Learn more" backgroundColor='primaryColor' borderColor='border-primaryColor'  width="100%"/>
     </div>
@@ -74,7 +74,7 @@ console.log(paragraphData.Buttons)
     <div class="flex flex-col gap-4 bg-black/30 p-4 w-full items-center rounded-[20px]">
       <div class="text flex flex-wrap items-center gap-2">
         <p class="font-bold  md:text-[3vw] text-[40px]">$35</p>
-        <p class="text-left text-md text-white font-light">Month <br> home internet</p>
+        <p class="text-left text-[12px] text-white font-light">Month <br> home internet</p>
       </div>
       <BotonFlecha link="/contact" texto="Buy Now" borderColor="#ffffff" width="100%"/>
     </div>
