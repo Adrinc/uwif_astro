@@ -7,6 +7,7 @@ import { freeUQuery } from '../../data/queries/freeUQuery';
 import Markdown from '../../components/global/Markdown.astro';
 import BlurryBall from '../../components/global/BlurryBall.astro';
 import DividerTitle from '../../components/global/DividerTitle.astro';
+import Paragraph from '../../components/global/Paragraph.astro';
 
 
 const lang = getLangFromUrl(Astro.url)
@@ -17,9 +18,12 @@ const pageData = data.pageData['data']['pageFreeU']['data']['attributes'];
 const sectionIntro = pageData.Introduction;
 const sectionSteps = pageData.Steps;
 const paragraphs = pageData.Paragraphs;
+const videoData = pageData.Video.data.attributes;
 
 const layoutData = data.layoutData;
 const seoData = pageData['SEO'];
+
+console.log(paragraphs)
 ---
 
 <Layout seoData={seoData} dataLayout={layoutData}>
@@ -36,7 +40,7 @@ const seoData = pageData['SEO'];
 		<Carousel slides={pageData.Carousel.data} type='simple' swiperId='freeUScreens'/>
 	</div>
 
-	<div class="md:mt-[10px] mt-[50px] w-full">        
+	<div class="md:mt-[10px] mt-[50px] w-full  ">        
 		<div class="w-full relative flex items-end justify-center">
 			{
 				<DividerTitle
@@ -51,17 +55,31 @@ const seoData = pageData['SEO'];
 				{sectionSteps.map((item:any) => (
 					<div class="flex flex-col items-center justify-end max-w-[150px] flex-grow-0 flex-shrink-0 gap-4">
 							<img
-                                class="object-contain h-[80px] w-[80px]"
+                                class="object-contain h-[60px] w-[60px]"
                                 src={`${setURL(item["Icon"]["data"]["attributes"]["url"])}`}
                             />						
-					<Markdown content={item.Title} textAlign='text-center' classN='leading-none' />
+					<Markdown content={item.Title} textAlign='text-center' classN='leading-none !text-[18px]' />
 					
 					</div>
 		))}
 			</div>
 		</div>
-		
-
 	</div>
+
+	<!-- Paragraphs -->
+	<div>
+		{paragraphs.map((par:any) => (
+
+			<Paragraph textBlock={par.Textblock} centerContent={true}/>
+		))}
+	</div>
+
+	<div class=" p-8">
+		<video
+			controls
+			class="md:max-w-screen-lg object-cover rounded-[30px] overflow-hidden"
+			src={setURL(videoData.url)} autoplay muted loop playsinline/>
+	</div>
+
 	</div>
 </Layout>
