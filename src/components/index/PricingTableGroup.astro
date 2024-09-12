@@ -1,0 +1,74 @@
+---
+import BotonFlecha from '../global/BotonFlecha.astro';
+import Markdown from '../global/Markdown.astro';
+interface Props {
+	Title?: string;
+	Description?: string;
+	isFeatured?: boolean;
+
+	PricingButtons: {
+		Titles: string[];
+		Button: {
+			Text: string;
+			Link: string;
+		}
+	}[];
+
+	Features?: {
+		Content: string;
+	}[];
+}
+
+const { PricingButtons, Description, Features=[""], Title, isFeatured=false } = Astro.props;
+
+const gradientStart= isFeatured ? "from-primaryColor/20" : "from-secondaryColor/20";
+const gradientEnd= isFeatured ? "to-primaryColor/5" : "to-secondaryColor/5";
+const borderColor= isFeatured ? "border-primaryColor/30" : "border-secondaryColor/30";
+---
+
+<div class="w-full flex md:flex-row flex-col items-center justify-center rounded-[35px] bg-gradient-to-r from-secondaryColor/20 to-secondaryColor/50 border border-secondaryColor/30 p-10 m-10 gap-8">
+
+	<!-- C O N T E N T   |   L E F T   C O L U M N : I N F O -->
+	<div class="flex flex-col w-full ">
+
+		<!-- L E F T   C O L U M N   |   T I T L E   &   D E S C R I P T I O N -->
+		{Title && <Markdown content={Title} />}
+		{Description && <Markdown content={Description} />}
+
+		<!-- L E F T   C O L U M N   |   F E A T U R E S -->
+		<ul class="flex flex-col gap-3 py-5">
+			{Features.map((feature: any) => (
+				<li class="flex flex-row gap-2 text-[14px]">
+					
+					<span class=" shrink-0">
+						<img alt="icono check"  class="image bg-primaryColor w-[20px] h-[20px] rounded-full " src="/image/checkwhite.svg"/>
+					</span>
+					
+					<Markdown content={typeof feature === 'string' ? feature : feature.Content} classN=' !text-[14px]'/>
+						
+				</li>
+			))}
+		</ul>
+
+  </div>
+
+	<!-- C O N T E N T   |   R I G H T  C O L U M N : B U T T O N S -->
+    <div class="flex flex-col w-full gap-5">
+
+		{PricingButtons.map((element: any, index: number) => (
+    		<div class="flex flex-col gap-4 bg-black/30 p-4 w-full items-center rounded-[20px]">
+      			<div class="text flex flex-wrap items-center gap-2">
+					{element['Titles'].map((heading:any, index: number) => (
+						<Markdown content={heading['Heading']} classN={index == 0 ? 'font-bold  md:text-[3vw] text-[40px]':'text-left !text-[12px] text-white font-light'}/>
+					))}
+      		</div>
+      	
+		<BotonFlecha link={element['Button']['Link']} texto={element['Button']['Text']} backgroundColor={element['Button']['Text'].includes('Buy') || element['Button']['Text'].includes('Comprar') ? 'primaryColor' : undefined} borderColor={element['Button']['Text'].includes('Buy') || element['Button']['Text'].includes('Comprar') ? 'border-primaryColor' : '#FFFFFF'}  width="100%"/>
+    	</div>
+	))}
+
+  </div>
+
+    
+    
+  </div>

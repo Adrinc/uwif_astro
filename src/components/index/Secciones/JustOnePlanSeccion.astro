@@ -1,8 +1,7 @@
 ---
 import BlurryBall from '../../global/BlurryBall.astro';
-import BotonFlecha from '../../global/BotonFlecha.astro';
-import Markdown from '../../global/Markdown.astro';
 import Paragraph from '../../global/Paragraph.astro';
+import PricingTableGroup from '../PricingTableGroup.astro';
 import TarjetaPaqueteEspecial from '../TarjetaPaqueteEspecial.astro';
 
 
@@ -10,83 +9,28 @@ interface Props{
     strapiData: any;
 }
 const{ strapiData } = Astro.props;
-const paragraphData= strapiData['pageData']['data']['pageHome']['data']['attributes']['PricingParagraph'];
-const tablesData= strapiData['pageData']['data']['pageHome']['data']['attributes']['PricingTable'];
 
-console.log(paragraphData.Buttons)
+const sectionData = strapiData['pageData']['data']['pageHome']['data']['attributes'];
+
+const paragraphData= sectionData['PricingParagraph'];
+const tablesData = sectionData['PricingTable'];
+const buttons= sectionData['PricingButtons'];
 
 ---
 <div class="flex flex-col">
 
-<section id="plan" class="relative">
-  <BlurryBall position="md:top-[200px] top-[300px] start-[100px] opacity-50" background='primaryColor'/>
-  <BlurryBall position="bottom-[-500px] end-[100px]" background='secondaryColor' size="400px"/>
-  <BlurryBall position="bottom-[-200px] start-[-200px]" background='primaryColor' size="300px" blur="200px"/>
-  
-  <div class="w-full flex flex-col items-center justify-center">
-    <div class="max-w-[1300px] flex flex-col items-center justify-center my-10">
-      <Paragraph headings={paragraphData.Headings} textBlock={paragraphData.Textblock} textAtLeft={false} centerHeadings={true} centerContent={true} removeVerMargin={true}/>
-        
-      <div class="flex flex-wrap justify-center m-10 gap-10">
-        {tablesData.map((table: any, index: any) => (  
-           <TarjetaPaqueteEspecial Description={table.Description} Subtitle={table.Subtitle} Price={table.Price} Pricetime={table.Pricetime} Features={table.Features} Buttons={table.Buttons} isFeatured={index==0}/>
-        ))}
-      </div>
+<section id="pricingTables" class="w-full flex md:flex-row flex-col items-center justify-center px-10 gap-4 relative">
+  <!-- <BlurryBall position="md:top-[200px] top-[300px] start-[100px] opacity-50" background='primaryColor'/> -->
+  <BlurryBall position="end-[300px] top-[350px]" background='secondaryColor' size="400px"/>
+  <BlurryBall position="bottom-[-100px] start-[-100px]" background='primaryColor' size="200px" blur="150px"/>
 
-    </div>
-  </div>
-</section>
-
-<section id="pricingTables" class="w-full flex md:flex-row flex-col items-center justify-center px-10 gap-4">
-  
   <Paragraph headings={paragraphData.Headings} textBlock={paragraphData.Textblock} centerHeadings={false} removeHorMargin={true} removeVerMargin={true}/>
   
-  <div class="w-full flex md:flex-row flex-col items-center justify-center rounded-[35px] bg-gradient-to-r from-secondaryColor/20 to-secondaryColor/50 border border-secondaryColor/30 p-10 m-10 gap-8">
-		
-    <div class="flex flex-col w-full ">
-    <Markdown content={"## **It's up to U**."} />
-    <Markdown content={"Use our **freeU** service to watch ads and cover your costs, or simply pay a flat monthly fee of $35. The choice is yours!"} classN='!md:text-[16px] !text-[16px]' />
-    <!-- C O N T E N T | F E A T U R E S -->
-			<ul class="flex flex-col gap-3 py-5">
-				{tablesData[1].Features.map((feature: any) => (
-					<li class="flex flex-row gap-2 text-[14px]">
-						<span class=" shrink-0">
-							<img alt="icono check"  class="image bg-primaryColor w-[20px] h-[20px] rounded-full " src="/image/checkwhite.svg"/>
-						</span>
-						<Markdown content={typeof feature === 'string' ? feature : feature.Content} classN=' !text-[14px]'/>
-						
-					</li>
-				))}
-			</ul>
+  {tablesData.map((table: any, index: any) => (  
+    <PricingTableGroup Description={table.Description} Title={table.Subtitle} Features={table.Features} PricingButtons={buttons} isFeatured={index==0}/>
+ ))}
 
-  </div>
-
-    <div class="flex flex-col w-full gap-5">
-
-    <div class="flex flex-col gap-4 bg-black/30 p-4 w-full items-center rounded-[20px]">
-      <div class="text flex flex-wrap items-center gap-2">
-        <p class="font-bold  md:text-[3vw] text-[40px]">Free</p>
-        <p class="text-left text-[12px] text-white font-light">Internet <br> supported by ads</p>
-      </div>
-      <BotonFlecha link="/free-u" texto="Learn more" backgroundColor='primaryColor' borderColor='border-primaryColor'  width="100%"/>
-    </div>
-
-    <div class="flex flex-col gap-4 bg-black/30 p-4 w-full items-center rounded-[20px]">
-      <div class="text flex flex-wrap items-center gap-2">
-        <p class="font-bold  md:text-[3vw] text-[40px]">$35</p>
-        <p class="text-left text-[12px] text-white font-light">Month <br> home internet</p>
-      </div>
-      <BotonFlecha link="/contact" texto="Buy Now" borderColor="#ffffff" width="100%"/>
-    </div>
-  </div>
-
-    
-    
-  </div>
-
-	
 			
-	
 </section>
 
 

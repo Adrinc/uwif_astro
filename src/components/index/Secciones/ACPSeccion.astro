@@ -12,23 +12,12 @@ const{ strapiData } = Astro.props;
 
 
 const Acp_data= strapiData['pageData']['data']['pageHome']['data']['attributes']['InstallSteps'];
-const acp_ACPParagraph= strapiData['pageData']['data']['pageHome']['data']['attributes']['ACPParagraph'];
-const acp_Media= strapiData['pageData']['data']['pageHome']['data']['attributes']['ACPParagraph']['Media']['data']['attributes'];
-const acp_Botones= strapiData['pageData']['data']['pageHome']['data']['attributes']['ACPParagraph']['Buttons']
-
-const headings= acp_ACPParagraph['Headings'];
-const textblock= acp_ACPParagraph.Textblock;
-
 
 
 ---
 
 <section id="acp" class="w-full flex flex-col items-center justify-center">
     <span class="purple-ball-blured"></span>
-
-    <!-- <img width="100px" height="100px" alt={acp_Media.alternativeText} loading="lazy" src=`${setURL(acp_Media.url)}`> -->
-    <!-- <Paragraph headings={headings} textBlock={textblock} textAtLeft={false} centerContent={true}> -->
-    <!-- </Paragraph> -->
     <div class="flex md:flex-row flex-col m-10 py-10 gap-10 max-w-[1200px]">
         {
             Acp_data.map((Item: any) => (

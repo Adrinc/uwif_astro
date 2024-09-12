@@ -30,10 +30,6 @@ export const GetHeroSeccionFull = (language:string) => {
               # HERO 2
               #-------------- 
 
-              MarqueeButton{
-                Text,
-                Link
-              }
               PrimaryParagraph{
                 Headings{
                   Heading
@@ -89,37 +85,21 @@ export const GetHeroSeccionFull = (language:string) => {
                 }
               }
 
-              #--------------
-              # FREE TABLET
-              #--------------
-              TabletParagraph{
-                Headings{Heading}
-                Textblock
-                Media{
-                  ${mediaUrl}
+              PricingButtons{
+                Titles{
+                  Heading
                 }
+              
+                Button{
+                Text
+                Link
               }
+            }
+
 
               #--------------
               # ACP
               #--------------
-
-              ACPParagraph{
-                Headings{
-                  Heading
-                }
-
-                Textblock
-
-                Media{
-                  ${mediaUrl}
-                }
-
-                Buttons{
-                  Text
-                  Link
-                }
-              }
 
               InstallSteps{
                 ${compIcon}
