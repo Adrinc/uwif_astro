@@ -2,14 +2,14 @@
 import Markdown from "../../components/global/Markdown.astro";
 import Layout from "../../layouts/Layout.astro";
 import { getPageData } from "../../services/graphql";
-import {TermsAndConditionsQuery} from "../../data/queries/TermsAndConditionsQuery";
 import { getLangFromUrl } from "../../data/constants";
+import { TransparencyQuery } from "../../data/queries/TransparencyQuery";
 
 const lang = getLangFromUrl(Astro.url);
-const data = await getPageData(TermsAndConditionsQuery(lang), lang);
+const data = await getPageData(TransparencyQuery(lang), lang);
 const layoutData = data.layoutData;
 
-const pageData = data.pageData['data']['pageTermsAndCond']['data']['attributes']
+const pageData = data.pageData['data']['pageTransparency']['data']['attributes']
 
 const seoData = pageData['SEO'];
 
@@ -21,13 +21,10 @@ const seoData = pageData['SEO'];
         class="flex flex-col text-white my-20 py-10 md:mx-10 mx-8 max-w-[1200px] place-content-center items-center gap-10 "
     >
         <section class="flex flex-col items-center justify-center gap-0 z-10">
-            <div class="m-5 p-5 rounded-full flex flex-wrap items-center justify-center backdrop-blur-md bg-gradient-to-r from-primaryColor">
+            <div class="m-5 p-10 rounded-full flex flex-wrap items-center justify-center backdrop-blur-md bg-gradient-to-r from-primaryColor">
                 <h1 class="font-display md:text-[40px] text-[30px]">
                     {pageData['Content']['Headings'][0]['Heading']}
                 </h1>
-                <p class="md:text-[18px] text-[14px] text-center font-light">
-                    {pageData['Content']['Headings'][1]['Heading']}
-                </p>
             </div>
             <Markdown content={pageData['Content']['Content']}/>
 
