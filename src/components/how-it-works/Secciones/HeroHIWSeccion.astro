@@ -1,7 +1,6 @@
 ---
 import { setURL } from "../../../data/constants";
 import BlurryBall from "../../global/BlurryBall.astro";
-import BotonFlecha from "../../global/BotonFlecha.astro";
 import ButtonList from "../../global/ButtonList.astro";
 import Paragraph from "../../global/Paragraph.astro";
 import Steps from "../Steps.astro";
@@ -24,7 +23,7 @@ const ButtonsData = pageData.StepsButtons;
 <section id="howit" class="w-full flex flex-col items-center justify-center my-10">
    <Paragraph textBlock="" headings={StepsTitles} centerHeadings={false} centerContent={true} textAtLeft={false}/>
 
-    <div class="flex flex-col md:flex-row items-center justify-center max-w-[1400px] px-10 mb-10 gap-10 relative">
+    <div class="flex flex-col md:flex-row items-center justify-center max-w-[1400px] px-10 mb-2 gap-10 relative">
         <BlurryBall position="bottom-[200px] start-[350px]" background='var(--secondary-color)' size="300px"/>
         <div class="flex-1/2 min-h-[300px] flex md:flex-row flex-col bg-[#5446E6]/30 md:rounded-full rounded-[50px] items-center justify-center">
             {StepsData.map((Data:any, Index:any) => (
@@ -33,12 +32,13 @@ const ButtonsData = pageData.StepsButtons;
                 </div>
             ))}
         </div>
-
-
+        
+        
         <div class="flex grow flex-col items-center max-h-[450px] w-[40vw] object-contain" >
             <img alt={MediaData.alternativeText} class="p-10 w-[400px] h-[400px] object-contain" src={`${setURL(MediaData.url)}`} >
         </div>
     </div>
-
+    
+    <ButtonList buttons={ButtonsData}/>
 
 </section>

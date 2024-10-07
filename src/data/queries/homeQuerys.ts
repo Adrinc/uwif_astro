@@ -107,6 +107,11 @@ export const GetHeroSeccionFull = (language:string) => {
                 Content
               }
 
+              ButtonBuyNow{
+                Text
+                Link
+              }
+
               ${sectionSEO}
             }
           }

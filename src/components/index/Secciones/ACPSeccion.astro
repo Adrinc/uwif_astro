@@ -1,31 +1,36 @@
 ---
-import { setURL } from '../../../data/constants';
-import BuyOrApplyFree from '../../global/BuyOrApplyFree.astro';
-import Paragraph from '../../global/Paragraph.astro';
-import CardAcp from '../CardAcp.astro';
+import { setURL } from "../../../data/constants";
+import BotonFlecha from "../../global/BotonFlecha.astro";
+import CardAcp from "../CardAcp.astro";
 
-
-interface Props{
+interface Props {
     strapiData: any;
 }
-const{ strapiData } = Astro.props;
+const { strapiData } = Astro.props;
 
-
-const Acp_data= strapiData['pageData']['data']['pageHome']['data']['attributes']['InstallSteps'];
-
-
+const pageData =
+    strapiData["pageData"]["data"]["pageHome"]["data"]["attributes"];
+const Acp_data = pageData["InstallSteps"];
+const buttonBuyNow = pageData["ButtonBuyNow"];
 ---
 
-<section id="acp" class="w-full flex flex-col items-center justify-center">
+<section id="acp" class="w-full flex flex-col items-center justify-center pb-5">
     <span class="purple-ball-blured"></span>
-    <div class="flex md:flex-row flex-col m-10 py-10 gap-10 max-w-[1200px]">
+    <div class="flex md:flex-row flex-col m-10 py-5 gap-10 max-w-[1200px]">
         {
             Acp_data.map((Item: any) => (
-                <CardAcp titulo={Item.Title} descripcion={Item.Content} icono_url={setURL(Item.Icon.data.attributes.url)}/>
+                <CardAcp
+                    titulo={Item.Title}
+                    descripcion={Item.Content}
+                    icono_url={setURL(Item.Icon.data.attributes.url)}
+                />
             ))
         }
-  
     </div>
-        
-    </section>
 
+    <BotonFlecha
+        link={buttonBuyNow["Link"]}
+        texto={buttonBuyNow["Text"]}
+        backgroundColor={"primaryColor"}
+    />
+</section>
