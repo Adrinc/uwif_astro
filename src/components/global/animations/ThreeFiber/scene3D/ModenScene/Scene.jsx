@@ -5,7 +5,7 @@ import { useControls } from 'leva';
 import { ToneMapping , ChromaticAberration, Bloom, EffectComposer } from '@react-three/postprocessing'
 import { enviromentConfig, pointLightConfig } from '../scene_config.js';
 import { vignetteConfig, chromaticAberrationConfig, bloomConfig, toneMappingConfig } from '../scene_config.js';
-import Moden from './moden.jsx';
+import Moden from './moden3.jsx';
 
 import { useThree, useFrame } from '@react-three/fiber';
 export default function Scene()
@@ -26,7 +26,7 @@ const minAzimuthAngle = -Math.PI / 4;
 const maxAzimuthAngle = Math.PI / 4; 
 
         useFrame(({ pointer, camera, scene }) => {
-           x = (pointer.x / viewport.width) * 2 - 1;
+           x = (pointer.x / viewport.width) * 3 - 1;
            y = -(pointer.y / viewport.height) * 2 + 1;
 
            const polarAngle = (maxPolarAngle - minPolarAngle) * pointer.y + minPolarAngle;
@@ -36,8 +36,8 @@ const maxAzimuthAngle = Math.PI / 4;
            const offsetX = radius * Math.sin(polarAngle) * Math.cos(azimuthAngle);
            const offsetY = radius * Math.cos(polarAngle);
            const lerpFactor = 1;
-           camera.position.x += (offsetX * 0.1 - camera.position.x) * lerpFactor;
-           camera.position.y += (offsetY * 0.1 - camera.position.y) * lerpFactor;
+           camera.position.x += (offsetX * 0.2 - camera.position.x) * lerpFactor;
+           camera.position.y += (offsetY * 0.2 - camera.position.y) * lerpFactor;
          
            camera.lookAt(scene.position);
            lastMouseX = pointer.x;
@@ -61,7 +61,7 @@ const maxAzimuthAngle = Math.PI / 4;
     <PerspectiveCamera  makeDefault {...initCamera}/>
     <Environment {...enviromentConfig}/>
     <pointLight {...pointLightConfig} shadow-bias={-0.0003} shadow-mapSize={ [ 512*6,512*6] } shadow-normalBias={0.01}/>
-    <ambientLight intensity={9.2} color={"#5d5d5d"} />
+    <ambientLight intensity={3.2} color={"#5d5d5d"} />
     <Suspense>
 
     <PresentationControls

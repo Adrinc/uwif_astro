@@ -3,6 +3,7 @@ import Paragraph from '../../global/Paragraph.astro';
 import BlurryBall from '../../global/BlurryBall.astro';
 import ShapeBackground from '../../global/ShapeBackground.astro';
 import RiveComponent from '../../global/animations/Rive/riveComponent';
+import Moden from '../../global/animations/ThreeFiber/scene3D/ModenScene/Main3D';
 
 interface Props{
     strapiData: any;
@@ -21,7 +22,8 @@ const paragraphContent = strapiData['pageData']['data']['pageHome']['data']['att
 				</div>
 				<RiveComponent src="/rive/moden2d.riv" stateMachines="State Machine 1" autoplay={true} transition:persist client:only/>
 			</div> -->
-			<RiveComponent src="/rive/moden2d.riv" stateMachines="State Machine 1" autoplay={true} transition:persist client:only/>
+<!-- 			<RiveComponent src="/rive/moden2d.riv" stateMachines="State Machine 1" autoplay={true} transition:persist client:only/> -->
+			<Moden transition:persist client:only/>
 
 		</div>
 	</Paragraph>
