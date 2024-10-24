@@ -4,6 +4,7 @@ import Baner5GWifi from "../Baner5GWifi.astro";
 import Markdown from "../../global/Markdown.astro";
 import Paragraph from "../../global/Paragraph.astro";
 import { setURL } from "../../../data/constants";
+import RiveComponent from "../../global/animations/Rive/riveComponent";
 
 interface Props{
     strapiData: any;
@@ -24,8 +25,15 @@ const internetPar = dataPage.InternetParagraph;
                 <Markdown content={baner.Title} textAlign="text-center"></Markdown>
                 <Markdown content={baner.Content} textAlign="text-center"></Markdown>
             </div>
+<!-- 
+            <img src={setURL(baner.Icon.data.attributes.url)} width="150px"> -->
+             <div class=" self-center w-[250px] h-[250px] ">
 
-            <img src={setURL(baner.Icon.data.attributes.url)} width="150px">
+                 <RiveComponent src="/rive/modenv2.riv" stateMachines="State Machine 1" autoplay={true} transition:persist client:only/>
+             </div>
+
+
+
         </div>
 
         <div>

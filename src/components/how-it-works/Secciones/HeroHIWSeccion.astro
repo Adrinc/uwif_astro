@@ -1,5 +1,6 @@
 ---
 import { setURL } from "../../../data/constants";
+import RiveComponent from "../../global/animations/Rive/riveComponent";
 import BlurryBall from "../../global/BlurryBall.astro";
 import ButtonList from "../../global/ButtonList.astro";
 import Paragraph from "../../global/Paragraph.astro";
@@ -35,7 +36,12 @@ const ButtonsData = pageData.StepsButtons;
         
         
         <div class="flex grow flex-col items-center max-h-[450px] w-[40vw] object-contain" >
-            <img alt={MediaData.alternativeText} class="p-10 w-[400px] h-[400px] object-contain" src={`${setURL(MediaData.url)}`} >
+            <!-- <img alt={MediaData.alternativeText} class="p-10 w-[400px] h-[400px] object-contain" src={`${setURL(MediaData.url)}`} > -->
+            <div class=" self-center w-[400px] h-[400px] ">
+
+                <RiveComponent src="/rive/modenv2.riv" stateMachines="State Machine 1" autoplay={true} transition:persist client:only/>
+            </div>
+
         </div>
     </div>
     
