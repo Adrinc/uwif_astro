@@ -18,7 +18,7 @@ export default function Moden(props) {
   return (
     <group {...props} dispose={null}>
       <group name="Scene">
-        <group name="body" position={[0, 0.563, 0]} scale={[0.363, 0.601, 0.363]}>
+        <group name="body" position={[0, 0.536, 0]} scale={[0.344, 0.57, 0.344]}>
           <mesh
             name="Cilindro001"
             castShadow
@@ -123,6 +123,13 @@ export default function Moden(props) {
             receiveShadow
             geometry={nodes.Cilindro001_14.geometry}
             material={materials.blue_led}
+          />
+          <mesh
+            name="Cilindro001_15"
+            castShadow
+            receiveShadow
+            geometry={nodes.Cilindro001_15.geometry}
+            material={materials.UwifiIsoTipo}
           />
         </group>
       </group>

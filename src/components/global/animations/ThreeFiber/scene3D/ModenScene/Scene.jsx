@@ -58,10 +58,10 @@ const maxAzimuthAngle = Math.PI / 4;
         </EffectComposer>
     </Suspense>
  
-    <PerspectiveCamera  makeDefault {...initCamera}/>
+    <PerspectiveCamera  makeDefault {...initCamera} />
     <Environment {...enviromentConfig}/>
     <pointLight {...pointLightConfig} shadow-bias={-0.0003} shadow-mapSize={ [ 512*6,512*6] } shadow-normalBias={0.01}/>
-    <ambientLight intensity={3.2} color={"#5d5d5d"} />
+    <ambientLight intensity={6} color={"#5d5d5d"} />
     <Suspense>
 
     <PresentationControls
@@ -69,8 +69,8 @@ const maxAzimuthAngle = Math.PI / 4;
     config={{ mass: 2, tension: 500 }}
     snap={{ mass: 4, tension: 1500 }}
     rotation={[0,0,0]}
-    polar={[-Math.PI / 3, Math.PI / 3]}
-    azimuth={[-Math.PI / 1.4, Math.PI / 2]}
+    polar={[-Math.PI / 10, Math.PI / 10]}
+    azimuth={[-Math.PI / 1, Math.PI / 1]}
 
 >
 <Moden  position={[0,-0.5,0]} rotation={[0,-1.58,0]}  />
